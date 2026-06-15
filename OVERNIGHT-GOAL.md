@@ -7,15 +7,22 @@
 视觉遵循 `../DESIGN.md`(Signal Room)，诊断依据 `REFACTOR-NOTES.md`。
 
 ## 🚧 硬护栏 (每轮必须遵守)
-1. **只动 `traderadar-vue/` 内的文件。** 绝不碰 `../index (31).html`、`../DESIGN.md`、`../design-preview.html`(它们是只读参考)。
-2. **每轮只做一个任务**，专注、小步。不要一轮重写多个组件。
-3. **build 是闸门**:改完跑 `pnpm build`。
-   - 通过 → `git add -A && git commit -m "..."`(描述性中文 message),然后在下方勾掉任务 + 记一行日志。
-   - 失败 → `git checkout -- .` 回滚本轮改动,在日志记下失败原因,该任务标记 `[!]` 跳过,进入下一个。
-4. **用 taste-skill**:重写组件前,用 `Skill` 调 `taste-skill:redesign-skill`(改造现有)或 `taste-skill:taste-skill`(去 slop 标准)。dashboard 类多色数据语义色是功能性的,别当 AI tell 删。
-5. 转换某屏前,该屏的内联 `onclick` 改 `@click`、状态进 `<script setup>`、`innerHTML` 渲染改 `v-for`。一屏完全转完后,才可移除它对 `legacy-app.js` 的依赖。
-6. **所有任务完成后**:做一次最终 QA(`pnpm build` + 通读视觉一致性),写 `SUMMARY-AM.md` 总结今晚所有改动,然后**结束循环**(不再 ScheduleWakeup)。
-7. 任何不确定是否会破坏功能的大改:保守处理,记到 SUMMARY 里留给人工决定,不要硬上。
+1. **只动 `traderadar-vue/` 内的文件。** 绝不碰 `../index (31).html`、`../DESIGN.md`、`../design-preview.html`(只读参考)。
+2. **每轮只做一个任务**,专注、小步。不要一轮重写多个组件。
+3. **用 taste-skill**:重写组件前,用 `Skill` 调 `taste-skill:redesign-skill` 或 `taste-skill:taste-skill`。dashboard 类多色数据语义色是功能性的,别当 AI tell 删。
+4. 转换某屏:内联 `onclick`→`@click`、状态进 `<script setup>`、`innerHTML` 渲染→`v-for`。一屏完全转完后才可移除它对 `legacy-app.js` 的依赖。
+5. **结束**:所有任务完成 → 最终 QA → 写 `SUMMARY-AM.md` → 不再 ScheduleWakeup。
+6. 不确定是否破坏功能的大改:保守,记到 SUMMARY 留人工决定,别硬上。
+
+## ✅ 四段验收闸门 (替代原来的「build 过就行」—— 防盲改跑偏)
+改完后**依次**过四关,任一不过就 `git checkout -- .` 回滚本轮、该任务标 `[!]`、记日志、进下一个:
+
+1. **编译**:`pnpm build` 必须过。
+2. **机检断言**:`node scripts/verify.mjs <screen> <TaskId>`。它截图到 `.review/<screen>.png` 并跑该任务的客观断言(见下方各任务「验收」)。`pass:false` 或 `newErrors` 非空(引入了 baseline 之外的运行时错误)→ 回滚。
+3. **截图评审(对抗式)**:用 `Agent` 工具派一个**独立 critic**(prompt: 「读 `REVIEW-RUBRIC.md` 和 `../DESIGN.md`,只看截图 `.review/<screen>.png`,按规则给 `__CRITIC__` JSON 裁决」)。critic 默认怀疑、fresh eyes、不知道改了啥。裁决 `REVERT` → 回滚。
+4. **全过(编译✓ + 断言✓ + critic=KEEP)** → `git add -A && git commit`(中文 message,附 critic grade)+ 勾任务 `[x]` + append 日志(含 grade/slop_grade)。
+
+> 关键:**只有四关全过才落库**。这样每个 commit 都是「编译过 + 客观断言达标 + 独立评审认可方向更对」的,而不是盲改。
 
 ## ✅ 任务队列 (按 AI 味严重度排序)
 - [x] **T0 数据抽取**:把 `legacy-app.js` 里的纯数据常量(见 REFACTOR-NOTES 接缝表)抽到 `src/data/*.js`,`export` 出来。build 必须过。 → 已抽 leads/whatsapp/intel/marketing/ai 主数据块;地图/onboarding/pool/cust 数据留待各自屏重写时随屏迁移。
@@ -31,6 +38,23 @@
 - [ ] **T10 全局图标**:emoji 全换成一套描边图标(沿用侧边栏 feather 风格,或引入 Phosphor);保持一套。
 - [ ] **T11 收尾**:确认无残留内联 `onclick` 后,删掉 `main.js` 里的临时 eval shim;删 `legacy-app.js` 中已迁移的死代码。
 - [ ] **T12 最终 QA + SUMMARY-AM.md**,然后结束循环。
+
+## 🔎 验收映射 (任务 → verify 的 screen 参数 + 该加的机检断言)
+做某任务时,若 `scripts/verify.mjs` 的 `CHECKS` 里还没有该任务的断言,**先补一条最小客观断言再跑闸门**。
+
+| 任务 | `verify.mjs <screen> <Task>` | 该任务的机检断言(客观、可机判) |
+|---|---|---|
+| T1 | `login T1` | 已就绪:无 `.login-orb`、无 `#reg-particle-canvas`、登录区无 emoji、`.login-btn` 文字 luminance<0.35 |
+| T2 | `dashboard T2` | KPI 区无 emoji;无 `.kpi-card-glow` 元素 |
+| T3 | `onboard T3`(若 onboard 不易导航,截当前可见态) | 标题非 `text-align:center`;弧线/自动轮播相关装饰类减少 |
+| T4 | `leads T4` | 无为演示乱跳的计数 interval(检查不再 setInterval taskFoundCount);筛选/表/详情已拆子组件文件存在 |
+| T5 | `intel T5` | 表格行非 `border-top`+`border-bottom` 双线;图标统一 |
+| T6 | `marketing T6` | 成功提示无 `!`/`✅`;组件已转 Vue(无遗留 innerHTML 渲染入口) |
+| T7 | `whatsapp T7` | 已拆 联系人/对话 两个子组件文件 |
+| T8 | `pool T8` | 存在可复用 `CustomerTable.vue`,Leads 与 Pool 都引用它 |
+| T9 | `dashboard T9`(浮层) | Modals 用 `<Teleport>`+`v-if`;toast 为 store |
+| T10 | 每屏轮流 | 全仓 `.vue` 内无 emoji 字符(grep 断言) |
+| T11 | `login T11` | 全仓无残留内联 `onclick`;`main.js` 已无 eval shim |
 
 ## 📝 进度日志 (每轮 append 一行: 时间 / 任务 / 结果 / commit)
 - 2026-06-16 (setup) baseline committed, build OK, loop armed.
