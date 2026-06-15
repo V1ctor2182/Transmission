@@ -80,6 +80,15 @@ const CHECKS = {
     out.push(['计数不再乱跳(4.2s 内不变)', a === b, `before=${a} after=${b}`])
     return out
   },
+  T5: async (page) => {
+    const out = []
+    // Scope: the filter chrome we unified. Table-data country flags are the T10 global pass.
+    const t = await page.evaluate(() =>
+      ['intel-filter-region', 'intel-filter-cat', 'intel-filter-status']
+        .map(id => (document.getElementById(id) || {}).textContent || '').join(''))
+    out.push(['Intel 筛选控件无 emoji', !EMOJI.test(t), EMOJI.test(t) ? 'emoji found' : 'clean'])
+    return out
+  },
 }
 
 async function serveDist () {

@@ -19,34 +19,34 @@
                 <input id="intel-search" type="text" placeholder="搜索采购商、产品、国家…" oninput="renderIntelTable()" style="background:none;border:none;outline:none;font-size:12px;color:#e2e8f0;width:160px" />
               </div>
               <!-- Export -->
-              <div onclick="toast('📥','导出数据','正在生成 Excel 报表，请稍候…')" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--t-muted);cursor:pointer">📥 导出</div>
+              <div onclick="toast('📥','导出数据','正在生成 Excel 报表，请稍候…')" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--t-muted);cursor:pointer">导出</div>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap">
               <span style="font-size:11px;color:var(--t-muted)">筛选：</span>
               <!-- Region -->
               <select id="intel-filter-region" onchange="renderIntelTable()" style="font-size:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:4px 8px;color:#e2e8f0;cursor:pointer">
-                <option value="">🌍 全部地区</option>
-                <option value="东南亚">🌏 东南亚</option>
-                <option value="北美">🇺🇸 北美</option>
-                <option value="澳洲">🇦🇺 澳洲</option>
-                <option value="欧洲">🇪🇺 欧洲</option>
-                <option value="中东">🇦🇪 中东</option>
+                <option value="">全部地区</option>
+                <option value="东南亚">东南亚</option>
+                <option value="北美">北美</option>
+                <option value="澳洲">澳洲</option>
+                <option value="欧洲">欧洲</option>
+                <option value="中东">中东</option>
               </select>
               <!-- Category -->
               <select id="intel-filter-cat" onchange="renderIntelTable()" style="font-size:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:4px 8px;color:#e2e8f0;cursor:pointer">
-                <option value="">📦 全部品类</option>
-                <option value="月饼">🥞 月饼礼盒</option>
-                <option value="椰子">🌰 椰子礼盒</option>
-                <option value="糕点">🍰 糕点类</option>
-                <option value="礼品">🎁 礼品套装</option>
+                <option value="">全部品类</option>
+                <option value="月饼">月饼礼盒</option>
+                <option value="椰子">椰子礼盒</option>
+                <option value="糕点">糕点类</option>
+                <option value="礼品">礼品套装</option>
               </select>
               <!-- Status -->
               <select id="intel-filter-status" onchange="renderIntelTable()" style="font-size:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:4px 8px;color:#e2e8f0;cursor:pointer">
                 <option value="">全部状态</option>
-                <option value="new">🔵 新增</option>
-                <option value="hot">🔥 热门</option>
-                <option value="locked">🔒 需解锁</option>
+                <option value="new">新增</option>
+                <option value="hot">热门</option>
+                <option value="locked">需解锁</option>
               </select>
               <!-- Sort -->
               <select id="intel-sort" onchange="renderIntelTable()" style="font-size:11px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:4px 8px;color:#e2e8f0;cursor:pointer">
