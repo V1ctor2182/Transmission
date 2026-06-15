@@ -1010,23 +1010,10 @@ function startTaskLiveFeed() {
     feed.innerHTML += buildFeedItem(c, i);
   }
   liveFeedIdx = 4;
+  // T4: 停掉每 3.5s 乱跳计数 + 自动插入 feed 的演示动画(典型 AI 味)。
+  // 保留上面 4 条真实初始线索;计数显示静态真实值,不再无意义自增。
   if(taskFeedInterval) clearInterval(taskFeedInterval);
-  taskFeedInterval = setInterval(() => {
-    const c = LIVE_CUSTOMERS[liveFeedIdx % LIVE_CUSTOMERS.length];
-    const item = document.createElement('div');
-    item.innerHTML = buildFeedItem(c, 0);
-    item.firstChild.style.opacity = '0';
-    item.firstChild.style.transform = 'translateY(-8px)';
-    feed.insertBefore(item.firstChild, feed.firstChild);
-    setTimeout(() => {
-      if(feed.firstChild) { feed.firstChild.style.opacity='1'; feed.firstChild.style.transform='translateY(0)'; }
-    }, 50);
-    if(feed.children.length > 6) feed.removeChild(feed.lastChild);
-    liveFeedIdx++;
-    taskFoundCount++;
-    const el = document.getElementById('task-found-count');
-    if(el) el.textContent = taskFoundCount.toLocaleString();
-  }, 3500);
+  taskFeedInterval = null;
 }
 
 function buildFeedItem(c, delay) {

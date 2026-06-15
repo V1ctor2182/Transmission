@@ -68,6 +68,18 @@ const CHECKS = {
     out.push(['onboarding 标题非居中', has === 0 || align !== 'center', `count=${has} align=${align}`])
     return out
   },
+  T4: async (page) => {
+    const out = []
+    await page.evaluate(() => window.showLeadsView && showLeadsView('tasks'))
+    await page.waitForTimeout(600)
+    const el = page.locator('#task-found-count')
+    if (!(await el.count())) { out.push(['#task-found-count 存在', false, 'not found']); return out }
+    const a = await el.first().innerText()
+    await page.waitForTimeout(4200) // 超过旧的 3500ms 自增间隔
+    const b = await el.first().innerText()
+    out.push(['计数不再乱跳(4.2s 内不变)', a === b, `before=${a} after=${b}`])
+    return out
+  },
 }
 
 async function serveDist () {

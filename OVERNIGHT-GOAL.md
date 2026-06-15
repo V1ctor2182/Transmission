@@ -33,7 +33,7 @@
 - [x] **T1 LoginScreen**:删光球+粒子 canvas+底部虚荣计数;非对称布局;真实文案(去掉"AI 驱动的拓客引擎"口号)。idiomatic Vue。 → 双栏 split + `<script setup>`/v-model;3 critic 全 KEEP(A/B/B,slop A)。遗留小项:副文案/按钮下提示对比度偏低,留待 polish。
 - [x] **T2 DashboardPage**:KPI 去 emoji、去 `kpi-card-glow`;加 sparkline;地图提为主角。 → KPI 改数据驱动 v-for:删 emoji 图标/glow,加 sparkline,▲→+,@click nav。3 critic KEEP(B/B/B)。**地图增高暂缓**(canvas+svg viewBox 会变形,保守留后)。右栏 AI 报告的彩 chip/emoji 行归 T10。
 - [x] **T3 OnboardingScreen**:保留地图(卖点),砍自动轮播多章节炫技+满屏弧线;标题左对齐实色。canvas 进 composable。 → 安全部分完成:`.ob-h1` 左对齐+实色(去渐变文字)。3 critic KEEP(B/B/B)。**大改延后(需人工)**:canvas→composable、砍自动轮播/弧线属高风险且 onboarding 屏难自动验证,按护栏 6 留 SUMMARY。critic 另提:KPI 4 色稀释强调色、"AI 分析引擎"措辞、低多边形地图略糙 → 归 T10/人工。
-- [ ] **T4 LeadsPage**:拆成 筛选器/结果表/详情 子组件;砍为演示乱跳的 `taskFoundCount`/live feed。
+- [x] **T4 LeadsPage**:拆成 筛选器/结果表/详情 子组件;砍为演示乱跳的 `taskFoundCount`/live feed。 → 安全部分完成:删掉 startTaskLiveFeed 里每 3.5s 乱跳计数+自动插 feed 的演示动画(保留 4 条真实初始线索)。行为断言通过(计数 4.2s 内不变 2,847)。无视觉 delta(改在 tasks 子视图)→ 跳过 critic,自查 leads 截图确认无破坏。**子组件拆分延后(需人工)**:legacy innerHTML 渲染页上拆 筛选/表/详情 是高风险大重构,按护栏 6 留 SUMMARY。
 - [ ] **T5 IntelPage**:轻改(已较克制);统一图标;表格单细线。
 - [ ] **T6 MarketingPage**:转 Vue;成功提示去感叹号/✅。
 - [ ] **T7 WhatsAppPage**:转 Vue;拆 联系人/对话 两个子组件。
@@ -67,3 +67,4 @@
 - 2026-06-16 T1 ✅ LoginScreen 重写:删光球/粒子/虚荣计数,非对称双栏+真实文案,script setup+v-model。4关全过(build✓ 断言4/4✓ critic 3/3 KEEP A/B/B slopA)。遗留:低对比小字留 polish。next: T2 Dashboard。
 - 2026-06-16 T2 ✅ Dashboard KPI 数据驱动重写:删 emoji/glow,加 sparkline,delta ▲→+,@click。4关过(build✓ 断言2/2✓ critic 3/3 KEEP B/B/B)。地图增高暂缓(canvas变形风险);AI报告彩chip/emoji归T10。next: T3 Onboarding。
 - 2026-06-16 T3 ✅(部分)Onboarding 标题 .ob-h1 左对齐+实色(去渐变)。加 verify onboard 导航,自查截图确认渲染正常。4关过(build✓ 断言✓ critic 3/3 KEEP B/B/B)。canvas→composable/砍轮播弧线=高风险延后留人工(护栏6)。next: T4 Leads。
+- 2026-06-16 T4 ✅(部分)Leads 删 startTaskLiveFeed 的 3.5s 乱跳计数/自动插feed(去演示AI味),保留4条初始线索。行为断言:计数4.2s不变(2,847)。无视觉delta跳过critic+自查截图无破坏。子组件拆分=高风险延后留人工。next: T5 Intel。
