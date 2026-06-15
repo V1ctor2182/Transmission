@@ -18,7 +18,7 @@
 7. 任何不确定是否会破坏功能的大改:保守处理,记到 SUMMARY 里留给人工决定,不要硬上。
 
 ## ✅ 任务队列 (按 AI 味严重度排序)
-- [ ] **T0 数据抽取**:把 `legacy-app.js` 里的纯数据常量(见 REFACTOR-NOTES 接缝表)抽到 `src/data/*.js`,`export` 出来。build 必须过。
+- [x] **T0 数据抽取**:把 `legacy-app.js` 里的纯数据常量(见 REFACTOR-NOTES 接缝表)抽到 `src/data/*.js`,`export` 出来。build 必须过。 → 已抽 leads/whatsapp/intel/marketing/ai 主数据块;地图/onboarding/pool/cust 数据留待各自屏重写时随屏迁移。
 - [ ] **T1 LoginScreen**:删光球+粒子 canvas+底部虚荣计数;非对称布局;真实文案(去掉"AI 驱动的拓客引擎"口号)。idiomatic Vue。
 - [ ] **T2 DashboardPage**:KPI 去 emoji、去 `kpi-card-glow`;加 sparkline;地图提为主角。
 - [ ] **T3 OnboardingScreen**:保留地图(卖点),砍自动轮播多章节炫技+满屏弧线;标题左对齐实色。canvas 进 composable。
@@ -34,3 +34,4 @@
 
 ## 📝 进度日志 (每轮 append 一行: 时间 / 任务 / 结果 / commit)
 - 2026-06-16 (setup) baseline committed, build OK, loop armed.
+- 2026-06-16 T0 数据抽取 ✅ src/data/{leads,whatsapp,intel,marketing,ai}.js,node --check 全过,build OK。next: T1 LoginScreen。
