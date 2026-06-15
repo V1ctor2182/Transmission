@@ -1,0 +1,31 @@
+/* ─── RESET & BASE ─── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#060911;
+  --bg2:#0b1018;
+  --bg3:#121a28;
+  --card:rgba(255,255,255,.04);
+  --card-border:rgba(255,255,255,.07);
+  --brand:#2dd6c6;
+  --brand2:#5ee6d9;
+  --cyan:#22d3ee;
+  --green:#34d399;
+  --amber:#fbbf24;
+  --red:#f87171;
+  --purple:#6b78ff;
+  --t-primary:rgba(255,255,255,.92);
+  --t-sec:rgba(255,255,255,.55);
+  --t-muted:rgba(255,255,255,.28);
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 8px 32px rgba(0,0,0,.4);
+}
+html,body{height:100%;background:var(--bg);color:var(--t-primary);font-family:'Geist',-apple-system,sans-serif;overflow:hidden}
+button,input{font-family:inherit;outline:none;border:none}
+a{cursor:pointer;color:var(--brand2);text-decoration:none}
+svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;width:16px;height:16px;flex-shrink:0}
+
+/* ─── SCREENS ─── */
+.screen{position:fixed;inset:0;display:none;z-index:10;background:var(--bg)}
+.screen.active{display:flex}
+

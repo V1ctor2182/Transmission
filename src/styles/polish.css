@@ -1,0 +1,95 @@
+/* ═══════════════════════════════════════════════════════
+   DESIGN POLISH LAYER  (redesign-skill / taste pass)
+   Additive only — no existing rule is overwritten.
+═══════════════════════════════════════════════════════ */
+
+/* 1 ── TABULAR FIGURES ──────────────────────────────────
+   Every live-counting metric uses tabular-nums so digits
+   stop jittering as the counters tick, and align in columns. */
+.kpi-value,.login-stat-val,.ob-kpi-val,.ob-result-kpi-val,.tb-credits-val,
+.rso-pct,.kpi-delta,.dash-date,.login-stat,.panel-live,.sb-badge{
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1,"ss01" 1;
+}
+.kpi-value{letter-spacing:-.01em} /* tighten the heavy display numerals */
+/* Pure-number elements render in JetBrains Mono — instrument-grade data. */
+.kpi-value,.login-stat-val,.ob-kpi-val,.ob-result-kpi-val,.tb-credits-val,.rso-pct,.sb-badge{
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:700;
+}
+
+/* 1b ── ACCENT FOREGROUND CONTRAST ──────────────────────
+   Signal Cyan is a LIGHT accent, so white text/icons on a
+   cyan-filled surface fail WCAG. Filled-brand buttons, logo
+   marks and the avatar get near-black ink instead. */
+.login-btn,.wm-btn,#ob-next-btn{color:#04130f !important}
+.login-logo-mark svg,.wm-logo svg,.sb-logo svg,.wm-btn svg,.rso-logo svg{stroke:#04130f !important}
+.sb-av{color:#04130f}
+
+/* 2 ── ACCESSIBILITY: real keyboard focus ring ──────────
+   Line 33 globally killed outlines; restore a visible,
+   on-brand focus-visible ring for keyboard users only. */
+a:focus-visible,button:focus-visible,input:focus-visible,
+[onclick]:focus-visible,.sb-item:focus-visible,.kpi-card:focus-visible,
+.tb-icon:focus-visible,.pf-btn:focus-visible{
+  outline:2px solid var(--brand2);
+  outline-offset:2px;
+  border-radius:8px;
+}
+
+/* 3 ── TACTILE PRESS FEEDBACK ───────────────────────────
+   Physical "push" on press for the main interactive bits. */
+.login-btn:active,.wm-btn:active,.btn-connect:active,.btn-approve:active,
+.btn-edit:active,.btn-reject:active,.btn-skip:active,.pf-btn:active{
+  transform:translateY(1px) scale(.985);
+}
+.kpi-card:active,.lead-card:active,.tb-icon:active,.sb-item:active{
+  transform:scale(.98);
+}
+
+/* 4 ── SMOOTH ANCHOR SCROLLING ─────────────────────────── */
+html{scroll-behavior:smooth}
+
+/* 5 ── PREMIUM SURFACE DEPTH ────────────────────────────
+   True-glass edge: a 1px top inner-highlight simulates light
+   catching the card rim. Shadows tinted toward the indigo
+   background instead of dead black. */
+.kpi-card,.panel,.lead-card,.intel-big-card{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px -12px rgba(8,10,30,.7);
+}
+.kpi-card:hover{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 18px 44px -14px rgba(56,52,160,.45);
+}
+.login-card,.wm-card{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 24px 80px rgba(8,10,30,.55);
+}
+/* Cursor-tracked spotlight tint on KPI cards (uses --mx/--my set in JS-free CSS fallback) */
+.kpi-card::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(94,230,217,.10),transparent 60%);
+  opacity:0;transition:opacity .25s;
+}
+.kpi-card:hover::after{opacity:1}
+
+/* 6 ── SUBTLE GRAIN OVERLAY ─────────────────────────────
+   A fixed, non-interactive noise film breaks the flat-vector
+   sterility of pure dark fills. Sits above everything but
+   passes all pointer events through. */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+/* 7 ── REDUCED MOTION (mandatory a11y guard) ────────────
+   Collapses the perpetual orb drift, pulses, ring-expands,
+   icon/logo pulses and counters to a calm static state for
+   users who request reduced motion. Functional fade-ins kept
+   near-instant so nothing disappears. */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.05ms !important;
+    scroll-behavior:auto !important;
+  }
+  .login-orb,.login-orb1,.login-orb2,.login-orb3{animation:none !important;transform:none !important}
+}

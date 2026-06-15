@@ -1,0 +1,15 @@
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:80px;right:24px;background:rgba(10,14,26,.96);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:400;transform:translateY(20px);opacity:0;transition:.3s;pointer-events:none;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast-icon{font-size:18px;flex-shrink:0}
+.toast-body{flex:1;min-width:0}
+.toast-title{font-size:13px;font-weight:700;margin-bottom:2px}
+.toast-sub{font-size:11px;color:var(--t-muted);line-height:1.4}
+.toast-bar{position:absolute;bottom:0;left:0;height:2px;background:linear-gradient(90deg,var(--brand),var(--cyan));border-radius:0 0 12px 12px;width:100%;transform-origin:left;animation:none}
+.toast.show .toast-bar{animation:shrink 3.5s linear forwards}
+@keyframes shrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+
+/* Slide-in animations */
+@keyframes slideRight{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+

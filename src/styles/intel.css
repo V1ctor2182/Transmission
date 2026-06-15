@@ -1,0 +1,21 @@
+/* ─── INTEL CENTER ─── */
+.intel-center-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.intel-big-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;animation:fadeUp .4s ease both}
+.intel-big-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.intel-big-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.intel-big-title{font-size:14px;font-weight:700}
+.intel-big-sub{font-size:11px;color:var(--t-muted);margin-top:2px}
+.intel-big-badge{margin-left:auto;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px}
+.intel-big-badge.new{background:rgba(52,211,153,.1);color:var(--green)}
+.intel-big-badge.locked{background:rgba(251,191,36,.1);color:var(--amber)}
+.intel-data-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px}
+.intel-data-label{color:var(--t-muted);flex:1}
+.intel-data-val{font-weight:600;color:var(--green)}
+.intel-blur-section{position:relative}
+.intel-blur-content{filter:blur(4px);pointer-events:none;user-select:none}
+.intel-lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer}
+.intel-lock-overlay:hover .intel-lock-text{color:var(--brand2)}
+.intel-lock-icon{font-size:20px}
+.intel-lock-text{font-size:12px;font-weight:700;color:var(--amber)}
+.intel-lock-price{font-size:10px;color:var(--t-muted)}
+

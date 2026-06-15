@@ -1,0 +1,20 @@
+/* ─── AI ASSISTANT BUBBLE ─── */
+.ai-bubble{position:fixed;bottom:24px;right:24px;z-index:200}
+.ai-bubble-toggle{width:44px;height:44px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(45,214,198,.4);transition:.2s;margin-left:auto}
+.ai-bubble-toggle:hover{transform:scale(1.08)}
+.ai-bubble-toggle svg{width:20px;height:20px;stroke:#fff}
+.ai-bubble-panel{background:rgba(10,14,26,.95);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;width:280px;margin-bottom:10px;backdrop-filter:blur(20px);box-shadow:0 16px 48px rgba(0,0,0,.5);display:none;animation:fadeUp .25s ease}
+.ai-bubble-panel.open{display:block}
+.ai-bubble-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.ai-bubble-av{width:28px;height:28px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.ai-bubble-name{font-size:13px;font-weight:700}
+.ai-bubble-status{font-size:10px;color:var(--green);margin-left:auto}
+.ai-bubble-msg{font-size:12px;color:var(--t-sec);line-height:1.6;margin-bottom:12px;padding:10px;background:rgba(255,255,255,.03);border-radius:9px}
+.ai-bubble-msg strong{color:var(--t-primary)}
+.ai-quick-btns{display:flex;flex-direction:column;gap:6px}
+.ai-quick-btn{font-size:11px;padding:7px 10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:var(--t-sec);cursor:pointer;transition:.15s;text-align:left;display:flex;align-items:center;gap:7px}
+.ai-quick-btn:hover{background:rgba(45,214,198,.08);border-color:rgba(45,214,198,.2);color:var(--brand2)}
+.ai-quick-btn svg{width:13px;height:13px;flex-shrink:0}
+.ai-rotate-btn{font-size:10px;color:var(--t-muted);cursor:pointer;text-align:center;margin-top:8px;padding:4px}
+.ai-rotate-btn:hover{color:var(--t-sec)}
+
