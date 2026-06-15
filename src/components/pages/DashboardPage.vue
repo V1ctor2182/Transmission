@@ -4,17 +4,38 @@
   REWRITE: convert onclick="fn(...)" → @click, lift state into <script setup>.
   AI-flavor audit: see REFACTOR-NOTES.md.
 -->
+<script setup>
+// 工作台 KPI:数据驱动,去 emoji 图标/发光,数字配迷你 sparkline,delta 用 + 不用 ▲。
+const nav = (p) => window.navTo?.(p)
+const kpis = [
+  { label: '全球商机总数', value: '2,847,392', delta: '+3.2% 较昨日',  color: 'var(--brand2)', page: 'intel',     spark: [12,14,13,16,18,17,21,24] },
+  { label: '今日新增需求', value: '98,241',    delta: '+12.7% 较昨日', color: 'var(--cyan)',   page: 'intel',     spark: [8,9,11,10,13,15,19,23] },
+  { label: '已建联采购商', value: '1,284',     delta: '+5.1% 本月',    color: 'var(--green)',  page: 'whatsapp',  spark: [20,21,22,24,25,27,29,31] },
+  { label: 'EDM 触达人数', value: '3,847',     delta: '+8.9% 本月',    color: 'var(--amber)',  page: 'marketing', spark: [14,15,17,16,19,22,24,28] },
+]
+function sparkPath (d) {
+  const w = 72, h = 22, max = Math.max(...d), min = Math.min(...d), rng = (max - min) || 1
+  return d.map((v, i) => `${i ? 'L' : 'M'}${(i / (d.length - 1) * w).toFixed(1)},${(h - (v - min) / rng * h).toFixed(1)}`).join(' ')
+}
+</script>
+
 <template>
       <div class="page on" id="page-dashboard">
         <div class="dash-header">
-          <div class="dash-greeting">早上好，<em>Liu Wei</em> 👋</div>
+          <div class="dash-greeting">早上好，<em>Liu Wei</em></div>
           <div class="dash-date">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 12 条高匹配商机</div>
         </div>
         <div class="kpi-grid">
-          <div class="kpi-card" onclick="navTo('intel')"><div class="kpi-card-glow" style="background:#2dd6c6"></div><div class="kpi-icon">🌐</div><div class="kpi-label">全球商机总数</div><div class="kpi-value" style="color:#5ee6d9">2,847,392</div><div class="kpi-delta">▲ 3.2% 较昨日</div></div>
-          <div class="kpi-card" onclick="navTo('intel')"><div class="kpi-card-glow" style="background:#22d3ee"></div><div class="kpi-icon">📡</div><div class="kpi-label">今日新增需求</div><div class="kpi-value" style="color:#22d3ee">98,241</div><div class="kpi-delta">▲ 12.7% 较昨日</div></div>
-          <div class="kpi-card" onclick="navTo('whatsapp')"><div class="kpi-card-glow" style="background:#34d399"></div><div class="kpi-icon">🤝</div><div class="kpi-label">已建联采购商</div><div class="kpi-value" style="color:#34d399">1,284</div><div class="kpi-delta">▲ 5.1% 本月</div></div>
-          <div class="kpi-card" onclick="navTo('marketing')"><div class="kpi-card-glow" style="background:#fbbf24"></div><div class="kpi-icon">📨</div><div class="kpi-label">EDM 触达人数</div><div class="kpi-value" style="color:#fbbf24">3,847</div><div class="kpi-delta">▲ 8.9% 本月</div></div>
+          <div class="kpi-card" v-for="k in kpis" :key="k.label" @click="nav(k.page)">
+            <div class="kpi-label">{{ k.label }}</div>
+            <div class="kpi-value" :style="{ color: k.color }">{{ k.value }}</div>
+            <div class="kpi-foot">
+              <span class="kpi-delta">{{ k.delta }}</span>
+              <svg class="kpi-spark" viewBox="0 0 72 24" preserveAspectRatio="none" aria-hidden="true">
+                <path :d="sparkPath(k.spark)" :stroke="k.color" fill="none" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+              </svg>
+            </div>
+          </div>
         </div>
         <div class="dash-grid">
           <!-- Night map -->
@@ -272,3 +293,9 @@
 
       <!-- CUSTOMER POOL PAGE -->
 </template>
+
+<style scoped>
+.kpi-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:8px }
+.kpi-delta{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--green) }
+.kpi-spark{ width:72px; height:22px; flex-shrink:0; opacity:.85 }
+</style>

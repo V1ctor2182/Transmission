@@ -51,6 +51,14 @@ const CHECKS = {
     out.push(['login-btn ink is dark (lum<0.35)', lum != null && lum < 0.35, `lum=${lum}`])
     return out
   },
+  T2: async (page) => {
+    const out = []
+    const kpiTxt = await page.locator('.kpi-grid').innerText().catch(() => '')
+    out.push(['KPI 区无 emoji', !EMOJI.test(kpiTxt), EMOJI.test(kpiTxt) ? 'emoji found' : 'clean'])
+    const glow = await page.locator('.kpi-card-glow').count()
+    out.push(['无 .kpi-card-glow 元素', glow === 0, `count=${glow}`])
+    return out
+  },
 }
 
 async function serveDist () {
