@@ -19,13 +19,17 @@
 
 1. **编译**:`pnpm build` 必须过。
 2. **机检断言**:`node scripts/verify.mjs <screen> <TaskId>`。它截图到 `.review/<screen>.png` 并跑该任务的客观断言(见下方各任务「验收」)。`pass:false` 或 `newErrors` 非空(引入了 baseline 之外的运行时错误)→ 回滚。
-3. **截图评审(对抗式)**:用 `Agent` 工具派一个**独立 critic**(prompt: 「读 `REVIEW-RUBRIC.md` 和 `../DESIGN.md`,只看截图 `.review/<screen>.png`,按规则给 `__CRITIC__` JSON 裁决」)。critic 默认怀疑、fresh eyes、不知道改了啥。裁决 `REVERT` → 回滚。
+3. **截图评审(对抗式 · 3 票多数)**:用 `Agent` 工具**并行派 3 个独立 critic**(同一 prompt:「读 `REVIEW-RUBRIC.md` 和 `../DESIGN.md`,只看截图 `.review/<screen>.png`,按规则给 `__CRITIC__` JSON 裁决」)。每个 critic fresh eyes、默认怀疑、互不知情、不知道改了啥。
+   - **多数表决**:≥2 票 `KEEP` 才算过;≥2 票 `REVERT` → 回滚。
+   - 任一 critic 命中「硬否决」(渲染崩坏/方向更 AI 味/文字看不清)→ 直接回滚,不看票数。
+   - 3 个里有 critic 调用失败 → 按现有票数,不足 2 KEEP 就回滚(宁可错杀)。
 4. **全过(编译✓ + 断言✓ + critic=KEEP)** → `git add -A && git commit`(中文 message,附 critic grade)+ 勾任务 `[x]` + append 日志(含 grade/slop_grade)。
 
 > 关键:**只有四关全过才落库**。这样每个 commit 都是「编译过 + 客观断言达标 + 独立评审认可方向更对」的,而不是盲改。
 
 ## ✅ 任务队列 (按 AI 味严重度排序)
 - [x] **T0 数据抽取**:把 `legacy-app.js` 里的纯数据常量(见 REFACTOR-NOTES 接缝表)抽到 `src/data/*.js`,`export` 出来。build 必须过。 → 已抽 leads/whatsapp/intel/marketing/ai 主数据块;地图/onboarding/pool/cust 数据留待各自屏重写时随屏迁移。
+- [ ] **Tb (bug · 先做)** 修 init 期 `appendChild` on null 报错(`.review/baseline-errors.json` 里那条)。最可能是活动流 `startActivityFeed` 在无 `activity-list`/list 容器的屏上 `list.appendChild`/`list2.insertBefore`(legacy-app.js L2228/2240),或其它 render 函数在元素不存在时硬插。**修法**:给这些 init/render 在容器为 null 时 `if(!el) return` 守卫(别删功能,只防空)。修完 `node scripts/verify.mjs login` 与 `dashboard` 都应无该错;然后**把这条从 `.review/baseline-errors.json` 删掉**(以后再出现就能被抓)。验收:两屏 `newErrors` 为空 且 baseline 不再含 appendChild。
 - [ ] **T1 LoginScreen**:删光球+粒子 canvas+底部虚荣计数;非对称布局;真实文案(去掉"AI 驱动的拓客引擎"口号)。idiomatic Vue。
 - [ ] **T2 DashboardPage**:KPI 去 emoji、去 `kpi-card-glow`;加 sparkline;地图提为主角。
 - [ ] **T3 OnboardingScreen**:保留地图(卖点),砍自动轮播多章节炫技+满屏弧线;标题左对齐实色。canvas 进 composable。
