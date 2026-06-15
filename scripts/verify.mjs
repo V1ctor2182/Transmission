@@ -23,6 +23,7 @@ const MIME = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css',
 // screen -> how to make it visible (legacy app uses global fns + id toggling)
 const NAV = {
   login:    null,
+  onboard:  `document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));var o=document.getElementById('s-onboard');if(o)o.classList.add('active');if(window.runOnboarding)runOnboarding();`,
   dashboard:`enterApp(); navTo('dashboard',0)`,
   leads:    `enterApp(); navTo('leads',1)`,
   marketing:`enterApp(); navTo('marketing',2)`,
@@ -57,6 +58,14 @@ const CHECKS = {
     out.push(['KPI 区无 emoji', !EMOJI.test(kpiTxt), EMOJI.test(kpiTxt) ? 'emoji found' : 'clean'])
     const glow = await page.locator('.kpi-card-glow').count()
     out.push(['无 .kpi-card-glow 元素', glow === 0, `count=${glow}`])
+    return out
+  },
+  T3: async (page) => {
+    const out = []
+    const has = await page.locator('.ob-h1').count()
+    let align = 'n/a'
+    if (has) align = await page.locator('.ob-h1').first().evaluate(el => getComputedStyle(el).textAlign)
+    out.push(['onboarding 标题非居中', has === 0 || align !== 'center', `count=${has} align=${align}`])
     return out
   },
 }
