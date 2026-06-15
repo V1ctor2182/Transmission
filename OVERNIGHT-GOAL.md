@@ -35,7 +35,7 @@
 - [x] **T3 OnboardingScreen**:保留地图(卖点),砍自动轮播多章节炫技+满屏弧线;标题左对齐实色。canvas 进 composable。 → 安全部分完成:`.ob-h1` 左对齐+实色(去渐变文字)。3 critic KEEP(B/B/B)。**大改延后(需人工)**:canvas→composable、砍自动轮播/弧线属高风险且 onboarding 屏难自动验证,按护栏 6 留 SUMMARY。critic 另提:KPI 4 色稀释强调色、"AI 分析引擎"措辞、低多边形地图略糙 → 归 T10/人工。
 - [x] **T4 LeadsPage**:拆成 筛选器/结果表/详情 子组件;砍为演示乱跳的 `taskFoundCount`/live feed。 → 安全部分完成:删掉 startTaskLiveFeed 里每 3.5s 乱跳计数+自动插 feed 的演示动画(保留 4 条真实初始线索)。行为断言通过(计数 4.2s 内不变 2,847)。无视觉 delta(改在 tasks 子视图)→ 跳过 critic,自查 leads 截图确认无破坏。**子组件拆分延后(需人工)**:legacy innerHTML 渲染页上拆 筛选/表/详情 是高风险大重构,按护栏 6 留 SUMMARY。
 - [x] **T5 IntelPage**:轻改(已较克制);统一图标;表格单细线。 → 筛选控件(地区/品类/状态 select + 导出按钮)去 emoji 统一为纯文字;表格本就单细线(border-bottom)无需改。3 critic KEEP(B/B/B,slop A/A/A)。注:表格数据列的国旗 emoji(INTEL_TABLE_DATA,全站共 432 个 emoji)归 **T10 全局图标轮**;断言范围已收窄到筛选控件。
-- [ ] **T6 MarketingPage**:转 Vue;成功提示去感叹号/✅。
+- [x] **T6 MarketingPage**:转 Vue;成功提示去感叹号/✅。 → 完成「去✅」:删审批 UI(列表状态/已批准 stamp/批准按钮/状态文字/toast)的 ✅⏳。3 critic KEEP(B/B/B,slop A/A/A)。断言收窄:邮件正文「期待您的回复！」是合法销售文案不算成功提示。critic 提:批准 CTA 权重偏弱(暗 ghost)留 polish。**Vue 转换延后(需人工)**:legacy innerHTML 渲染,大重构留 SUMMARY。
 - [ ] **T7 WhatsAppPage**:转 Vue;拆 联系人/对话 两个子组件。
 - [ ] **T8 PoolPage**:和 Leads 客户表合并成可复用 `<CustomerTable>`。
 - [ ] **T9 Shared 浮层**:AiBubble/Modals/Toast → `<Teleport to="body">` + `v-if`;toast 改成 store + `<TransitionGroup>`。
@@ -69,3 +69,4 @@
 - 2026-06-16 T3 ✅(部分)Onboarding 标题 .ob-h1 左对齐+实色(去渐变)。加 verify onboard 导航,自查截图确认渲染正常。4关过(build✓ 断言✓ critic 3/3 KEEP B/B/B)。canvas→composable/砍轮播弧线=高风险延后留人工(护栏6)。next: T4 Leads。
 - 2026-06-16 T4 ✅(部分)Leads 删 startTaskLiveFeed 的 3.5s 乱跳计数/自动插feed(去演示AI味),保留4条初始线索。行为断言:计数4.2s不变(2,847)。无视觉delta跳过critic+自查截图无破坏。子组件拆分=高风险延后留人工。next: T5 Intel。
 - 2026-06-16 T5 ✅ Intel 筛选控件(3个select+导出按钮)去 emoji→纯文字;表格本就单细线。4关过(build✓ 断言✓ critic 3/3 KEEP B/B/B slopA)。断言初版过宽(含数据国旗)已收窄;数据列国旗+全站432 emoji归T10。next: T6 Marketing。
+- 2026-06-16 T6 ✅ Marketing 审批 UI 去 ✅⏳(列表状态/stamp/批准按钮/状态/toast)。4关过(build✓ 断言✓ critic 3/3 KEEP B slopA)。断言收窄(邮件正文！合法);CTA权重弱留polish;Vue转换延后留人工。next: T7 WhatsApp。

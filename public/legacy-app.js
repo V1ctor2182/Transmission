@@ -1897,7 +1897,7 @@ function renderMktList() {
         <div class="mkt-item-score">${m.score}分</div>
       </div>
       <div class="mkt-item-product">${m.product}</div>
-      <div class="mkt-item-status ${m.status}">${m.status==='pending'?'⏳ 待审批':'✅ 已批准'}</div>
+      <div class="mkt-item-status ${m.status}">${m.status==='pending'?'待审批':'已批准'}</div>
     </div>
   `).join('');
   selectMktItem(0);
@@ -1933,10 +1933,10 @@ function selectMktItem(id) {
     <div class="email-preview" id="email-preview">
       <div class="email-subject" id="email-subject">${variants[0].subject}</div>
       <div class="email-body" id="email-body">${variants[0].body}</div>
-      <div class="approved-stamp" id="approved-stamp">✅ 已批准发送</div>
+      <div class="approved-stamp" id="approved-stamp">已批准发送</div>
     </div>
     <div class="email-actions">
-      <div class="btn-approve" onclick="approveEmail(${id})">✅ 批准并发送</div>
+      <div class="btn-approve" onclick="approveEmail(${id})">批准并发送</div>
       <div class="btn-edit" onclick="toast('✏️','编辑模式','邮件编辑功能开发中，敬请期待')">编辑</div>
       <div class="btn-reject" onclick="rejectEmail(${id})">✕ 拒绝</div>
     </div>
@@ -1956,10 +1956,10 @@ function approveEmail(id) {
   stamp.classList.add('show');
   MKT_ITEMS[id].status = 'approved';
   const statusEl = document.querySelector(`#mkt-i-${id} .mkt-item-status`);
-  if(statusEl) { statusEl.textContent = '✅ 已批准'; statusEl.className = 'mkt-item-status approved'; }
+  if(statusEl) { statusEl.textContent = '已批准'; statusEl.className = 'mkt-item-status approved'; }
   pendingCount = Math.max(0, pendingCount-1);
   document.getElementById('mkt-pending-badge').textContent = pendingCount + ' 待审批';
-  toast('✅','邮件已批准','正在加入发送队列，预计 5 分钟内发出');
+  toast('','邮件已批准','正在加入发送队列，预计 5 分钟内发出');
 }
 
 function rejectEmail(id) {

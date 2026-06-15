@@ -26,7 +26,7 @@ const NAV = {
   onboard:  `document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));var o=document.getElementById('s-onboard');if(o)o.classList.add('active');if(window.runOnboarding)runOnboarding();`,
   dashboard:`enterApp(); navTo('dashboard',0)`,
   leads:    `enterApp(); navTo('leads',1)`,
-  marketing:`enterApp(); navTo('marketing',2)`,
+  marketing:`enterApp(); navTo('marketing',2); if(window.renderMktList)renderMktList();`,
   intel:    `enterApp(); navTo('intel',3)`,
   whatsapp: `enterApp(); navTo('whatsapp',4)`,
   pool:     `enterApp(); navTo('pool',5)`,
@@ -87,6 +87,13 @@ const CHECKS = {
       ['intel-filter-region', 'intel-filter-cat', 'intel-filter-status']
         .map(id => (document.getElementById(id) || {}).textContent || '').join(''))
     out.push(['Intel 筛选控件无 emoji', !EMOJI.test(t), EMOJI.test(t) ? 'emoji found' : 'clean'])
+    return out
+  },
+  T6: async (page) => {
+    const out = []
+    // 只查成功/审批 UI 的 ✅;邮件正文里的 ！是合法销售文案,不算成功提示。
+    const t = await page.locator('#page-marketing').innerText().catch(() => '')
+    out.push(['Marketing 审批 UI 无 ✅', !/✅/.test(t), /✅/.test(t) ? 'found' : 'clean'])
     return out
   },
 }
