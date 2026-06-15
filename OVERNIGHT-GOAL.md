@@ -30,7 +30,7 @@
 ## ✅ 任务队列 (按 AI 味严重度排序)
 - [x] **T0 数据抽取**:把 `legacy-app.js` 里的纯数据常量(见 REFACTOR-NOTES 接缝表)抽到 `src/data/*.js`,`export` 出来。build 必须过。 → 已抽 leads/whatsapp/intel/marketing/ai 主数据块;地图/onboarding/pool/cust 数据留待各自屏重写时随屏迁移。
 - [x] **Tb (bug · 先做)** 修 init 期 `appendChild` on null 报错(`.review/baseline-errors.json` 里那条)。最可能是活动流 `startActivityFeed` 在无 `activity-list`/list 容器的屏上 `list.appendChild`/`list2.insertBefore`(legacy-app.js L2228/2240),或其它 render 函数在元素不存在时硬插。**修法**:给这些 init/render 在容器为 null 时 `if(!el) return` 守卫(别删功能,只防空)。修完 `node scripts/verify.mjs login` 与 `dashboard` 都应无该错;然后**把这条从 `.review/baseline-errors.json` 删掉**(以后再出现就能被抓)。验收:两屏 `newErrors` 为空 且 baseline 不再含 appendChild。
-- [ ] **T1 LoginScreen**:删光球+粒子 canvas+底部虚荣计数;非对称布局;真实文案(去掉"AI 驱动的拓客引擎"口号)。idiomatic Vue。
+- [x] **T1 LoginScreen**:删光球+粒子 canvas+底部虚荣计数;非对称布局;真实文案(去掉"AI 驱动的拓客引擎"口号)。idiomatic Vue。 → 双栏 split + `<script setup>`/v-model;3 critic 全 KEEP(A/B/B,slop A)。遗留小项:副文案/按钮下提示对比度偏低,留待 polish。
 - [ ] **T2 DashboardPage**:KPI 去 emoji、去 `kpi-card-glow`;加 sparkline;地图提为主角。
 - [ ] **T3 OnboardingScreen**:保留地图(卖点),砍自动轮播多章节炫技+满屏弧线;标题左对齐实色。canvas 进 composable。
 - [ ] **T4 LeadsPage**:拆成 筛选器/结果表/详情 子组件;砍为演示乱跳的 `taskFoundCount`/live feed。
@@ -64,3 +64,4 @@
 - 2026-06-16 (setup) baseline committed, build OK, loop armed.
 - 2026-06-16 T0 数据抽取 ✅ src/data/{leads,whatsapp,intel,marketing,ai}.js,node --check 全过,build OK。next: T1 LoginScreen。
 - 2026-06-16 Tb ✅ legacy-app.js:2196 stars init 加 if(!container)return 守卫;两屏 pageErrors 清空,baseline 重置为[],复验 pass。纯JS守卫无视觉改动→跳过 critic。next: T1。
+- 2026-06-16 T1 ✅ LoginScreen 重写:删光球/粒子/虚荣计数,非对称双栏+真实文案,script setup+v-model。4关全过(build✓ 断言4/4✓ critic 3/3 KEEP A/B/B slopA)。遗留:低对比小字留 polish。next: T2 Dashboard。
