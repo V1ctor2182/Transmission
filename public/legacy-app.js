@@ -2185,6 +2185,7 @@ function setPf(el) { document.querySelectorAll('.pf-btn').forEach(b => b.classLi
 // Stars background
 (function() {
   const container = document.getElementById('reg-stars');
+  if (!container) return; // guard: #reg-stars absent in this build → no-op
   for(let i=0;i<80;i++) {
     const s = document.createElement('div');
     s.className = 'reg-star';
