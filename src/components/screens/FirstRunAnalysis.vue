@@ -6,6 +6,7 @@
 -->
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import WorldHeatmap from '../shared/WorldHeatmap.vue'
 
 const emit = defineEmits(['done'])
 const props = defineProps({ domain: { type: String, default: 'wanqianfood.com' } })
@@ -14,12 +15,12 @@ const stage = ref(0)            // 0 连接 →1 识别产品 →2 匹配需求 
 const statusText = ['正在连接全球商机数据库…', '读取官网,识别主营产品与定位…', '匹配全球 2.8M+ 采购需求…', '定位火热区域,生成买家清单…', '分析完成 · 已锁定你的市场']
 const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-// 真数据(揭示出来的,不是装饰)
+// 真数据(揭示出来的,不是装饰)。坐标在真实世界地图 viewBox 1010x666 上。
 const hotspots = [
-  { code: 'US', label: '北美 · 512K', top: '30%', left: '24%', hot: true },
-  { code: 'EU', label: '欧洲 · 96K',  top: '40%', left: '52%' },
-  { code: 'SG', label: '新加坡 · 188K', top: '55%', left: '74%' },
-  { code: 'AU', label: '澳洲 · 77K',  top: '64%', left: '60%' },
+  { x: 250, y: 246, label: '北美 · 512K', hot: true },
+  { x: 516, y: 182, label: '欧洲 · 96K' },
+  { x: 778, y: 398, label: '新加坡 · 188K' },
+  { x: 852, y: 470, label: '澳洲 · 77K' },
 ]
 const kpis = [
   { label: '全球商机', target: 2847392, color: 'var(--brand)' },
@@ -83,10 +84,7 @@ const done = computed(() => stage.value >= 4)
       <section class="fra-pane fra-map">
         <div class="fra-ph"><span>全球商机热力图</span><i class="fra-live"></i></div>
         <div class="fra-mapbody">
-          <div class="fra-grid"></div>
-          <div v-for="(h, i) in hotspots" :key="h.code" class="fra-hot" :class="{ on: i < hotN, hot: h.hot }" :style="{ top: h.top, left: h.left }">
-            <span class="fra-hl">{{ h.label }}</span>
-          </div>
+          <WorldHeatmap :hotspots="hotspots.slice(0, hotN)" />
           <div class="fra-mapstat">{{ hotN }}/{{ hotspots.length }} 区域已锁定</div>
         </div>
       </section>
