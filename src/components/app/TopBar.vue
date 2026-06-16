@@ -9,7 +9,7 @@
       <div class="tb-breadcrumb"><strong id="tb-page">工作台</strong> <span style="color:var(--t-muted);margin:0 6px">/</span> <span id="tb-sub">今日商机概览</span></div>
       <div class="tb-spacer"></div>
       <div class="tb-credits" onclick="toast('💎','建联次数','当前剩余 <strong>47 次</strong>建联次数')">
-        <span>💎</span><span class="tb-credits-val" id="credits-val">47</span><span style="font-size:11px;color:var(--t-muted)">建联次数</span>
+        <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:var(--brand);fill:none;stroke-width:1.7;flex-shrink:0"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3 7 9l5 12 5-12-2-6"/></svg><span class="tb-credits-val" id="credits-val">47</span><span style="font-size:11px;color:var(--t-muted)">建联次数</span>
       </div>
       <div class="tb-search">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>

@@ -762,7 +762,7 @@ function renderAiReport() {
   if(!el) return;
   el.innerHTML = AI_REPORT_ITEMS.map(item => `
     <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid rgba(255,248,235,.04)" onmouseover="this.style.background='rgba(255,248,235,.04)'" onmouseout="this.style.background=''">
-      <div style="width:32px;height:32px;border-radius:8px;background:${item.color}18;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">${item.icon}</div>
+      <div style="width:4px;height:34px;border-radius:3px;background:${item.color};flex-shrink:0;opacity:.85"></div>
       <div style="flex:1;min-width:0">
         <div style="font-size:11px;color:var(--t-muted)">${item.label}</div>
         <div style="font-size:13px;font-weight:700;color:${item.color}">${item.value}</div>
@@ -778,7 +778,7 @@ function renderTodayTodo() {
   if(!el) return;
   el.innerHTML = TODAY_TODOS.map(item => `
     <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid ${item.urgent ? 'rgba(248,113,113,.15)' : 'rgba(255,248,235,.04)'}" onmouseover="this.style.background='rgba(255,248,235,.04)'" onmouseout="this.style.background=''">
-      <div style="font-size:16px;flex-shrink:0">${item.icon}</div>
+      <div style="width:7px;height:7px;border-radius:50%;background:${item.color};flex-shrink:0;margin:0 3px"></div>
       <div style="flex:1;min-width:0">
         <div style="font-size:12px;font-weight:600;color:${item.urgent ? '#f87171' : '#e2e8f0'}">${item.text}</div>
         <div style="font-size:10px;color:var(--t-muted)">${item.sub}</div>
@@ -1983,7 +1983,7 @@ function renderAiDailyReport() {
   if(!el) return;
   el.innerHTML = AI_DAILY_ITEMS.map(item => `
     <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid rgba(255,248,235,.04)" onmouseover="this.style.background='rgba(255,248,235,.04)'" onmouseout="this.style.background=''">
-      <div style="width:34px;height:34px;border-radius:9px;background:${item.color}18;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${item.icon}</div>
+      <div style="width:4px;height:36px;border-radius:3px;background:${item.color};flex-shrink:0;opacity:.85"></div>
       <div style="flex:1;min-width:0">
         <div style="font-size:11px;color:var(--t-muted)">${item.label}</div>
         <div style="font-size:13px;font-weight:700;color:${item.color}">${item.value}</div>
