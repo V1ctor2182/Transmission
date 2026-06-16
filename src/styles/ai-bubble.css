@@ -1,8 +1,8 @@
 /* ─── AI ASSISTANT BUBBLE ─── */
 .ai-bubble{position:fixed;bottom:24px;right:24px;z-index:200}
-.ai-bubble-toggle{width:44px;height:44px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(245,183,61,.4);transition:.2s;margin-left:auto}
-.ai-bubble-toggle:hover{transform:scale(1.08)}
-.ai-bubble-toggle svg{width:20px;height:20px;stroke:#fff}
+.ai-bubble-toggle{width:44px;height:44px;background:var(--brand);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 22px -8px rgba(0,0,0,.55);transition:.2s;margin-left:auto}
+.ai-bubble-toggle:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.ai-bubble-toggle svg{width:20px;height:20px;stroke:#1a1305}
 .ai-bubble-panel{background:rgba(19,17,11,.96);border:1px solid rgba(255,248,235,.08);border-radius:16px;padding:16px;width:280px;margin-bottom:10px;backdrop-filter:blur(20px);box-shadow:0 16px 48px rgba(0,0,0,.5);display:none;animation:fadeUp .25s ease}
 .ai-bubble-panel.open{display:block}
 .ai-bubble-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}

@@ -38,7 +38,9 @@
   - [x] **CP4-pill 客户池 badge pill**(R020):状态填充圆角胶囊→LED 方点+标签、来源圆角胶囊→方角 tag(renderPoolTable)。
   - [x] **CP4-pill 情报中心 badge pill + 🔒**(R021):intel 状态胶囊(2079)→LED 方点+标签;锁定行 🔒 emoji→扁平挂锁 SVG。
   - [ ] CP4 续(低优):休眠 renderPoolCards(1389/1510)、市场分析 T 标签(433 radius20)仍圆角 pill;icp-person-av amber 渐变圆;进度条 .variant-conf-fill gradient。
-- [ ] 🔴 **CP5 配色/渐变残留清扫(用户点名)**:全屏扫剩余 `linear-gradient(` 填充 / `box-shadow` 发光 / 紫蓝(#6b78ff iris / purple)残留色,收到 Phosphor 暖金近黑。grep 驱动 + 逐屏视觉复核。影响:中。风险:低。
+- [~] 🔴 **CP5 配色/渐变残留清扫(用户点名)**:全屏扫剩余 `linear-gradient(` 填充 / `box-shadow` 发光 / 紫蓝(#6b78ff iris / purple)残留色,收到 Phosphor 暖金近黑。grep 驱动 + 逐屏视觉复核。影响:中。风险:低。
+  - [x] **CP5-fab 浮动 FAB**(R022):.ai-bubble-toggle 渐变+琥珀 glow+冷白图标 → 实心琥珀+暗投影+深 ink。
+  - [ ] CP5 续(低频/登录引导):`.wa-send` amber 渐变;logo marks(login/wm/rso/ob-final)渐变+glow 底;`.icp-person-av` amber 渐变圆;进度条 .variant-conf-fill/.rso-progress-fill/.ob-progress-fill 渐变填充。
 
 > **用户 2026-06-16 方向(AskUserQuestion)**:AI 味重点 = ①Emoji 装饰(先扫,CP1/CP2/CP3) ②通用模板组件(CP4) ③配色/渐变残留(CP5)。文案腔调暂不动。loop 按此序推进。
 
