@@ -804,7 +804,7 @@ function enterApp() {
   renderTodayTodo();
   renderAiDailyReport();
   renderPoolPage();
-  setTimeout(() => toast('🎉','欢迎使用 TradeRadar','AI 今日已搜索 147 条全球线索，发送 23 封营销邮件，5 项待办事项等待处理'), 800);
+  setTimeout(() => toast('◆','欢迎使用 TradeRadar','AI 今日已搜索 147 条全球线索，发送 23 封营销邮件，5 项待办事项等待处理'), 800);
 }
 
 // ═══════════════════════════════════════════════════════

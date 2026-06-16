@@ -29,13 +29,13 @@
     <div class="modal-sub">获取该采购商的完整联系方式、历史采购记录和决策链路</div>
     <div class="unlock-opts">
       <div class="unlock-opt on" onclick="selectUnlock(this)">
-        <div class="unlock-opt-icon">⚡</div>
+        <div class="unlock-opt-icon"><svg viewBox="0 0 24 24"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect x="5" y="11" width="14" height="10" rx="2"/></svg></div>
         <div class="unlock-opt-name">单条解锁</div>
         <div class="unlock-opt-desc">解锁当前这条情报的全部深度信息</div>
         <div class="unlock-opt-price">¥29</div>
       </div>
       <div class="unlock-opt" onclick="selectUnlock(this)">
-        <div class="unlock-opt-icon">🚀</div>
+        <div class="unlock-opt-icon"><svg viewBox="0 0 24 24"><path d="M6.5 8.5a3.5 3.5 0 1 0 0 7c2 0 3-1.5 5.5-3.5s3.5-3.5 5.5-3.5a3.5 3.5 0 1 1 0 7c-2 0-3-1.5-5.5-3.5S8.5 8.5 6.5 8.5z"/></svg></div>
         <div class="unlock-opt-name">月度无限</div>
         <div class="unlock-opt-desc">本月无限解锁所有情报，含 AI 分析报告</div>
         <div class="unlock-opt-price">¥99/月</div>

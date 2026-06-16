@@ -27,7 +27,9 @@
 .unlock-opt{background:rgba(255,248,235,.03);border:1px solid rgba(255,248,235,.07);border-radius:12px;padding:14px;cursor:pointer;transition:.15s;text-align:center}
 .unlock-opt:hover{border-color:rgba(255,248,235,.12)}
 .unlock-opt.on{background:rgba(245,183,61,.08);border-color:rgba(245,183,61,.3)}
-.unlock-opt-icon{font-size:20px;margin-bottom:6px}
+.unlock-opt-icon{height:22px;margin-bottom:6px;display:flex;align-items:center;justify-content:center}
+.unlock-opt-icon svg{width:18px;height:18px;stroke:var(--t-sec);fill:none;stroke-width:1.6}
+.unlock-opt.on .unlock-opt-icon svg{stroke:var(--brand)}
 .unlock-opt-name{font-size:13px;font-weight:700;margin-bottom:4px}
 .unlock-opt-desc{font-size:10px;color:var(--t-muted);line-height:1.5;margin-bottom:8px}
 .unlock-opt-price{font-size:15px;font-weight:800;color:var(--brand2)}

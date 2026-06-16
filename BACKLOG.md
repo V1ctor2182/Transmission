@@ -28,7 +28,7 @@
 ## 🔴 组件级 AI 味审计(用户 2026-06-16「还是有很多 component 都很有 ai 味」· R013+ 优先)
 > R012 后跨屏视觉抽查发现,布局成型但组件内部仍重 AI 味。最重 → 最轻:
 - [x] 🔴 **CP1 客户池 pool 去 AI 味(最重)**(R013 完成):① 国旗 emoji 🇺🇸🇸🇬🇲🇾… → 复用 `ccBadge()`/FLAG2CC mono 国家码;② `🤖 AI 批量跟进`/`🤖 AI 跟进`/`💬` emoji 按钮 → 扁平 SVG 或纯文字。影响:高。风险:低。
-- [ ] 🟦 **CP-bubble AiBubble 欢迎气泡 🚀**(R013 critic 发现):浮动 AI 气泡欢迎卡仍有 🚀 emoji → 去掉/换扁平。影响:低。风险:低。
+- [x] 🟦 **CP-bubble 浮层去 emoji**(R016 完成):① 右下角欢迎卡 toast `🎉`→`◆`(全站一致);② AI 助手气泡 `🤖`→扁平描边 SVG + av 去渐变 + 面板冷蓝底→暖黑;③ 解锁弹窗 `⚡`/`🚀`→扁平锁/无限 SVG。影响:低。风险:低。
 - [x] 🔴 **CP2 whatsapp 去 emoji**(R014 完成:⏰→扁平时钟 SVG + toast 💡/💬→◆):`🛡️ 跟进提醒`、`⚡ AI 话术建议` 等标注 emoji → 扁平 SVG/文字标签。影响:中。风险:低。
 - [x] 🟦 **CP3 leads 地区标签**(R015 完成:国家 chip 国旗→mono 码 .rg-cc + 下拉 ccBadge + 大洲标签去 emoji):`🇸🇬 新加坡 ✕` 国旗 emoji → mono 码或去 emoji;✕ 关闭按钮样式收敛。数据源彩色方块字母 logo 偏通用,留观察。影响:中。风险:低。
 - [ ] 🟦 **CP-intel-detail intel 详情卡 emoji**(R014 发现):INTEL_DATA 详情/enrich 卡用 🇩🇪🏢📅💰🛒📞📧📊🎯⏰ 大量 emoji 图标,点行展开可见(列表已净)。→ mono 国家码 + 扁平 SVG。影响:中。风险:低。

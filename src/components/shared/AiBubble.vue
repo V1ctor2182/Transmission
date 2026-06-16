@@ -8,7 +8,7 @@
 <div class="ai-bubble" id="ai-bubble" style="display:none">
   <div class="ai-bubble-panel" id="ai-panel">
     <div class="ai-bubble-head">
-      <div class="ai-bubble-av">🤖</div>
+      <div class="ai-bubble-av"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="2"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg></div>
       <div class="ai-bubble-name">TR 助手</div>
       <div class="ai-bubble-status">● 在线</div>
     </div>

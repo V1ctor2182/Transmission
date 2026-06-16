@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 016 | 🟦 Standard | CP-bubble 浮层去 emoji(欢迎卡 🎉→◆ + 助手 🤖 + 解锁 ⚡🚀→扁平 SVG) | ✅ delta 3/3 KEEP | [round-016](round-016-bubble-deemoji.md) |
 | 015 | 🟦 Standard | CP3 leads 地区标签去 emoji(国旗→mono 码 + 大洲去 emoji) | ✅ delta 3/3 KEEP | [round-015](round-015-leads-region-deemoji.md) |
 | 014 | 🟦 Standard | CP2 whatsapp 去 emoji(⏰→扁平时钟 SVG) | ✅ delta 3/3 KEEP | [round-014](round-014-whatsapp-deemoji.md) |
 | 013 | 🟦 Standard | CP1 客户池去 emoji(国旗→mono码 + 🤖/💬→扁平) | ✅ delta 3/3 KEEP | [round-013](round-013-pool-deemoji.md) |
