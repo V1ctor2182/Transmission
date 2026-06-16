@@ -30,7 +30,10 @@
 - [ ] 🔴 **CP1 客户池 pool 去 AI 味(最重)**:① 国旗 emoji 🇺🇸🇸🇬🇲🇾… → 复用 `ccBadge()`/FLAG2CC mono 国家码;② `🤖 AI 批量跟进`/`🤖 AI 跟进`/`💬` emoji 按钮 → 扁平 SVG 或纯文字。影响:高。风险:低。
 - [ ] 🔴 **CP2 whatsapp 去 emoji**:`🛡️ 跟进提醒`、`⚡ AI 话术建议` 等标注 emoji → 扁平 SVG/文字标签。影响:中。风险:低。
 - [ ] 🟦 **CP3 leads 地区标签**:`🇸🇬 新加坡 ✕` 国旗 emoji → mono 码或去 emoji;✕ 关闭按钮样式收敛。数据源彩色方块字母 logo 偏通用,留观察。影响:中。风险:低。
-- [ ] 🟦 **CP4 通用组件语言**:avatar 纯色圆/彩色方块 logo 瓦片/进度条/徽标 pill 偏 AI 模板,逐步收敛到终端风(留待 critic 逐屏判)。影响:中。风险:中。
+- [ ] 🔴 **CP4 通用模板组件收敛(用户点名)**:avatar 纯色圆 / 彩色方块字母 logo 瓦片 / 千篇一律进度条 / badge pill —— 长得像任意 AI SaaS demo。收敛到终端风(方/极简边框/mono/去多彩)。逐屏 critic 判。影响:中。风险:中。
+- [ ] 🔴 **CP5 配色/渐变残留清扫(用户点名)**:全屏扫剩余 `linear-gradient(` 填充 / `box-shadow` 发光 / 紫蓝(#6b78ff iris / purple)残留色,收到 Phosphor 暖金近黑。grep 驱动 + 逐屏视觉复核。影响:中。风险:低。
+
+> **用户 2026-06-16 方向(AskUserQuestion)**:AI 味重点 = ①Emoji 装饰(先扫,CP1/CP2/CP3) ②通用模板组件(CP4) ③配色/渐变残留(CP5)。文案腔调暂不动。loop 按此序推进。
 
 ## 🟦 Standard(清理 · 自动)
 - [x] **多窗格 AppShell 落地**(R012):dashboard 重排为 layout-preview 指挥台网格(地图 hero+KPI 条+AI工作流 feed+右侧实时买家整列),用户验收满意已 merge。修了一处 display 特异性回归(R012-fix)。其它屏暂沿用 `.page` 单页,后续按需。
