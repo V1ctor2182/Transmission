@@ -20,8 +20,8 @@
               <div style="font-size:13px;color:var(--t-muted);margin-top:4px">已接入 <strong style="color:#ffd27a">28</strong> 个全球数据源，AI 每日自动搜索并匹配潜在买家</div>
             </div>
             <div style="display:flex;gap:10px;align-items:center">
-              <div class="icp-task-btn secondary" style="display:flex;align-items:center;gap:6px" onclick="showLeadsView('tasks')">📋 查看任务 <span style="background:#f5b73d;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;font-weight:700">1</span></div>
-              <div class="icp-task-btn primary" onclick="submitIcpTask()">⚡ 下达任务</div>
+              <div class="icp-task-btn secondary" style="display:flex;align-items:center;gap:6px" onclick="showLeadsView('tasks')">查看任务 <span style="background:#f5b73d;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;font-weight:700">1</span></div>
+              <div class="icp-task-btn primary" onclick="submitIcpTask()">下达任务</div>
             </div>
           </div>
 
@@ -34,7 +34,7 @@
             </div>
             <div class="icp-ds-grid">
               <div>
-                <div class="icp-ds-col-title">🔍 数据搜索</div>
+                <div class="icp-ds-col-title">数据搜索</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo g">G</span>Google · 高级搜索</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo g">G</span>Google Map · 地图搜索</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo y">Y</span>雅虎 · 搜索引擎</div>
@@ -46,7 +46,7 @@
                 <div class="icp-ds-item"><span class="icp-ds-logo pl">PL</span>Predictleads · 客户搜索</div>
               </div>
               <div>
-                <div class="icp-ds-col-title">🏢 补全公司</div>
+                <div class="icp-ds-col-title">补全公司</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo rr">RR</span>Rocket Reach · 公司信息</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo ha">H</span>Harmonic.ai · 公司信息</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo ap">A</span>Apollo · 公司信息</div>
@@ -58,7 +58,7 @@
                 <div class="icp-ds-item"><span class="icp-ds-logo wa">WA</span>官网分析 · 官网信息</div>
               </div>
               <div>
-                <div class="icp-ds-col-title">📞 联系人获取</div>
+                <div class="icp-ds-col-title">联系人获取</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo hu">Hu</span>Hunter · 查找联系人</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo hu">Hu</span>Hunter · 邮筱验证</div>
                 <div class="icp-ds-item"><span class="icp-ds-logo ap">A</span>Apollo · 查找联系人</div>
@@ -163,7 +163,7 @@
             <div style="position:absolute;top:0;right:0;width:140px;height:140px;border-radius:50%;border:1px solid rgba(255,210,122,.12);animation:ringExpand 3s ease-in-out infinite .8s"></div>
 
             <div style="display:flex;align-items:flex-start;gap:16px;position:relative;z-index:1">
-              <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#f5b73d,#ffd27a);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 0 20px rgba(245,183,61,.4)">🔍</div>
+              <div style="width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--brand);fill:none;stroke-width:1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
                   <div style="font-size:15px;font-weight:700;color:#e2e8f0">每天自动找客户 · 东南亚 + 北美 + 澳洲</div>
@@ -231,7 +231,7 @@
               <div style="font-size:18px;font-weight:700;color:#e2e8f0">已推送客户 <span style="font-size:13px;font-weight:400;color:#ffd27a">2,847</span></div>
             </div>
             <div style="display:flex;gap:8px">
-              <div class="icp-task-btn secondary" onclick="enrichSelected()">🔍 寻找联系人</div>
+              <div class="icp-task-btn secondary" onclick="enrichSelected()">寻找联系人</div>
               <div class="icp-task-btn auto" onclick="pushSelectedToEdm()">📣 帮我营销</div>
               <div class="icp-task-btn primary" onclick="autoExecute()">🤖 AI 全自动</div>
             </div>

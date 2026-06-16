@@ -46,3 +46,4 @@
 - 2026-06-16 R003 🟦 B7 按钮去 AI 味(用户点名)。polish.css 集中一套 Phosphor 仪表级按钮:主按钮去渐变/去 glow/深 ink。delta 闸门首次实战 3/3 KEEP(regression none)。自动落库。余:marketing CTA 权重 + .btn 类彻底重构留后。next: B5 dashboard 去 emoji。
 - 2026-06-16 R004 🟦 B5 dashboard 去 emoji。AI报告/待办/积分 emoji → 彩色 accent bar/点 + SVG钻石。机检渲染后 emoji clean。delta 3/3 KEEP。自动落库。next: B6 iris 收掉。
 - 2026-06-16 R005 🟦 B6 iris 收掉。dashboard 4处 iris→暖色(标题/98241/待办行/欧洲热点)。delta 3/3 KEEP。**dashboard 全清里程碑**(无cyan/emoji/iris/渐变按钮)。自动落库。next 大头:多窗格布局 / T10 其它屏 / Hero。
+- 2026-06-16 R006 🟦 T10-leads。leads 按钮/标题前导 emoji 去掉 + ICP头部🔍渐变glow图标→扁平SVG。delta 3/3 KEEP。自动落库。新增 T10-flags(跨屏国旗→mono国家码)。next: intel/whatsapp 去 emoji 或 T10-flags 或多窗格。
