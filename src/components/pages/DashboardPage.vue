@@ -139,8 +139,11 @@ const buyers = [
   --t1:var(--t-primary); --t2:var(--t-sec); --t3:var(--t-muted);
   --pane-r:12px;
 }
-/* 覆盖全局 .page 的 padding/overflow,让指挥台铺满内容区(specificity 0,3,0 胜过 .page.on) */
-.page.dash-cc{ padding:14px; overflow:hidden; display:flex; flex-direction:column; gap:12px }
+/* 覆盖全局 .page 的 padding/overflow,让指挥台铺满内容区。
+   display 必须 gate 在 .on 上,否则 .page.dash-cc 的特异性高过 .page{display:none},
+   会导致离开工作台后 dashboard 仍铺在其它页面后面(R012 修)。 */
+.page.dash-cc{ padding:14px; overflow:hidden; flex-direction:column; gap:12px }
+.page.dash-cc.on{ display:flex }
 .mono{ font-family:'JetBrains Mono',monospace; font-variant-numeric:tabular-nums }
 
 .cc-bar{ flex-shrink:0; display:flex; align-items:baseline; gap:14px }
