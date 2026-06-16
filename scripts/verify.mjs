@@ -13,6 +13,7 @@ import { chromium } from 'playwright'
 
 const SCREEN = process.argv[2] || 'login'
 const TASK = process.argv[3] || ''
+const SEQ = process.argv[4] === 'seq'   // Hero mode: capture a 3-frame sequence to judge the motion arc
 const PORT = 5310
 const DIST = resolve('dist')
 const REVIEW = resolve('.review')
@@ -130,8 +131,18 @@ try {
   page.on('pageerror', e => errors.push(String(e)))
   await page.goto(`http://localhost:${PORT}/`, { waitUntil: 'networkidle' })
   if (NAV[SCREEN]) { await page.evaluate(NAV[SCREEN]).catch(() => {}) }
-  await page.waitForTimeout(1400) // let fonts + entrance animations settle
-  await page.screenshot({ path: join(REVIEW, `${SCREEN}.png`) })
+  if (SEQ) {
+    // Hero motion arc: 3 frames over time → .review/<screen>-t0/t1/t2.png
+    const stamps = [200, 1600, 3600]; let prev = 0
+    for (let i = 0; i < stamps.length; i++) {
+      await page.waitForTimeout(stamps[i] - prev); prev = stamps[i]
+      await page.screenshot({ path: join(REVIEW, `${SCREEN}-t${i}.png`) })
+    }
+    verdict.frames = stamps.map((_, i) => `.review/${SCREEN}-t${i}.png`)
+  } else {
+    await page.waitForTimeout(1400) // let fonts + entrance animations settle
+    await page.screenshot({ path: join(REVIEW, `${SCREEN}.png`) })
+  }
   // Only NEW runtime errors (beyond the known baseline) should fail a task.
   let baseline = []
   try { baseline = JSON.parse(await readFile(join(REVIEW, 'baseline-errors.json'), 'utf8')) } catch {}
