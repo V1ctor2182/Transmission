@@ -53,3 +53,4 @@
 - 2026-06-16 H1 merged→main + 接入真实流程:startScan() 现在触发 FirstRunAnalysis(替代旧假扫描+章节),进入工作台→enterApp。黄金路径端到端通过(modal✓ analysis✓ app✓ 零错误)。
 - 2026-06-16 R010 🟦 热力图接真实世界地图(@svg-maps/world,WorldHeatmap.vue),dashboard 假大陆→真地图。delta 3/3 KEEP。教训:漏刷after图致误判,刷新重跑。自动落库。next: FirstRunAnalysis真地图 / 多窗格。
 - 2026-06-16 R011 🟦 FirstRunAnalysis 地图复用 WorldHeatmap 真实世界地图(逐区点亮保留)。dashboard+首启同一套真地图。delta 3/3 KEEP。自动落库。next: 多窗格 AppShell 布局(大件,reviewed 分支)。
+- 2026-06-16 R012 🟧 多窗格指挥台布局落地(dashboard→layout-preview 网格:地图 hero + KPI 条 + AI工作流 feed + 右侧实时买家整列,窄图标栏/TopBar 保留)。build✓ 机检零错✓ delta 3/3 KEEP(critic 还指出去掉了旧 AI feed 重复)。**提分支 feat/layout-command-center,暂停等人工 review,未 merge,本轮不 ScheduleWakeup。**

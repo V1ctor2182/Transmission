@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 012 | 🟧 大件 | 多窗格指挥台布局 | ⏸ delta 3/3 KEEP · 待人工 review | [round-012](round-012-command-center.md) |
 | 011 | 🟦 Standard | FirstRunAnalysis 换真实地图 | ✅ delta 3/3 KEEP | [round-011](round-011-fra-map.md) |
 | 010 | 🟦 Standard | 热力图→真实世界地图(用户点名) | ✅ delta 3/3 KEEP | [round-010](round-010-real-map.md) |
 | 009 | 🟥 HERO | H1 AI 分析首启 | ⏸ 需要你 REVIEW · delight 3/3 KEEP(wow B/A/A earned A) · 分支 feat/hero-first-run | [round-009](round-009-H1-firstrun.md) |
