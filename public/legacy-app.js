@@ -10,13 +10,13 @@
 // ═══════════════════════════════════════════════════════
 const LEADS = [
   {id:0,flag:'🇸🇬',country:'新加坡',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,color:'#f5b73d',tags:['节庆食品','紧急','高匹配'],insight:'AI 分析：<strong>中秋节前 3 个月</strong>是该采购商最活跃的采购窗口，建议本周内完成首次建联。'},
-  {id:1,flag:'🇲🇾',country:'马来西亚',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,color:'#22d3ee',tags:['月饼','新商机'],insight:'AI 分析：该采购商去年同期采购量 <strong>同比增长 34%</strong>，今年预算预计上调，优先级高。'},
-  {id:2,flag:'🇺🇸',country:'美国',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,color:'#34d399',tags:['华人超市','北美'],insight:'AI 分析：该连锁超市在 <strong>洛杉矶、旧金山</strong> 共 56 家门店，节庆礼盒年采购额约 $120 万。'},
+  {id:1,flag:'🇲🇾',country:'马来西亚',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,color:'#f5b73d',tags:['月饼','新商机'],insight:'AI 分析：该采购商去年同期采购量 <strong>同比增长 34%</strong>，今年预算预计上调，优先级高。'},
+  {id:2,flag:'🇺🇸',country:'美国',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,color:'#7bd47b',tags:['华人超市','北美'],insight:'AI 分析：该连锁超市在 <strong>洛杉矶、旧金山</strong> 共 56 家门店，节庆礼盒年采购额约 $120 万。'},
   {id:3,flag:'🇹🇭',country:'泰国',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,color:'#fbbf24',tags:['椰子酥','东南亚'],insight:'AI 分析：泰国华人人口 <strong>700 万+</strong>，中式节庆食品需求强劲，该采购商为当地最大连锁超市。'},
   {id:4,flag:'🇦🇺',country:'澳大利亚',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,color:'#6b78ff',tags:['澳洲','礼品'],insight:'AI 分析：澳洲华人社区 <strong>120 万+</strong>，悉尼、墨尔本节庆礼盒需求稳定，该采购商有稳定复购记录。'},
   {id:5,flag:'🇮🇩',country:'印度尼西亚',company:'Transmart Carrefour',product:'中式糕点系列',score:82,color:'#f87171',tags:['印尼','新商机'],insight:'AI 分析：印尼华人 <strong>1000 万+</strong>，是东南亚最大华人市场，节庆食品渗透率仍有较大提升空间。'},
-  {id:6,flag:'🇨🇦',country:'加拿大',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,color:'#22d3ee',tags:['月饼','北美','高匹配'],insight:'AI 分析：T&T 是北美最大亚裔超市连锁，<strong>温哥华、多伦多</strong>门店月饼年采购量约 $80 万。'},
-  {id:7,flag:'🇳🇿',country:'新西兰',company:'Asian Food Centre',product:'节庆礼盒进口',score:79,color:'#34d399',tags:['新西兰','澳洲'],insight:'AI 分析：新西兰华人社区集中在奥克兰，该采购商为当地最大华人食品专营商，年采购额约 $30 万。'},
+  {id:6,flag:'🇨🇦',country:'加拿大',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,color:'#f5b73d',tags:['月饼','北美','高匹配'],insight:'AI 分析：T&T 是北美最大亚裔超市连锁，<strong>温哥华、多伦多</strong>门店月饼年采购量约 $80 万。'},
+  {id:7,flag:'🇳🇿',country:'新西兰',company:'Asian Food Centre',product:'节庆礼盒进口',score:79,color:'#7bd47b',tags:['新西兰','澳洲'],insight:'AI 分析：新西兰华人社区集中在奥克兰，该采购商为当地最大华人食品专营商，年采购额约 $30 万。'},
   {id:8,flag:'🇸🇬',country:'新加坡',company:'Cold Storage',product:'高端礼盒系列',score:88,color:'#f5b73d',tags:['新加坡','高端','紧急'],insight:'AI 分析：Cold Storage 是新加坡高端超市连锁，<strong>目标客群与万仟高端礼盒定位高度吻合</strong>。'},
 ];
 
@@ -130,14 +130,14 @@ Liu Wei | 万仟糕饼`},
 
 const INTEL_CENTER_CARDS = [
   {id:0,icon:'🇸🇬',bg:'rgba(245,183,61,.08)',title:'新加坡节庆礼盒需求',sub:'Fairprice Group · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'5,000-8,000 盒'},{label:'目标产品',val:'月饼礼盒、椰子酥'},{label:'预算范围',val:'SGD 15-25/盒'},{label:'交货时间',val:'中秋节前 45 天'}],locked:false},
-  {id:1,icon:'🇲🇾',bg:'rgba(34,211,238,.06)',title:'马来西亚月饼批发商',sub:'Jaya Grocer · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'3,000-5,000 盒'},{label:'目标产品',val:'精品月饼礼盒'},{label:'预算范围',val:'MYR 45-80/盒'},{label:'交货时间',val:'端午节前 60 天'}],locked:false},
-  {id:2,icon:'🇺🇸',bg:'rgba(52,211,153,.06)',title:'北美华人超市联采',sub:'99 Ranch Market · 昨日更新',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
+  {id:1,icon:'🇲🇾',bg:'rgba(245,183,61,.06)',title:'马来西亚月饼批发商',sub:'Jaya Grocer · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'3,000-5,000 盒'},{label:'目标产品',val:'精品月饼礼盒'},{label:'预算范围',val:'MYR 45-80/盒'},{label:'交货时间',val:'端午节前 60 天'}],locked:false},
+  {id:2,icon:'🇺🇸',bg:'rgba(123,212,123,.06)',title:'北美华人超市联采',sub:'99 Ranch Market · 昨日更新',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
   {id:3,icon:'🇦🇺',bg:'rgba(107,120,255,.06)',title:'澳洲华人社区采购',sub:'Asian Grocery Pty · 2天前',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
 ];
 
 const AI_MSGS = [
   '今日提醒：<strong>Klaus Weber</strong> 昨日查看了您的产品手册，建议今日发送报价单跟进，成单概率较高。',
-  '商机提醒：新加坡 <strong>Fairprice Group</strong> 刚发布节庆礼盒采购需求，匹配度 <strong style="color:#34d399">96分</strong>，建议优先建联。',
+  '商机提醒：新加坡 <strong>Fairprice Group</strong> 刚发布节庆礼盒采购需求，匹配度 <strong style="color:#7bd47b">96分</strong>，建议优先建联。',
   '队列提醒：营销队列中有 <strong>7 封邮件</strong>待您审批，其中 3 封为高优先级，建议今日处理。',
   '跟进提醒：<strong>Carlos Silva</strong> 上次联系已超过 7 天，建议今日发送跟进消息，避免商机流失。',
 ];
@@ -171,7 +171,7 @@ let actIntervalId = null;
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-  const COLORS = ['rgba(245,183,61,','rgba(34,211,238,','rgba(107,120,255,','rgba(52,211,153,'];
+  const COLORS = ['rgba(245,183,61,','rgba(245,183,61,','rgba(107,120,255,','rgba(123,212,123,'];
   for (let i = 0; i < 80; i++) {
     particles.push({ x:Math.random()*1920, y:Math.random()*1080, vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35, r:Math.random()*1.4+.4, c:COLORS[Math.floor(Math.random()*COLORS.length)], a:Math.random()*.4+.1 });
   }
@@ -295,11 +295,11 @@ const MAP_REGIONS = [
   // China (origin)
   { id:'cn', name:'中国·漳州', cx:0.735, cy:0.355, color:'#ffd27a', radius:6, glow:true },
   // Southeast Asia
-  { id:'sea', name:'东南亚', cx:0.76, cy:0.48, color:'#34d399', radius:5 },
+  { id:'sea', name:'东南亚', cx:0.76, cy:0.48, color:'#7bd47b', radius:5 },
   // North America
   { id:'na', name:'北美', cx:0.19, cy:0.30, color:'#ffd27a', radius:5 },
   // Australia
-  { id:'au', name:'澳洲', cx:0.82, cy:0.65, color:'#22d3ee', radius:5 },
+  { id:'au', name:'澳洲', cx:0.82, cy:0.65, color:'#f5b73d', radius:5 },
   // Europe
   { id:'eu', name:'欧洲', cx:0.50, cy:0.22, color:'#6b78ff', radius:4 },
   // Middle East
@@ -348,9 +348,9 @@ const CONTINENTS = [
   // Asia (main)
   { color:'rgba(245,183,61,0.13)', points:[[0.57,0.12],[0.80,0.10],[0.90,0.16],[0.92,0.26],[0.86,0.36],[0.80,0.42],[0.74,0.46],[0.68,0.44],[0.62,0.38],[0.58,0.30],[0.56,0.22]] },
   // SE Asia peninsula
-  { color:'rgba(52,211,153,0.12)', points:[[0.72,0.40],[0.78,0.40],[0.80,0.46],[0.79,0.54],[0.76,0.56],[0.73,0.52],[0.71,0.46]] },
+  { color:'rgba(123,212,123,0.12)', points:[[0.72,0.40],[0.78,0.40],[0.80,0.46],[0.79,0.54],[0.76,0.56],[0.73,0.52],[0.71,0.46]] },
   // Australia
-  { color:'rgba(34,211,238,0.12)', points:[[0.79,0.58],[0.88,0.56],[0.92,0.62],[0.90,0.70],[0.84,0.74],[0.78,0.72],[0.76,0.66],[0.77,0.60]] },
+  { color:'rgba(245,183,61,0.12)', points:[[0.79,0.58],[0.88,0.56],[0.92,0.62],[0.90,0.70],[0.84,0.74],[0.78,0.72],[0.76,0.66],[0.77,0.60]] },
 ];
 
 let obMapCanvas, obMapCtx, obMapW, obMapH;
@@ -373,19 +373,19 @@ const OB_CONTENTS = [
   // Chapter 0: scanning
   `<div style="padding:32px 28px;height:100%;display:flex;flex-direction:column;justify-content:center">
     <div style="font-size:10px;letter-spacing:.12em;color:#f5b73d;text-transform:uppercase;margin-bottom:16px">TradeRadar · AI 分析引擎</div>
-    <div style="font-size:30px;font-weight:800;line-height:1.25;margin-bottom:12px">正在为<br/><span style="background:linear-gradient(135deg,#ffd27a,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent">万仙糕饼</span><br/>建立全球拓客模型</div>
+    <div style="font-size:30px;font-weight:800;line-height:1.25;margin-bottom:12px">正在为<br/><span style="background:linear-gradient(135deg,#ffd27a,#f5b73d);-webkit-background-clip:text;-webkit-text-fill-color:transparent">万仙糕饼</span><br/>建立全球拓客模型</div>
     <div style="font-size:13px;color:rgba(255,248,235,.55);line-height:1.7;margin-bottom:28px">AI 正在扫描官网与产品信息，结合全球 2.8M+ 采购数据库，生成专属市场分析报告…</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
       <div style="background:rgba(245,183,61,.1);border:1px solid rgba(245,183,61,.2);border-radius:12px;padding:14px">
         <div style="font-size:22px;font-weight:800;color:#ffd27a" id="ob-counter">0</div>
         <div style="font-size:11px;color:rgba(255,248,235,.4);margin-top:4px">正在扫描商机数</div>
       </div>
-      <div style="background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);border-radius:12px;padding:14px">
-        <div style="font-size:22px;font-weight:800;color:#22d3ee">4</div>
+      <div style="background:rgba(245,183,61,.08);border:1px solid rgba(245,183,61,.15);border-radius:12px;padding:14px">
+        <div style="font-size:22px;font-weight:800;color:#f5b73d">4</div>
         <div style="font-size:11px;color:rgba(255,248,235,.4);margin-top:4px">目标市场</div>
       </div>
-      <div style="background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.15);border-radius:12px;padding:14px">
-        <div style="font-size:22px;font-weight:800;color:#34d399">400+</div>
+      <div style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.15);border-radius:12px;padding:14px">
+        <div style="font-size:22px;font-weight:800;color:#7bd47b">400+</div>
         <div style="font-size:11px;color:rgba(255,248,235,.4);margin-top:4px">可出海 SKU</div>
       </div>
       <div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);border-radius:12px;padding:14px">
@@ -402,12 +402,12 @@ const OB_CONTENTS = [
     <div style="font-size:12px;color:rgba(255,248,235,.5);line-height:1.7;margin-bottom:20px">6000万海外华人构成中式糕点出海的核心消费基盘。亚太地区以最高速度领跑全球烘焙市场。</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
       <div style="background:rgba(245,183,61,.1);border:1px solid rgba(245,183,61,.2);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#ffd27a">5240亿</div><div style="font-size:10px;color:rgba(255,248,235,.4);margin-top:3px">2025全球市场规模</div></div>
-      <div style="background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#22d3ee">8785亿</div><div style="font-size:10px;color:rgba(255,248,235,.4);margin-top:3px">2035年预测规模</div></div>
-      <div style="background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#34d399">6000万+</div><div style="font-size:10px;color:rgba(255,248,235,.4);margin-top:3px">全球华人华侨人口</div></div>
+      <div style="background:rgba(245,183,61,.08);border:1px solid rgba(245,183,61,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#f5b73d">8785亿</div><div style="font-size:10px;color:rgba(255,248,235,.4);margin-top:3px">2035年预测规模</div></div>
+      <div style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#7bd47b">6000万+</div><div style="font-size:10px;color:rgba(255,248,235,.4);margin-top:3px">全球华人华侨人口</div></div>
       <div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#fbbf24">95.2%</div><div style="font-size:10px;color:rgba(255,248,235,.4);margin-top:3px">椒子出口同比增速</div></div>
     </div>
     <div style="font-size:11px;color:rgba(255,248,235,.35);margin-bottom:8px">目标市场优先级</div>
-    ${[{f:'🇸🇬',n:'东南亚',g:'6.6%',p:'3300万+',c:'#34d399',l:'首选'},{f:'🇺🇸',n:'北美',g:'4.2%',p:'530万+',c:'#ffd27a',l:'重点'},{f:'🇦🇺',n:'澳洲',g:'4.0%',p:'120万+',c:'#22d3ee',l:'重点'},{f:'🇬🇧',n:'欧洲',g:'3.8%',p:'215万+',c:'#6b78ff',l:'布局'}].map(r=>`
+    ${[{f:'🇸🇬',n:'东南亚',g:'6.6%',p:'3300万+',c:'#7bd47b',l:'首选'},{f:'🇺🇸',n:'北美',g:'4.2%',p:'530万+',c:'#ffd27a',l:'重点'},{f:'🇦🇺',n:'澳洲',g:'4.0%',p:'120万+',c:'#f5b73d',l:'重点'},{f:'🇬🇧',n:'欧洲',g:'3.8%',p:'215万+',c:'#6b78ff',l:'布局'}].map(r=>`
     <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:rgba(255,248,235,.03);border-radius:8px;margin-bottom:6px;border-left:2px solid ${r.c}">
       <span style="font-size:16px">${r.f}</span>
       <span style="font-size:13px;font-weight:600;flex:1">${r.n}</span>
@@ -420,9 +420,9 @@ const OB_CONTENTS = [
   // Chapter 2: Competition
   `<div style="padding:28px;height:100%;display:flex;flex-direction:column;overflow-y:auto">
     <div style="font-size:10px;letter-spacing:.12em;color:#f5b73d;text-transform:uppercase;margin-bottom:12px">Chapter 02 · 出海竞争格局</div>
-    <div style="font-size:24px;font-weight:800;line-height:1.3;margin-bottom:10px">竞争格局：<br/><span style="color:#22d3ee">万仙的差异化机会</span></div>
+    <div style="font-size:24px;font-weight:800;line-height:1.3;margin-bottom:10px">竞争格局：<br/><span style="color:#f5b73d">万仙的差异化机会</span></div>
     <div style="font-size:12px;color:rgba(255,248,235,.5);line-height:1.7;margin-bottom:18px">海外中式烘焙市场呈现三足鼎立格局，万仙需以差异化定位突破发力。</div>
-    ${[{d:'品牌知名度',v:'待建立，差异化突破',c:'#ffd27a'},{d:'产品特色',v:'漳浦风味 · 高端节庆礼盒',c:'#34d399'},{d:'产品宽度',v:'400+ SKU，全场景覆盖',c:'#22d3ee'},{d:'价格定位',v:'中高价 · 高端礼品线',c:'#fbbf24'},{d:'供应链',v:'双基地 · 待建出口体系',c:'#6b78ff'}].map((r,i)=>`
+    ${[{d:'品牌知名度',v:'待建立，差异化突破',c:'#ffd27a'},{d:'产品特色',v:'漳浦风味 · 高端节庆礼盒',c:'#7bd47b'},{d:'产品宽度',v:'400+ SKU，全场景覆盖',c:'#f5b73d'},{d:'价格定位',v:'中高价 · 高端礼品线',c:'#fbbf24'},{d:'供应链',v:'双基地 · 待建出口体系',c:'#6b78ff'}].map((r,i)=>`
     <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 12px;background:rgba(255,248,235,.03);border-radius:8px;margin-bottom:8px;border:1px solid rgba(255,248,235,.06);animation:fadeInUp .4s ease ${i*.1}s both">
       <div style="width:3px;height:36px;background:${r.c};border-radius:2px;flex-shrink:0;margin-top:2px"></div>
       <div><div style="font-size:11px;color:rgba(255,248,235,.4);margin-bottom:3px">${r.d}</div><div style="font-size:13px;font-weight:600;color:#fff">${r.v}</div></div>
@@ -432,9 +432,9 @@ const OB_CONTENTS = [
   // Chapter 3: Strengths
   `<div style="padding:28px;height:100%;display:flex;flex-direction:column;overflow-y:auto">
     <div style="font-size:10px;letter-spacing:.12em;color:#f5b73d;text-transform:uppercase;margin-bottom:12px">Chapter 03 · 核心优势</div>
-    <div style="font-size:24px;font-weight:800;line-height:1.3;margin-bottom:10px">四大核心资产<br/><span style="color:#34d399">构建差异化竞争壁垒</span></div>
+    <div style="font-size:24px;font-weight:800;line-height:1.3;margin-bottom:10px">四大核心资产<br/><span style="color:#7bd47b">构建差异化竞争壁垒</span></div>
     <div style="font-size:12px;color:rgba(255,248,235,.5);line-height:1.7;margin-bottom:20px">以漳浦饼文化 IP、高端节庆礼盒和双基地供应为出海三大核心资产。</div>
-    ${[{i:'文',t:'漳浦饼文化 IP',d:'380年漳浦饼文化深厚积淠，“正宗漳浦风味”是海外市场稀缺的品牌差异化标签',c:'#ffd27a'},{i:'🎁',t:'高端节庆礼盒',d:'椒子礼盒、精品月饼礼盒为核心，高客单价、节庆场景强需求、复购率高',c:'#34d399'},{i:'🔗',t:'双基地供应保障',d:'近万亩产能基地，7000m²标准厂房，具备充足扩大出口产能的基础条件',c:'#22d3ee'},{i:'🏅',t:'35年品牌背书',d:'1991年创立，每日新鲜烘焙的品质承诺，各类食品管理体系认证',c:'#6b78ff'}].map((p,i)=>`
+    ${[{i:'文',t:'漳浦饼文化 IP',d:'380年漳浦饼文化深厚积淠，“正宗漳浦风味”是海外市场稀缺的品牌差异化标签',c:'#ffd27a'},{i:'🎁',t:'高端节庆礼盒',d:'椒子礼盒、精品月饼礼盒为核心，高客单价、节庆场景强需求、复购率高',c:'#7bd47b'},{i:'🔗',t:'双基地供应保障',d:'近万亩产能基地，7000m²标准厂房，具备充足扩大出口产能的基础条件',c:'#f5b73d'},{i:'🏅',t:'35年品牌背书',d:'1991年创立，每日新鲜烘焙的品质承诺，各类食品管理体系认证',c:'#6b78ff'}].map((p,i)=>`
     <div style="display:flex;gap:14px;align-items:flex-start;padding:12px;background:rgba(255,248,235,.03);border-radius:10px;margin-bottom:10px;border:1px solid rgba(255,248,235,.06);animation:fadeInUp .4s ease ${i*.12}s both">
       <div style="width:36px;height:36px;background:${p.c}22;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">${p.i}</div>
       <div><div style="font-size:13px;font-weight:700;margin-bottom:4px">${p.t}</div><div style="font-size:11px;color:rgba(255,248,235,.45);line-height:1.6">${p.d}</div></div>
@@ -445,7 +445,7 @@ const OB_CONTENTS = [
   `<div style="padding:28px;height:100%;display:flex;flex-direction:column;overflow-y:auto">
     <div style="font-size:10px;letter-spacing:.12em;color:#f5b73d;text-transform:uppercase;margin-bottom:12px">Chapter 04 · 全球市场分级策略</div>
     <div style="font-size:24px;font-weight:800;line-height:1.3;margin-bottom:10px">四级递进策略<br/><span style="color:#fbbf24">以最低风险实现最大覆盖</span></div>
-    ${[{l:'T1 · 优先进入',t:'🇸🇬 东南亚华人聚集市场',d:'新加坡、马来西亚、泰国、印尼，华人 3300万+，节庆消费需求旺盛',tm:'12-18 个月内进入',c:'#34d399'},{l:'T2 · 重点布局',t:'🇺🇸 北美华人社区市场',d:'纽约、洛杉矶、温哥华、多伦多，华人 530万+，消费能力强',tm:'18-36 个月内进入',c:'#ffd27a'},{l:'T3 · 战略备选',t:'🇦🇺 澳洲/新西兰·欧洲',d:'悉尼、墨尔本、伦敦，华人 335万+，节庆礼品市场稳定',tm:'2-4 年内进入',c:'#22d3ee'},{l:'T4 · 长期拓展',t:'🌏 本土化渗透：东南亚主流市场',d:'越南、菲律宾、缅甸，开发当地化口味创新产品线',tm:'4 年以上',c:'#6b78ff'}].map((t,i)=>`
+    ${[{l:'T1 · 优先进入',t:'🇸🇬 东南亚华人聚集市场',d:'新加坡、马来西亚、泰国、印尼，华人 3300万+，节庆消费需求旺盛',tm:'12-18 个月内进入',c:'#7bd47b'},{l:'T2 · 重点布局',t:'🇺🇸 北美华人社区市场',d:'纽约、洛杉矶、温哥华、多伦多，华人 530万+，消费能力强',tm:'18-36 个月内进入',c:'#ffd27a'},{l:'T3 · 战略备选',t:'🇦🇺 澳洲/新西兰·欧洲',d:'悉尼、墨尔本、伦敦，华人 335万+，节庆礼品市场稳定',tm:'2-4 年内进入',c:'#f5b73d'},{l:'T4 · 长期拓展',t:'🌏 本土化渗透：东南亚主流市场',d:'越南、菲律宾、缅甸，开发当地化口味创新产品线',tm:'4 年以上',c:'#6b78ff'}].map((t,i)=>`
     <div style="padding:12px 14px;background:rgba(255,248,235,.03);border-radius:10px;margin-bottom:10px;border-left:3px solid ${t.c};animation:fadeInUp .4s ease ${i*.12}s both">
       <div style="font-size:10px;color:${t.c};font-weight:700;letter-spacing:.06em;margin-bottom:4px">${t.l}</div>
       <div style="font-size:13px;font-weight:700;margin-bottom:5px">${t.t}</div>
@@ -471,14 +471,14 @@ const OB_CONTENTS = [
       <svg viewBox="0 0 24 24" style="width:28px;height:28px;stroke:#fff;fill:none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
     </div>
     <div style="font-size:11px;letter-spacing:.12em;color:#f5b73d;text-transform:uppercase;margin-bottom:12px">分析完成 · 专属工作台已就绪</div>
-    <div style="font-size:28px;font-weight:800;line-height:1.3;margin-bottom:12px">为万仙糕饼锁定<br/><span style="background:linear-gradient(135deg,#ffd27a,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent">2,847 个高价値商机</span></div>
+    <div style="font-size:28px;font-weight:800;line-height:1.3;margin-bottom:12px">为万仙糕饼锁定<br/><span style="background:linear-gradient(135deg,#ffd27a,#f5b73d);-webkit-background-clip:text;-webkit-text-fill-color:transparent">2,847 个高价値商机</span></div>
     <div style="font-size:12px;color:rgba(255,248,235,.5);line-height:1.7;margin-bottom:24px">AI 已完成全球市场分析，为您精准筛选出与节庆礼盒高度匹配的采购商，涵盖东南亚、北美、澳洲三大核心市场。</div>
     <div style="display:flex;gap:16px;margin-bottom:24px">
       <div style="text-align:center"><div style="font-size:24px;font-weight:800;color:#ffd27a">2,847</div><div style="font-size:10px;color:rgba(255,248,235,.4)">精准商机</div></div>
       <div style="width:1px;background:rgba(255,248,235,.1)"></div>
-      <div style="text-align:center"><div style="font-size:24px;font-weight:800;color:#22d3ee">98,241</div><div style="font-size:10px;color:rgba(255,248,235,.4)">今日新增需求</div></div>
+      <div style="text-align:center"><div style="font-size:24px;font-weight:800;color:#f5b73d">98,241</div><div style="font-size:10px;color:rgba(255,248,235,.4)">今日新增需求</div></div>
       <div style="width:1px;background:rgba(255,248,235,.1)"></div>
-      <div style="text-align:center"><div style="font-size:24px;font-weight:800;color:#34d399">94%</div><div style="font-size:10px;color:rgba(255,248,235,.4)">匹配准确率</div></div>
+      <div style="text-align:center"><div style="font-size:24px;font-weight:800;color:#7bd47b">94%</div><div style="font-size:10px;color:rgba(255,248,235,.4)">匹配准确率</div></div>
     </div>
     <button onclick="enterApp()" style="background:linear-gradient(135deg,#f5b73d,#ffd27a);border:none;border-radius:12px;padding:14px 32px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;letter-spacing:.04em">进入我的专属工作台 →</button>
   </div>`,
@@ -680,7 +680,7 @@ function showObChapter(n) {
   // Update dots
   OB_CHAPTERS_MAP.forEach((_,i) => {
     const dot = document.getElementById('ob-dot-'+i);
-    if(dot) dot.style.background = i===n ? '#ffd27a' : i<n ? '#34d399' : 'rgba(255,248,235,.2)';
+    if(dot) dot.style.background = i===n ? '#ffd27a' : i<n ? '#7bd47b' : 'rgba(255,248,235,.2)';
   });
   // Update next button
   const btn = document.getElementById('ob-next-btn');
@@ -704,26 +704,26 @@ function showObChapter(n) {
   obVisibleRegions = new Set(['cn']);
   if(n===0) { /* just China */ }
   if(n===1) { obVisibleRegions = new Set(['cn','sea','na','au','eu','me']); }
-  if(n===2) { obVisibleRegions = new Set(['cn','sea']); launchArc('cn','sea','#34d399'); setTimeout(()=>launchArc('cn','sea','#34d399'),1200); setTimeout(()=>launchArc('cn','sea','#34d399'),2400); }
+  if(n===2) { obVisibleRegions = new Set(['cn','sea']); launchArc('cn','sea','#7bd47b'); setTimeout(()=>launchArc('cn','sea','#7bd47b'),1200); setTimeout(()=>launchArc('cn','sea','#7bd47b'),2400); }
   if(n===3) { obVisibleRegions = new Set(['cn']); }
   if(n===4) {
     obVisibleRegions = new Set(['cn','sea','na','au','eu']);
-    setTimeout(()=>launchArc('cn','sea','#34d399'), 300);
+    setTimeout(()=>launchArc('cn','sea','#7bd47b'), 300);
     setTimeout(()=>launchArc('cn','na','#ffd27a'), 1200);
-    setTimeout(()=>launchArc('cn','au','#22d3ee'), 2100);
+    setTimeout(()=>launchArc('cn','au','#f5b73d'), 2100);
     setTimeout(()=>launchArc('cn','eu','#6b78ff'), 3000);
   }
   if(n===5) {
     obVisibleRegions = new Set(['cn','sea','na','au','eu','me']);
-    setTimeout(()=>launchArc('cn','sea','#34d399'), 200);
+    setTimeout(()=>launchArc('cn','sea','#7bd47b'), 200);
     setTimeout(()=>launchArc('cn','na','#ffd27a'), 800);
-    setTimeout(()=>launchArc('cn','au','#22d3ee'), 1400);
+    setTimeout(()=>launchArc('cn','au','#f5b73d'), 1400);
   }
   if(n===6) {
     obVisibleRegions = new Set(['cn','sea','na','au','eu','me']);
-    setTimeout(()=>launchArc('cn','sea','#34d399'), 200);
+    setTimeout(()=>launchArc('cn','sea','#7bd47b'), 200);
     setTimeout(()=>launchArc('cn','na','#ffd27a'), 600);
-    setTimeout(()=>launchArc('cn','au','#22d3ee'), 1000);
+    setTimeout(()=>launchArc('cn','au','#f5b73d'), 1000);
     setTimeout(()=>launchArc('cn','eu','#6b78ff'), 1400);
   }
 }
@@ -744,8 +744,8 @@ function startObCounter() {
 // ─── AI Today Report & Todo ───
 const AI_REPORT_ITEMS = [
   {icon:'🔍', color:'#ffd27a', label:'新增全球线索', value:'147 条', sub:'来自搜索引擎、海关数据、LinkedIn', page:'leads'},
-  {icon:'📣', color:'#34d399', label:'AI 营销发送', value:'23 封邮件', sub:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
-  {icon:'🤝', color:'#22d3ee', label:'新增建联客户', value:'8 家', sub:'Fairprice、Jaya Grocer 等已回复', page:'leads'},
+  {icon:'📣', color:'#7bd47b', label:'AI 营销发送', value:'23 封邮件', sub:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
+  {icon:'🤝', color:'#f5b73d', label:'新增建联客户', value:'8 家', sub:'Fairprice、Jaya Grocer 等已回复', page:'leads'},
   {icon:'💬', color:'#fbbf24', label:'WhatsApp 新消息', value:'5 条', sub:'Klaus Weber 回复了报价，T&T 询问交期', page:'whatsapp'},
 ];
 
@@ -753,7 +753,7 @@ const TODAY_TODOS = [
   {icon:'⚠️', color:'#f87171', urgent:true, text:'Klaus Weber 等待报价回复', sub:'WhatsApp · 已等待 2 小时', page:'whatsapp'},
   {icon:'✉️', color:'#ffd27a', urgent:false, text:'7 封邮件待审批发送', sub:'营销队列 · 建议今日处理', page:'marketing'},
   {icon:'🔔', color:'#fbbf24', urgent:false, text:'T&T Supermarket 3 天无沟通', sub:'客户池 · 建议今日跟进', page:'pool'},
-  {icon:'📋', color:'#22d3ee', urgent:false, text:'147 条新线索待处理', sub:'找客户 · 今日新增，建议寻找联系人', page:'leads'},
+  {icon:'📋', color:'#f5b73d', urgent:false, text:'147 条新线索待处理', sub:'找客户 · 今日新增，建议寻找联系人', page:'leads'},
   {icon:'🇦🇺', color:'#6b78ff', urgent:false, text:'Asian Grocery Pty 5 天无沟通', sub:'WhatsApp 商机 · 逾期跟进', page:'whatsapp'},
 ];
 
@@ -898,7 +898,7 @@ function renderCpool(filter) {
     if(!items.length) return;
     html += `<div style="font-size:10px;font-weight:700;color:var(--t-muted);text-transform:uppercase;letter-spacing:.5px;padding:6px 4px 3px">${g.icon} ${g.group}</div>`;
     items.forEach(item => {
-      const dotColor = {replied:'#34d399',overdue:'#f87171','no-reply':'#fbbf24',pending:'#6b7280'}[item.status]||'#6b7280';
+      const dotColor = {replied:'#7bd47b',overdue:'#f87171','no-reply':'#fbbf24',pending:'#6b7280'}[item.status]||'#6b7280';
       html += `<div class="cpool-item" onclick="highlightCustRow(${item.id})" style="padding:7px 8px;border-radius:8px;cursor:pointer;transition:.15s;background:rgba(255,248,235,.02);border:1px solid rgba(255,248,235,.04);margin-bottom:2px" onmouseover="this.style.background='rgba(245,183,61,.08)'" onmouseout="this.style.background='rgba(255,248,235,.02)'">
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;margin-bottom:3px">${item.flag} ${item.name}</div>
         <div style="display:flex;align-items:center;gap:5px">
@@ -928,17 +928,17 @@ function linkWaToPool() {
   const btn = document.getElementById('wa-link-btn');
   if(exists) {
     btn.textContent = '✓ 已关联至客户池';
-    btn.style.color = '#34d399';
-    btn.style.borderColor = 'rgba(52,211,153,.3)';
-    btn.style.background = 'rgba(52,211,153,.08)';
+    btn.style.color = '#7bd47b';
+    btn.style.borderColor = 'rgba(123,212,123,.3)';
+    btn.style.background = 'rgba(123,212,123,.08)';
     showToast('✓ 已关联','该对话已在客户池中跟进','success');
   } else {
     // Add to pool
     CPOOL_DATA[2].items.push({id:99, name:name, status:'active', statusText:'刚刚关联 · 待跟进', flag:'💬'});
     btn.textContent = '✓ 已关联至客户池';
-    btn.style.color = '#34d399';
-    btn.style.borderColor = 'rgba(52,211,153,.3)';
-    btn.style.background = 'rgba(52,211,153,.08)';
+    btn.style.color = '#7bd47b';
+    btn.style.borderColor = 'rgba(123,212,123,.3)';
+    btn.style.background = 'rgba(123,212,123,.08)';
     renderCpool();
     showToast('🔗 关联成功',`${name} 已加入客户池，可在客户池页面跟进`,'success');
   }
@@ -1028,7 +1028,7 @@ function buildFeedItem(c, delay) {
     <div style="display:flex;align-items:center;gap:8px">
       <div style="font-size:11px;font-weight:700;color:#ffd27a">${c.score}分</div>
       <div style="font-size:9px;color:var(--t-muted)">${timeStr}</div>
-      <div style="width:6px;height:6px;border-radius:50%;background:#34d399;animation:pulse 2s infinite"></div>
+      <div style="width:6px;height:6px;border-radius:50%;background:#7bd47b;animation:pulse 2s infinite"></div>
     </div>
   </div>`;
 }
@@ -1070,10 +1070,10 @@ function renderCustTable(filter) {
         <div class="icp-cust-demand" style="font-size:11px;color:var(--t-muted);line-height:1.5">${c.desc.substring(0,42)}…</div>
         <div><span class="icp-cust-source">${c.source}</span></div>
         <div class="icp-cust-score">${c.score}分</div>
-        <div class="icp-cust-contact ${c.status}">${c.status==='enriched'?'<span style="color:#34d399">✓ 已找到</span><br><span style="font-size:9px;color:var(--t-muted)">'+c.email+'</span>':'<span style="color:#fbbf24">待寻找</span>'}</div>
+        <div class="icp-cust-contact ${c.status}">${c.status==='enriched'?'<span style="color:#7bd47b">✓ 已找到</span><br><span style="font-size:9px;color:var(--t-muted)">'+c.email+'</span>':'<span style="color:#fbbf24">待寻找</span>'}</div>
         <div class="icp-cust-ops">
           ${c.status==='pending'?`<div class="icp-op-btn enrich" onclick="event.stopPropagation();enrichOne(${c.id})">&#x1F50D; 寻找联系人</div>`:''}
-          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-op-btn" style="color:#34d399;border-color:rgba(52,211,153,.2)">✓ 已营销</div>'}
+          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-op-btn" style="color:#7bd47b;border-color:rgba(123,212,123,.2)">✓ 已营销</div>'}
           <div class="icp-op-btn feedback" onclick="event.stopPropagation();openFeedback(${c.id})">⚠ 反馈不精准</div>
         </div>
       </div>
@@ -1235,8 +1235,8 @@ function getPoolLastActivity(name) {
 
 const POOL_SOURCE_MAP = {
   '搜索推送客户': {color:'#ffd27a', icon:'🔍'},
-  '精准建联客户': {color:'#22d3ee', icon:'🎯'},
-  'WhatsApp 商机': {color:'#34d399', icon:'💬'},
+  '精准建联客户': {color:'#f5b73d', icon:'🎯'},
+  'WhatsApp 商机': {color:'#7bd47b', icon:'💬'},
   '海关数据匹配': {color:'#fbbf24', icon:'🚢'},
 };
 
@@ -1287,7 +1287,7 @@ function renderPoolTable() {
     return ta.localeCompare(tb);
   });
   const statusCfg = {
-    replied:    {color:'#34d399', bg:'rgba(52,211,153,.1)',  border:'rgba(52,211,153,.2)',  label:'已回复'},
+    replied:    {color:'#7bd47b', bg:'rgba(123,212,123,.1)',  border:'rgba(123,212,123,.2)',  label:'已回复'},
     overdue:    {color:'#f87171', bg:'rgba(248,113,113,.1)', border:'rgba(248,113,113,.2)', label:'逐期跟进'},
     'no-reply': {color:'#fbbf24', bg:'rgba(251,191,36,.1)',  border:'rgba(251,191,36,.2)',  label:'无回复'},
     pending:    {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'待跟进'},
@@ -1302,7 +1302,7 @@ function renderPoolTable() {
     const score = getPoolScore(item.name);
     const followCount = getPoolFollowCount(item.name);
     const lastAct = getPoolLastActivity(item.name);
-    const scoreColor = score >= 90 ? '#34d399' : score >= 80 ? '#ffd27a' : '#fbbf24';
+    const scoreColor = score >= 90 ? '#7bd47b' : score >= 80 ? '#ffd27a' : '#fbbf24';
     const progPct = Math.min(100, followCount * 20 + 10);
     return `<tr class="pool-tr" onclick="showPoolDetail('${item.name}')">
       <td style="padding:12px 20px">
@@ -1336,7 +1336,7 @@ function renderPoolTable() {
       <td style="padding:12px;text-align:center">
         <div style="display:flex;gap:4px;justify-content:center">
           <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(245,183,61,.1);color:#ffd27a;border:1px solid rgba(245,183,61,.2);cursor:pointer">🤖 AI跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(52,211,153,.08);color:#34d399;border:1px solid rgba(52,211,153,.2);cursor:pointer">💬</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(123,212,123,.08);color:#7bd47b;border:1px solid rgba(123,212,123,.2);cursor:pointer">💬</div>
         </div>
       </td>
     </tr>`;
@@ -1354,7 +1354,7 @@ function showPoolDetail(name) {
   const cust = CUST_DATA.find(c=>c.company===name);
   const panel = document.getElementById('pool-detail-content');
   if(!panel || !item) return;
-  const sc = {replied:{color:'#34d399',label:'已回复'},overdue:{color:'#f87171',label:'逐期跟进'},'no-reply':{color:'#fbbf24',label:'无回复'},pending:{color:'#6b7280',label:'待跟进'}}[item.status]||{color:'#6b7280',label:'待跟进'};
+  const sc = {replied:{color:'#7bd47b',label:'已回复'},overdue:{color:'#f87171',label:'逐期跟进'},'no-reply':{color:'#fbbf24',label:'无回复'},pending:{color:'#6b7280',label:'待跟进'}}[item.status]||{color:'#6b7280',label:'待跟进'};
   const si = POOL_SOURCE_MAP[item.group]||{color:'#ffd27a',icon:'📂'};
   const score = getPoolScore(name);
   const followCount = getPoolFollowCount(name);
@@ -1380,7 +1380,7 @@ function showPoolDetail(name) {
         </div>
         <div style="background:rgba(255,248,235,.03);border-radius:8px;padding:10px">
           <div style="font-size:10px;color:var(--t-muted);margin-bottom:2px">跟进次数</div>
-          <div style="font-size:20px;font-weight:800;color:#22d3ee">${followCount}<span style="font-size:11px;font-weight:400;color:var(--t-muted)">次</span></div>
+          <div style="font-size:20px;font-weight:800;color:#f5b73d">${followCount}<span style="font-size:11px;font-weight:400;color:var(--t-muted)">次</span></div>
         </div>
       </div>
     </div>
@@ -1399,7 +1399,7 @@ function showPoolDetail(name) {
           <div style="font-size:12px;font-weight:600;color:#e2e8f0">${c.name}</div>
           <div style="font-size:11px;color:var(--t-muted);margin-top:2px">${c.title}</div>
           ${cust.email ? `<div style="font-size:10px;color:#ffd27a;margin-top:4px">✉️ ${cust.email}</div>` : ''}
-          ${cust.phone ? `<div style="font-size:10px;color:#34d399;margin-top:2px">📞 ${cust.phone}</div>` : ''}
+          ${cust.phone ? `<div style="font-size:10px;color:#7bd47b;margin-top:2px">📞 ${cust.phone}</div>` : ''}
         </div>
       `).join('')}
     </div>` : `
@@ -1409,7 +1409,7 @@ function showPoolDetail(name) {
     </div>`}
     <div style="display:flex;flex-direction:column;gap:8px">
       <div onclick="poolFollowUp('${name}')" style="background:rgba(245,183,61,.12);border:1px solid rgba(245,183,61,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#ffd27a;cursor:pointer;text-align:center">🤖 AI 生成跟进话术</div>
-      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#34d399;cursor:pointer;text-align:center">💬 发送 WhatsApp 消息</div>
+      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#7bd47b;cursor:pointer;text-align:center">💬 发送 WhatsApp 消息</div>
       <div onclick="navTo('leads')" style="background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:var(--t-muted);cursor:pointer;text-align:center">🔍 查看完整客户资料</div>
     </div>
   `;
@@ -1465,7 +1465,7 @@ function renderPoolCards() {
     return;
   }
   const statusCfg = {
-    replied: {color:'#34d399', bg:'rgba(52,211,153,.1)', border:'rgba(52,211,153,.2)', label:'已回复'},
+    replied: {color:'#7bd47b', bg:'rgba(123,212,123,.1)', border:'rgba(123,212,123,.2)', label:'已回复'},
     overdue: {color:'#f87171', bg:'rgba(248,113,113,.1)', border:'rgba(248,113,113,.2)', label:'逐期跟进'},
     'no-reply': {color:'#fbbf24', bg:'rgba(251,191,36,.1)', border:'rgba(251,191,36,.2)', label:'无回复'},
     pending: {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'待跟进'},
@@ -1511,12 +1511,12 @@ function renderPoolCards() {
       <!-- Bottom Row -->
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div style="display:flex;align-items:center;gap:10px">
-          ${hasContact ? `<span style="font-size:10px;color:#34d399">✓ 已获取联系方式</span>` : `<span style="font-size:10px;color:var(--t-muted)">未获取联系方式</span>`}
+          ${hasContact ? `<span style="font-size:10px;color:#7bd47b">✓ 已获取联系方式</span>` : `<span style="font-size:10px;color:var(--t-muted)">未获取联系方式</span>`}
           ${contacts.length ? `<span style="font-size:10px;color:var(--t-muted)">· ${contacts[0].name} (${contacts[0].title})</span>` : ''}
         </div>
         <div style="display:flex;gap:6px">
           <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(245,183,61,.12);color:#ffd27a;border:1px solid rgba(245,183,61,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(245,183,61,.2)'" onmouseout="this.style.background='rgba(245,183,61,.12)'">🤖 AI跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(52,211,153,.08);color:#34d399;border:1px solid rgba(52,211,153,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(52,211,153,.15)'" onmouseout="this.style.background='rgba(52,211,153,.08)'">💬 发消息</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(123,212,123,.08);color:#7bd47b;border:1px solid rgba(123,212,123,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(123,212,123,.15)'" onmouseout="this.style.background='rgba(123,212,123,.08)'">💬 发消息</div>
         </div>
       </div>
     </div>`;
@@ -1972,8 +1972,8 @@ function rejectEmail(id) {
 // ═══════════════════════════════════════════════════════
 const AI_DAILY_ITEMS = [
   {icon:'🔍', color:'#ffd27a', label:'全球线索搜索', value:'147 条新线索', detail:'来自搜索引擎、海关数据、LinkedIn', page:'leads'},
-  {icon:'📣', color:'#34d399', label:'AI 营销发送', value:'23 封邮件', detail:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
-  {icon:'🤝', color:'#22d3ee', label:'新增建联客户', value:'8 家', detail:'Fairprice、Jaya Grocer 等已回复', page:'pool'},
+  {icon:'📣', color:'#7bd47b', label:'AI 营销发送', value:'23 封邮件', detail:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
+  {icon:'🤝', color:'#f5b73d', label:'新增建联客户', value:'8 家', detail:'Fairprice、Jaya Grocer 等已回复', page:'pool'},
   {icon:'💬', color:'#fbbf24', label:'WhatsApp 新消息', value:'5 条', detail:'Klaus Weber 回复了报价，T&T 询问交期', page:'whatsapp'},
   {icon:'🌐', color:'#6b78ff', label:'情报中心更新', value:'98,241 条需求', detail:'全球采购需求实时同步', page:'intel'},
 ];
@@ -2033,7 +2033,7 @@ function renderIntelTable() {
   const countEl = document.getElementById('intel-count');
   if(countEl) countEl.textContent = data.length;
   const statusCfg = {
-    new:    {color:'#22d3ee', bg:'rgba(34,211,238,.08)',  border:'rgba(34,211,238,.2)',  label:'新增'},
+    new:    {color:'#f5b73d', bg:'rgba(245,183,61,.08)',  border:'rgba(245,183,61,.2)',  label:'新增'},
     hot:    {color:'#f87171', bg:'rgba(248,113,113,.08)', border:'rgba(248,113,113,.2)', label:'热门'},
     locked: {color:'#6b7280', bg:'rgba(107,114,128,.08)', border:'rgba(107,114,128,.2)', label:'需解锁'},
   };
@@ -2043,14 +2043,14 @@ function renderIntelTable() {
   }
   tbody.innerHTML = data.map(d => {
     const sc = statusCfg[d.status] || statusCfg.new;
-    const scoreColor = d.score >= 90 ? '#34d399' : d.score >= 80 ? '#ffd27a' : '#fbbf24';
+    const scoreColor = d.score >= 90 ? '#7bd47b' : d.score >= 80 ? '#ffd27a' : '#fbbf24';
     const isLocked = !d.unlocked;
     // 采购商显示：未解锁则隐藏名称，显示马赛克字符
     const buyerDisplay = isLocked
       ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><span style="color:#f59e0b">🔒</span>解锁查看采购商</div>`
       : `<div style="font-size:13px;font-weight:600;color:#e2e8f0">${d.buyer}</div>`;
     // 建联成功率颜色
-    const crColor = d.contactRate >= 65 ? '#34d399' : d.contactRate >= 50 ? '#fbbf24' : '#f87171';
+    const crColor = d.contactRate >= 65 ? '#7bd47b' : d.contactRate >= 50 ? '#fbbf24' : '#f87171';
     return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "showModal('modal-unlock')" : "toast('\ud83e\udd1d','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
         <span style="font-size:18px;margin-right:6px">${d.flag}</span>
         <span style="font-size:12px;color:#e2e8f0">${d.country}</span>
@@ -2189,9 +2189,9 @@ function setPf(el) { document.querySelectorAll('.pf-btn').forEach(b => b.classLi
 
 const NEW_ACTIVITIES = [
   {dot:'#ffd27a',text:'AI 搜索引擎新推送 <strong>23 条</strong>东南亚超市采购线索',time:'刚刚'},
-  {dot:'#34d399',text:'<strong>Fairprice Group</strong> 回复了产品目录请求，建议跟进',time:'刚刚'},
+  {dot:'#7bd47b',text:'<strong>Fairprice Group</strong> 回复了产品目录请求，建议跟进',time:'刚刚'},
   {dot:'#fbbf24',text:'AI 已自动发送 <strong>7 封</strong>个性化邮件，待审批',time:'刚刚'},
-  {dot:'#22d3ee',text:'<strong>Klaus Weber</strong> 在 WhatsApp 回复了报价单',time:'刚刚'},
+  {dot:'#f5b73d',text:'<strong>Klaus Weber</strong> 在 WhatsApp 回复了报价单',time:'刚刚'},
   {dot:'#6b78ff',text:'AI 海关数据匹配到 <strong>18 条</strong>新加坡进口商线索',time:'刚刚'},
   {dot:'#f87171',text:'<strong>T&T Supermarket</strong> 3 天无沟通，已触发跟进提醒',time:'刚刚'},
 ];
@@ -2202,10 +2202,10 @@ function startActivityFeed() {
   list.innerHTML = '';
   // Add initial items
   const initItems = [
-    {dot:'#34d399',text:'<strong>Klaus Weber</strong> 在 WhatsApp 回复了报价单',time:'刚刚'},
+    {dot:'#7bd47b',text:'<strong>Klaus Weber</strong> 在 WhatsApp 回复了报价单',time:'刚刚'},
     {dot:'#f5b73d',text:'AI 为 <strong>Rajesh Kumar</strong> 生成了 3 份个性化邮件',time:'2分钟'},
-    {dot:'#fbbf24',text:'新增 🇸🇬 新加坡节庆礼盒采购需求，匹配度 <strong style="color:#34d399">96分</strong>',time:'5分钟'},
-    {dot:'#22d3ee',text:'<strong>Ahmed Al-Rashid</strong> 打开了您发送的产品手册',time:'12分钟'},
+    {dot:'#fbbf24',text:'新增 🇸🇬 新加坡节庆礼盒采购需求，匹配度 <strong style="color:#7bd47b">96分</strong>',time:'5分钟'},
+    {dot:'#f5b73d',text:'<strong>Ahmed Al-Rashid</strong> 打开了您发送的产品手册',time:'12分钟'},
     {dot:'#6b78ff',text:'新增 🇲🇾 马来西亚月饼采购需求，标记为 🔥 热门',time:'18分钟'},
     {dot:'#f87171',text:'<strong>Carlos Silva</strong> 的跟进提醒已触发，建议今日联系',time:'25分钟'},
   ];

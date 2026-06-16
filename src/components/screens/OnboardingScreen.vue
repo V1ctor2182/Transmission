@@ -8,7 +8,7 @@
 <div class="screen" id="s-onboard" style="flex-direction:column;background:#0b0a07">
   <!-- Top progress bar -->
   <div style="position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,248,235,.06);z-index:20">
-    <div id="ob-progress" style="height:100%;background:linear-gradient(90deg,#f5b73d,#22d3ee);width:0%;transition:width 1s ease"></div>
+    <div id="ob-progress" style="height:100%;background:linear-gradient(90deg,#f5b73d,#f5b73d);width:0%;transition:width 1s ease"></div>
   </div>
   <!-- Top bar -->
   <div style="position:absolute;top:0;left:0;right:0;height:52px;display:flex;align-items:center;padding:0 28px;z-index:20;border-bottom:1px solid rgba(255,248,235,.05)">

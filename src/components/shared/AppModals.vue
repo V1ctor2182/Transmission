@@ -68,8 +68,8 @@
       <div style="font-size:15px;font-weight:600;color:#e2e8f0">已自动优化企业大脑</div>
       <div style="font-size:12px;color:var(--t-muted);text-align:center">感谢反馈！AI 已更新 ICP 匹配模型，<br>后续推送的客户将更符合您的目标客户画像</div>
       <div style="display:flex;gap:8px;margin-top:4px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#34d399;animation:pulse 1s infinite"></div>
-        <div style="font-size:11px;color:#34d399">模型优化中…</div>
+        <div style="width:8px;height:8px;border-radius:50%;background:#7bd47b;animation:pulse 1s infinite"></div>
+        <div style="font-size:11px;color:#7bd47b">模型优化中…</div>
       </div>
     </div>
   </div>

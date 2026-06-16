@@ -11,8 +11,10 @@
 ## 🟦 基建(安全、自动、先做 —— 高影响低风险)
 - [x] **B1 Phosphor 全局换色**(round 001):品牌 cyan→amber 全站替换完成。
 - [x] **B2 暖黑底 + 边框暖白化**(round 001):底色/文字/边框暖化完成。
-- [ ] **B3 次级数据色收编进 Phosphor**(round 001 发现):`--cyan #22d3ee` / `--green #34d399` / `--amber #fbbf24` 仍是旧值,sparkline 偏 teal → 统一到 up/hot/iris 语义。影响:中。风险:低。
-- [ ] **B4 夜地图 ocean 调暖**(round 001 发现):continents 填充 `#0b1830`/`#0e1c32` 冷蓝 → 暖近黑。影响:中(地图是主角)。风险:低。
+- [x] **B3 次级数据色收编**(round 002):cyan(#22d3ee/#67e8f9/#9beae0)+ teal 绿(#34d399)全清。余 `--amber #fbbf24` 属 amber 家族,暂留。
+- [x] **B4 夜地图调暖**(round 002):大陆冷蓝→暖近黑,热点 cyan→amber。
+- [ ] 🔴 **B5 dashboard 去 emoji(T10 子项,最高优)**(round 002 critic 发现):AI 报告面板满是 emoji(💎建联徽标/🌐/🔍/📣/🤝/💬…)→ 换描边图标或文字。**它在挡 dashboard 评分,先做。** 影响:高。风险:中。
+- [ ] 🔴 **B6 iris 强调色收掉**(round 002 critic 发现):AI 报告「98,241 条需求」用 iris-blue、「今日待办」标题 iris → DESIGN.md 说 iris 仅结构色,改 amber/文字。影响:中。风险:低。
 - [ ] **T10 全局 emoji 统一**(~400 个:国旗/状态/图标)→ 一套描边图标或纯文字。分屏分轮做。影响:大。风险:中(量大)。
 
 ## 🟥 Hero(放大模式 · 提 `feat/` 分支 + 暂停等 review)

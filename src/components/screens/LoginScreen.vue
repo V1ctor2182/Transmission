@@ -67,8 +67,8 @@ const startScan = () => window.startScan?.()
       </button>
       <div class="wm-features">
         <div class="wm-feat"><div class="wm-feat-dot" style="background:#ffd27a"></div>全球商机匹配</div>
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#22d3ee"></div>竞争格局分析</div>
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#34d399"></div>市场进入策略</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#f5b73d"></div>竞争格局分析</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#7bd47b"></div>市场进入策略</div>
       </div>
     </div>
   </div>

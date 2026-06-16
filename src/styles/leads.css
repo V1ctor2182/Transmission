@@ -1,6 +1,6 @@
 /* ─── ICP AGENT PAGE ─── */
 /* ── ICP AGENT PAGE (new layout) ── */
-.icp-status-dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:pulse 2s infinite;display:inline-block}
+.icp-status-dot{width:8px;height:8px;border-radius:50%;background:#7bd47b;box-shadow:0 0 8px #7bd47b;animation:pulse 2s infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* Task Config Card */
@@ -14,8 +14,8 @@
 .icp-task-btn.secondary:hover{background:rgba(255,248,235,.1);color:var(--t-primary)}
 .icp-task-btn.primary{background:linear-gradient(135deg,#f5b73d,#ffd27a);border:none;color:#fff;box-shadow:0 4px 12px rgba(245,183,61,.3)}
 .icp-task-btn.primary:hover{opacity:.9;transform:translateY(-1px)}
-.icp-task-btn.auto{background:linear-gradient(135deg,rgba(52,211,153,.2),rgba(34,211,238,.15));border:1px solid rgba(52,211,153,.3);color:#34d399}
-.icp-task-btn.auto:hover{background:rgba(52,211,153,.25)}
+.icp-task-btn.auto{background:linear-gradient(135deg,rgba(123,212,123,.2),rgba(245,183,61,.15));border:1px solid rgba(123,212,123,.3);color:#7bd47b}
+.icp-task-btn.auto:hover{background:rgba(123,212,123,.25)}
 
 /* Form rows */
 .icp-task-form{padding:16px 20px;display:flex;flex-direction:column;gap:14px}
@@ -68,7 +68,7 @@
 .icp-ds-logo.lm{background:#6b78ff}
 .icp-ds-logo.dg{background:#06b6d4}
 .icp-ds-logo.cb{background:#3b82f6}
-.icp-ds-logo.gd{background:#34d399}
+.icp-ds-logo.gd{background:#7bd47b}
 .icp-ds-logo.wa{background:#64748b}
 .icp-ds-logo.hu{background:#f59e0b}
 .icp-ds-logo.ps{background:#ec4899}
@@ -103,13 +103,13 @@
 .icp-cust-source{font-size:10px;padding:2px 7px;border-radius:5px;background:rgba(255,248,235,.05);color:var(--t-muted);white-space:nowrap}
 .icp-cust-score{font-size:12px;font-weight:800;color:#ffd27a}
 .icp-cust-contact{font-size:10px;color:var(--t-muted)}
-.icp-cust-contact.verified{color:#34d399}
+.icp-cust-contact.verified{color:#7bd47b}
 .icp-cust-contact.pending{color:#fbbf24}
 .icp-cust-ops{display:flex;gap:4px}
 .icp-op-btn{font-size:10px;font-weight:600;padding:3px 8px;border-radius:5px;cursor:pointer;transition:.15s;border:1px solid rgba(255,248,235,.08);color:var(--t-muted);white-space:nowrap}
 .icp-op-btn:hover{border-color:rgba(245,183,61,.3);color:#ffd27a}
-.icp-op-btn.enrich{border-color:rgba(34,211,238,.2);color:#22d3ee}
-.icp-op-btn.edm{border-color:rgba(52,211,153,.2);color:#34d399}
+.icp-op-btn.enrich{border-color:rgba(245,183,61,.2);color:#f5b73d}
+.icp-op-btn.edm{border-color:rgba(123,212,123,.2);color:#7bd47b}
 .icp-op-btn.feedback{border-color:rgba(245,158,11,.25);color:#f59e0b}
 .icp-op-btn.feedback:hover{background:rgba(245,158,11,.08)}
 .icp-cust-row-wrap{border-bottom:1px solid rgba(255,248,235,.05)}
@@ -129,10 +129,10 @@
 .icp-person-li{margin-left:auto;background:#0a66c2;color:#fff;font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;flex-shrink:0}
 .icp-card-actions{display:flex;gap:8px;margin-top:4px}
 .icp-card-btn{padding:6px 12px;border-radius:7px;font-size:11px;cursor:pointer;font-weight:500;transition:.15s}
-.icp-card-btn.enrich{background:rgba(34,211,238,.1);color:#22d3ee;border:1px solid rgba(34,211,238,.25)}
-.icp-card-btn.enrich:hover{background:rgba(34,211,238,.2)}
-.icp-card-btn.edm{background:rgba(52,211,153,.1);color:#34d399;border:1px solid rgba(52,211,153,.25)}
-.icp-card-btn.edm:hover{background:rgba(52,211,153,.2)}
+.icp-card-btn.enrich{background:rgba(245,183,61,.1);color:#f5b73d;border:1px solid rgba(245,183,61,.25)}
+.icp-card-btn.enrich:hover{background:rgba(245,183,61,.2)}
+.icp-card-btn.edm{background:rgba(123,212,123,.1);color:#7bd47b;border:1px solid rgba(123,212,123,.25)}
+.icp-card-btn.edm:hover{background:rgba(123,212,123,.2)}
 /* Customer Pool Sidebar */
 .cpool-sidebar{width:220px;flex-shrink:0;background:rgba(10,16,35,.95);border-right:1px solid rgba(255,248,235,.06);display:flex;flex-direction:column;overflow:hidden}
 .cpool-header{padding:16px 14px 12px;border-bottom:1px solid rgba(255,248,235,.06)}
@@ -149,7 +149,7 @@
 .cpool-item-name{font-size:11px;color:#cbd5e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
 .cpool-item-status{font-size:10px;display:flex;align-items:center;gap:4px}
 .cpool-status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.cpool-status-dot.replied{background:#34d399}
+.cpool-status-dot.replied{background:#7bd47b}
 .cpool-status-dot.no-reply{background:#f59e0b}
 .cpool-status-dot.overdue{background:#f87171}
 .cpool-status-dot.pending{background:#6b7280}

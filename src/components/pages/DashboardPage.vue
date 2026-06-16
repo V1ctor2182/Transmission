@@ -66,16 +66,16 @@ function sparkPath (d) {
                       <stop offset="100%" stop-color="rgba(245,183,61,0)"/>
                     </radialGradient>
                     <radialGradient id="naGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="rgba(34,211,238,0.25)"/>
-                      <stop offset="100%" stop-color="rgba(34,211,238,0)"/>
+                      <stop offset="0%" stop-color="rgba(245,183,61,0.25)"/>
+                      <stop offset="100%" stop-color="rgba(245,183,61,0)"/>
                     </radialGradient>
                     <radialGradient id="euGrad" cx="50%" cy="50%" r="50%">
                       <stop offset="0%" stop-color="rgba(107,120,255,0.22)"/>
                       <stop offset="100%" stop-color="rgba(107,120,255,0)"/>
                     </radialGradient>
                     <radialGradient id="auGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="rgba(52,211,153,0.2)"/>
-                      <stop offset="100%" stop-color="rgba(52,211,153,0)"/>
+                      <stop offset="0%" stop-color="rgba(123,212,123,0.2)"/>
+                      <stop offset="100%" stop-color="rgba(123,212,123,0)"/>
                     </radialGradient>
                   </defs>
                   <!-- Deep space ocean -->
@@ -91,45 +91,45 @@ function sparkPath (d) {
 
                   <!-- ═══ CONTINENTS — detailed Natural Earth-style paths ═══ -->
                   <!-- North America -->
-                  <path d="M68,35 L95,28 L130,22 L168,20 L200,24 L228,30 L248,38 L262,50 L268,65 L272,82 L268,100 L258,118 L248,138 L240,158 L232,178 L222,198 L210,218 L198,235 L185,248 L172,258 L158,264 L144,262 L130,255 L116,244 L102,228 L90,210 L80,190 L72,168 L65,146 L60,122 L58,98 L60,75 L64,55Z" fill="#0b1830" stroke="rgba(245,183,61,0.2)" stroke-width="0.7"/>
+                  <path d="M68,35 L95,28 L130,22 L168,20 L200,24 L228,30 L248,38 L262,50 L268,65 L272,82 L268,100 L258,118 L248,138 L240,158 L232,178 L222,198 L210,218 L198,235 L185,248 L172,258 L158,264 L144,262 L130,255 L116,244 L102,228 L90,210 L80,190 L72,168 L65,146 L60,122 L58,98 L60,75 L64,55Z" fill="#1c160c" stroke="rgba(245,183,61,0.2)" stroke-width="0.7"/>
                   <!-- Central America -->
-                  <path d="M172,258 L185,248 L195,255 L200,268 L196,280 L188,285 L178,280 L172,270Z" fill="#0b1830" stroke="rgba(245,183,61,0.15)" stroke-width="0.5"/>
+                  <path d="M172,258 L185,248 L195,255 L200,268 L196,280 L188,285 L178,280 L172,270Z" fill="#1c160c" stroke="rgba(245,183,61,0.15)" stroke-width="0.5"/>
                   <!-- South America -->
-                  <path d="M175,288 L195,278 L218,272 L238,278 L250,292 L256,312 L258,335 L255,360 L248,385 L238,408 L224,428 L208,442 L192,448 L176,442 L162,428 L150,408 L142,382 L138,355 L138,328 L142,305 L150,292Z" fill="#0b1830" stroke="rgba(245,183,61,0.12)" stroke-width="0.7"/>
+                  <path d="M175,288 L195,278 L218,272 L238,278 L250,292 L256,312 L258,335 L255,360 L248,385 L238,408 L224,428 L208,442 L192,448 L176,442 L162,428 L150,408 L142,382 L138,355 L138,328 L142,305 L150,292Z" fill="#1c160c" stroke="rgba(245,183,61,0.12)" stroke-width="0.7"/>
                   <!-- Greenland -->
-                  <path d="M268,8 L295,5 L318,8 L330,18 L328,32 L315,40 L298,42 L280,38 L268,28Z" fill="#0a1525" stroke="rgba(245,183,61,0.1)" stroke-width="0.5"/>
+                  <path d="M268,8 L295,5 L318,8 L330,18 L328,32 L315,40 L298,42 L280,38 L268,28Z" fill="#15110a" stroke="rgba(245,183,61,0.1)" stroke-width="0.5"/>
                   <!-- UK & Ireland -->
-                  <path d="M388,38 L398,32 L408,35 L412,45 L408,55 L398,58 L388,52Z" fill="#0e1c32" stroke="rgba(107,120,255,0.2)" stroke-width="0.5"/>
+                  <path d="M388,38 L398,32 L408,35 L412,45 L408,55 L398,58 L388,52Z" fill="#211a0e" stroke="rgba(107,120,255,0.2)" stroke-width="0.5"/>
                   <!-- Europe main -->
-                  <path d="M408,28 L445,20 L478,18 L505,24 L522,35 L528,50 L524,68 L515,85 L502,98 L488,108 L472,115 L455,118 L438,115 L422,108 L410,95 L402,80 L400,62 L402,45Z" fill="#0e1c32" stroke="rgba(107,120,255,0.25)" stroke-width="0.7"/>
+                  <path d="M408,28 L445,20 L478,18 L505,24 L522,35 L528,50 L524,68 L515,85 L502,98 L488,108 L472,115 L455,118 L438,115 L422,108 L410,95 L402,80 L400,62 L402,45Z" fill="#211a0e" stroke="rgba(107,120,255,0.25)" stroke-width="0.7"/>
                   <!-- Scandinavia -->
-                  <path d="M438,8 L458,5 L472,10 L480,22 L472,32 L458,38 L445,35 L436,25Z" fill="#0e1c32" stroke="rgba(107,120,255,0.15)" stroke-width="0.5"/>
+                  <path d="M438,8 L458,5 L472,10 L480,22 L472,32 L458,38 L445,35 L436,25Z" fill="#211a0e" stroke="rgba(107,120,255,0.15)" stroke-width="0.5"/>
                   <!-- Africa -->
-                  <path d="M408,118 L440,110 L472,108 L502,112 L525,122 L540,140 L548,162 L550,188 L548,215 L542,242 L532,268 L518,292 L502,315 L485,335 L468,350 L450,358 L432,355 L415,342 L402,322 L392,298 L385,272 L382,245 L382,218 L385,190 L390,162 L396,140Z" fill="#0b1830" stroke="rgba(245,183,61,0.12)" stroke-width="0.7"/>
+                  <path d="M408,118 L440,110 L472,108 L502,112 L525,122 L540,140 L548,162 L550,188 L548,215 L542,242 L532,268 L518,292 L502,315 L485,335 L468,350 L450,358 L432,355 L415,342 L402,322 L392,298 L385,272 L382,245 L382,218 L385,190 L390,162 L396,140Z" fill="#1c160c" stroke="rgba(245,183,61,0.12)" stroke-width="0.7"/>
                   <!-- Madagascar -->
-                  <path d="M548,268 L558,262 L565,272 L562,292 L552,298 L544,290 L542,278Z" fill="#0b1830" stroke="rgba(245,183,61,0.1)" stroke-width="0.4"/>
+                  <path d="M548,268 L558,262 L565,272 L562,292 L552,298 L544,290 L542,278Z" fill="#1c160c" stroke="rgba(245,183,61,0.1)" stroke-width="0.4"/>
                   <!-- Middle East -->
-                  <path d="M528,78 L562,70 L592,68 L618,75 L632,90 L638,108 L632,128 L618,145 L600,155 L578,158 L555,152 L538,140 L528,122 L525,102Z" fill="#0e1c32" stroke="rgba(251,191,36,0.18)" stroke-width="0.6"/>
+                  <path d="M528,78 L562,70 L592,68 L618,75 L632,90 L638,108 L632,128 L618,145 L600,155 L578,158 L555,152 L538,140 L528,122 L525,102Z" fill="#211a0e" stroke="rgba(251,191,36,0.18)" stroke-width="0.6"/>
                   <!-- India -->
-                  <path d="M600,128 L635,122 L658,130 L668,148 L665,172 L655,198 L640,222 L622,238 L605,242 L590,235 L578,218 L572,195 L572,168 L578,148Z" fill="#0e1c32" stroke="rgba(251,191,36,0.15)" stroke-width="0.6"/>
+                  <path d="M600,128 L635,122 L658,130 L668,148 L665,172 L655,198 L640,222 L622,238 L605,242 L590,235 L578,218 L572,195 L572,168 L578,148Z" fill="#211a0e" stroke="rgba(251,191,36,0.15)" stroke-width="0.6"/>
                   <!-- Russia / Central Asia -->
-                  <path d="M430,8 L520,5 L600,8 L665,12 L720,15 L770,18 L815,22 L848,30 L868,42 L872,58 L862,75 L845,90 L822,102 L795,112 L765,118 L732,120 L698,118 L665,112 L635,105 L608,98 L582,90 L558,80 L538,68 L522,55 L510,42 L498,30 L478,22 L455,15 L432,12Z" fill="#0d1b30" stroke="rgba(52,211,153,0.15)" stroke-width="0.7"/>
+                  <path d="M430,8 L520,5 L600,8 L665,12 L720,15 L770,18 L815,22 L848,30 L868,42 L872,58 L862,75 L845,90 L822,102 L795,112 L765,118 L732,120 L698,118 L665,112 L635,105 L608,98 L582,90 L558,80 L538,68 L522,55 L510,42 L498,30 L478,22 L455,15 L432,12Z" fill="#0d1b30" stroke="rgba(123,212,123,0.15)" stroke-width="0.7"/>
                   <!-- China / East Asia -->
-                  <path d="M638,58 L692,48 L738,45 L778,50 L808,60 L828,75 L835,92 L830,110 L818,125 L800,138 L778,148 L752,155 L725,158 L698,155 L672,148 L648,138 L630,125 L622,108 L622,90 L628,72Z" fill="#0e1c32" stroke="rgba(52,211,153,0.2)" stroke-width="0.7"/>
+                  <path d="M638,58 L692,48 L738,45 L778,50 L808,60 L828,75 L835,92 L830,110 L818,125 L800,138 L778,148 L752,155 L725,158 L698,155 L672,148 L648,138 L630,125 L622,108 L622,90 L628,72Z" fill="#211a0e" stroke="rgba(123,212,123,0.2)" stroke-width="0.7"/>
                   <!-- Japan -->
-                  <path d="M828,68 L842,62 L852,68 L855,80 L848,90 L838,95 L828,90 L822,80Z" fill="#0e1c32" stroke="rgba(52,211,153,0.2)" stroke-width="0.5"/>
+                  <path d="M828,68 L842,62 L852,68 L855,80 L848,90 L838,95 L828,90 L822,80Z" fill="#211a0e" stroke="rgba(123,212,123,0.2)" stroke-width="0.5"/>
                   <!-- Korea -->
-                  <path d="M808,80 L820,75 L828,80 L828,92 L820,98 L810,95 L805,88Z" fill="#0e1c32" stroke="rgba(52,211,153,0.15)" stroke-width="0.4"/>
+                  <path d="M808,80 L820,75 L828,80 L828,92 L820,98 L810,95 L805,88Z" fill="#211a0e" stroke="rgba(123,212,123,0.15)" stroke-width="0.4"/>
                   <!-- Southeast Asia -->
-                  <path d="M658,148 L698,142 L732,145 L758,155 L775,170 L782,190 L778,212 L765,232 L748,248 L728,258 L708,262 L688,255 L670,240 L658,220 L650,198 L648,175Z" fill="#0e1c32" stroke="rgba(245,183,61,0.25)" stroke-width="0.7"/>
+                  <path d="M658,148 L698,142 L732,145 L758,155 L775,170 L782,190 L778,212 L765,232 L748,248 L728,258 L708,262 L688,255 L670,240 L658,220 L650,198 L648,175Z" fill="#211a0e" stroke="rgba(245,183,61,0.25)" stroke-width="0.7"/>
                   <!-- Indonesia (Sumatra/Java) -->
-                  <path d="M668,258 L705,252 L738,255 L758,265 L762,278 L748,285 L718,282 L688,275 L668,268Z" fill="#0e1c32" stroke="rgba(245,183,61,0.15)" stroke-width="0.5"/>
+                  <path d="M668,258 L705,252 L738,255 L758,265 L762,278 L748,285 L718,282 L688,275 L668,268Z" fill="#211a0e" stroke="rgba(245,183,61,0.15)" stroke-width="0.5"/>
                   <!-- Philippines -->
-                  <path d="M768,168 L782,162 L792,168 L795,182 L788,195 L775,198 L765,192 L762,178Z" fill="#0e1c32" stroke="rgba(245,183,61,0.15)" stroke-width="0.4"/>
+                  <path d="M768,168 L782,162 L792,168 L795,182 L788,195 L775,198 L765,192 L762,178Z" fill="#211a0e" stroke="rgba(245,183,61,0.15)" stroke-width="0.4"/>
                   <!-- Australia -->
-                  <path d="M738,305 L782,295 L822,292 L858,298 L882,312 L895,332 L898,358 L892,385 L878,408 L858,425 L832,435 L805,435 L778,425 L755,408 L740,385 L730,358 L728,330Z" fill="#0b1830" stroke="rgba(34,211,238,0.15)" stroke-width="0.7"/>
+                  <path d="M738,305 L782,295 L822,292 L858,298 L882,312 L895,332 L898,358 L892,385 L878,408 L858,425 L832,435 L805,435 L778,425 L755,408 L740,385 L730,358 L728,330Z" fill="#1c160c" stroke="rgba(245,183,61,0.15)" stroke-width="0.7"/>
                   <!-- New Zealand -->
-                  <path d="M898,368 L908,360 L915,368 L912,382 L902,388 L895,380Z" fill="#0b1830" stroke="rgba(34,211,238,0.1)" stroke-width="0.4"/>
+                  <path d="M898,368 L908,360 L915,368 L912,382 L902,388 L895,380Z" fill="#1c160c" stroke="rgba(245,183,61,0.1)" stroke-width="0.4"/>
 
                   <!-- ═══ CITY LIGHT DOTS — dense warm amber glow ═══ -->
                   <!-- North America East Coast (dense) -->
@@ -203,16 +203,16 @@ function sparkPath (d) {
                     <animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite"/>
                   </circle>
                   <circle cx="718" cy="228" r="4" fill="#ffd27a"/>
-                  <text x="718" y="218" text-anchor="middle" font-size="9" fill="#9beae0" font-family="Geist,sans-serif" font-weight="700">新加坡</text>
+                  <text x="718" y="218" text-anchor="middle" font-size="9" fill="#ffd27a" font-family="Geist,sans-serif" font-weight="700">新加坡</text>
                   <text x="718" y="244" text-anchor="middle" font-size="8" fill="rgba(165,180,252,0.6)" font-family="Geist,sans-serif">3300万华人</text>
 
                   <!-- New York -->
-                  <circle cx="152" cy="108" r="4.5" fill="#22d3ee" filter="url(#hotGlow)">
+                  <circle cx="152" cy="108" r="4.5" fill="#f5b73d" filter="url(#hotGlow)">
                     <animate attributeName="r" values="3;11;3" dur="3s" repeatCount="indefinite"/>
                     <animate attributeName="opacity" values="1;0.2;1" dur="3s" repeatCount="indefinite"/>
                   </circle>
-                  <circle cx="152" cy="108" r="3.5" fill="#67e8f9"/>
-                  <text x="152" y="98" text-anchor="middle" font-size="9" fill="#67e8f9" font-family="Geist,sans-serif" font-weight="700">北美</text>
+                  <circle cx="152" cy="108" r="3.5" fill="#ffd27a"/>
+                  <text x="152" y="98" text-anchor="middle" font-size="9" fill="#ffd27a" font-family="Geist,sans-serif" font-weight="700">北美</text>
                   <text x="152" y="124" text-anchor="middle" font-size="8" fill="rgba(103,232,249,0.6)" font-family="Geist,sans-serif">530万华人</text>
 
                   <!-- London/Europe -->
@@ -225,7 +225,7 @@ function sparkPath (d) {
                   <text x="448" y="68" text-anchor="middle" font-size="8" fill="rgba(196,181,253,0.6)" font-family="Geist,sans-serif">215万华人</text>
 
                   <!-- Sydney -->
-                  <circle cx="808" cy="368" r="3.5" fill="#34d399" filter="url(#hotGlow)">
+                  <circle cx="808" cy="368" r="3.5" fill="#7bd47b" filter="url(#hotGlow)">
                     <animate attributeName="r" values="2.5;9;2.5" dur="4s" repeatCount="indefinite"/>
                     <animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite"/>
                   </circle>

@@ -28,7 +28,7 @@
           <!-- Data Sources Full Display -->
           <div style="background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px">
             <div style="font-size:13px;font-weight:600;color:#e2e8f0;margin-bottom:18px;display:flex;align-items:center;gap:8px">
-              <span style="width:8px;height:8px;border-radius:50%;background:#34d399;display:inline-block;box-shadow:0 0 6px #34d399"></span>
+              <span style="width:8px;height:8px;border-radius:50%;background:#7bd47b;display:inline-block;box-shadow:0 0 6px #7bd47b"></span>
               已连接 28 个全球数据源
               <span style="font-size:11px;color:var(--t-muted);font-weight:400;margin-left:4px">实时在线，每日自动更新</span>
             </div>
@@ -167,7 +167,7 @@
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
                   <div style="font-size:15px;font-weight:700;color:#e2e8f0">每天自动找客户 · 东南亚 + 北美 + 澳洲</div>
-                  <div style="font-size:10px;font-weight:700;color:#34d399;background:rgba(52,211,153,.12);padding:2px 8px;border-radius:10px;border:1px solid rgba(52,211,153,.2)">♻️ 执行中</div>
+                  <div style="font-size:10px;font-weight:700;color:#7bd47b;background:rgba(123,212,123,.12);padding:2px 8px;border-radius:10px;border:1px solid rgba(123,212,123,.2)">♻️ 执行中</div>
                 </div>
                 <div style="font-size:12px;color:var(--t-muted);margin-bottom:12px">所有已接入数据源 · 50 个/天 · 已执行 14 天 / 30 天 · 自动寻找联系人已开启</div>
                 <div style="display:flex;gap:24px">
@@ -176,7 +176,7 @@
                     <div style="font-size:10px;color:var(--t-muted)">已找到客户</div>
                   </div>
                   <div style="text-align:center">
-                    <div style="font-size:22px;font-weight:800;color:#34d399">487</div>
+                    <div style="font-size:22px;font-weight:800;color:#7bd47b">487</div>
                     <div style="font-size:10px;color:var(--t-muted)">已找到联系人</div>
                   </div>
                   <div style="text-align:center">
@@ -184,7 +184,7 @@
                     <div style="font-size:10px;color:var(--t-muted)">已进入营销队列</div>
                   </div>
                   <div style="text-align:center">
-                    <div style="font-size:22px;font-weight:800;color:#22d3ee">16</div>
+                    <div style="font-size:22px;font-weight:800;color:#f5b73d">16</div>
                     <div style="font-size:10px;color:var(--t-muted)">剩余天数</div>
                   </div>
                 </div>
@@ -210,7 +210,7 @@
           <div style="background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
               <div style="display:flex;align-items:center;gap:8px">
-                <span style="width:7px;height:7px;border-radius:50%;background:#34d399;display:inline-block;animation:pulse 2s infinite"></span>
+                <span style="width:7px;height:7px;border-radius:50%;background:#7bd47b;display:inline-block;animation:pulse 2s infinite"></span>
                 <span style="font-size:13px;font-weight:600;color:#e2e8f0">实时推送的客户</span>
                 <span style="font-size:11px;color:var(--t-muted)">AI 每分钟自动搜索并推送</span>
               </div>
