@@ -17,12 +17,17 @@ import AppModals from './components/shared/AppModals.vue'
 import ToastHost from './components/shared/ToastHost.vue'
 import FirstRunAnalysis from './components/screens/FirstRunAnalysis.vue'
 
-// H1 (feat branch): the redesigned "AI 分析" first-run. Triggerable for review;
-// final wiring = startScan() shows this instead of the old fake-scan overlay.
+// H1: redesigned "AI 分析" first-run. startScan() triggers it (replaces the old
+// fake-scan overlay + onboarding chapters); "进入工作台" → enterApp().
 const showAnalysis = ref(false)
+const analysisDomain = ref('wanqianfood.com')
+function finishAnalysis () {
+  showAnalysis.value = false
+  window.enterApp && window.enterApp()
+}
 onMounted(() => {
   window.__initLegacyApp && window.__initLegacyApp()
-  window.__showAnalysis = () => { showAnalysis.value = true }
+  window.__showAnalysis = (d) => { if (d) analysisDomain.value = d; showAnalysis.value = true }
 })
 </script>
 
@@ -33,5 +38,5 @@ onMounted(() => {
   <AiBubble />
   <AppModals />
   <ToastHost />
-  <FirstRunAnalysis v-if="showAnalysis" domain="wanqianfood.com" @done="showAnalysis = false" />
+  <FirstRunAnalysis v-if="showAnalysis" :domain="analysisDomain" @done="finishAnalysis" />
 </template>

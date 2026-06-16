@@ -219,6 +219,9 @@ function startScan() {
   const modal = document.getElementById('website-modal-overlay');
   if(modal) { modal.style.opacity='0'; setTimeout(()=>modal.style.display='none',400); }
 
+  // H1: 用新的「指挥台自我拼装」分析屏,替代旧的假扫描进度条 + 章节轮播
+  if (window.__showAnalysis) { window.__showAnalysis(domain); return; }
+
   document.getElementById('rso-domain').textContent = domain;
   const overlay = document.getElementById('reg-scan-overlay');
   overlay.style.display = 'flex';
