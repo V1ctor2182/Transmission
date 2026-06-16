@@ -10,13 +10,13 @@ import { ref, computed } from 'vue'
 import WorldHeatmap from '../shared/WorldHeatmap.vue'
 const nav = (p) => window.navTo?.(p)
 
-// 真实世界地图热点(viewBox 1010x666 上的近似地理坐标);region = 下钻分组键
+// 地图热点 = 万仟出海战略的四级目标市场(T1 东南亚首选→T2 北美→T3 澳洲/欧洲)。
+// region = 下钻分组键;东南亚为核心市场,标 hot。
 const mapHotspots = [
-  { x: 250, y: 246, label: '北美 · 512K',  hot: true, region: '北美' },
-  { x: 516, y: 182, label: '欧洲 · 96K',   region: '欧洲' },
-  { x: 600, y: 286, label: '中东 · 64K',   region: '中东' },
-  { x: 778, y: 398, label: '东南亚 · 188K', region: '东南亚' },
-  { x: 852, y: 470, label: '澳洲 · 77K',   region: '澳洲' },
+  { x: 778, y: 398, label: '东南亚 · 512K', hot: true, region: '东南亚' },  // T1 首选(3300万华侨)
+  { x: 250, y: 246, label: '北美 · 188K',   region: '北美' },                // T2 重点
+  { x: 852, y: 470, label: '澳洲 · 77K',    region: '澳洲' },                // T3 布局
+  { x: 516, y: 182, label: '欧洲 · 96K',    region: '欧洲' },                // T3 布局
 ]
 const kpis = [
   { label: '全球商机总数', value: '2,847,392', delta: '+3.2% 较昨日',  hot: false, page: 'intel',     spark: [12,14,13,16,18,17,21,24] },
@@ -36,16 +36,18 @@ const feed = [
   { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel' },
   { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads' },
 ]
-// 实时买家信号(右侧常驻整列)。region 对应地图热点;flag/country/need 喂给建联对话上下文
+// 实时买家信号(右侧常驻整列)= 万仟报告点名的真实华人超市渠道(Fairprice/NTUC·Cold
+// Storage·Jaya Grocer 东南亚 / 99 Ranch·T&T 北美 / Asian Grocery 澳),需求为粽子/月饼/节庆礼盒。
+// region 对应地图热点;flag/country/need 喂给建联对话上下文。东南亚为核心,占比最大。
 const buyers = [
-  { cc: 'DE', co: 'Nordwind Foods GmbH', mt: 96, sub: '德国 · 2分钟前',   val: '€420,000', region: '欧洲',   country: '德国',    flag: '🇩🇪', need: '节庆礼盒与高端糕点' },
-  { cc: 'SG', co: 'Lim Heng Trading',    mt: 91, sub: '新加坡 · 14分钟前', val: '$188,400', region: '东南亚', country: '新加坡',  flag: '🇸🇬', need: '中秋月饼礼盒' },
-  { cc: 'US', co: 'Pacific Gourmet Inc', mt: 84, sub: '美国 · 31分钟前',  val: '$512,750', mid: true, region: '北美', country: '美国', flag: '🇺🇸', need: '亚洲精品食品年度供应' },
-  { cc: 'FR', co: 'Saveur Atlantique',   mt: 79, sub: '法国 · 1小时前',   val: '€96,200',  mid: true, region: '欧洲', country: '法国', flag: '🇫🇷', need: '亚洲节庆食品' },
-  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 88, sub: '马来西亚 · 1小时前', val: '$142,000', region: '东南亚', country: '马来西亚', flag: '🇲🇾', need: '精品月饼批发' },
-  { cc: 'US', co: '99 Ranch Market',     mt: 87, sub: '美国 · 2小时前',   val: '$331,500', region: '北美',   country: '美国',    flag: '🇺🇸', need: '中式糕点年度采购' },
-  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: '泰国 · 3小时前',   val: '$77,800',  mid: true, region: '东南亚', country: '泰国', flag: '🇹🇭', need: '高端节庆礼盒' },
-  { cc: 'ID', co: 'Transmart Carrefour', mt: 80, sub: '印尼 · 4小时前',   val: '$120,400', mid: true, region: '东南亚', country: '印尼', flag: '🇮🇩', need: '节庆食品采购' },
+  { cc: 'SG', co: 'Fairprice Group',     mt: 96, sub: '新加坡 · 2分钟前',  val: '$188,400', region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '中秋精品月饼礼盒' },
+  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 93, sub: '马来西亚 · 14分钟前', val: '$142,000', region: '东南亚', country: '马来西亚', flag: '🇲🇾', need: '精品月饼批发' },
+  { cc: 'SG', co: 'Cold Storage',        mt: 88, sub: '新加坡 · 38分钟前',  val: '$96,500',  region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '高端节庆礼盒' },
+  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: '泰国 · 1小时前',    val: '$77,800',  mid: true, region: '东南亚', country: '泰国', flag: '🇹🇭', need: '节庆礼品盒' },
+  { cc: 'CA', co: 'T&T Supermarket',     mt: 91, sub: '加拿大 · 2小时前',  val: '$204,000', region: '北美',   country: '加拿大',   flag: '🇨🇦', need: '月饼礼盒年度采购' },
+  { cc: 'US', co: '99 Ranch Market',     mt: 89, sub: '美国 · 2小时前',    val: '$331,500', region: '北美',   country: '美国',     flag: '🇺🇸', need: '中式糕点年度采购' },
+  { cc: 'AU', co: 'Asian Grocery Pty',   mt: 84, sub: '澳大利亚 · 4小时前', val: '$120,400', mid: true, region: '澳洲', country: '澳大利亚', flag: '🇦🇺', need: '高端粽子礼盒' },
+  { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: '英国 · 5小时前',    val: '£96,200',  mid: true, region: '欧洲', country: '英国', flag: '🇬🇧', need: '亚洲节庆食品年度进口' },
 ]
 
 const activeRegion = ref(null)
@@ -80,7 +82,7 @@ const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, 
           <div class="map-stat">
             <div>2,847,392<span>全球商机</span></div>
             <div>98,241<span>今日新增</span></div>
-            <div>5<span>区域火热</span></div>
+            <div>4<span>目标市场</span></div>
           </div>
           <div class="map-hint" v-if="!activeRegion">点击地图热点,下钻该区域实时买家</div>
         </div>
@@ -120,7 +122,7 @@ const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, 
       <section class="pane buyers-pane">
         <div class="pane-h">
           <span class="t">实时买家信号</span>
-          <span class="live"><i></i>{{ activeRegion ? activeRegion : '5 区域' }}</span>
+          <span class="live"><i></i>{{ activeRegion ? activeRegion : '4 市场' }}</span>
           <span class="sp"></span>
           <button v-if="activeRegion" class="region-clear" @click="activeRegion = null">{{ shownBuyers.length }} 个 · 全部 ✕</button>
           <div v-else class="seg"><b class="on">匹配度</b><b>时间</b></div>
