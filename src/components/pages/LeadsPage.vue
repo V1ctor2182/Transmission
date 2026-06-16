@@ -81,10 +81,10 @@
                 <div style="flex:1">
                   <!-- 已选国家 Tags -->
                   <div id="region-selected-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
-                    <div class="rg-tag" data-country="新加坡" data-flag="🇸🇬">🇸🇬 新加坡 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
-                    <div class="rg-tag" data-country="马来西亚" data-flag="🇲🇾">🇲🇾 马来西亚 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
-                    <div class="rg-tag" data-country="澳大利亚" data-flag="🇦🇺">🇦🇺 澳大利亚 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
-                    <div class="rg-tag" data-country="加拿大" data-flag="🇨🇦">🇨🇦 加拿大 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
+                    <div class="rg-tag" data-country="新加坡" data-flag="🇸🇬"><span class="rg-cc">SG</span>新加坡 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
+                    <div class="rg-tag" data-country="马来西亚" data-flag="🇲🇾"><span class="rg-cc">MY</span>马来西亚 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
+                    <div class="rg-tag" data-country="澳大利亚" data-flag="🇦🇺"><span class="rg-cc">AU</span>澳大利亚 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
+                    <div class="rg-tag" data-country="加拿大" data-flag="🇨🇦"><span class="rg-cc">CA</span>加拿大 <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span></div>
                   </div>
                   <!-- 搜索框 + 添加按鈕 -->
                   <div style="position:relative;display:flex;align-items:center;gap:8px">
@@ -96,14 +96,14 @@
                         <!-- 洲选择导航 -->
                         <div id="rg-continent-nav" style="display:flex;gap:0;border-bottom:1px solid rgba(255,248,235,.06);overflow-x:auto">
                           <div class="rg-cont-tab active" data-cont="all" onclick="selectContinent(this)">全部</div>
-                          <div class="rg-cont-tab" data-cont="sea" onclick="selectContinent(this)">🌏 东南亚</div>
-                          <div class="rg-cont-tab" data-cont="na" onclick="selectContinent(this)">🇺🇸 北美</div>
-                          <div class="rg-cont-tab" data-cont="eu" onclick="selectContinent(this)">🇪🇺 欧洲</div>
-                          <div class="rg-cont-tab" data-cont="oc" onclick="selectContinent(this)">🇦🇺 大洋洲</div>
-                          <div class="rg-cont-tab" data-cont="me" onclick="selectContinent(this)">🇦🇪 中东</div>
-                          <div class="rg-cont-tab" data-cont="ea" onclick="selectContinent(this)">🇯🇵 东亚</div>
-                          <div class="rg-cont-tab" data-cont="sa" onclick="selectContinent(this)">🇧🇷 南美</div>
-                          <div class="rg-cont-tab" data-cont="af" onclick="selectContinent(this)">🇳🇬 非洲</div>
+                          <div class="rg-cont-tab" data-cont="sea" onclick="selectContinent(this)">东南亚</div>
+                          <div class="rg-cont-tab" data-cont="na" onclick="selectContinent(this)">北美</div>
+                          <div class="rg-cont-tab" data-cont="eu" onclick="selectContinent(this)">欧洲</div>
+                          <div class="rg-cont-tab" data-cont="oc" onclick="selectContinent(this)">大洋洲</div>
+                          <div class="rg-cont-tab" data-cont="me" onclick="selectContinent(this)">中东</div>
+                          <div class="rg-cont-tab" data-cont="ea" onclick="selectContinent(this)">东亚</div>
+                          <div class="rg-cont-tab" data-cont="sa" onclick="selectContinent(this)">南美</div>
+                          <div class="rg-cont-tab" data-cont="af" onclick="selectContinent(this)">非洲</div>
                         </div>
                         <!-- 国家列表 -->
                         <div id="rg-country-list" style="overflow-y:auto;max-height:240px;padding:6px"></div>

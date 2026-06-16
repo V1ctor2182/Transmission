@@ -1703,7 +1703,7 @@ function renderRgCountryList() {
   list.innerHTML = countries.map(c => {
     const isSel = selectedNames.includes(c.name);
     return `<div class="rg-country-item${isSel?' selected':''}" onclick="toggleRgCountry('${c.name}','${c.flag}',this)">
-      <span style="font-size:16px">${c.flag}</span>
+      ${ccBadge(c.flag)}
       <span>${c.name}</span>
     </div>`;
   }).join('');
@@ -1723,7 +1723,7 @@ function toggleRgCountry(name, flag, el) {
     tag.className = 'rg-tag';
     tag.dataset.country = name;
     tag.dataset.flag = flag;
-    tag.innerHTML = `${flag} ${name} <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span>`;
+    tag.innerHTML = `<span class="rg-cc">${FLAG2CC[flag]||'··'}</span>${name} <span onclick="removeRgTag(this.parentElement)" style="margin-left:4px;cursor:pointer;opacity:.6;font-size:10px">×</span>`;
     tags?.appendChild(tag);
   }
   updateRgCount();

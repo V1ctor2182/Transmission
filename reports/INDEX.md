@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 015 | 🟦 Standard | CP3 leads 地区标签去 emoji(国旗→mono 码 + 大洲去 emoji) | ✅ delta 3/3 KEEP | [round-015](round-015-leads-region-deemoji.md) |
 | 014 | 🟦 Standard | CP2 whatsapp 去 emoji(⏰→扁平时钟 SVG) | ✅ delta 3/3 KEEP | [round-014](round-014-whatsapp-deemoji.md) |
 | 013 | 🟦 Standard | CP1 客户池去 emoji(国旗→mono码 + 🤖/💬→扁平) | ✅ delta 3/3 KEEP | [round-013](round-013-pool-deemoji.md) |
 | 012 | 🟧 大件 | 多窗格指挥台布局 | ⏸ delta 3/3 KEEP · 待人工 review | [round-012](round-012-command-center.md) |
