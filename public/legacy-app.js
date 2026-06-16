@@ -840,6 +840,48 @@ function navTo(page, idx) {
   if(page === 'intel') renderIntelTable();
 }
 
+// ── H3 一键建联:把仪表盘上看到的实时买家信号,直接落成可对话的真实联系人 ──
+// 同一买家(按公司名)去重复用,不造重复联系人;把触发热点的采购信号物化为对话首条 + AI 话术。
+function connectBuyer(co, country, flag, region, val, need, score) {
+  let id = WA_CONTACTS.findIndex(c => c.company === co || c.name === co);
+  if (id === -1) {
+    id = WA_CONTACTS.length;
+    WA_CONTACTS.push({ id, name: co, company: co, country: flag || '🌐', av: (co||'·')[0],
+      color: '#f5b73d', last: need ? ('正在寻找' + need) : '新采购信号', time: '刚刚', unread: 1, status: '在线' });
+    WA_CHATS[id] = [
+      { type: 'in', text: `您好,我们是${co}(${country})。我们正在寻找${need || '相关产品'}的供应商,本季度预计采购额约 ${val}。希望了解贵司的供货能力与报价。`, time: '刚刚' },
+      { type: 'follow', text: `跟进提醒:${co} 刚从${country}发来约 ${val} 的采购信号,建议 30 分钟内回复,抢占先机。` },
+    ];
+    WA_CHIPS[id] = [
+      `我们可提供${need || '相关产品'}的完整目录与报价单,支持定制包装`,
+      '我们持有欧盟 / 清真等多项食品安全认证,可提供完整证书文件',
+      '欢迎安排视频会议,详细介绍产品线与合作条款,并可寄送样品',
+    ];
+    INTEL_DATA[id] = {
+      name: co, company: need || co, country: country, flag: flag, score: score || 88,
+      basic: [
+        { icon: 'biz',  key: '所在区域', val: country + ' · ' + region },
+        { icon: 'cart', key: '采购需求', val: need || '—' },
+        { icon: 'rev',  key: '本季采购额', val: val },
+        { icon: 'cal',  key: '信号时间', val: '刚刚' },
+      ],
+      locked: [
+        { icon: 'phone',  key: '直线电话', val: '+•• ••• ••• •••' },
+        { icon: 'mail',   key: '采购负责人邮箱', val: '••••@' + co.toLowerCase().replace(/[^a-z]/g,'').slice(0,8) + '.com' },
+        { icon: 'chart',  key: '历史采购额', val: '████ / 年' },
+        { icon: 'target', key: '决策周期', val: '██ 周' },
+      ],
+      followup: { ico: 'bell', title: '建联时机', text: `${co} 的采购信号刚刚触发,匹配度 ${score || 88} 分。建议立即发送包含报价与认证的开场信息,转化概率最高。`, btn: '生成个性化开场白' },
+    };
+  } else {
+    WA_CONTACTS[id].unread = 0;
+  }
+  navTo('whatsapp', PAGE_IDX.whatsapp);
+  renderWaContacts();
+  selectWaContact(id);
+  toast('◆', '已建联 · ' + co, `${country} · ${val} 采购信号 → 对话已打开,AI 话术已就绪`);
+}
+
 // ═══════════════════════════════════════════════════════
 // LEADS
 // ═══════════════════════════════════════════════════════
@@ -1807,6 +1849,8 @@ function selectWaContact(id) {
   document.getElementById('wa-chat-name').textContent = c.name;
   document.getElementById('wa-chat-status').textContent = c.status === '在线' ? '● 在线' : '○ 离线';
   document.getElementById('wa-chat-status').style.color = c.status === '在线' ? 'var(--green)' : 'var(--t-muted)';
+  const linkName = document.getElementById('wa-link-name');
+  if (linkName) linkName.textContent = c.name;
   renderWaChat(id);
   renderIntelPanel(id);
 }

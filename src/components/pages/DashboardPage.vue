@@ -6,16 +6,17 @@
   数据驱动的 feed/buyers,legacy 渲染器有 if(!el) return 守卫,不会报错。
 -->
 <script setup>
+import { ref, computed } from 'vue'
 import WorldHeatmap from '../shared/WorldHeatmap.vue'
 const nav = (p) => window.navTo?.(p)
 
-// 真实世界地图热点(viewBox 1010x666 上的近似地理坐标)
+// 真实世界地图热点(viewBox 1010x666 上的近似地理坐标);region = 下钻分组键
 const mapHotspots = [
-  { x: 250, y: 246, label: '北美 · 512K', hot: true },
-  { x: 516, y: 182, label: '欧洲 · 96K' },
-  { x: 600, y: 286, label: '中东 · 64K' },
-  { x: 778, y: 398, label: '新加坡 · 188K' },
-  { x: 852, y: 470, label: '澳洲 · 77K' },
+  { x: 250, y: 246, label: '北美 · 512K',  hot: true, region: '北美' },
+  { x: 516, y: 182, label: '欧洲 · 96K',   region: '欧洲' },
+  { x: 600, y: 286, label: '中东 · 64K',   region: '中东' },
+  { x: 778, y: 398, label: '东南亚 · 188K', region: '东南亚' },
+  { x: 852, y: 470, label: '澳洲 · 77K',   region: '澳洲' },
 ]
 const kpis = [
   { label: '全球商机总数', value: '2,847,392', delta: '+3.2% 较昨日',  hot: false, page: 'intel',     spark: [12,14,13,16,18,17,21,24] },
@@ -35,17 +36,22 @@ const feed = [
   { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel' },
   { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads' },
 ]
-// 实时买家信号(右侧常驻整列)
+// 实时买家信号(右侧常驻整列)。region 对应地图热点;flag/country/need 喂给建联对话上下文
 const buyers = [
-  { cc: 'DE', co: 'Nordwind Foods GmbH', mt: 96, sub: '德国 · 2分钟前',   val: '€420,000' },
-  { cc: 'SG', co: 'Lim Heng Trading',    mt: 91, sub: '新加坡 · 14分钟前', val: '$188,400' },
-  { cc: 'US', co: 'Pacific Gourmet Inc', mt: 84, sub: '美国 · 31分钟前',  val: '$512,750', mid: true },
-  { cc: 'FR', co: 'Saveur Atlantique',   mt: 79, sub: '法国 · 1小时前',   val: '€96,200',  mid: true },
-  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 88, sub: '马来西亚 · 1小时前', val: '$142,000' },
-  { cc: 'US', co: '99 Ranch Market',     mt: 87, sub: '美国 · 2小时前',   val: '$331,500' },
-  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: '泰国 · 3小时前',   val: '$77,800',  mid: true },
-  { cc: 'ID', co: 'Transmart Carrefour', mt: 80, sub: '印尼 · 4小时前',   val: '$120,400', mid: true },
+  { cc: 'DE', co: 'Nordwind Foods GmbH', mt: 96, sub: '德国 · 2分钟前',   val: '€420,000', region: '欧洲',   country: '德国',    flag: '🇩🇪', need: '节庆礼盒与高端糕点' },
+  { cc: 'SG', co: 'Lim Heng Trading',    mt: 91, sub: '新加坡 · 14分钟前', val: '$188,400', region: '东南亚', country: '新加坡',  flag: '🇸🇬', need: '中秋月饼礼盒' },
+  { cc: 'US', co: 'Pacific Gourmet Inc', mt: 84, sub: '美国 · 31分钟前',  val: '$512,750', mid: true, region: '北美', country: '美国', flag: '🇺🇸', need: '亚洲精品食品年度供应' },
+  { cc: 'FR', co: 'Saveur Atlantique',   mt: 79, sub: '法国 · 1小时前',   val: '€96,200',  mid: true, region: '欧洲', country: '法国', flag: '🇫🇷', need: '亚洲节庆食品' },
+  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 88, sub: '马来西亚 · 1小时前', val: '$142,000', region: '东南亚', country: '马来西亚', flag: '🇲🇾', need: '精品月饼批发' },
+  { cc: 'US', co: '99 Ranch Market',     mt: 87, sub: '美国 · 2小时前',   val: '$331,500', region: '北美',   country: '美国',    flag: '🇺🇸', need: '中式糕点年度采购' },
+  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: '泰国 · 3小时前',   val: '$77,800',  mid: true, region: '东南亚', country: '泰国', flag: '🇹🇭', need: '高端节庆礼盒' },
+  { cc: 'ID', co: 'Transmart Carrefour', mt: 80, sub: '印尼 · 4小时前',   val: '$120,400', mid: true, region: '东南亚', country: '印尼', flag: '🇮🇩', need: '节庆食品采购' },
 ]
+
+const activeRegion = ref(null)
+const onHotspot = (h) => { activeRegion.value = activeRegion.value === h.region ? null : h.region }
+const shownBuyers = computed(() => activeRegion.value ? buyers.filter(b => b.region === activeRegion.value) : buyers)
+const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, b.val, b.need, b.mt)
 </script>
 
 <template>
@@ -70,12 +76,13 @@ const buyers = [
           </div>
         </div>
         <div class="pane-b">
-          <div class="cc-map"><WorldHeatmap :hotspots="mapHotspots" /></div>
+          <div class="cc-map"><WorldHeatmap :hotspots="mapHotspots" :active="activeRegion" @hotspot="onHotspot" /></div>
           <div class="map-stat">
             <div>2,847,392<span>全球商机</span></div>
             <div>98,241<span>今日新增</span></div>
             <div>5<span>区域火热</span></div>
           </div>
+          <div class="map-hint" v-if="!activeRegion">点击地图热点,下钻该区域实时买家</div>
         </div>
       </section>
 
@@ -113,16 +120,25 @@ const buyers = [
       <section class="pane buyers-pane">
         <div class="pane-h">
           <span class="t">实时买家信号</span>
-          <span class="live"><i></i>5 区域</span>
+          <span class="live"><i></i>{{ activeRegion ? activeRegion : '5 区域' }}</span>
           <span class="sp"></span>
-          <div class="seg"><b class="on">匹配度</b><b>时间</b></div>
+          <button v-if="activeRegion" class="region-clear" @click="activeRegion = null">{{ shownBuyers.length }} 个 · 全部 ✕</button>
+          <div v-else class="seg"><b class="on">匹配度</b><b>时间</b></div>
         </div>
         <div class="pane-b">
-          <div class="brow" v-for="(b, i) in buyers" :key="i" @click="nav('whatsapp')">
+          <div class="brow" v-for="(b, i) in shownBuyers" :key="b.co" @click="connect(b)">
             <div class="co"><span class="cc mono">{{ b.cc }}</span>{{ b.co }}</div>
             <div class="mt mono" :class="{ mid: b.mid }">{{ b.mt }}</div>
             <div class="bsub mono">{{ b.sub }}</div>
             <div class="val mono">{{ b.val }}</div>
+            <button class="bconnect" @click.stop="connect(b)" title="一键建联">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>建联
+            </button>
+          </div>
+          <div class="bempty" v-if="!shownBuyers.length">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <div>{{ activeRegion }} 区域暂无活跃买家信号</div>
+            <button class="region-clear" @click="activeRegion = null">看全部区域</button>
           </div>
         </div>
       </section>
@@ -210,15 +226,37 @@ const buyers = [
 
 /* 买家行 */
 .buyers-pane .pane-b{ padding:0 }
-.brow{ display:grid; grid-template-columns:1fr auto; gap:4px 10px; padding:11px 13px;
+.brow{ display:grid; grid-template-columns:1fr auto auto; gap:4px 10px; padding:11px 13px;
+  grid-template-areas:"co mt connect" "bsub val connect"; align-items:center;
   border-bottom:1px solid var(--bd); cursor:pointer; transition:.12s }
 .brow:hover{ background:var(--s2) }
-.brow .co{ font-weight:600; font-size:12.5px; color:var(--t1); display:flex; align-items:center }
-.brow .mt{ font:700 12px 'JetBrains Mono',monospace; color:var(--acc); text-align:right }
+.brow .co{ grid-area:co; font-weight:600; font-size:12.5px; color:var(--t1); display:flex; align-items:center }
+.brow .mt{ grid-area:mt; font:700 12px 'JetBrains Mono',monospace; color:var(--acc); text-align:right }
 .brow .mt.mid{ color:var(--hot) }
-.brow .bsub{ font:500 11px 'JetBrains Mono',monospace; color:var(--t3) }
-.brow .val{ font:500 11px 'JetBrains Mono',monospace; color:var(--t2); text-align:right }
+.brow .bsub{ grid-area:bsub; font:500 11px 'JetBrains Mono',monospace; color:var(--t3) }
+.brow .val{ grid-area:val; font:500 11px 'JetBrains Mono',monospace; color:var(--t2); text-align:right }
 .cc{ display:inline-block; min-width:22px; padding:1px 4px; margin-right:8px; border-radius:4px;
   background:var(--s2); border:1px solid var(--bd); color:var(--t2);
   font:700 9.5px 'JetBrains Mono',monospace; letter-spacing:.04em; text-align:center }
+/* 一键建联(行内,默认低调、hover/选区时显形) */
+.brow .bconnect{ grid-area:connect; align-self:center; display:inline-flex; align-items:center; gap:4px;
+  border:1px solid var(--acc-line); background:var(--acc-soft); color:var(--brand2,#ffd27a);
+  border-radius:7px; padding:5px 9px; font:600 11px 'Geist',sans-serif; cursor:pointer;
+  white-space:nowrap; opacity:0; transform:translateX(4px); transition:.15s }
+.brow:hover .bconnect, .brow:focus-within .bconnect{ opacity:1; transform:none }
+.brow .bconnect:hover{ background:var(--brand); color:#1a1305; border-color:var(--brand) }
+.brow .bconnect:active{ transform:translateY(1px) scale(.98) }
+.brow .bconnect svg{ width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.8 }
+/* 区域筛选 / 清除 */
+.region-clear{ font:600 10.5px 'Geist',sans-serif; color:var(--acc); background:var(--acc-soft);
+  border:1px solid var(--acc-line); border-radius:6px; padding:3px 9px; cursor:pointer; transition:.15s; white-space:nowrap }
+.region-clear:hover{ background:var(--brand); color:#1a1305; border-color:var(--brand) }
+/* 地图下钻提示 */
+.map-hint{ position:absolute; right:14px; bottom:12px; font:500 10.5px 'Geist',sans-serif; color:var(--t3);
+  pointer-events:none; background:rgba(11,10,7,.5); border:1px solid var(--bd); border-radius:7px; padding:4px 9px }
+/* 空区域态 */
+.bempty{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  padding:48px 20px; text-align:center; color:var(--t3) }
+.bempty svg{ width:30px; height:30px; stroke:var(--t-muted); fill:none; stroke-width:1.6; opacity:.5 }
+.bempty div{ font-size:12px }
 </style>
