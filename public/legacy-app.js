@@ -1332,10 +1332,10 @@ function renderPoolTable() {
         </div>
       </td>
       <td style="padding:12px">
-        <span style="font-size:11px;color:${si.color};background:${si.color}18;padding:2px 8px;border-radius:10px">${item.group.replace('客户','').replace('匹配','')}</span>
+        <span style="font-size:11px;color:${si.color};background:${si.color}14;padding:2px 7px;border-radius:4px">${item.group.replace('客户','').replace('匹配','')}</span>
       </td>
       <td style="padding:12px;text-align:center">
-        <span style="font-size:11px;color:${sc.color};background:${sc.bg};border:1px solid ${sc.border};padding:3px 8px;border-radius:10px">${sc.label}</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:${sc.color}"><span style="width:6px;height:6px;border-radius:2px;background:${sc.color};flex-shrink:0"></span>${sc.label}</span>
       </td>
       <td style="padding:12px;text-align:center">
         <span style="font-size:13px;font-weight:700;color:${scoreColor}">${score}</span>

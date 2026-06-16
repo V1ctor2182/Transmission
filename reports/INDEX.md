@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 020 | 🟦 Standard | CP4 客户池 badge pill 去胶囊(状态→LED 方点+标签 / 来源→方角 tag) | ✅ delta 3/3 KEEP | [round-020](round-020-pool-pills.md) |
 | 019 | 🟦 Standard | CP4 leads 数据源 logo 瓦片去多彩(22 撞色品牌方→统一中性 mono 瓦片) | ✅ delta 3/3 KEEP | [round-019](round-019-datasource-tiles.md) |
 | 018 | 🟦 Standard | CP4 avatar 收敛(WhatsApp 冷杂色圆+侧栏紫渐变→统一中性方+amber 选中) | ✅ delta 3/3 KEEP | [round-018](round-018-avatar-deslop.md) |
 | 017 | 🟦 Standard | CP-intel-detail 详情卡去 emoji(⏰💡/🇩🇪/🏢📅💰🛒/📞📧📊🎯/🔒→扁平 SVG+mono 码+amber 方头像) | ✅ delta 3/3 KEEP | [round-017](round-017-intel-detail-deemoji.md) |
