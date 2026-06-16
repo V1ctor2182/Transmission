@@ -11,7 +11,11 @@
 1. 读 `BACKLOG.md` + 本文件;**审计**:截 1-2 区域图对照 `DESIGN.md`/`HERO-FEATURES.md`,新候选去重写入 backlog。
 2. **排序**取顶(影响×把握÷风险,Hero 加权,跳过 done/冷却项)。
 3. **执行**一项(分档投入)。Hero 前先 `Skill` 调 taste-skill。
-4. **验收**:Standard/Utility 走 `verify.mjs` 四段;Hero 走 序列截图(`verify.mjs <screen> <Task> seq`)+ 黄金路径 + 3 critic 读 `DELIGHT-RUBRIC.md`。
+4. **验收(闸门改成「前后 delta」)**:
+   - **改之前**先截 before:`node scripts/verify.mjs <screen>` → `cp .review/<screen>.png .review/<screen>-before.png`。
+   - 做改动 → 再截 after:`node scripts/verify.mjs <screen> [Task]`(= `.review/<screen>.png`)。
+   - Standard/Utility:build + 机检断言 + **3 critic 读 `DELTA-RUBRIC.md`,同时看 before 和 after 两张图,判「有没有新引入的回退/slop」**(≥2 KEEP 过;既有 slop 不算回退,排 backlog)。
+   - Hero:序列截图(`verify.mjs <screen> <Task> seq`)+ 黄金路径 + 3 critic 读 `DELIGHT-RUBRIC.md`。
 5. **checkpoint**:Standard/Utility 过了 `git commit` 自动落库;**Hero 过了 `git checkout -b feat/hero-xxx` + commit + 暂停**(本轮**不**再 ScheduleWakeup,留言等人工 review/merge)。
 6. **写报告(每轮必做)**:把本轮截图从 `.review/` 拷到 `reports/shots/r<NNN>-*.png`(轮号命名不覆盖),写 `reports/round-<NNN>-<task>.md`(模板见下),更新 `reports/INDEX.md` 顶部一行,连截图一起 `git commit`。Hero 轮报告顶部加 `⏸ 需要你 REVIEW` + 3 帧序列 + delight 裁决 + 分支名。
 7. **收敛检查**:连续 K=3 轮只挖到低价值 → 发 digest 问方向并降速;build+机检+(Hero)黄金路径必须永远绿,绝不落 regression。
