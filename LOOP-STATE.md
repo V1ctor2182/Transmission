@@ -56,3 +56,4 @@
 - 2026-06-16 R012 🟧 多窗格指挥台布局落地(dashboard→layout-preview 网格:地图 hero + KPI 条 + AI工作流 feed + 右侧实时买家整列,窄图标栏/TopBar 保留)。build✓ 机检零错✓ delta 3/3 KEEP(critic 还指出去掉了旧 AI feed 重复)。**提分支 feat/layout-command-center,暂停等人工 review,未 merge,本轮不 ScheduleWakeup。**
 - 2026-06-16 R012-fix 🔧 修 R012 回归:.page.dash-cc{display:flex} 特异性高过 .page{display:none},致离开工作台后 dashboard 铺在其它页面后面。改成 display gate 在 .on 上。机检+视觉复核 leads/marketing 干净。教训:布局类 display 覆盖必须 gate 在显隐类上;机检无 JS 错≠无视觉回归,跨屏视觉抽查必须做。
 - 2026-06-16 用户验收 R012 满意→merge main。新方向:组件级去 AI 味,重点序=①emoji 装饰(CP1 pool/CP2 wa/CP3 leads,先)②通用模板组件 avatar/logo瓦片/进度条/pill(CP4)③配色渐变残留(CP5)。文案腔调暂不动。next R013: CP1 客户池去 emoji(国旗→ccBadge mono 码 + 🤖/💬→扁平)。
+- 2026-06-16 R013 🟦 CP1 客户池去 AI 味:国旗 emoji→ccBadge mono 国家码(table/detail/cards 全覆盖)+🤖/💬/🔍/🚢/🎯/ℹ️ emoji→纯文字或扁平 chat SVG + pool toast 图标 🤖→◆。build✓ 机检✓ 跨屏抽查 leads/wa/dashboard 零新错 ✓ delta 3/3 KEEP。自动落库。新候选 CP-bubble(AiBubble 🚀)。next: CP2 whatsapp 🛡️/⚡ emoji。

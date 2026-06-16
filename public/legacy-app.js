@@ -1310,15 +1310,15 @@ function renderPoolTable() {
     return `<tr class="pool-tr" onclick="showPoolDetail('${item.name}')">
       <td style="padding:12px 20px">
         <div style="display:flex;align-items:center;gap:10px">
-          <div style="font-size:20px;line-height:1;flex-shrink:0">${item.flag}</div>
+          <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
           <div>
             <div style="font-size:13px;font-weight:600;color:#e2e8f0">${item.name}</div>
-            <div style="font-size:11px;color:var(--t-muted);margin-top:1px">${item.flag} ${item.group === '搜索推送客户' ? '搜索推送' : item.group === '精准建联客户' ? '精准建联' : item.group === 'WhatsApp 商机' ? 'WhatsApp' : '海关数据'}</div>
+            <div style="font-size:11px;color:var(--t-muted);margin-top:1px">${item.group === '搜索推送客户' ? '搜索推送' : item.group === '精准建联客户' ? '精准建联' : item.group === 'WhatsApp 商机' ? 'WhatsApp' : '海关数据'}</div>
           </div>
         </div>
       </td>
       <td style="padding:12px">
-        <span style="font-size:11px;color:${si.color};background:${si.color}18;padding:2px 8px;border-radius:10px">${si.icon} ${item.group.replace('客户','').replace('匹配','')}</span>
+        <span style="font-size:11px;color:${si.color};background:${si.color}18;padding:2px 8px;border-radius:10px">${item.group.replace('客户','').replace('匹配','')}</span>
       </td>
       <td style="padding:12px;text-align:center">
         <span style="font-size:11px;color:${sc.color};background:${sc.bg};border:1px solid ${sc.border};padding:3px 8px;border-radius:10px">${sc.label}</span>
@@ -1338,8 +1338,8 @@ function renderPoolTable() {
       <td style="padding:12px;font-size:11px;color:var(--t-muted);white-space:nowrap">${lastAct}</td>
       <td style="padding:12px;text-align:center">
         <div style="display:flex;gap:4px;justify-content:center">
-          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(245,183,61,.1);color:#ffd27a;border:1px solid rgba(245,183,61,.2);cursor:pointer">🤖 AI跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(123,212,123,.08);color:#7bd47b;border:1px solid rgba(123,212,123,.2);cursor:pointer">💬</div>
+          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(245,183,61,.1);color:#ffd27a;border:1px solid rgba(245,183,61,.2);cursor:pointer">AI 跟进</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" title="发 WhatsApp" style="font-size:10px;padding:3px 7px;border-radius:6px;background:rgba(123,212,123,.08);color:#7bd47b;border:1px solid rgba(123,212,123,.2);cursor:pointer;display:flex;align-items:center"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         </div>
       </td>
     </tr>`;
@@ -1367,11 +1367,11 @@ function showPoolDetail(name) {
   panel.innerHTML = `
     <div style="border-bottom:1px solid rgba(255,248,235,.06);padding-bottom:16px;margin-bottom:16px">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <div style="font-size:36px;line-height:1">${item.flag}</div>
+        <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
         <div style="flex:1">
           <div style="font-size:15px;font-weight:700;color:#e2e8f0;margin-bottom:4px">${name}</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="font-size:10px;color:${si.color};background:${si.color}18;padding:2px 7px;border-radius:8px">${si.icon} ${item.group}</span>
+            <span style="font-size:10px;color:${si.color};background:${si.color}18;padding:2px 7px;border-radius:8px">${item.group}</span>
             <span style="font-size:10px;color:${sc.color};background:${sc.color}18;padding:2px 7px;border-radius:8px">${sc.label}</span>
           </div>
         </div>
@@ -1407,13 +1407,13 @@ function showPoolDetail(name) {
       `).join('')}
     </div>` : `
     <div style="margin-bottom:16px;background:rgba(251,191,36,.05);border:1px solid rgba(251,191,36,.15);border-radius:8px;padding:12px">
-      <div style="font-size:11px;color:#fbbf24;font-weight:600;margin-bottom:4px">ℹ️ 未获取联系方式</div>
+      <div style="font-size:11px;color:#fbbf24;font-weight:600;margin-bottom:4px">未获取联系方式</div>
       <div style="font-size:11px;color:var(--t-muted)">到「找客户」页面为该客户执行 Enrich</div>
     </div>`}
     <div style="display:flex;flex-direction:column;gap:8px">
-      <div onclick="poolFollowUp('${name}')" style="background:rgba(245,183,61,.12);border:1px solid rgba(245,183,61,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#ffd27a;cursor:pointer;text-align:center">🤖 AI 生成跟进话术</div>
-      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#7bd47b;cursor:pointer;text-align:center">💬 发送 WhatsApp 消息</div>
-      <div onclick="navTo('leads')" style="background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:var(--t-muted);cursor:pointer;text-align:center">🔍 查看完整客户资料</div>
+      <div onclick="poolFollowUp('${name}')" style="background:rgba(245,183,61,.12);border:1px solid rgba(245,183,61,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#ffd27a;cursor:pointer;text-align:center">AI 生成跟进话术</div>
+      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#7bd47b;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发送 WhatsApp 消息</div>
+      <div onclick="navTo('leads')" style="background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:var(--t-muted);cursor:pointer;text-align:center">查看完整客户资料</div>
     </div>
   `;
 }
@@ -1488,11 +1488,11 @@ function renderPoolCards() {
     <div style="background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:.2s;position:relative" onmouseover="this.style.borderColor='rgba(255,248,235,.12)'" onmouseout="this.style.borderColor='var(--card-border)'" onclick="openPoolDetail('${item.name}')">
       <!-- Top Row -->
       <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px">
-        <div style="font-size:26px;flex-shrink:0;line-height:1">${item.flag}</div>
+        <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
         <div style="flex:1;min-width:0">
           <div style="font-size:14px;font-weight:700;color:#e2e8f0;margin-bottom:3px">${item.name}</div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <span style="font-size:10px;color:${si.color};background:${si.color}18;padding:2px 7px;border-radius:8px">${si.icon} ${item.group}</span>
+            <span style="font-size:10px;color:${si.color};background:${si.color}18;padding:2px 7px;border-radius:8px">${item.group}</span>
             <span style="font-size:10px;color:${sc.color};background:${sc.bg};border:1px solid ${sc.border};padding:2px 7px;border-radius:8px">${sc.label}</span>
           </div>
         </div>
@@ -1518,8 +1518,8 @@ function renderPoolCards() {
           ${contacts.length ? `<span style="font-size:10px;color:var(--t-muted)">· ${contacts[0].name} (${contacts[0].title})</span>` : ''}
         </div>
         <div style="display:flex;gap:6px">
-          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(245,183,61,.12);color:#ffd27a;border:1px solid rgba(245,183,61,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(245,183,61,.2)'" onmouseout="this.style.background='rgba(245,183,61,.12)'">🤖 AI跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(123,212,123,.08);color:#7bd47b;border:1px solid rgba(123,212,123,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(123,212,123,.15)'" onmouseout="this.style.background='rgba(123,212,123,.08)'">💬 发消息</div>
+          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(245,183,61,.12);color:#ffd27a;border:1px solid rgba(245,183,61,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(245,183,61,.2)'" onmouseout="this.style.background='rgba(245,183,61,.12)'">AI 跟进</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(123,212,123,.08);color:#7bd47b;border:1px solid rgba(123,212,123,.2);cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px" onmouseover="this.style.background='rgba(123,212,123,.15)'" onmouseout="this.style.background='rgba(123,212,123,.08)'"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发消息</div>
         </div>
       </div>
     </div>`;
@@ -1547,7 +1547,7 @@ function openPoolDetail(name) {
 }
 
 function poolFollowUp(name) {
-  toast('🤖','AI 跟进已启动',`正在为 ${name} 生成个性化跟进话术，将通过 WhatsApp 或邮件发送`);
+  toast('◆','AI 跟进已启动',`正在为 ${name} 生成个性化跟进话术，将通过 WhatsApp 或邮件发送`);
 }
 
 function openPoolWhatsApp(name) {
@@ -1562,14 +1562,14 @@ function openPoolWhatsApp(name) {
 
 function poolBatchFollowUp() {
   const overdue = CPOOL_DATA.flatMap(g=>g.items).filter(i=>i.status==='overdue'||i.status==='no-reply');
-  toast('🤖','AI 批量跟进已启动',`正在为 ${overdue.length} 个客户生成个性化跟进消息，请到「营销队列」审批后发送`);
+  toast('◆','AI 批量跟进已启动',`正在为 ${overdue.length} 个客户生成个性化跟进消息，请到「营销队列」审批后发送`);
   setTimeout(() => navTo('marketing'), 1600);
 }
 
 function autoExecute() {
   const enriched = CUST_DATA.filter(c => c.selected && c.status==='enriched');
   if(enriched.length===0) { toast('⚠️','请先选择已 Enrich 的客户','勾选已获取联系方式的客户后再执行全自动'); return; }
-  toast('🤖','AI 全自动执行已启动',`跳过审批，直接为 ${enriched.length} 个客户生成并发送个性化邮件`);
+  toast('◆','AI 全自动执行已启动',`跳过审批，直接为 ${enriched.length} 个客户生成并发送个性化邮件`);
   setTimeout(() => toast('📨',`${enriched.length} 封邮件已发出`,`预计 ${Math.round(enriched.length*0.3)} 个客户将回复，平均回复时间 2.3 天`), 2500);
 }
 

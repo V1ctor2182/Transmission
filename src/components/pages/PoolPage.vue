@@ -21,8 +21,8 @@
                   <div class="pool-tab warn" id="ptab-noreply" onclick="poolTabFilter(this,'no-reply')"><span id="pstat-noreply-n">3</span> 无回复</div>
                   <div class="pool-tab" id="ptab-pending" onclick="poolTabFilter(this,'pending')"><span id="pstat-pending-n">3</span> 待跟进</div>
                 </div>
-                <div onclick="poolBatchFollowUp()" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(245,183,61,.12);border:1px solid rgba(245,183,61,.2);color:#ffd27a;cursor:pointer;white-space:nowrap">🤖 AI 批量跟进</div>
-                <div onclick="navTo('leads')" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);color:var(--t-muted);cursor:pointer;white-space:nowrap">🔍 找客户</div>
+                <div onclick="poolBatchFollowUp()" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(245,183,61,.12);border:1px solid rgba(245,183,61,.2);color:#ffd27a;cursor:pointer;white-space:nowrap">AI 批量跟进</div>
+                <div onclick="navTo('leads')" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);color:var(--t-muted);cursor:pointer;white-space:nowrap">找客户</div>
               </div>
               <div style="display:flex;align-items:center;gap:8px">
                 <div style="display:flex;align-items:center;gap:6px;flex:1;background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);border-radius:8px;padding:5px 12px">
@@ -37,10 +37,10 @@
                 </select>
                 <select id="pool-filter-source" onchange="renderPoolTable()" style="font-size:11px;background:rgba(255,248,235,.04);border:1px solid rgba(255,248,235,.07);border-radius:7px;padding:5px 8px;color:#e2e8f0;cursor:pointer">
                   <option value="">全部来源</option>
-                  <option value="搜索推送客户">🔍 搜索推送</option>
-                  <option value="精准建联客户">🎯 精准建联</option>
-                  <option value="WhatsApp 商机">💬 WhatsApp</option>
-                  <option value="海关数据匹配">🚢 海关数据</option>
+                  <option value="搜索推送客户">搜索推送</option>
+                  <option value="精准建联客户">精准建联</option>
+                  <option value="WhatsApp 商机">WhatsApp</option>
+                  <option value="海关数据匹配">海关数据</option>
                 </select>
               </div>
             </div>
