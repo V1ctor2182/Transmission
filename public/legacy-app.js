@@ -2068,7 +2068,7 @@ function renderIntelTable() {
     const isLocked = !d.unlocked;
     // 采购商显示：未解锁则隐藏名称，显示马赛克字符
     const buyerDisplay = isLocked
-      ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><span style="color:#f59e0b">🔒</span>解锁查看采购商</div>`
+      ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>解锁查看采购商</div>`
       : `<div style="font-size:13px;font-weight:600;color:#e2e8f0">${d.buyer}</div>`;
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#7bd47b' : d.contactRate >= 50 ? '#fbbf24' : '#f87171';
@@ -2076,7 +2076,7 @@ function renderIntelTable() {
         ${ccBadge(d.flag)}
         <span style="font-size:12px;color:#e2e8f0">${d.country}</span>
         <div style="font-size:10px;color:var(--t-muted);margin-top:1px">${d.region}</div>
-        <div style="margin-top:4px;display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:1px 7px;border-radius:20px;background:${sc.bg};color:${sc.color};border:1px solid ${sc.border}">${sc.label}</div>
+        <div style="margin-top:4px;display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:${sc.color}"><span style="width:5px;height:5px;border-radius:2px;background:${sc.color};flex-shrink:0"></span>${sc.label}</div>
       </td>
       <td style="padding:12px 16px">${buyerDisplay}</td>
       <td style="padding:12px 16px">
