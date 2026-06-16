@@ -28,7 +28,7 @@ const NAV = {
   leads:    `enterApp(); navTo('leads',1)`,
   marketing:`enterApp(); navTo('marketing',2); if(window.renderMktList)renderMktList();`,
   intel:    `enterApp(); navTo('intel',3)`,
-  whatsapp: `enterApp(); navTo('whatsapp',4)`,
+  whatsapp: `enterApp(); navTo('whatsapp',4); if(window.renderWaContacts)renderWaContacts(); if(window.renderWaChat)renderWaChat(0);`,
   pool:     `enterApp(); navTo('pool',5)`,
 }
 
@@ -94,6 +94,12 @@ const CHECKS = {
     // 只查成功/审批 UI 的 ✅;邮件正文里的 ！是合法销售文案,不算成功提示。
     const t = await page.locator('#page-marketing').innerText().catch(() => '')
     out.push(['Marketing 审批 UI 无 ✅', !/✅/.test(t), /✅/.test(t) ? 'found' : 'clean'])
+    return out
+  },
+  T7: async (page) => {
+    const out = []
+    const t = await page.evaluate(() => (document.getElementById('wa-chips') || {}).textContent || '')
+    out.push(['WhatsApp 话术 chip 无 emoji/💬', t.length > 0 && !EMOJI.test(t), `len=${t.length} ${EMOJI.test(t) ? 'emoji' : 'clean'}`])
     return out
   },
 }

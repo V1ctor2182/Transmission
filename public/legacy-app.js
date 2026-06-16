@@ -51,9 +51,9 @@ const WA_CHATS = {
 };
 
 const WA_CHIPS = {
-  0: ['✅ 我们持有 EC 852/2004 欧盟食品安全认证，可提供完整证书文件','📦 正在为您准备详细报价单，预计 2 小时内发送，请稍候','🎁 我们提供德语定制包装，可在包装上印制您的品牌 Logo'],
-  1: ['📋 产品目录已准备好，包含完整规格和价格，马上发送给您','🇸🇬 我们在新加坡有合作仓储，可实现 3-5 天快速交货','💰 2000 盒以上享受 8 折优惠，CNY 旺季建议提前 3 个月下单'],
-  2: ['📄 我们可以提供阿拉伯语产品说明书和清真认证文件','🌙 我们的节庆礼盒非常适合斋月和开斋节市场','💼 欢迎安排视频会议，详细介绍我们的产品线和合作条件'],
+  0: ['我们持有 EC 852/2004 欧盟食品安全认证，可提供完整证书文件','正在为您准备详细报价单，预计 2 小时内发送，请稍候','我们提供德语定制包装，可在包装上印制您的品牌 Logo'],
+  1: ['产品目录已准备好，包含完整规格和价格，马上发送给您','我们在新加坡有合作仓储，可实现 3-5 天快速交货','2000 盒以上享受 8 折优惠，CNY 旺季建议提前 3 个月下单'],
+  2: ['我们可以提供阿拉伯语产品说明书和清真认证文件','我们的节庆礼盒非常适合斋月和开斋节市场','欢迎安排视频会议，详细介绍我们的产品线和合作条件'],
 };
 
 const INTEL_DATA = {
@@ -1806,7 +1806,7 @@ function renderWaChat(id) {
 
   // Chips
   const chips = WA_CHIPS[id] || [];
-  document.getElementById('wa-chips').innerHTML = chips.map(c => `<div class="wa-chip" onclick="useChip(this,'${c.replace(/'/g,"\\'")}')">💬 ${c.substring(0,28)}…</div>`).join('');
+  document.getElementById('wa-chips').innerHTML = chips.map(c => `<div class="wa-chip" onclick="useChip(this,'${c.replace(/'/g,"\\'")}')">${c.substring(0,28)}…</div>`).join('');
 }
 
 function useChip(el, text) {
