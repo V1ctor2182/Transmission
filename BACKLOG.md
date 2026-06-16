@@ -29,8 +29,9 @@
 > R012 后跨屏视觉抽查发现,布局成型但组件内部仍重 AI 味。最重 → 最轻:
 - [x] 🔴 **CP1 客户池 pool 去 AI 味(最重)**(R013 完成):① 国旗 emoji 🇺🇸🇸🇬🇲🇾… → 复用 `ccBadge()`/FLAG2CC mono 国家码;② `🤖 AI 批量跟进`/`🤖 AI 跟进`/`💬` emoji 按钮 → 扁平 SVG 或纯文字。影响:高。风险:低。
 - [ ] 🟦 **CP-bubble AiBubble 欢迎气泡 🚀**(R013 critic 发现):浮动 AI 气泡欢迎卡仍有 🚀 emoji → 去掉/换扁平。影响:低。风险:低。
-- [ ] 🔴 **CP2 whatsapp 去 emoji**:`🛡️ 跟进提醒`、`⚡ AI 话术建议` 等标注 emoji → 扁平 SVG/文字标签。影响:中。风险:低。
+- [x] 🔴 **CP2 whatsapp 去 emoji**(R014 完成:⏰→扁平时钟 SVG + toast 💡/💬→◆):`🛡️ 跟进提醒`、`⚡ AI 话术建议` 等标注 emoji → 扁平 SVG/文字标签。影响:中。风险:低。
 - [ ] 🟦 **CP3 leads 地区标签**:`🇸🇬 新加坡 ✕` 国旗 emoji → mono 码或去 emoji;✕ 关闭按钮样式收敛。数据源彩色方块字母 logo 偏通用,留观察。影响:中。风险:低。
+- [ ] 🟦 **CP-intel-detail intel 详情卡 emoji**(R014 发现):INTEL_DATA 详情/enrich 卡用 🇩🇪🏢📅💰🛒📞📧📊🎯⏰ 大量 emoji 图标,点行展开可见(列表已净)。→ mono 国家码 + 扁平 SVG。影响:中。风险:低。
 - [ ] 🔴 **CP4 通用模板组件收敛(用户点名)**:avatar 纯色圆 / 彩色方块字母 logo 瓦片 / 千篇一律进度条 / badge pill —— 长得像任意 AI SaaS demo。收敛到终端风(方/极简边框/mono/去多彩)。逐屏 critic 判。影响:中。风险:中。
 - [ ] 🔴 **CP5 配色/渐变残留清扫(用户点名)**:全屏扫剩余 `linear-gradient(` 填充 / `box-shadow` 发光 / 紫蓝(#6b78ff iris / purple)残留色,收到 Phosphor 暖金近黑。grep 驱动 + 逐屏视觉复核。影响:中。风险:低。
 

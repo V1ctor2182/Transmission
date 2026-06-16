@@ -36,7 +36,7 @@ const WA_CHATS = {
     {type:'in',text:'主要是月饼礼盒和椰子酥。我们在德国有稳定的华人社区渠道，每年中秋节前需求量很大。请问最小起订量是多少？',time:'09:35'},
     {type:'out',text:'月饼礼盒 MOQ 为 500 盒，椰子酥 MOQ 为 300 盒。我们提供定制包装服务，可以添加德语说明。需要我发送详细报价单吗？',time:'09:40'},
     {type:'in',text:'好的，请发送报价单。另外，你们有欧盟食品安全认证吗？这对我们进口很重要。',time:'09:52'},
-    {type:'follow',text:'⏰ 跟进提醒：Klaus Weber 正在等待报价单，建议在 2 小时内回复以保持谈判热度'},
+    {type:'follow',text:'跟进提醒：Klaus Weber 正在等待报价单，建议在 2 小时内回复以保持谈判热度'},
   ],
   1: [
     {type:'in',text:'Hello! I am Rajesh from Kumar Foods Singapore. We are interested in your festival gift boxes for the Chinese New Year season.',time:'10:05'},
@@ -1802,7 +1802,7 @@ function renderWaChat(id) {
   const msgs = WA_CHATS[id] || [];
   const container = document.getElementById('wa-messages');
   container.innerHTML = `<div class="wa-date-sep">今天</div>` + msgs.map(m => {
-    if(m.type === 'follow') return `<div class="wa-follow-alert">${m.text}</div>`;
+    if(m.type === 'follow') return `<div class="wa-follow-alert"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0;vertical-align:-2px;margin-right:6px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${m.text}</div>`;
     return `<div class="wa-msg ${m.type}"><div class="wa-bubble">${m.text}</div><div class="wa-msg-time">${m.time}</div></div>`;
   }).join('');
   container.scrollTop = container.scrollHeight;
@@ -1817,7 +1817,7 @@ function useChip(el, text) {
   document.querySelectorAll('.wa-chip').forEach(c => c.style.opacity = '0.5');
   el.style.opacity = '1';
   el.style.background = 'rgba(245,183,61,0.2)';
-  toast('💡','AI 话术已填入','点击发送按钮发送，或继续编辑');
+  toast('◆','AI 话术已填入','点击发送按钮发送，或继续编辑');
 }
 
 function sendWaMsg() {
@@ -1848,7 +1848,7 @@ function sendWaMsg() {
     replyEl.innerHTML = `<div class="wa-bubble">${reply}</div><div class="wa-msg-time">刚刚</div>`;
     container.appendChild(replyEl);
     container.scrollTop = container.scrollHeight;
-    toast('💬','收到回复',`${WA_CONTACTS[currentWaContact].name}：${reply.substring(0,30)}…`);
+    toast('◆','收到回复',`${WA_CONTACTS[currentWaContact].name}：${reply.substring(0,30)}…`);
   }, 2500);
 }
 
