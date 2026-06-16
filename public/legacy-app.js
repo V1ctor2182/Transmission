@@ -1785,7 +1785,7 @@ function renderWaContacts() {
   const list = document.getElementById('wa-contact-list');
   list.innerHTML = WA_CONTACTS.map((c,i) => `
     <div class="wa-contact ${i===0?'on':''}" id="wa-c-${c.id}" onclick="selectWaContact(${c.id})">
-      <div class="wa-av" style="background:linear-gradient(135deg,${c.color},${c.color}aa)">${c.av}</div>
+      <div class="wa-av">${c.av}</div>
       <div class="wa-contact-info">
         <div class="wa-contact-name">${ccBadge(c.country)}${c.name}</div>
         <div class="wa-contact-last">${c.last}</div>
@@ -1804,7 +1804,6 @@ function selectWaContact(id) {
   document.getElementById('wa-c-'+id).classList.add('on');
   const c = WA_CONTACTS[id];
   document.getElementById('wa-chat-av').textContent = c.av;
-  document.getElementById('wa-chat-av').style.background = `linear-gradient(135deg,${c.color},${c.color}aa)`;
   document.getElementById('wa-chat-name').textContent = c.name;
   document.getElementById('wa-chat-status').textContent = c.status === '在线' ? '● 在线' : '○ 离线';
   document.getElementById('wa-chat-status').style.color = c.status === '在线' ? 'var(--green)' : 'var(--t-muted)';

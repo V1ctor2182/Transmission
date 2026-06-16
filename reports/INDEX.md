@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 018 | 🟦 Standard | CP4 avatar 收敛(WhatsApp 冷杂色圆+侧栏紫渐变→统一中性方+amber 选中) | ✅ delta 3/3 KEEP | [round-018](round-018-avatar-deslop.md) |
 | 017 | 🟦 Standard | CP-intel-detail 详情卡去 emoji(⏰💡/🇩🇪/🏢📅💰🛒/📞📧📊🎯/🔒→扁平 SVG+mono 码+amber 方头像) | ✅ delta 3/3 KEEP | [round-017](round-017-intel-detail-deemoji.md) |
 | 016 | 🟦 Standard | CP-bubble 浮层去 emoji(欢迎卡 🎉→◆ + 助手 🤖 + 解锁 ⚡🚀→扁平 SVG) | ✅ delta 3/3 KEEP | [round-016](round-016-bubble-deemoji.md) |
 | 015 | 🟦 Standard | CP3 leads 地区标签去 emoji(国旗→mono 码 + 大洲去 emoji) | ✅ delta 3/3 KEEP | [round-015](round-015-leads-region-deemoji.md) |

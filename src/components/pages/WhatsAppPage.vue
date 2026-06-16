@@ -21,7 +21,7 @@
           <!-- Chat -->
           <div class="wa-col">
             <div class="wa-chat-head">
-              <div class="wa-av" style="background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;font-size:14px" id="wa-chat-av">K</div>
+              <div class="wa-av" style="font-size:14px" id="wa-chat-av">K</div>
               <div>
                 <div class="wa-chat-name" id="wa-chat-name">Klaus Weber</div>
                 <div class="wa-chat-status" id="wa-chat-status">● 在线</div>
