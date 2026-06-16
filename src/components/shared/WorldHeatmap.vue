@@ -22,7 +22,8 @@ defineEmits(['hotspot'])
        :role="h.region ? 'button' : null" :tabindex="h.region ? 0 : null"
        @click="h.region && $emit('hotspot', h)" @keydown.enter="h.region && $emit('hotspot', h)">
       <circle v-if="h.region" class="wh-hit" cx="0" cy="0" r="15" />
-      <circle class="wh-ping" :class="{ hot: h.hot }" cx="0" cy="0" r="4" />
+      <circle class="wh-ping" :class="{ hot: h.hot }" cx="0" cy="0" r="4"
+              :style="h.dur ? { animationDuration: h.dur + 's', animationDelay: h.delay + 's' } : null" />
       <circle class="wh-dot" :class="{ hot: h.hot }" cx="0" cy="0" r="3.2" />
       <text v-if="h.label" class="wh-lbl" x="0" y="-9">{{ h.label }}</text>
     </g>

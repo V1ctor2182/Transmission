@@ -5,7 +5,9 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
-| 023 | 🟥 HERO | H3 实时商机/建联 golden path(热点→下钻→一键建联→真实对话) | ⏸ 需要你 REVIEW · delight 3/3 KEEP wow A/A/B · 分支 feat/hero-realtime-signals | [round-023](round-023-H3-realtime-signals.md) |
+| 025 | 🟦 Standard | 动效①地图 ping 接真信号(节奏 ∝ 该区买家数,东南亚最快/澳欧最缓+错峰) | ✅ build✓ golden✓(纯动效,静图不可判) | — |
+| 024 | 🟦 Standard | 对齐 demo 到万仟剧本(热点=四级市场 + 买家=报告点名渠道,修 R023 跑偏) | ✅ build✓ 机检✓ golden✓ · 已 merge main | — |
+| 023 | 🟥 HERO | H3 实时商机/建联 golden path(热点→下钻→一键建联→真实对话) | ✅ delight 3/3 KEEP wow A/A/B · 已 merge main | [round-023](round-023-H3-realtime-signals.md) |
 | 022 | 🟦 Standard | CP5 浮动 FAB 去渐变去 glow(实心琥珀+暗投影+深 ink 图标) | ✅ delta 3/3 KEEP | [round-022](round-022-fab-glow.md) |
 | 021 | 🟦 Standard | CP4 情报中心 badge pill 去胶囊 + 🔒 残留→扁平挂锁 SVG | ✅ delta 3/3 KEEP | [round-021](round-021-intel-pills.md) |
 | 020 | 🟦 Standard | CP4 客户池 badge pill 去胶囊(状态→LED 方点+标签 / 来源→方角 tag) | ✅ delta 3/3 KEEP | [round-020](round-020-pool-pills.md) |

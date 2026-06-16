@@ -50,6 +50,13 @@ const buyers = [
   { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: '英国 · 5小时前',    val: '£96,200',  mid: true, region: '欧洲', country: '英国', flag: '🇬🇧', need: '亚洲节庆食品年度进口' },
 ]
 
+// 每区实时买家信号数 → 驱动地图热点的脉冲节奏(信号越多,ping 越快;非装饰性恒定脉冲)
+const regionCount = buyers.reduce((m, b) => (m[b.region] = (m[b.region] || 0) + 1, m), {})
+const liveHotspots = mapHotspots.map((h, i) => {
+  const n = regionCount[h.region] || 0
+  return { ...h, count: n, dur: Math.max(1.5, 3.4 - n * 0.45).toFixed(2), delay: (i * 0.35).toFixed(2) }
+})
+
 const activeRegion = ref(null)
 const onHotspot = (h) => { activeRegion.value = activeRegion.value === h.region ? null : h.region }
 const shownBuyers = computed(() => activeRegion.value ? buyers.filter(b => b.region === activeRegion.value) : buyers)
@@ -78,7 +85,7 @@ const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, 
           </div>
         </div>
         <div class="pane-b">
-          <div class="cc-map"><WorldHeatmap :hotspots="mapHotspots" :active="activeRegion" @hotspot="onHotspot" /></div>
+          <div class="cc-map"><WorldHeatmap :hotspots="liveHotspots" :active="activeRegion" @hotspot="onHotspot" /></div>
           <div class="map-stat">
             <div>2,847,392<span>全球商机</span></div>
             <div>98,241<span>今日新增</span></div>
