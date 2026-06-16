@@ -34,7 +34,8 @@
 - [x] 🟦 **CP-intel-detail intel 详情卡 emoji**(R017 完成):WhatsApp 右侧客户情报详情面板(renderIntelPanel)⏰💡/🇩🇪🇸🇬/🏢📅💰🛒/📞📧📊🎯/🔒 → 扁平 stroke-SVG(IROW_ICON 查找表 + bell/bulb/lock SVG)+ ccBadge mono 国家码 + ✉️toast→◆;顺手 intel-co-av 冷蓝渐变头像→amber mono 方。影响:中。风险:低。
 - [~] 🔴 **CP4 通用模板组件收敛(用户点名)**:avatar 纯色圆 / 彩色方块字母 logo 瓦片 / 千篇一律进度条 / badge pill —— 长得像任意 AI SaaS demo。收敛到终端风(方/极简边框/mono/去多彩)。逐屏 critic 判。影响:中。风险:中。
   - [x] **CP4-av WhatsApp + 侧栏头像**(R018):冷杂色圆 avatar + 侧栏紫渐变 → 统一中性圆角方 + mono 首字母 + amber 选中态。
-  - [ ] CP4 续:leads 数据源彩色方块字母 logo 瓦片;icp-person-av;进度条(.variant-conf-fill / pool 跟进进度条等);badge pill(状态徽标圆角)。
+  - [x] **CP4-ds leads 数据源 logo 瓦片**(R019):~22 撞色品牌方块字母 logo → 统一中性 mono 瓦片(删 20 条品牌色变体)。
+  - [ ] CP4 续:icp-person-av(amber 渐变圆,较轻);进度条(.variant-conf-fill / pool 跟进进度条等);badge pill(状态徽标圆角)。
 - [ ] 🔴 **CP5 配色/渐变残留清扫(用户点名)**:全屏扫剩余 `linear-gradient(` 填充 / `box-shadow` 发光 / 紫蓝(#6b78ff iris / purple)残留色,收到 Phosphor 暖金近黑。grep 驱动 + 逐屏视觉复核。影响:中。风险:低。
 
 > **用户 2026-06-16 方向(AskUserQuestion)**:AI 味重点 = ①Emoji 装饰(先扫,CP1/CP2/CP3) ②通用模板组件(CP4) ③配色/渐变残留(CP5)。文案腔调暂不动。loop 按此序推进。
