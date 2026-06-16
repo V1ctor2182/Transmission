@@ -13,8 +13,22 @@
 3. **执行**一项(分档投入)。Hero 前先 `Skill` 调 taste-skill。
 4. **验收**:Standard/Utility 走 `verify.mjs` 四段;Hero 走 序列截图(`verify.mjs <screen> <Task> seq`)+ 黄金路径 + 3 critic 读 `DELIGHT-RUBRIC.md`。
 5. **checkpoint**:Standard/Utility 过了 `git commit` 自动落库;**Hero 过了 `git checkout -b feat/hero-xxx` + commit + 暂停**(本轮**不**再 ScheduleWakeup,留言等人工 review/merge)。
-6. **收敛检查**:连续 K=3 轮只挖到低价值 → 发 digest 问方向并降速;build+机检+(Hero)黄金路径必须永远绿,绝不落 regression。
-7. 非 Hero 轮:末尾 `ScheduleWakeup(600)` 排下一轮。
+6. **写报告(每轮必做)**:把本轮截图从 `.review/` 拷到 `reports/shots/r<NNN>-*.png`(轮号命名不覆盖),写 `reports/round-<NNN>-<task>.md`(模板见下),更新 `reports/INDEX.md` 顶部一行,连截图一起 `git commit`。Hero 轮报告顶部加 `⏸ 需要你 REVIEW` + 3 帧序列 + delight 裁决 + 分支名。
+7. **收敛检查**:连续 K=3 轮只挖到低价值 → 发 digest 问方向并降速;build+机检+(Hero)黄金路径必须永远绿,绝不落 regression。
+8. 非 Hero 轮:末尾 `ScheduleWakeup(600)` 排下一轮。Hero 轮:**不**排,等人工。
+
+## 报告模板 `reports/round-<NNN>-<task>.md`
+```markdown
+# Round <NNN> · <档> · <任务>
+<若 Hero:> ⏸ **需要你 REVIEW** — 分支 `feat/hero-xxx`,满意就 `git merge`。
+- 时间 / 档位 / backlog 来源项
+- **做了什么**:1-3 句
+- **验收**:build ✓ · 机检 <断言结果> · critic/delight <grades + 裁决>
+- **截图**:
+  ![](shots/r<NNN>-<screen>.png)
+  <Hero:三帧> ![t0](shots/r<NNN>-<screen>-t0.png) ![t1](...-t1.png) ![t2](...-t2.png)
+- **commit/分支** · **backlog 变化**(新增/完成了哪些)
+```
 
 ## Done 台账(已完成,别重复碰除非发现 regression)
 - v1(旧 cyan/侧栏 app 去 AI 味):T0 数据抽取 · Tb appendChild 修复 · T1 登录重写 · T2 KPI · T3 Onboarding 标题 · T4 砍 Leads 假计数 · T5 Intel 去 emoji · T6 Marketing 去✅ · T7 WhatsApp 去💬。
