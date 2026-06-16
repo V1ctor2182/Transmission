@@ -93,3 +93,18 @@ body::after{
   }
   .login-orb,.login-orb1,.login-orb2,.login-orb3{animation:none !important;transform:none !important}
 }
+
+/* ── B7: Phosphor 仪表级按钮(去渐变填充 / 去 glow 光晕 / 实心琥珀 + 深 ink)── */
+.login-btn,.wm-btn,.modal-btn.primary,.ob-cta-btn,.icp-task-btn.primary{
+  background:var(--brand)!important; color:#1a1305!important; box-shadow:none!important;
+  border:none; border-radius:10px; font-weight:700;
+}
+.login-btn:hover,.wm-btn:hover,.modal-btn.primary:hover,.ob-cta-btn:hover,.icp-task-btn.primary:hover{
+  box-shadow:none!important; filter:brightness(1.08); transform:translateY(-1px);
+}
+.login-btn svg,.wm-btn svg,.ob-cta-btn svg,.icp-task-btn.primary svg{stroke:#1a1305}
+.login-btn:active,.wm-btn:active,.modal-btn.primary:active,.ob-cta-btn:active{transform:translateY(1px) scale(.99)}
+/* 次按钮:扁平 + 1px 描边,去渐变 tint */
+.btn-connect,.icp-task-btn.auto{
+  background:rgba(245,183,61,.1)!important; border:1px solid var(--card-border)!important; box-shadow:none!important;
+}

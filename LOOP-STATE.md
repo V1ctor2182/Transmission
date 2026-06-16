@@ -43,3 +43,4 @@
 - 2026-06-16 R001 🟦 Phosphor 全局换色(B1/B2)✅ build✓ 机检✓ critic 3/3 KEEP A/A/A−。自动落库。报告 reports/round-001。新增候选 B3(次级色)/B4(地图暖化)。next: 排序后大概率 B4/B3 或多窗格。
 - 2026-06-16 R002 🟦 地图暖化+彻底去cyan(B4+B3)。build✓机检✓。critic 2轮均2/3 REVERT(理由=屏内既有emoji/iris slop,非本轮回退)→操作员override落库(净改进无regression)。新增高优 B5(dashboard去emoji)/B6(iris收掉)。教训:emoji/iris重的屏要先清再做色彩。next: B5。
 - 2026-06-16 用户点名:按钮很有 AI 味 → 新增 B7(全局按钮去渐变/去 glow,改 Phosphor 仪表级),设为高优,排在 dashboard emoji(B5)同级或更前。
+- 2026-06-16 R003 🟦 B7 按钮去 AI 味(用户点名)。polish.css 集中一套 Phosphor 仪表级按钮:主按钮去渐变/去 glow/深 ink。delta 闸门首次实战 3/3 KEEP(regression none)。自动落库。余:marketing CTA 权重 + .btn 类彻底重构留后。next: B5 dashboard 去 emoji。
