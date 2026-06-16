@@ -754,7 +754,7 @@ const TODAY_TODOS = [
   {icon:'✉️', color:'#ffd27a', urgent:false, text:'7 封邮件待审批发送', sub:'营销队列 · 建议今日处理', page:'marketing'},
   {icon:'🔔', color:'#fbbf24', urgent:false, text:'T&T Supermarket 3 天无沟通', sub:'客户池 · 建议今日跟进', page:'pool'},
   {icon:'📋', color:'#f5b73d', urgent:false, text:'147 条新线索待处理', sub:'找客户 · 今日新增，建议寻找联系人', page:'leads'},
-  {icon:'🇦🇺', color:'#6b78ff', urgent:false, text:'Asian Grocery Pty 5 天无沟通', sub:'WhatsApp 商机 · 逾期跟进', page:'whatsapp'},
+  {icon:'🇦🇺', color:'#ffd27a', urgent:false, text:'Asian Grocery Pty 5 天无沟通', sub:'WhatsApp 商机 · 逾期跟进', page:'whatsapp'},
 ];
 
 function renderAiReport() {
@@ -1975,7 +1975,7 @@ const AI_DAILY_ITEMS = [
   {icon:'📣', color:'#7bd47b', label:'AI 营销发送', value:'23 封邮件', detail:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
   {icon:'🤝', color:'#f5b73d', label:'新增建联客户', value:'8 家', detail:'Fairprice、Jaya Grocer 等已回复', page:'pool'},
   {icon:'💬', color:'#fbbf24', label:'WhatsApp 新消息', value:'5 条', detail:'Klaus Weber 回复了报价，T&T 询问交期', page:'whatsapp'},
-  {icon:'🌐', color:'#6b78ff', label:'情报中心更新', value:'98,241 条需求', detail:'全球采购需求实时同步', page:'intel'},
+  {icon:'🌐', color:'#ff7a3d', label:'情报中心更新', value:'98,241 条需求', detail:'全球采购需求实时同步', page:'intel'},
 ];
 
 function renderAiDailyReport() {

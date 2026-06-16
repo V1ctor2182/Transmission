@@ -216,7 +216,7 @@ function sparkPath (d) {
                   <text x="152" y="124" text-anchor="middle" font-size="8" fill="rgba(103,232,249,0.6)" font-family="Geist,sans-serif">530万华人</text>
 
                   <!-- London/Europe -->
-                  <circle cx="448" cy="52" r="4" fill="#6b78ff" filter="url(#hotGlow)">
+                  <circle cx="448" cy="52" r="4" fill="#f5b73d" filter="url(#hotGlow)">
                     <animate attributeName="r" values="3;10;3" dur="3.5s" repeatCount="indefinite"/>
                     <animate attributeName="opacity" values="1;0.2;1" dur="3.5s" repeatCount="indefinite"/>
                   </circle>
@@ -281,7 +281,7 @@ function sparkPath (d) {
           </div>
           <!-- Today Todo -->
           <div class="mini-panel" style="flex:1.6">
-            <div class="mini-title" style="color:#6b78ff">
+            <div class="mini-title" style="color:#ffd27a">
               <svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               今日待办
               <span style="margin-left:auto;font-size:10px;color:var(--t-muted);font-weight:400">5 项</span>
