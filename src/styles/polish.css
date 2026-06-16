@@ -20,9 +20,9 @@
    Signal Cyan is a LIGHT accent, so white text/icons on a
    cyan-filled surface fail WCAG. Filled-brand buttons, logo
    marks and the avatar get near-black ink instead. */
-.login-btn,.wm-btn,#ob-next-btn{color:#04130f !important}
-.login-logo-mark svg,.wm-logo svg,.sb-logo svg,.wm-btn svg,.rso-logo svg{stroke:#04130f !important}
-.sb-av{color:#04130f}
+.login-btn,.wm-btn,#ob-next-btn{color:#1a1305 !important}
+.login-logo-mark svg,.wm-logo svg,.sb-logo svg,.wm-btn svg,.rso-logo svg{stroke:#1a1305 !important}
+.sb-av{color:#1a1305}
 
 /* 2 ── ACCESSIBILITY: real keyboard focus ring ──────────
    Line 33 globally killed outlines; restore a visible,
@@ -53,18 +53,18 @@ html{scroll-behavior:smooth}
    catching the card rim. Shadows tinted toward the indigo
    background instead of dead black. */
 .kpi-card,.panel,.lead-card,.intel-big-card{
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px -12px rgba(8,10,30,.7);
+  box-shadow:inset 0 1px 0 rgba(255,248,235,.06),0 10px 30px -12px rgba(8,10,30,.7);
 }
 .kpi-card:hover{
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 18px 44px -14px rgba(56,52,160,.45);
+  box-shadow:inset 0 1px 0 rgba(255,248,235,.10),0 18px 44px -14px rgba(56,52,160,.45);
 }
 .login-card,.wm-card{
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 24px 80px rgba(8,10,30,.55);
+  box-shadow:inset 0 1px 0 rgba(255,248,235,.10),0 24px 80px rgba(8,10,30,.55);
 }
 /* Cursor-tracked spotlight tint on KPI cards (uses --mx/--my set in JS-free CSS fallback) */
 .kpi-card::after{
   content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(94,230,217,.10),transparent 60%);
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(255,210,122,.10),transparent 60%);
   opacity:0;transition:opacity .25s;
 }
 .kpi-card:hover::after{opacity:1}

@@ -5,4 +5,4 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
-| — | — | (loop-v2 未启动) | — | — |
+| 001 | 🟦 Standard | Phosphor 全局换色 (B1/B2) | ✅ critic 3/3 KEEP A/A/A− | [round-001](round-001-phosphor.md) |

@@ -1,21 +1,21 @@
 /* ─── RESET & BASE ─── */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#060911;
-  --bg2:#0b1018;
-  --bg3:#121a28;
-  --card:rgba(255,255,255,.04);
-  --card-border:rgba(255,255,255,.07);
-  --brand:#2dd6c6;
-  --brand2:#5ee6d9;
+  --bg:#0b0a07;
+  --bg2:#13110b;
+  --bg3:#1c1810;
+  --card:rgba(255,248,235,.04);
+  --card-border:rgba(255,248,235,.07);
+  --brand:#f5b73d;
+  --brand2:#ffd27a;
   --cyan:#22d3ee;
   --green:#34d399;
   --amber:#fbbf24;
   --red:#f87171;
   --purple:#6b78ff;
-  --t-primary:rgba(255,255,255,.92);
-  --t-sec:rgba(255,255,255,.55);
-  --t-muted:rgba(255,255,255,.28);
+  --t-primary:rgba(255,248,235,.92);
+  --t-sec:rgba(255,248,235,.55);
+  --t-muted:rgba(255,248,235,.28);
   --radius:14px;
   --radius-sm:8px;
   --shadow:0 8px 32px rgba(0,0,0,.4);

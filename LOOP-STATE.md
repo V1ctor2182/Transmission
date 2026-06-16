@@ -35,4 +35,5 @@
 - 设计:Phosphor + 多窗格 + 首启旅程 已定稿(DESIGN.md / *preview*.html)。
 
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
-- (v2 未启动 —— 等用户最终 GO)
+- (v2 未启动 —— 等用户最终 GO) → 已 GO,启动。
+- 2026-06-16 R001 🟦 Phosphor 全局换色(B1/B2)✅ build✓ 机检✓ critic 3/3 KEEP A/A/A−。自动落库。报告 reports/round-001。新增候选 B3(次级色)/B4(地图暖化)。next: 排序后大概率 B4/B3 或多窗格。

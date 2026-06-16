@@ -9,8 +9,10 @@
 真 app 现在还是旧的 cyan/侧边栏。所以 backlog 的大头是**把新设计落地** + 打磨 3 个 Hero 体验,而不只是清理旧的。
 
 ## 🟦 基建(安全、自动、先做 —— 高影响低风险)
-- [ ] **B1 Phosphor 全局换色**:`tokens.css` + 各处硬编码 cyan→amber(`#2dd6c6→#f5b73d`、`45,214,198→245,183,61`、暖黑底)。像当初 indigo→cyan 那样的全局 token 替换。注意 amber 是浅色,实心按钮要深 ink。影响:全站观感。风险:低。
-- [ ] **B2 暖黑底 + 边框暖白化**:`--bg/--surface/--border/--text` 切到 Phosphor warm 值。
+- [x] **B1 Phosphor 全局换色**(round 001):品牌 cyan→amber 全站替换完成。
+- [x] **B2 暖黑底 + 边框暖白化**(round 001):底色/文字/边框暖化完成。
+- [ ] **B3 次级数据色收编进 Phosphor**(round 001 发现):`--cyan #22d3ee` / `--green #34d399` / `--amber #fbbf24` 仍是旧值,sparkline 偏 teal → 统一到 up/hot/iris 语义。影响:中。风险:低。
+- [ ] **B4 夜地图 ocean 调暖**(round 001 发现):continents 填充 `#0b1830`/`#0e1c32` 冷蓝 → 暖近黑。影响:中(地图是主角)。风险:低。
 - [ ] **T10 全局 emoji 统一**(~400 个:国旗/状态/图标)→ 一套描边图标或纯文字。分屏分轮做。影响:大。风险:中(量大)。
 
 ## 🟥 Hero(放大模式 · 提 `feat/` 分支 + 暂停等 review)

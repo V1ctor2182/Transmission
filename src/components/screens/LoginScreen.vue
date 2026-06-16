@@ -66,7 +66,7 @@ const startScan = () => window.startScan?.()
         开始全球市场分析
       </button>
       <div class="wm-features">
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#5ee6d9"></div>全球商机匹配</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#ffd27a"></div>全球商机匹配</div>
         <div class="wm-feat"><div class="wm-feat-dot" style="background:#22d3ee"></div>竞争格局分析</div>
         <div class="wm-feat"><div class="wm-feat-dot" style="background:#34d399"></div>市场进入策略</div>
       </div>
@@ -101,14 +101,14 @@ const startScan = () => window.startScan?.()
   flex:1.15; min-width:0; padding:56px 64px; display:flex; flex-direction:column;
   border-right:1px solid var(--card-border);
   background:
-    radial-gradient(900px 500px at 18% 12%, rgba(45,214,198,.10), transparent 60%),
+    radial-gradient(900px 500px at 18% 12%, rgba(245,183,61,.10), transparent 60%),
     radial-gradient(700px 460px at 90% 100%, rgba(107,120,255,.08), transparent 60%),
     var(--bg);
 }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}
 .lg-logo em{font-style:normal; color:var(--brand)}
-.lg-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 22px rgba(45,214,198,.25)}
-.lg-mark svg{width:18px; height:18px; stroke:#04130f; fill:none; stroke-width:1.8}
+.lg-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 22px rgba(245,183,61,.25)}
+.lg-mark svg{width:18px; height:18px; stroke:#1a1305; fill:none; stroke-width:1.8}
 .lg-brand h1{
   margin-top:auto; font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
   font-size:clamp(34px,3.4vw,52px); line-height:1.06; letter-spacing:-.03em; color:var(--t-primary);
@@ -127,13 +127,13 @@ const startScan = () => window.startScan?.()
   width:100%; background:var(--card); border:1px solid var(--card-border); border-radius:10px;
   padding:12px 14px; font-size:14px; color:var(--t-primary); transition:.18s ease;
 }
-.lg-field input:focus{outline:none; border-color:rgba(45,214,198,.5); box-shadow:0 0 0 3px rgba(45,214,198,.12)}
+.lg-field input:focus{outline:none; border-color:rgba(245,183,61,.5); box-shadow:0 0 0 3px rgba(245,183,61,.12)}
 .lg-field input::placeholder{color:var(--t-muted)}
 .login-btn{
   width:100%; margin-top:26px; border:none; border-radius:10px; padding:13px;
   font-family:'Geist',sans-serif; font-size:14px; font-weight:700; letter-spacing:.01em;
-  color:#04130f; background:var(--brand); cursor:pointer; transition:.18s ease;
-  box-shadow:0 0 0 1px rgba(45,214,198,.4), 0 10px 28px -12px var(--brand);
+  color:#1a1305; background:var(--brand); cursor:pointer; transition:.18s ease;
+  box-shadow:0 0 0 1px rgba(245,183,61,.4), 0 10px 28px -12px var(--brand);
 }
 .login-btn:hover{filter:brightness(1.07); transform:translateY(-1px)}
 .login-btn:active{transform:translateY(1px) scale(.99)}
