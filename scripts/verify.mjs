@@ -24,6 +24,7 @@ const MIME = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css',
 // screen -> how to make it visible (legacy app uses global fns + id toggling)
 const NAV = {
   login:    null,
+  analysis: `if(window.__showAnalysis)__showAnalysis();`,
   onboard:  `document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));var o=document.getElementById('s-onboard');if(o)o.classList.add('active');if(window.runOnboarding)runOnboarding();`,
   dashboard:`enterApp(); navTo('dashboard',0)`,
   leads:    `enterApp(); navTo('leads',1)`,
