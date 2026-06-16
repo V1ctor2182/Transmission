@@ -56,18 +56,32 @@ const WA_CHIPS = {
   2: ['我们可以提供阿拉伯语产品说明书和清真认证文件','我们的节庆礼盒非常适合斋月和开斋节市场','欢迎安排视频会议，详细介绍我们的产品线和合作条件'],
 };
 
+// flat stroke-SVG inner markup for intel-row icons (terminal style, no emoji)
+const IROW_ICON = {
+  biz:'<path d="M4 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16"/><path d="M12 21V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v12"/><path d="M7 7h2M7 11h2M7 15h2M16 12h1M16 16h1"/>',
+  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  rev:'<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v6M18 9v6"/>',
+  cart:'<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20.5 8H6"/>',
+  phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.66A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>',
+  chart:'<path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  bell:'<path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+  bulb:'<path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/>'
+};
+
 const INTEL_DATA = {
   0: {
-    name:'Klaus Weber',company:'Weber Import GmbH',country:'🇩🇪 德国',score:88,
-    basic:[{icon:'🏢',key:'公司规模',val:'50-100人'},{icon:'📅',key:'成立年份',val:'2008年'},{icon:'💰',key:'年营业额',val:'€500万+'},{icon:'🛒',key:'采购频率',val:'季度采购'}],
-    locked:[{icon:'📞',key:'直线电话',val:'+49 30 XXXX XXXX'},{icon:'📧',key:'采购负责人邮箱',val:'k.weber@weber-import.de'},{icon:'📊',key:'历史采购额',val:'€120万/年'},{icon:'🎯',key:'决策周期',val:'2-3周'}],
-    followup:{title:'⏰ 跟进提醒',text:'Klaus Weber 昨日查看了产品手册 3 次，今日是最佳跟进时机。建议发送包含欧盟认证文件的完整报价单。',btn:'立即生成跟进邮件'}
+    name:'Klaus Weber',company:'Weber Import GmbH',country:'德国',flag:'🇩🇪',score:88,
+    basic:[{icon:'biz',key:'公司规模',val:'50-100人'},{icon:'cal',key:'成立年份',val:'2008年'},{icon:'rev',key:'年营业额',val:'€500万+'},{icon:'cart',key:'采购频率',val:'季度采购'}],
+    locked:[{icon:'phone',key:'直线电话',val:'+49 30 XXXX XXXX'},{icon:'mail',key:'采购负责人邮箱',val:'k.weber@weber-import.de'},{icon:'chart',key:'历史采购额',val:'€120万/年'},{icon:'target',key:'决策周期',val:'2-3周'}],
+    followup:{ico:'bell',title:'跟进提醒',text:'Klaus Weber 昨日查看了产品手册 3 次，今日是最佳跟进时机。建议发送包含欧盟认证文件的完整报价单。',btn:'立即生成跟进邮件'}
   },
   1: {
-    name:'Rajesh Kumar',company:'Kumar Foods Pte Ltd',country:'🇸🇬 新加坡',score:93,
-    basic:[{icon:'🏢',key:'公司规模',val:'20-50人'},{icon:'📅',key:'成立年份',val:'2015年'},{icon:'💰',key:'年营业额',val:'SGD 300万+'},{icon:'🛒',key:'采购频率',val:'月度采购'}],
-    locked:[{icon:'📞',key:'直线电话',val:'+65 9XXX XXXX'},{icon:'📧',key:'采购负责人邮箱',val:'rajesh@kumarfoods.sg'},{icon:'📊',key:'历史采购额',val:'SGD 80万/年'},{icon:'🎯',key:'决策周期',val:'1-2周'}],
-    followup:{title:'💡 AI 建议',text:'Rajesh 正在等待产品目录，建议在 1 小时内发送，并附上新加坡本地仓储信息以增加竞争优势。',btn:'发送产品目录'}
+    name:'Rajesh Kumar',company:'Kumar Foods Pte Ltd',country:'新加坡',flag:'🇸🇬',score:93,
+    basic:[{icon:'biz',key:'公司规模',val:'20-50人'},{icon:'cal',key:'成立年份',val:'2015年'},{icon:'rev',key:'年营业额',val:'SGD 300万+'},{icon:'cart',key:'采购频率',val:'月度采购'}],
+    locked:[{icon:'phone',key:'直线电话',val:'+65 9XXX XXXX'},{icon:'mail',key:'采购负责人邮箱',val:'rajesh@kumarfoods.sg'},{icon:'chart',key:'历史采购额',val:'SGD 80万/年'},{icon:'target',key:'决策周期',val:'1-2周'}],
+    followup:{ico:'bulb',title:'AI 建议',text:'Rajesh 正在等待产品目录，建议在 1 小时内发送，并附上新加坡本地仓储信息以增加竞争优势。',btn:'发送产品目录'}
   }
 };
 
@@ -1855,30 +1869,31 @@ function sendWaMsg() {
 function renderIntelPanel(id) {
   const d = INTEL_DATA[id] || INTEL_DATA[0];
   const scroll = document.getElementById('intel-scroll');
+  const irow = r => `<div class="intel-row"><div class="intel-row-icon"><svg viewBox="0 0 24 24">${IROW_ICON[r.icon]||''}</svg></div><div class="intel-row-key">${r.key}</div><div class="intel-row-val">${r.val}</div></div>`;
   scroll.innerHTML = `
     <div class="follow-up-alert">
-      <div class="follow-up-title">${d.followup.title}</div>
+      <div class="follow-up-title"><svg viewBox="0 0 24 24" class="follow-up-ico">${IROW_ICON[d.followup.ico]||''}</svg>${d.followup.title}</div>
       <div class="follow-up-text">${d.followup.text}</div>
-      <button class="follow-up-btn" onclick="toast('✉️','正在生成跟进邮件','AI 正在为 ${d.name} 生成个性化跟进邮件…')">${d.followup.btn}</button>
+      <button class="follow-up-btn" onclick="toast('◆','正在生成跟进邮件','AI 正在为 ${d.name} 生成个性化跟进邮件…')">${d.followup.btn}</button>
     </div>
     <div class="intel-company-card">
-      <div class="intel-co-av" style="background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff">${d.name[0]}</div>
+      <div class="intel-co-av">${d.name[0]}</div>
       <div class="intel-co-name">${d.name}</div>
-      <div class="intel-co-sub">${d.company} · ${d.country}</div>
+      <div class="intel-co-sub">${d.company} · ${ccBadge(d.flag)}${d.country}</div>
       <div class="intel-score-badge">ICP 匹配 ${d.score}分</div>
     </div>
     <div class="intel-section">
       <div class="intel-section-title">基础信息</div>
-      ${d.basic.map(r => `<div class="intel-row"><div class="intel-row-icon">${r.icon}</div><div class="intel-row-key">${r.key}</div><div class="intel-row-val">${r.val}</div></div>`).join('')}
+      ${d.basic.map(irow).join('')}
     </div>
     <div class="intel-section">
       <div class="intel-section-title">深度情报</div>
       <div class="intel-blur-section">
         <div class="intel-blur">
-          ${d.locked.map(r => `<div class="intel-row"><div class="intel-row-icon">${r.icon}</div><div class="intel-row-key">${r.key}</div><div class="intel-row-val">${r.val}</div></div>`).join('')}
+          ${d.locked.map(irow).join('')}
         </div>
         <div class="intel-lock-overlay" onclick="showModal('modal-unlock')">
-          <div class="intel-lock-icon">🔒</div>
+          <div class="intel-lock-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
           <div class="intel-lock-text">解锁深度情报</div>
           <div class="intel-lock-price">¥29 单条 / ¥99 月度无限</div>
         </div>

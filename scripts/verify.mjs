@@ -30,7 +30,7 @@ const NAV = {
   leads:    `enterApp(); navTo('leads',1)`,
   marketing:`enterApp(); navTo('marketing',2); if(window.renderMktList)renderMktList();`,
   intel:    `enterApp(); navTo('intel',3)`,
-  whatsapp: `enterApp(); navTo('whatsapp',4); if(window.renderWaContacts)renderWaContacts(); if(window.renderWaChat)renderWaChat(0);`,
+  whatsapp: `enterApp(); navTo('whatsapp',4); if(window.renderWaContacts)renderWaContacts(); if(window.selectWaContact)selectWaContact(0); else if(window.renderWaChat)renderWaChat(0);`,
   pool:     `enterApp(); navTo('pool',5)`,
 }
 

@@ -15,7 +15,8 @@
 .intel-blur-content{filter:blur(4px);pointer-events:none;user-select:none}
 .intel-lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer}
 .intel-lock-overlay:hover .intel-lock-text{color:var(--brand2)}
-.intel-lock-icon{font-size:20px}
+.intel-lock-icon{display:flex;justify-content:center}
+.intel-lock-icon svg{width:20px;height:20px;stroke:var(--t-sec);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .intel-lock-text{font-size:12px;font-weight:700;color:var(--amber)}
 .intel-lock-price{font-size:10px;color:var(--t-muted)}
 
