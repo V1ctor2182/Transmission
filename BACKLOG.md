@@ -25,8 +25,15 @@
 - [ ] **H3 实时商机/建联 golden path**:热力图→点热点→该区买家→一键建联→WhatsApp(话术已清)。每个 ping 对应真信号。
 - [ ] **HX 黄金 demo 路径节奏**:整条 `输网址→分析→工作台→找到买家→建联` 端到端的节奏打磨(常驻任务,每隔几轮回看一次)。
 
+## 🔴 组件级 AI 味审计(用户 2026-06-16「还是有很多 component 都很有 ai 味」· R013+ 优先)
+> R012 后跨屏视觉抽查发现,布局成型但组件内部仍重 AI 味。最重 → 最轻:
+- [ ] 🔴 **CP1 客户池 pool 去 AI 味(最重)**:① 国旗 emoji 🇺🇸🇸🇬🇲🇾… → 复用 `ccBadge()`/FLAG2CC mono 国家码;② `🤖 AI 批量跟进`/`🤖 AI 跟进`/`💬` emoji 按钮 → 扁平 SVG 或纯文字。影响:高。风险:低。
+- [ ] 🔴 **CP2 whatsapp 去 emoji**:`🛡️ 跟进提醒`、`⚡ AI 话术建议` 等标注 emoji → 扁平 SVG/文字标签。影响:中。风险:低。
+- [ ] 🟦 **CP3 leads 地区标签**:`🇸🇬 新加坡 ✕` 国旗 emoji → mono 码或去 emoji;✕ 关闭按钮样式收敛。数据源彩色方块字母 logo 偏通用,留观察。影响:中。风险:低。
+- [ ] 🟦 **CP4 通用组件语言**:avatar 纯色圆/彩色方块 logo 瓦片/进度条/徽标 pill 偏 AI 模板,逐步收敛到终端风(留待 critic 逐屏判)。影响:中。风险:中。
+
 ## 🟦 Standard(清理 · 自动)
-- [ ] **多窗格 AppShell 落地**:把 `AppShell.vue` 从侧栏+单页改成 `layout-preview` 的窗格网格;Dashboard 先改成指挥台,其它屏逐步用同一 pane 语言。(大,可能拆多轮;涉及 Hero 屏的部分按 Hero 走分支。)
+- [x] **多窗格 AppShell 落地**(R012):dashboard 重排为 layout-preview 指挥台网格(地图 hero+KPI 条+AI工作流 feed+右侧实时买家整列),用户验收满意已 merge。修了一处 display 特异性回归(R012-fix)。其它屏暂沿用 `.page` 单页,后续按需。
 - [ ] **T8 Pool**:客户表抽成可复用 `CustomerTable.vue`,Leads 与 Pool 共用。
 - [ ] **T9 浮层**:Modals/Toast → `<Teleport>`+`v-if` / toast store。
 - [ ] critic 历史遗留 polish:登录副文案对比度 · 营销批准 CTA 权重弱 · WhatsApp cyan 气泡对比度 · 欢迎卡片偏营销腔。
