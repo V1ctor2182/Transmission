@@ -1770,7 +1770,7 @@ function renderWaContacts() {
     <div class="wa-contact ${i===0?'on':''}" id="wa-c-${c.id}" onclick="selectWaContact(${c.id})">
       <div class="wa-av" style="background:linear-gradient(135deg,${c.color},${c.color}aa)">${c.av}</div>
       <div class="wa-contact-info">
-        <div class="wa-contact-name">${c.country} ${c.name}</div>
+        <div class="wa-contact-name">${ccBadge(c.country)}${c.name}</div>
         <div class="wa-contact-last">${c.last}</div>
       </div>
       <div class="wa-contact-right">
@@ -2016,7 +2016,7 @@ const INTEL_TABLE_DATA = [
 ];
 
 // 国旗 emoji → 两字母 mono 国家码(终端风,去 emoji);跨屏复用。
-const FLAG2CC = {'🇸🇬':'SG','🇲🇾':'MY','🇹🇭':'TH','🇺🇸':'US','🇦🇺':'AU','🇫🇷':'FR','🇮🇩':'ID','🇰🇷':'KR','🇩🇪':'DE','🇬🇧':'GB','🇨🇦':'CA','🇪🇺':'EU','🇦🇪':'AE','🇻🇳':'VN','🇳🇿':'NZ','🇵🇭':'PH','🇯🇵':'JP','🇨🇳':'CN'};
+const FLAG2CC = {'🇸🇬':'SG','🇲🇾':'MY','🇹🇭':'TH','🇺🇸':'US','🇦🇺':'AU','🇫🇷':'FR','🇮🇩':'ID','🇰🇷':'KR','🇩🇪':'DE','🇬🇧':'GB','🇨🇦':'CA','🇪🇺':'EU','🇦🇪':'AE','🇻🇳':'VN','🇳🇿':'NZ','🇵🇭':'PH','🇯🇵':'JP','🇨🇳':'CN','🇧🇷':'BR','🇮🇳':'IN','🇮🇹':'IT','🇪🇸':'ES','🇲🇽':'MX'};
 const ccBadge = f => `<span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--t-sec);background:rgba(255,248,235,.05);border:1px solid var(--card-border);border-radius:4px;padding:1px 5px;margin-right:7px">${FLAG2CC[f]||'··'}</span>`;
 
 function renderIntelTable() {

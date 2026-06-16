@@ -48,3 +48,4 @@
 - 2026-06-16 R005 🟦 B6 iris 收掉。dashboard 4处 iris→暖色(标题/98241/待办行/欧洲热点)。delta 3/3 KEEP。**dashboard 全清里程碑**(无cyan/emoji/iris/渐变按钮)。自动落库。next 大头:多窗格布局 / T10 其它屏 / Hero。
 - 2026-06-16 R006 🟦 T10-leads。leads 按钮/标题前导 emoji 去掉 + ICP头部🔍渐变glow图标→扁平SVG。delta 3/3 KEEP。自动落库。新增 T10-flags(跨屏国旗→mono国家码)。next: intel/whatsapp 去 emoji 或 T10-flags 或多窗格。
 - 2026-06-16 R007 🟦 T10-flags起步:intel 国旗→mono国家码徽标(SG/MY…),加全局 FLAG2CC+ccBadge 助手(跨屏复用)。delta 3/3 KEEP。自动落库。next: 用 ccBadge 清 leads/whatsapp 国旗,或其它屏 emoji,或多窗格。
+- 2026-06-16 R008 🟦 whatsapp 国旗→mono码(复用ccBadge,FLAG2CC补BR等)+去🔗按钮emoji。delta 3/3 KEEP。自动落库。next: 收敛检查—连续多轮小清理,考虑转多窗格布局或起第一个Hero。
