@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 010 | 🟦 Standard | 热力图→真实世界地图(用户点名) | ✅ delta 3/3 KEEP | [round-010](round-010-real-map.md) |
 | 009 | 🟥 HERO | H1 AI 分析首启 | ⏸ 需要你 REVIEW · delight 3/3 KEEP(wow B/A/A earned A) · 分支 feat/hero-first-run | [round-009](round-009-H1-firstrun.md) |
 | 008 | 🟦 Standard | whatsapp 国旗→mono码 + 去🔗 | ✅ delta 3/3 KEEP | [round-008](round-008-wa-flags.md) |
 | 007 | 🟦 Standard | intel 国旗→mono国家码 (T10-flags) | ✅ delta 3/3 KEEP | [round-007](round-007-intel-flags.md) |

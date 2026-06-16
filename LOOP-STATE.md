@@ -51,3 +51,4 @@
 - 2026-06-16 R008 🟦 whatsapp 国旗→mono码(复用ccBadge,FLAG2CC补BR等)+去🔗按钮emoji。delta 3/3 KEEP。自动落库。next: 收敛检查—连续多轮小清理,考虑转多窗格布局或起第一个Hero。
 - 2026-06-16 R009 🟥 HERO H1 AI分析首启。FirstRunAnalysis.vue:状态循环/地图逐区点亮/KPI count-up/买家流入,无假%。Hero门:build✓ 序列3帧✓ delight 3/3 KEEP(wow B/A/A earned A/A/A)。**提分支 feat/hero-first-run + 暂停等人工 review,不自动merge,本轮不 ScheduleWakeup。**
 - 2026-06-16 H1 merged→main + 接入真实流程:startScan() 现在触发 FirstRunAnalysis(替代旧假扫描+章节),进入工作台→enterApp。黄金路径端到端通过(modal✓ analysis✓ app✓ 零错误)。
+- 2026-06-16 R010 🟦 热力图接真实世界地图(@svg-maps/world,WorldHeatmap.vue),dashboard 假大陆→真地图。delta 3/3 KEEP。教训:漏刷after图致误判,刷新重跑。自动落库。next: FirstRunAnalysis真地图 / 多窗格。
