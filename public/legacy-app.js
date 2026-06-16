@@ -2015,6 +2015,10 @@ const INTEL_TABLE_DATA = [
   {id:14, flag:'🇰🇷', country:'韩国', region:'东南亚', buyer:'Lotte Mart', need:'中式节庆礼品采购', cat:'礼品', score:83, contactRate:60, leadId:'TR-2406-0015', status:'new', time:'2026-06-14 03:22', unlocked:false},
 ];
 
+// 国旗 emoji → 两字母 mono 国家码(终端风,去 emoji);跨屏复用。
+const FLAG2CC = {'🇸🇬':'SG','🇲🇾':'MY','🇹🇭':'TH','🇺🇸':'US','🇦🇺':'AU','🇫🇷':'FR','🇮🇩':'ID','🇰🇷':'KR','🇩🇪':'DE','🇬🇧':'GB','🇨🇦':'CA','🇪🇺':'EU','🇦🇪':'AE','🇻🇳':'VN','🇳🇿':'NZ','🇵🇭':'PH','🇯🇵':'JP','🇨🇳':'CN'};
+const ccBadge = f => `<span style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--t-sec);background:rgba(255,248,235,.05);border:1px solid var(--card-border);border-radius:4px;padding:1px 5px;margin-right:7px">${FLAG2CC[f]||'··'}</span>`;
+
 function renderIntelTable() {
   const tbody = document.getElementById('intel-table-body');
   if(!tbody) return;
@@ -2052,7 +2056,7 @@ function renderIntelTable() {
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#7bd47b' : d.contactRate >= 50 ? '#fbbf24' : '#f87171';
     return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "showModal('modal-unlock')" : "toast('\ud83e\udd1d','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
-        <span style="font-size:18px;margin-right:6px">${d.flag}</span>
+        ${ccBadge(d.flag)}
         <span style="font-size:12px;color:#e2e8f0">${d.country}</span>
         <div style="font-size:10px;color:var(--t-muted);margin-top:1px">${d.region}</div>
         <div style="margin-top:4px;display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:1px 7px;border-radius:20px;background:${sc.bg};color:${sc.color};border:1px solid ${sc.border}">${sc.label}</div>
@@ -2096,7 +2100,7 @@ function renderIntelCenter() {
   grid.innerHTML = INTEL_CENTER_CARDS.map((c,i) => `
     <div class="intel-big-card" style="animation-delay:${i*0.1}s">
       <div class="intel-big-top">
-        <div class="intel-big-icon" style="background:${c.bg}">${c.icon}</div>
+        <div class="intel-big-icon" style="background:${c.bg};font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--t-primary)">${FLAG2CC[c.icon]||c.icon}</div>
         <div><div class="intel-big-title">${c.title}</div><div class="intel-big-sub">${c.sub}</div></div>
         <div class="intel-big-badge ${c.badge}">${c.badgeText}</div>
       </div>

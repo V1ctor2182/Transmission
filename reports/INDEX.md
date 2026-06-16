@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 007 | 🟦 Standard | intel 国旗→mono国家码 (T10-flags) | ✅ delta 3/3 KEEP | [round-007](round-007-intel-flags.md) |
 | 006 | 🟦 Standard | leads 去 emoji (T10) | ✅ delta 3/3 KEEP | [round-006](round-006-leads-emoji.md) |
 | 005 | 🟦 Standard | iris 收掉 (B6) — dashboard 全清 | ✅ delta 3/3 KEEP | [round-005](round-005-iris.md) |
 | 004 | 🟦 Standard | dashboard 去 emoji (B5) | ✅ delta 3/3 KEEP + 机检emoji clean | [round-004](round-004-dash-emoji.md) |
