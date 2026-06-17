@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 032 | 🟦 收尾 | leads 展开客户卡去 emoji 残留(🏢🌐👥📅📰👤🔍📣→纯文字) | ✅ build✓ golden✓ emoji=clean · 分支 feat/hero-find-customers | [—] |
 | 031 | 🟥 HERO | H2 找客户/ICP golden path(买家带匹配理由+锁→解锁联系方式+一键建联) | ⏸ 需要你 REVIEW · delight 2/3 KEEP wow A/B/C · 分支 feat/hero-find-customers | [round-031](round-031-H2-find-customers.md) |
 | 030 | 🟦 Standard | CP5 渐变清零(wa-send/icp-person-av/进度条/toast 渐变→flat,CP5 收口) | ✅ build✓ golden✓ 屏检 | [round-030](round-030-cp5-gradient-clear.md) |
 | 029 | 🟦 Standard | #4 bundle 分包(应用主包 1.4MB→86KB + vendor/worldmap 拆分,告警消除) | ✅ build✓ golden✓(纯 build 配置) | [round-029](round-029-bundle-split.md) |
