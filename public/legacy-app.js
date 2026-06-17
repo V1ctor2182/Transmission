@@ -848,9 +848,11 @@ function connectBuyer(co, country, flag, region, val, need, score) {
     id = WA_CONTACTS.length;
     WA_CONTACTS.push({ id, name: co, company: co, country: flag || '🌐', av: (co||'·')[0],
       color: '#f5b73d', last: need ? ('正在寻找' + need) : '新采购信号', time: '刚刚', unread: 1, status: '在线' });
+    const valClause = val ? `,本季度预计采购额约 ${val}` : '';
+    const valSignal = val ? `约 ${val} 的采购信号` : '采购信号';
     WA_CHATS[id] = [
-      { type: 'in', text: `您好,我们是${co}(${country})。我们正在寻找${need || '相关产品'}的供应商,本季度预计采购额约 ${val}。希望了解贵司的供货能力与报价。`, time: '刚刚' },
-      { type: 'follow', text: `跟进提醒:${co} 刚从${country}发来约 ${val} 的采购信号,建议 30 分钟内回复,抢占先机。` },
+      { type: 'in', text: `您好,我们是${co}(${country})。我们正在寻找${need || '相关产品'}的供应商${valClause}。希望了解贵司的供货能力与报价。`, time: '刚刚' },
+      { type: 'follow', text: `跟进提醒:${co} 刚从${country}发来${valSignal},建议 30 分钟内回复,抢占先机。` },
     ];
     WA_CHIPS[id] = [
       `我们可提供${need || '相关产品'}的完整目录与报价单,支持定制包装`,
@@ -862,7 +864,7 @@ function connectBuyer(co, country, flag, region, val, need, score) {
       basic: [
         { icon: 'biz',  key: '所在区域', val: country + ' · ' + region },
         { icon: 'cart', key: '采购需求', val: need || '—' },
-        { icon: 'rev',  key: '本季采购额', val: val },
+        { icon: 'rev',  key: '本季采购额', val: val || '采购意向明确' },
         { icon: 'cal',  key: '信号时间', val: '刚刚' },
       ],
       locked: [
@@ -879,7 +881,7 @@ function connectBuyer(co, country, flag, region, val, need, score) {
   navTo('whatsapp', PAGE_IDX.whatsapp);
   renderWaContacts();
   selectWaContact(id);
-  toast('◆', '已建联 · ' + co, `${country} · ${val} 采购信号 → 对话已打开,AI 话术已就绪`);
+  toast('◆', '已建联 · ' + co, `${country}${val ? ' · ' + val : ''} 采购信号 → 对话已打开,AI 话术已就绪`);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -1110,6 +1112,16 @@ const CUST_DATA = [
 let custFilter = 'all';
 let feedbackTarget = null;
 
+// H2:从买家真实公开动态里取「为什么匹配」—— 强采购意向(在找供应商/采购/引入)优先于泛信号,不编造
+function custMatchReason(c) {
+  const news = c.news || [];
+  const strong = news.find(n => /(寻找|寻求|采购|引入|招募|进口|供应商|供货)/.test(n) && /(糕点|月饼|粽子|节庆|中式|食品|供应商)/.test(n));
+  const broad = news.find(n => /(糕点|月饼|粽子|节庆|中式|亚洲食品|烘焙)/.test(n));
+  return strong || broad || news[0] || '高匹配目标采购商';
+}
+// 国家区号(enrich 揭示真实格式电话,与既有数据风格一致,号段保留掩码)
+const COUNTRY_DIAL = {'新加坡':'+65','马来西亚':'+60','美国':'+1','泰国':'+66','澳大利亚':'+61','加拿大':'+1','印度尼西亚':'+62','阿联酋':'+971','英国':'+44','新西兰':'+64','菲律宾':'+63','越南':'+84'};
+
 function renderCustTable(filter) {
   custFilter = filter;
   const list = document.getElementById('icp-cust-list');
@@ -1126,14 +1138,21 @@ function renderCustTable(filter) {
           <div class="icp-cust-company"><span class="icp-cust-flag">${c.flag}</span>${c.company}</div>
           <div class="icp-cust-country">${c.country} · ${c.industry}</div>
         </div>
-        <div class="icp-cust-demand" style="font-size:11px;color:var(--t-muted);line-height:1.5">${c.desc.substring(0,42)}…</div>
+        <div class="icp-cust-demand">
+          <div class="ic-why" title="${custMatchReason(c)}"><span class="ic-why-dot"></span>${custMatchReason(c)}</div>
+          <div class="ic-tags"><span class="ic-tag">${c.industry}</span><span class="ic-tag">${c.country}</span></div>
+        </div>
         <div><span class="icp-cust-source">${c.source}</span></div>
         <div class="icp-cust-score">${c.score}分</div>
-        <div class="icp-cust-contact ${c.status}">${c.status==='enriched'?'<span style="color:#7bd47b">✓ 已找到</span><br><span style="font-size:9px;color:var(--t-muted)">'+c.email+'</span>':'<span style="color:#fbbf24">待寻找</span>'}</div>
+        <div class="icp-cust-contact ${c.status}">
+          ${c.status==='enriched'
+            ? `<span class="ic-contact-unlocked ${c._justUnlocked?'reveal':''}"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0"/></svg>${c.email}</span>`
+            : `<span class="ic-contact-locked"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>••••@••••·••</span>`}
+        </div>
         <div class="icp-cust-ops">
-          ${c.status==='pending'?`<div class="icp-op-btn enrich" onclick="event.stopPropagation();enrichOne(${c.id})">&#x1F50D; 寻找联系人</div>`:''}
-          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-op-btn" style="color:#7bd47b;border-color:rgba(123,212,123,.2)">✓ 已营销</div>'}
-          <div class="icp-op-btn feedback" onclick="event.stopPropagation();openFeedback(${c.id})">⚠ 反馈不精准</div>
+          ${c.status==='pending'?`<div class="icp-op-btn enrich" onclick="event.stopPropagation();enrichOne(${c.id})">寻找联系人</div>`:`<div class="icp-op-btn connect" onclick="event.stopPropagation();connectFromLead(${c.id})">建联</div>`}
+          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">帮我营销</div>`:'<div class="icp-op-btn" style="color:#7bd47b;border-color:rgba(123,212,123,.2)">已营销</div>'}
+          <div class="icp-op-btn feedback" onclick="event.stopPropagation();openFeedback(${c.id})">反馈不精准</div>
         </div>
       </div>
       ${c.expanded ? `
@@ -1227,14 +1246,26 @@ function setCf(el, filter) {
 function enrichOne(id) {
   const c = CUST_DATA.find(x => x.id===id);
   if(!c) return;
-  toast('⚡','正在 Enrich 联系方式',`AI 正在从 Hunter / Apollo 获取 ${c.company} 的联系方式…`);
+  toast('◆','正在解锁联系方式',`AI 正在从 Hunter / Apollo 获取 ${c.company} 的联系方式…`);
   setTimeout(() => {
     c.status = 'enriched';
-    c.email = `contact@${c.company.toLowerCase().replace(/\s+/g,'')}.com`;
-    c.phone = '+XX XXXX-XXXX';
+    // 邮箱用买家真实官网域名(与已有客户的部门邮箱同风格),电话用真实国家区号+掩码号段
+    const domain = (c.website || '').replace(/^www\./, '') || (c.company.toLowerCase().replace(/[^a-z]/g, '') + '.com');
+    c.email = 'procurement@' + domain;
+    c.phone = (COUNTRY_DIAL[c.country] || '+__') + ' XXXX-XXXX';
+    c._justUnlocked = true;            // 一次性「解锁揭示」动画标记
     renderCustTable(custFilter);
-    toast('✅','Enrich 完成',`已获取 ${c.company} 的邮箱与电话`);
-  }, 1800);
+    toast('◆','联系方式已找到',`${c.company} 的采购邮箱与电话已就绪,可直接建联`);
+    setTimeout(() => { c._justUnlocked = false; }, 1600);  // 清掉,后续重渲染不重播
+  }, 1500);
+}
+
+// H2:从找客户结果直接建联 —— 复用 H3 的 connectBuyer,把这个买家落成真实对话
+function connectFromLead(id) {
+  const c = CUST_DATA.find(x => x.id===id);
+  if(!c) return;
+  // need = 万仟 出海主力品类(买家正在找的就是它);region 用行业,避免「国家·国家」重复
+  connectBuyer(c.company, c.country, c.flag, c.industry, '', '中式节庆糕点礼盒', c.score);
 }
 
 function enrichSelected() {

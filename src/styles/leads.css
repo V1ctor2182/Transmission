@@ -82,6 +82,21 @@
 .icp-cust-flag{font-size:14px}
 .icp-cust-country{font-size:10px;color:var(--t-muted);margin-top:1px}
 .icp-cust-demand{font-size:11px;color:var(--t-secondary)}
+/* H2:买家匹配理由(为什么匹配,取自其真实采购动态) */
+.ic-why{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t-secondary);line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ic-why-dot{width:5px;height:5px;border-radius:50%;background:var(--green,#7bd47b);flex-shrink:0;box-shadow:0 0 5px rgba(123,212,123,.5)}
+.ic-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.ic-tag{font-size:9px;font-weight:600;padding:1px 6px;border-radius:4px;background:rgba(245,183,61,.08);border:1px solid rgba(245,183,61,.18);color:var(--brand2,#ffd27a);white-space:nowrap}
+/* H2:联系方式 锁→解锁揭示 */
+.ic-contact-locked,.ic-contact-unlocked{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-family:'JetBrains Mono',monospace}
+.ic-contact-locked{color:var(--t-muted)}
+.ic-contact-locked svg{width:11px;height:11px;stroke:var(--t-muted);fill:none;stroke-width:1.8;flex-shrink:0}
+.ic-contact-unlocked{color:var(--green,#7bd47b)}
+.ic-contact-unlocked svg{width:11px;height:11px;stroke:var(--green,#7bd47b);fill:none;stroke-width:1.8;flex-shrink:0}
+.ic-contact-unlocked.reveal{animation:icUnlock .55s ease both}
+@keyframes icUnlock{0%{opacity:0;transform:translateY(-3px);filter:blur(3px)}100%{opacity:1;transform:none;filter:none}}
+.icp-op-btn.connect{border-color:rgba(245,183,61,.3);color:#1a1305;background:var(--brand)}
+.icp-op-btn.connect:hover{filter:brightness(1.08);color:#1a1305}
 .icp-cust-source{font-size:10px;padding:2px 7px;border-radius:5px;background:rgba(255,248,235,.05);color:var(--t-muted);white-space:nowrap}
 .icp-cust-score{font-size:12px;font-weight:800;color:#ffd27a}
 .icp-cust-contact{font-size:10px;color:var(--t-muted)}
