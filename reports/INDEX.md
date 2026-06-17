@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 030 | 🟦 Standard | CP5 渐变清零(wa-send/icp-person-av/进度条/toast 渐变→flat,CP5 收口) | ✅ build✓ golden✓ 屏检 | [round-030](round-030-cp5-gradient-clear.md) |
 | 029 | 🟦 Standard | #4 bundle 分包(应用主包 1.4MB→86KB + vendor/worldmap 拆分,告警消除) | ✅ build✓ golden✓(纯 build 配置) | [round-029](round-029-bundle-split.md) |
 | 028 | 🟦 Standard | CP5 长尾 品牌 logo marks 去渐变去 glow(login/wm/rso/sb/ob-final→flat 琥珀) | ✅ build✓ golden✓ critic 3/3 KEEP | [round-028](round-028-brandmark-deglow.md) |
 | 027 | 🟦 Standard | 动效②收尾 买家+AI feed stagger 入场(keyed 只新行播放) | ✅ build✓ golden✓ stagger 抓帧实证 · #2 完成 | [round-027](round-027-entrance-stagger.md) |

@@ -99,6 +99,6 @@
 .rso-step.active .rso-step-text{color:var(--t-primary)}
 .rso-step-sub{font-size:11px;color:var(--t-muted);margin-top:2px}
 .rso-progress{width:320px;height:3px;background:rgba(255,248,235,.06);border-radius:2px;margin-top:32px;overflow:hidden}
-.rso-progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--cyan));width:0%;transition:width .6s ease}
+.rso-progress-fill{height:100%;background:var(--brand);width:0%;transition:width .6s ease}
 .rso-pct{font-size:12px;color:var(--t-muted);margin-top:10px}
 

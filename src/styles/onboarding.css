@@ -15,7 +15,7 @@
 
 /* Progress bar at top */
 .ob-progress-bar{position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,248,235,.06)}
-.ob-progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--cyan));width:0%;transition:width .8s ease}
+.ob-progress-fill{height:100%;background:var(--brand);width:0%;transition:width .8s ease}
 
 /* Chapter indicator */
 .ob-chapter{position:absolute;top:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;font-size:11px;color:var(--t-muted);letter-spacing:.08em;text-transform:uppercase}
@@ -100,7 +100,7 @@
 .ob-actions-list{width:100%;max-width:600px;display:flex;flex-direction:column;gap:12px}
 .ob-action-item{display:flex;align-items:flex-start;gap:14px;background:rgba(255,248,235,.03);border:1px solid rgba(255,248,235,.06);border-radius:12px;padding:16px;opacity:0;transform:translateX(-14px);transition:.4s ease}
 .ob-action-item.show{opacity:1;transform:translateX(0)}
-.ob-action-num{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.ob-action-num{width:28px;height:28px;border-radius:8px;background:var(--brand);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
 .ob-action-text{font-size:13px;color:var(--t-sec);line-height:1.6}
 .ob-action-text strong{color:var(--t-primary)}
 
