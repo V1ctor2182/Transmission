@@ -105,7 +105,7 @@
 .ob-action-text strong{color:var(--t-primary)}
 
 /* Final CTA slide */
-.ob-final-logo{width:64px;height:64px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 0 40px rgba(245,183,61,.4)}
+.ob-final-logo{width:64px;height:64px;background:var(--brand);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
 .ob-final-logo svg{width:32px;height:32px;stroke:#fff}
 .ob-cta-btn{background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:12px;padding:14px 40px;font-size:15px;font-weight:700;color:#fff;cursor:pointer;border:none;transition:.2s;box-shadow:0 8px 24px rgba(245,183,61,.35);margin-top:8px}
 .ob-cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,183,61,.45)}

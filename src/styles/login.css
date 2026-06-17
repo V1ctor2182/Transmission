@@ -24,7 +24,7 @@
 @keyframes loginCardIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 /* Logo in card */
 .login-logo{display:flex;align-items:center;gap:12px;margin-bottom:20px;justify-content:center}
-.login-logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(245,183,61,.4)}
+.login-logo-mark{width:40px;height:40px;background:var(--brand);border-radius:12px;display:flex;align-items:center;justify-content:center}
 .login-logo-mark svg{width:20px;height:20px;stroke:#fff}
 .login-logo-name{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;letter-spacing:-.01em}
 .login-logo-name em{font-style:normal;color:var(--brand2)}
@@ -64,7 +64,7 @@
 #website-modal-overlay{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center}
 #website-modal-overlay.show{display:flex}
 .wm-card{background:rgba(13,18,37,.95);border:1px solid rgba(245,183,61,.25);border-radius:20px;padding:36px;width:480px;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:loginCardIn .4s ease}
-.wm-logo{width:48px;height:48px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 30px rgba(245,183,61,.4)}
+.wm-logo{width:48px;height:48px;background:var(--brand);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .wm-logo svg{width:24px;height:24px;stroke:#fff}
 .wm-title{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;text-align:center;margin-bottom:6px}
 .wm-sub{font-size:13px;color:var(--t-muted);text-align:center;line-height:1.6;margin-bottom:28px}
@@ -81,8 +81,8 @@
 .wm-feat-dot{width:5px;height:5px;border-radius:50%}
 /* Scanning overlay */
 #reg-scan-overlay{position:fixed;inset:0;z-index:70;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;gap:0}
-.rso-logo{width:56px;height:56px;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;box-shadow:0 0 40px rgba(245,183,61,.5);animation:logoPulse 1.5s ease-in-out infinite}
-@keyframes logoPulse{0%,100%{box-shadow:0 0 30px rgba(245,183,61,.4)}50%{box-shadow:0 0 60px rgba(245,183,61,.8)}}
+.rso-logo{width:56px;height:56px;background:var(--brand);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;animation:logoPulse 1.5s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.05);opacity:1}}
 .rso-logo svg{width:28px;height:28px;stroke:#fff}
 .rso-title{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;text-align:center}
 .rso-title em{font-style:normal;background:linear-gradient(135deg,var(--brand2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}

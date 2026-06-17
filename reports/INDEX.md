@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 028 | 🟦 Standard | CP5 长尾 品牌 logo marks 去渐变去 glow(login/wm/rso/sb/ob-final→flat 琥珀) | ✅ build✓ golden✓ critic 3/3 KEEP | [round-028](round-028-brandmark-deglow.md) |
 | 027 | 🟦 Standard | 动效②收尾 买家+AI feed stagger 入场(keyed 只新行播放) | ✅ build✓ golden✓ stagger 抓帧实证 · #2 完成 | [round-027](round-027-entrance-stagger.md) |
 | 026 | 🟦 Standard | 动效②KPI 进工作台 count-up(IO 触发一次,easeOut,终值精确) | ✅ build✓ golden✓ count-up 抓帧实证 | [round-026](round-026-kpi-countup.md) |
 | 025 | 🟦 Standard | 动效①地图 ping 接真信号(节奏 ∝ 该区买家数,东南亚最快/澳欧最缓+错峰) | ✅ build✓ golden✓(纯动效,静图不可判) | — |
