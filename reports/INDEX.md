@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 027 | 🟦 Standard | 动效②收尾 买家+AI feed stagger 入场(keyed 只新行播放) | ✅ build✓ golden✓ stagger 抓帧实证 · #2 完成 | [round-027](round-027-entrance-stagger.md) |
 | 026 | 🟦 Standard | 动效②KPI 进工作台 count-up(IO 触发一次,easeOut,终值精确) | ✅ build✓ golden✓ count-up 抓帧实证 | [round-026](round-026-kpi-countup.md) |
 | 025 | 🟦 Standard | 动效①地图 ping 接真信号(节奏 ∝ 该区买家数,东南亚最快/澳欧最缓+错峰) | ✅ build✓ golden✓(纯动效,静图不可判) | — |
 | 024 | 🟦 Standard | 对齐 demo 到万仟剧本(热点=四级市场 + 买家=报告点名渠道,修 R023 跑偏) | ✅ build✓ 机检✓ golden✓ · 已 merge main | — |

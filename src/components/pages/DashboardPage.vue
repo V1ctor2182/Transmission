@@ -144,7 +144,8 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
         <div class="pane-h"><span class="t">AI 工作流</span><span class="sp"></span><span class="live"><i></i>运行中</span></div>
         <div class="pane-b">
           <div class="feed">
-            <div class="frow" v-for="(f, i) in feed" :key="i" @click="nav(f.page)">
+            <div class="frow" v-for="(f, i) in feed" :key="i" @click="nav(f.page)"
+                 :style="{ animationDelay: (i * 0.05).toFixed(2) + 's' }">
               <span class="fd" :class="f.tone"></span>
               <span class="ft" v-html="f.html"></span>
               <span class="fa">{{ f.at }}</span>
@@ -163,7 +164,8 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
           <div v-else class="seg"><b class="on">匹配度</b><b>时间</b></div>
         </div>
         <div class="pane-b">
-          <div class="brow" v-for="(b, i) in shownBuyers" :key="b.co" @click="connect(b)">
+          <div class="brow" v-for="(b, i) in shownBuyers" :key="b.co" @click="connect(b)"
+               :style="{ animationDelay: (i * 0.04).toFixed(2) + 's' }">
             <div class="co"><span class="cc mono">{{ b.cc }}</span>{{ b.co }}</div>
             <div class="mt mono" :class="{ mid: b.mid }">{{ b.mt }}</div>
             <div class="bsub mono">{{ b.sub }}</div>
@@ -252,7 +254,8 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 
 /* AI 工作流 feed */
 .feed{ padding:6px 0 }
-.frow{ display:flex; gap:10px; align-items:flex-start; padding:9px 13px; cursor:pointer; transition:.12s }
+.frow{ display:flex; gap:10px; align-items:flex-start; padding:9px 13px; cursor:pointer; transition:.12s;
+  animation:browIn .32s cubic-bezier(.22,.61,.36,1) both }
 .frow:hover{ background:var(--s2) }
 .frow .fd{ width:6px; height:6px; border-radius:50%; margin-top:5px; flex-shrink:0 }
 .frow .fd.acc{ background:var(--acc) } .frow .fd.up{ background:var(--up) }
@@ -265,7 +268,10 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .buyers-pane .pane-b{ padding:0 }
 .brow{ display:grid; grid-template-columns:1fr auto auto; gap:4px 10px; padding:11px 13px;
   grid-template-areas:"co mt connect" "bsub val connect"; align-items:center;
-  border-bottom:1px solid var(--bd); cursor:pointer; transition:.12s }
+  border-bottom:1px solid var(--bd); cursor:pointer; transition:.12s;
+  animation:browIn .32s cubic-bezier(.22,.61,.36,1) both }
+@keyframes browIn{ from{ opacity:0; transform:translateY(7px) } to{ opacity:1; transform:none } }
+@media (prefers-reduced-motion:reduce){ .brow{ animation:none } }
 .brow:hover{ background:var(--s2) }
 .brow .co{ grid-area:co; font-weight:600; font-size:12.5px; color:var(--t1); display:flex; align-items:center }
 .brow .mt{ grid-area:mt; font:700 12px 'JetBrains Mono',monospace; color:var(--acc); text-align:right }
