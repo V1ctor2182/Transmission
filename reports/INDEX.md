@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 026 | 🟦 Standard | 动效②KPI 进工作台 count-up(IO 触发一次,easeOut,终值精确) | ✅ build✓ golden✓ count-up 抓帧实证 | [round-026](round-026-kpi-countup.md) |
 | 025 | 🟦 Standard | 动效①地图 ping 接真信号(节奏 ∝ 该区买家数,东南亚最快/澳欧最缓+错峰) | ✅ build✓ golden✓(纯动效,静图不可判) | — |
 | 024 | 🟦 Standard | 对齐 demo 到万仟剧本(热点=四级市场 + 买家=报告点名渠道,修 R023 跑偏) | ✅ build✓ 机检✓ golden✓ · 已 merge main | — |
 | 023 | 🟥 HERO | H3 实时商机/建联 golden path(热点→下钻→一键建联→真实对话) | ✅ delight 3/3 KEEP wow A/A/B · 已 merge main | [round-023](round-023-H3-realtime-signals.md) |

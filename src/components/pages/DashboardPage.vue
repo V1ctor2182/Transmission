@@ -6,7 +6,7 @@
   数据驱动的 feed/buyers,legacy 渲染器有 if(!el) return 守卫,不会报错。
 -->
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import WorldHeatmap from '../shared/WorldHeatmap.vue'
 const nav = (p) => window.navTo?.(p)
 
@@ -61,6 +61,34 @@ const activeRegion = ref(null)
 const onHotspot = (h) => { activeRegion.value = activeRegion.value === h.region ? null : h.region }
 const shownBuyers = computed(() => activeRegion.value ? buyers.filter(b => b.region === activeRegion.value) : buyers)
 const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, b.val, b.need, b.mt)
+
+// KPI 进入工作台时一次性 count-up(指挥台「上线」入场,真实终值,非循环)
+const kpiNums = kpis.map(k => parseInt(k.value.replace(/[^0-9]/g, ''), 10))
+const kpiDisplay = ref(kpis.map(k => k.value))
+let counted = false
+function runCountUp () {
+  if (counted) return; counted = true
+  const dur = 1000, fmt = n => Math.round(n).toLocaleString('en-US')
+  let t0 = null
+  const frame = (t) => {
+    if (t0 === null) t0 = t
+    const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3)
+    kpiDisplay.value = kpiNums.map(n => fmt(n * e))
+    if (p < 1) requestAnimationFrame(frame)
+    else kpiDisplay.value = kpis.map(k => k.value)  // 精确还原原始格式
+  }
+  requestAnimationFrame(frame)
+}
+let kpiIO = null
+onMounted(() => {
+  const el = document.querySelector('#page-dashboard .kpis')
+  if (!el || !('IntersectionObserver' in window)) return
+  kpiIO = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) { runCountUp(); kpiIO.disconnect() }
+  }, { threshold: 0.2 })
+  kpiIO.observe(el)
+})
+onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 </script>
 
 <template>
@@ -98,9 +126,9 @@ const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, 
       <!-- KPI strip -->
       <section class="kpi-pane">
         <div class="kpis">
-          <div class="kpi" :class="{ h: k.hot }" v-for="k in kpis" :key="k.label" @click="nav(k.page)">
+          <div class="kpi" :class="{ h: k.hot }" v-for="(k, i) in kpis" :key="k.label" @click="nav(k.page)">
             <div class="l">{{ k.label }}</div>
-            <div class="v">{{ k.value }}</div>
+            <div class="v">{{ kpiDisplay[i] }}</div>
             <div class="kfoot">
               <span class="d">{{ k.delta }}</span>
               <svg class="spark" viewBox="0 0 72 18" preserveAspectRatio="none" aria-hidden="true">
