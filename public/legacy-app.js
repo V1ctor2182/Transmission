@@ -1159,22 +1159,22 @@ function renderCustTable(filter) {
       <div class="icp-cust-card">
         <div class="icp-card-left">
           <div class="icp-card-section">
-            <div class="icp-card-label">🏢 公司介绍</div>
+            <div class="icp-card-label">公司介绍</div>
             <div class="icp-card-text">${c.desc}</div>
           </div>
           <div class="icp-card-row">
-            <div class="icp-card-kv"><span class="icp-kv-label">🌐 官网</span><a href="https://${c.website}" target="_blank" style="color:#ffd27a">${c.website}</a></div>
-            <div class="icp-card-kv"><span class="icp-kv-label">👥 员工数</span>${c.employees}</div>
-            <div class="icp-card-kv"><span class="icp-kv-label">📅 成立年份</span>${c.founded}年</div>
+            <div class="icp-card-kv"><span class="icp-kv-label">官网</span><a href="https://${c.website}" target="_blank" style="color:#ffd27a">${c.website}</a></div>
+            <div class="icp-card-kv"><span class="icp-kv-label">员工数</span>${c.employees}</div>
+            <div class="icp-card-kv"><span class="icp-kv-label">成立年份</span>${c.founded}年</div>
           </div>
           <div class="icp-card-section">
-            <div class="icp-card-label">📰 最近动态</div>
+            <div class="icp-card-label">最近动态</div>
             ${c.news.map(n=>`<div class="icp-card-news">· ${n}</div>`).join('')}
           </div>
         </div>
         <div class="icp-card-right">
           <div class="icp-card-section">
-            <div class="icp-card-label">👤 关键联系人</div>
+            <div class="icp-card-label">关键联系人</div>
             ${c.contacts.map(p=>`
               <div class="icp-card-person">
                 <div class="icp-person-av">${p.name[0]}</div>
@@ -1187,8 +1187,8 @@ function renderCustTable(filter) {
             `).join('')}
           </div>
           <div class="icp-card-actions">
-            ${c.status==='pending'?`<div class="icp-card-btn enrich" onclick="enrichOne(${c.id})">🔍 寻找联系人</div>`:''}
-            ${!c.edm?`<div class="icp-card-btn edm" onclick="addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-card-btn" style="opacity:.5">✓ 已加入营销</div>'}
+            ${c.status==='pending'?`<div class="icp-card-btn enrich" onclick="enrichOne(${c.id})">寻找联系人</div>`:''}
+            ${!c.edm?`<div class="icp-card-btn edm" onclick="addToEdm(${c.id})">帮我营销</div>`:'<div class="icp-card-btn" style="opacity:.5">✓ 已加入营销</div>'}
           </div>
         </div>
       </div>
