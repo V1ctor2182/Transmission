@@ -30,11 +30,11 @@ function sparkPath (d) {
 }
 // AI 工作流实时 feed(承接旧「AI 今日工作报告」的意义)
 const feed = [
-  { tone: 'acc',  html: 'AI 搜索引擎新推送 <b>23 条</b>东南亚超市采购线索', at: '刚刚',   page: 'intel' },
-  { tone: 'up',   html: '<b>Fairprice Group</b> 回复了产品目录请求，建议跟进', at: '2分钟',  page: 'whatsapp' },
-  { tone: 'hot',  html: 'AI 已自动生成 <b>7 封</b>个性化邮件，待审批',        at: '8分钟',  page: 'marketing' },
-  { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel' },
-  { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads' },
+  { tone: 'acc',  html: 'AI 搜索引擎新推送 <b>23 条</b>东南亚超市采购线索', at: '刚刚',   page: 'intel',     action: '查看线索' },
+  { tone: 'up',   html: '<b>Fairprice Group</b> 回复了产品目录请求，建议跟进', at: '2分钟',  page: 'whatsapp',  action: '去跟进' },
+  { tone: 'hot',  html: 'AI 已自动生成 <b>7 封</b>个性化邮件，待审批',        at: '8分钟',  page: 'marketing', action: '去审批' },
+  { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel',     action: '看报告' },
+  { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads',     action: '查看客户' },
 ]
 // 实时买家信号(右侧常驻整列)= 万仟报告点名的真实华人超市渠道(Fairprice/NTUC·Cold
 // Storage·Jaya Grocer 东南亚 / 99 Ranch·T&T 北美 / Asian Grocery 澳),需求为粽子/月饼/节庆礼盒。
@@ -148,7 +148,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
                  :style="{ animationDelay: (i * 0.05).toFixed(2) + 's' }">
               <span class="fd" :class="f.tone"></span>
               <span class="ft" v-html="f.html"></span>
-              <span class="fa">{{ f.at }}</span>
+              <span class="fmeta"><span class="faction">{{ f.action }}</span><span class="fa">{{ f.at }}</span></span>
             </div>
           </div>
         </div>
@@ -262,7 +262,12 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .frow .fd.hot{ background:var(--hot) } .frow .fd.iris{ background:var(--iris) }
 .frow .ft{ font-size:12px; color:var(--t2); line-height:1.5 }
 .frow .ft :deep(b){ color:var(--t1); font-weight:600 }
-.frow .fa{ margin-left:auto; font:500 10px 'JetBrains Mono',monospace; color:var(--t3); white-space:nowrap; flex-shrink:0 }
+.frow .fmeta{ margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; gap:3px; flex-shrink:0 }
+.frow .faction{ display:inline-flex; align-items:center; border:1px solid var(--acc-line); background:var(--acc-soft);
+  color:var(--brand2,#1e5fd0); border-radius:6px; padding:2px 8px; font:600 10.5px 'Geist',sans-serif;
+  white-space:nowrap; opacity:.72; transition:.15s }
+.frow:hover .faction{ opacity:1; background:var(--brand); color:#ffffff; border-color:var(--brand) }
+.frow .fa{ font:500 10px 'JetBrains Mono',monospace; color:var(--t3); white-space:nowrap }
 
 /* 买家行 */
 .buyers-pane .pane-b{ padding:0 }
