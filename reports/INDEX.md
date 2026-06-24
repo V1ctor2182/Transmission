@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 044 | 🔴→✅ 产品轴 | 情报解锁假反馈→真实揭示(红线):解锁真 un-mask 行+真扣次数 47→46+重渲染,toast 诚实点名 | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-044](round-044-real-unlock.md) |
 | 043 | 🟦 产品轴 | 成就感反馈层去 emoji(33 toast 图标→◆ + 建联键去 🤝,反馈层零 emoji 统一) | ✅ build✓ 机检 5 屏✓ golden h3✓ 两北极星 KEEP | [round-043](round-043-toast-deemoji.md) |
 | 042 | 🟦 产品轴 | AI 工作流 feed 行动化(每行加常驻行动药丸 查看/去跟进/去审批,narration→明确下一步) | ✅ build✓ 机检✓ golden h3✓ 两北极星 KEEP | [round-042](round-042-feed-actions.md) |
 | 041 | 🟦 产品轴 | 实时买家信号「建联」行动常驻可见(opacity:0 hover-gated → .72 常驻,明确下一步) | ✅ build✓ 机检✓ golden h3✓ 两北极星 KEEP | [round-041](round-041-buyer-action-visible.md) |

@@ -165,6 +165,7 @@ let currentMktItem = null;
 let currentVariant = 0;
 let aiMsgIdx = 0;
 let credits = 47;
+let intelUnlockTarget = null;
 let obSlide = 0;
 let obTimer = null;
 let pendingCount = 7;
@@ -2116,7 +2117,7 @@ function renderIntelTable() {
       : `<div style="font-size:13px;font-weight:600;color:var(--t-primary)">${d.buyer}</div>`;
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#17a673' : d.contactRate >= 50 ? '#c8860a' : '#e5484d';
-    return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "showModal('modal-unlock')" : "toast('◆','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
+    return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "openIntelUnlock("+d.id+")" : "toast('◆','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
         ${ccBadge(d.flag)}
         <span style="font-size:12px;color:var(--t-primary)">${d.country}</span>
         <div style="font-size:10px;color:var(--t-muted);margin-top:1px">${d.region}</div>
@@ -2145,7 +2146,7 @@ function renderIntelTable() {
       <td style="padding:12px 16px;font-size:11px;color:var(--t-muted);white-space:nowrap">${d.time}</td>
       <td style="padding:12px 16px;text-align:center" onclick="event.stopPropagation()">
         ${isLocked
-          ? `<div onclick="showModal('modal-unlock')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);cursor:pointer;white-space:nowrap">🔒 解锁</div>`
+          ? `<div onclick="openIntelUnlock(${d.id})" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);cursor:pointer;white-space:nowrap">解锁</div>`
           : `<div onclick="toast('◆','建联已启动','AI 正在为 ${d.buyer} 生成个性化开场白…')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;white-space:nowrap">建联</div>`
         }
       </td>
@@ -2190,9 +2191,23 @@ function renderIntelCenter() {
 function showModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 function selectUnlock(el) { document.querySelectorAll('.unlock-opt').forEach(o => o.classList.remove('on')); el.classList.add('on'); }
+function openIntelUnlock(id) { intelUnlockTarget = id; showModal('modal-unlock'); }
 function confirmUnlock() {
   closeModal('modal-unlock');
-  toast('◆','情报已解锁！','完整联系方式和采购记录已显示，祝您谈判顺利');
+  if(intelUnlockTarget != null) {
+    const row = INTEL_TABLE_DATA.find(d => d.id === intelUnlockTarget);
+    intelUnlockTarget = null;
+    if(row && !row.unlocked) {
+      row.unlocked = true;
+      if(row.status === 'locked') row.status = 'new';
+      credits = Math.max(0, credits - 1);
+      const cv = document.getElementById('credits-val'); if(cv) cv.textContent = credits;
+      renderIntelTable();
+      toast('◆','情报已解锁',`${row.buyer} 的完整采购情报已显示 · 剩余建联次数 ${credits}`);
+      return;
+    }
+  }
+  toast('◆','情报已解锁','完整联系方式和采购记录已显示');
 }
 
 // ═══════════════════════════════════════════════════════
