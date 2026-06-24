@@ -117,7 +117,8 @@
 
 ## 8. Rebrand backlog(每轮排序取顶)
 - [~] **R1 令牌反相 + 字面量批量替换 + 更名 TRANS·MISSION**(R031,分支 `feat/rebrand-transmission`,⏸ 待 review 定调):tokens.css 全反相 + 13 条字面量批量替(残留=0)+ 全站更名 + 创拾觅深署名。build✓ 机检 9 屏零错✓ golden h3✓。**未 merge。**
-  - 残留(R1 后逐屏修):① `.toast` bg `rgba(10,14,26,.96)` 深 navy 块 + `rgba(0,0,0,.4)` 重阴影 → 亮色化/减淡;② `.wh-land path fill:#1c160c` 暖近黑大陆 + `.wh-lbl #fff8eb` 浅字 fallback → 浅冷大陆 + navy 字;③ src 内 11 处 `rgba(0,0,0,…)` 遮罩/阴影逐屏减淡;④ 未命中暖色 `#1c160c`/hot dot `#ff7a3d` 收成蓝/语义。
+  - [x] R032:① `.toast` 深块→白卡 + 冷阴影 + azure ◆;② `.wh-land` 暖近黑→浅冷大陆 + azure 信号/ping + navy 标签白 halo;③ 地图提示 chip `rgba(11,10,7,.5)`→浅磨砂。
+  - 残留(续修):③ src 内仍有 `rgba(0,0,0,…)` 遮罩(modal overlay 等)逐屏减淡;④ **带空格 rgb 漏替**(批量表只命中无空格):`rgba(245, 183, 61,…)`/`rgba(255, 248, 235,…)` 在 `modals.css`、`FirstRunAnalysis.vue` 残留(6 处)→ 补扫含空格变体;⑤ **暖橙 `--hot:#ff7a3d`**(DashboardPage KPI/spark/feed)冷色主题里违反单一 azure 锁 → 定调收蓝 or 保留热度语义(动 KPI 语义色,单独一轮 critic)。
 - [ ] login 亮色品牌化(TM 渐变 mark + 白底 + navy 字)
 - [ ] 工作台 dashboard:暗底残留→亮、地图 azure 信号化、KPI/feed/买家对比度
 - [ ] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)

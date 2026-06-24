@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 032 | 🟦 Standard | 工作台暗底残留清理(地图暖近黑大陆→浅冷+azure 信号 / toast 深块→白卡 / 提示 chip 浅化) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-032](round-032-dash-dark-residue.md) |
 | 031 | 🟥 大件 ⏸ | **R1 令牌反相 + 字面量批量替换 + 全站更名 TRANS·MISSION**(暖琥珀暗 → 信号蓝亮 + 创拾觅深署名) | ✅ build✓ 机检 9 屏零错✓ golden h3✓ 残留字面量=0 · **待 review 定调** | [round-031](round-031-R1-rebrand-transmission.md) |
 | 030 | 🟦 Standard | CP5 渐变清零(wa-send/icp-person-av/进度条/toast 渐变→flat,CP5 收口) | ✅ build✓ golden✓ 屏检 | [round-030](round-030-cp5-gradient-clear.md) |
 | 029 | 🟦 Standard | #4 bundle 分包(应用主包 1.4MB→86KB + vendor/worldmap 拆分,告警消除) | ✅ build✓ golden✓(纯 build 配置) | [round-029](round-029-bundle-split.md) |

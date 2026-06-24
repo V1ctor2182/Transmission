@@ -33,20 +33,20 @@ defineEmits(['hotspot'])
 <style scoped>
 .wh { width: 100%; height: 100%; display: block; }
 .wh-land path {
-  fill: #1c160c;
-  stroke: rgba(245, 183, 61, .16);
+  fill: #dde7f3;
+  stroke: rgba(31, 143, 214, .14);
   stroke-width: .5;
   vector-effect: non-scaling-stroke;
 }
 .wh-dot { fill: var(--brand, #1f8fd6); }
-.wh-dot.hot { fill: var(--hot, #ff7a3d); }
+.wh-dot.hot { fill: var(--brand-azure, #2f9fe0); }
 .wh-ping {
   fill: none;
-  stroke: var(--acc-line, rgba(245, 183, 61, .4));
+  stroke: var(--acc-line, rgba(31, 143, 214, .42));
   stroke-width: 1; vector-effect: non-scaling-stroke;
   animation: wh-ping 2.6s ease-out infinite;
 }
-.wh-ping.hot { stroke: rgba(255, 122, 61, .5); }
+.wh-ping.hot { stroke: rgba(47, 159, 224, .55); }
 @keyframes wh-ping { 0% { r: 3; opacity: .85 } 100% { r: 15; opacity: 0 } }
 /* clickable hotspots (H3) */
 .wh-spot[role="button"] { cursor: pointer; outline: none; }
@@ -57,10 +57,10 @@ defineEmits(['hotspot'])
 .wh-spot.sel .wh-lbl { fill: var(--brand2, #1e5fd0); }
 .wh-spot.dim { opacity: .32; transition: opacity .2s; }
 .wh-lbl {
-  fill: var(--t-primary, #fff8eb);
+  fill: var(--t-primary, #13213f);
   font: 600 11px 'JetBrains Mono', monospace;
   text-anchor: middle; paint-order: stroke;
-  stroke: rgba(6, 9, 17, .7); stroke-width: 3px;
+  stroke: rgba(244, 247, 252, .85); stroke-width: 3px;
 }
 @media (prefers-reduced-motion: reduce) { .wh-ping { animation: none } }
 </style>

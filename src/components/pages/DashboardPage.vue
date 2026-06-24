@@ -296,7 +296,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .region-clear:hover{ background:var(--brand); color:#ffffff; border-color:var(--brand) }
 /* 地图下钻提示 */
 .map-hint{ position:absolute; right:14px; bottom:12px; font:500 10.5px 'Geist',sans-serif; color:var(--t3);
-  pointer-events:none; background:rgba(11,10,7,.5); border:1px solid var(--bd); border-radius:7px; padding:4px 9px }
+  pointer-events:none; background:rgba(255,255,255,.82); border:1px solid var(--bd); border-radius:7px; padding:4px 9px }
 /* 空区域态 */
 .bempty{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
   padding:48px 20px; text-align:center; color:var(--t3) }
