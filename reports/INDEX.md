@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 039 | 🟦 Standard | 真实 logo 实图接入(侧栏/登录/网址弹窗/favicon:azure 方块+通用 SVG → 真 TM monogram PNG) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-039](round-039-real-logo.md) |
 | 038 | 🟦 Standard | 实时屏按钮去蓝渐变+去 glow(login/leads/marketing primary→实心 azure;审计标记 scan/onboard 死代码归 T11) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-038](round-038-button-deslop.md) |
 | 037 | 🟦 Standard | 暖橙 --hot→亮 azure(KPI/feed/首启 #ff7a3d→--brand-azure,单一 azure 锁收口) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-037](round-037-hot-azure.md) |
 | 036 | 🟦 Standard | 营销屏国旗 emoji→mono 国家码(renderMktList + 详情头 ccBadge,emoji→mono 收官) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-036](round-036-marketing-flags.md) |

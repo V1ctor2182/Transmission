@@ -22,7 +22,7 @@ const startScan = () => window.startScan?.()
     <!-- LEFT · brand + value -->
     <section class="lg-brand">
       <div class="lg-logo">
-        <span class="lg-mark"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+        <span class="lg-mark"><img src="/logo-mark.png" alt="TRANS·MISSION" /></span>
         TRANS·<em>MISSION</em>
       </div>
       <div class="lg-sign" style="font-size:11px;letter-spacing:.42em;color:var(--t-muted);margin-top:-14px;margin-bottom:6px">创 拾 觅 深</div>
@@ -55,7 +55,7 @@ const startScan = () => window.startScan?.()
   <!-- WEBSITE INPUT MODAL (post-login) — ids preserved for the legacy flow -->
   <div id="website-modal-overlay">
     <div class="wm-card">
-      <div class="wm-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="wm-logo"><img src="/logo-mark.png" alt="TRANS·MISSION" /></div>
       <div class="wm-title">告诉我们你的产品</div>
       <div class="wm-sub">输入官网地址，我们会分析你的产品，匹配全球采购需求并给出市场进入建议。</div>
       <div class="wm-input-wrap">
@@ -108,8 +108,8 @@ const startScan = () => window.startScan?.()
 }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}
 .lg-logo em{font-style:normal; color:var(--brand)}
-.lg-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:var(--brand-grad); box-shadow:0 4px 12px rgba(31,143,214,.18)}
-.lg-mark svg{width:18px; height:18px; stroke:#ffffff; fill:none; stroke-width:1.8}
+.lg-mark{width:40px; height:34px; display:grid; place-items:center}
+.lg-mark img{width:100%; height:100%; object-fit:contain; display:block}
 .lg-brand h1{
   margin-top:auto; font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
   font-size:clamp(34px,3.4vw,52px); line-height:1.06; letter-spacing:-.03em; color:var(--t-primary);

@@ -136,7 +136,7 @@
 - [ ] ⬜ **T11 删死代码**(R038 审计确认):`#reg-scan-overlay`/`.rso-*` + `#s-onboard`/`runOnboarding`/`OB_CONTENTS` 是死 UI(live=login→网址弹窗→FirstRunAnalysis→enterApp,绕过 scan/onboard),含蓝渐变按钮/暖橙 orb 残留;确认无引用后删(Utility,勿单独抛光死 UI)。
 - [x] modal/toast overlay 亮色化(toast R032 · modal/网址弹窗/AI 气泡 R033:深块→白卡 + 浓黑遮罩→冷遮罩 rgba(20,40,80,.35) + primary/wm-btn 蓝渐变→实心 azure)。残留:通用解锁卡未单截 / modal-cost amber / rso hero 渐变可换 --brand-grad。
 - [ ] 信号母题动效(轨道 swoosh,可选)
-- [ ] 🟦 **logo 实图接入(用户 2026-06-25 点名:所有用到 logo 的地方换真实 logo)** — 影响高·把握高·风险低,优先做:
+- [x] 🟦 **logo 实图接入(用户 2026-06-25 点名)**(R039:侧栏 sb-logo + 登录 lg-mark + 网址弹窗 wm-logo → 真 logo-mark.png img,去方块底;favicon 指 logo-mark.png;rso 死 UI 跳过)。余:logo-full.png 全锁版暂未用(login 现 monogram+crisp 文字)。原始任务详情↓:
   真实矢量在 `../logo/LOGO矢量.{ai,cdr,pdf}`,**已转出两个透明 PNG 放进 `public/`**(loop 直接用,别再 CSS 复刻 TM):
   - `public/logo-full.png` — 全锁版(TM 标 + TRANS·MISSION 字标 + 创拾觅深),透明,997×843
   - `public/logo-mark.png` — 仅 TM monogram + 轨道,透明,396×250

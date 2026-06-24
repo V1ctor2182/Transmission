@@ -35,6 +35,7 @@ const NAV = {
   pool:     `enterApp(); navTo('pool',5)`,
   feedback: `enterApp(); navTo('leads',1); if(window.openFeedback)openFeedback(0);`,
   leadsrg:  `enterApp(); navTo('leads',1); if(window.showRgDropdown)showRgDropdown();`,
+  unlockm:  `enterApp(); navTo('intel',3); var m=document.getElementById('modal-unlock'); if(m)m.classList.add('show');`,
 }
 
 // ── machine-checkable assertions per task (run in the page) ──

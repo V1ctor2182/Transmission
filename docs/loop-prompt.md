@@ -5,7 +5,7 @@
 
 ---
 
-/loop 持续把 TradeRadar 改造成 TRANS·MISSION 的视觉:信号蓝 + 亮色,去 match ../logo.jpg,并全站更名 TradeRadar/Trade Radar → TRANS·MISSION(创拾觅深 作中文署名)。**每轮严格按 /Users/victor/work/创拾觅深/traderadar-vue/docs/loop-procedure.md 执行**(它是本次权威流程,取代旧 Phosphor amber/暗色方向;../DESIGN.md、../CLAUDE.md 里 amber/cyan/暗色的说法全部作废,只读不碰)。流程:读 docs/loop-procedure.md + LOOP-STATE.md + BACKLOG.md → 审计 → 按 backlog 排序取顶。
+/loop 1min 持续把 TradeRadar 改造成 TRANS·MISSION 的视觉:信号蓝 + 亮色,去 match ../logo.jpg,并全站更名 TradeRadar/Trade Radar → TRANS·MISSION(创拾觅深 作中文署名)。**每轮严格按 /Users/victor/work/创拾觅深/traderadar-vue/docs/loop-procedure.md 执行**(它是本次权威流程,取代旧 Phosphor amber/暗色方向;../DESIGN.md、../CLAUDE.md 里 amber/cyan/暗色的说法全部作废,只读不碰)。流程:读 docs/loop-procedure.md + LOOP-STATE.md + BACKLOG.md → 审计 → 按 backlog 排序取顶。
 
 **两条北极星(高于一切,每轮都按这判,持续优化朝它走)**:① **视觉**=零 AI 味 + 高级感(高端克制有质感,敢进预售 PDF);② **产品(卖方视角)**=界面**很整齐** · 每天**有事情做**(总有明确下一步,不空仪表盘)· 每做一件事**有成就感**(克制真诚即时的正反馈)· 反馈里**有希望**(进展可见可累积、离成单更近)。⚠️ 成就感/希望必须**真实挣来**(真动作+真状态推进),绝不许假 %/空转计数/为爽而爽的彩带(那既 AI 味又欺骗)。审计时除了视觉,也要把「空仪表盘/死路做完没反馈/看不懂的数字/缺下一步」写回 BACKLOG。
 
