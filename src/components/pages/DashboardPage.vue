@@ -36,6 +36,13 @@ const feed = [
   { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel',     action: '看报告' },
   { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads',     action: '查看客户' },
 ]
+// 今日待办(卖方「该做什么」= 明确下一步;真实条目,urgent 优先,点击直达对应屏)
+const todos = [
+  { urgent: true,  text: 'Klaus Weber 等待报价回复', at: '已等待 2 小时', page: 'whatsapp' },
+  { urgent: false, text: '7 封邮件待审批发送',       at: '营销队列',     page: 'marketing' },
+  { urgent: false, text: 'T&T Supermarket 3 天无沟通', at: '建议今日跟进', page: 'pool' },
+  { urgent: false, text: 'Asian Grocery Pty 逾期跟进', at: '已 5 天',      page: 'whatsapp' },
+]
 // 实时买家信号(右侧常驻整列)= 万仟报告点名的真实华人超市渠道(Fairprice/NTUC·Cold
 // Storage·Jaya Grocer 东南亚 / 99 Ranch·T&T 北美 / Asian Grocery 澳),需求为粽子/月饼/节庆礼盒。
 // region 对应地图热点;flag/country/need 喂给建联对话上下文。东南亚为核心,占比最大。
@@ -96,6 +103,12 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
     <div class="cc-bar">
       <div class="cc-greet">早上好，<em>Liu Wei</em></div>
       <div class="cc-sub">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 12 条高匹配商机</div>
+    </div>
+    <div class="cc-todos" role="list" aria-label="今日待办">
+      <span class="cc-todos-lbl">今日待办</span>
+      <button class="todo-chip" :class="{ urgent: t.urgent }" v-for="(t, i) in todos" :key="i" @click="nav(t.page)" role="listitem">
+        <span class="td-dot"></span><span class="td-text">{{ t.text }}</span><span class="td-at">{{ t.at }}</span>
+      </button>
     </div>
 
     <div class="ws">
@@ -205,6 +218,17 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .cc-greet{ font-size:18px; font-weight:600; color:var(--t1) }
 .cc-greet em{ font-style:normal; color:var(--brand) }
 .cc-sub{ font-size:12px; color:var(--t3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+/* 今日待办 chip-strip(明确下一步:真实任务,urgent 优先,点击直达) */
+.cc-todos{ flex-shrink:0; display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:10px }
+.cc-todos-lbl{ font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--t3); margin-right:2px }
+.todo-chip{ display:inline-flex; align-items:center; gap:7px; padding:5px 11px; border-radius:8px;
+  background:var(--bg2); border:1px solid var(--bd); cursor:pointer; transition:.15s; font-family:inherit }
+.todo-chip:hover{ border-color:var(--acc-line); background:var(--acc-soft); transform:translateY(-1px) }
+.todo-chip.urgent{ border-color:rgba(229,72,77,.3); background:rgba(229,72,77,.05) }
+.td-dot{ width:6px; height:6px; border-radius:2px; background:var(--acc); flex-shrink:0 }
+.todo-chip.urgent .td-dot{ background:var(--red) }
+.td-text{ font-size:12px; font-weight:600; color:var(--t1); white-space:nowrap }
+.td-at{ font:500 10.5px 'JetBrains Mono',monospace; color:var(--t3); white-space:nowrap }
 
 /* 多窗格工作区网格 */
 .ws{ flex:1; min-height:0; display:grid; gap:12px;

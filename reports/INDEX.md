@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 045 | 🟦 产品轴 | 工作台「今日待办」chip-strip(找回 R012 并掉的 TODAY_TODOS,真实优先级待办→直达,明确下一步) | ✅ build✓ 机检✓ golden✓ 两北极星 KEEP | [round-045](round-045-today-todos.md) |
 | 044 | 🔴→✅ 产品轴 | 情报解锁假反馈→真实揭示(红线):解锁真 un-mask 行+真扣次数 47→46+重渲染,toast 诚实点名 | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-044](round-044-real-unlock.md) |
 | 043 | 🟦 产品轴 | 成就感反馈层去 emoji(33 toast 图标→◆ + 建联键去 🤝,反馈层零 emoji 统一) | ✅ build✓ 机检 5 屏✓ golden h3✓ 两北极星 KEEP | [round-043](round-043-toast-deemoji.md) |
 | 042 | 🟦 产品轴 | AI 工作流 feed 行动化(每行加常驻行动药丸 查看/去跟进/去审批,narration→明确下一步) | ✅ build✓ 机检✓ golden h3✓ 两北极星 KEEP | [round-042](round-042-feed-actions.md) |
