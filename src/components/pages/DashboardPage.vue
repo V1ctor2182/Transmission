@@ -281,12 +281,12 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .cc{ display:inline-block; min-width:22px; padding:1px 4px; margin-right:8px; border-radius:4px;
   background:var(--s2); border:1px solid var(--bd); color:var(--t2);
   font:700 9.5px 'JetBrains Mono',monospace; letter-spacing:.04em; text-align:center }
-/* 一键建联(行内,默认低调、hover/选区时显形) */
+/* 一键建联(行内常驻:默认低调可见=明确下一步,hover/选区时点亮) */
 .brow .bconnect{ grid-area:connect; align-self:center; display:inline-flex; align-items:center; gap:4px;
   border:1px solid var(--acc-line); background:var(--acc-soft); color:var(--brand2,#1e5fd0);
   border-radius:7px; padding:5px 9px; font:600 11px 'Geist',sans-serif; cursor:pointer;
-  white-space:nowrap; opacity:0; transform:translateX(4px); transition:.15s }
-.brow:hover .bconnect, .brow:focus-within .bconnect{ opacity:1; transform:none }
+  white-space:nowrap; opacity:.72; transition:.15s }
+.brow:hover .bconnect, .brow:focus-within .bconnect{ opacity:1 }
 .brow .bconnect:hover{ background:var(--brand); color:#ffffff; border-color:var(--brand) }
 .brow .bconnect:active{ transform:translateY(1px) scale(.98) }
 .brow .bconnect svg{ width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.8 }

@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 041 | 🟦 产品轴 | 实时买家信号「建联」行动常驻可见(opacity:0 hover-gated → .72 常驻,明确下一步) | ✅ build✓ 机检✓ golden h3✓ 两北极星 KEEP | [round-041](round-041-buyer-action-visible.md) |
 | 040 | 🟦 Standard | 语义色旧 RGB 三元组残留补扫(66 处 tint 底 amber/red/green/purple → 深化令牌值) | ✅ build✓ 机检 6 屏✓ golden h3✓ critic KEEP | [round-040](round-040-semantic-rgb-sweep.md) |
 | 039 | 🟦 Standard | 真实 logo 实图接入(侧栏/登录/网址弹窗/favicon:azure 方块+通用 SVG → 真 TM monogram PNG) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-039](round-039-real-logo.md) |
 | 038 | 🟦 Standard | 实时屏按钮去蓝渐变+去 glow(login/leads/marketing primary→实心 azure;审计标记 scan/onboard 死代码归 T11) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-038](round-038-button-deslop.md) |
