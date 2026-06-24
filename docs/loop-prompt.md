@@ -7,6 +7,8 @@
 
 /loop 持续把 TradeRadar 改造成 TRANS·MISSION 的视觉:信号蓝 + 亮色,去 match ../logo.jpg,并全站更名 TradeRadar/Trade Radar → TRANS·MISSION(创拾觅深 作中文署名)。**每轮严格按 /Users/victor/work/创拾觅深/traderadar-vue/docs/loop-procedure.md 执行**(它是本次权威流程,取代旧 Phosphor amber/暗色方向;../DESIGN.md、../CLAUDE.md 里 amber/cyan/暗色的说法全部作废,只读不碰)。流程:读 docs/loop-procedure.md + LOOP-STATE.md + BACKLOG.md → 审计 → 按 backlog 排序取顶。
 
+**两条北极星(高于一切,每轮都按这判,持续优化朝它走)**:① **视觉**=零 AI 味 + 高级感(高端克制有质感,敢进预售 PDF);② **产品(卖方视角)**=界面**很整齐** · 每天**有事情做**(总有明确下一步,不空仪表盘)· 每做一件事**有成就感**(克制真诚即时的正反馈)· 反馈里**有希望**(进展可见可累积、离成单更近)。⚠️ 成就感/希望必须**真实挣来**(真动作+真状态推进),绝不许假 %/空转计数/为爽而爽的彩带(那既 AI 味又欺骗)。审计时除了视觉,也要把「空仪表盘/死路做完没反馈/看不懂的数字/缺下一步」写回 BACKLOG。
+
 **推进顺序**:① 先做 **R1(大件)= tokens.css 令牌反相 + 按 procedure §3 字面量批量替换表 perl 扫 27 文件 + 全站更名**;走 `git checkout -b feat/rebrand-transmission`;build + 机检 + 逐屏肉眼扫(login/工作台/找客户/情报/whatsapp/客户池/营销/首启)+ golden(node scripts/h2-golden.mjs、scripts/h3-golden.mjs)+ 截图;**做完 commit + push origin feat/rebrand-transmission,然后暂停等人工 review 色彩方向,本轮不 ScheduleWakeup。** ② 定调后,逐屏精修(清亮色反相残留的暗底假设/对比度、地图 azure 信号化、logo marks 用 --brand-grad 复刻 TM 渐变、按钮 azure+白字、modal/toast 遮罩减淡)= Standard 自动,每轮 ScheduleWakeup(600)。
 
 **亮色调色板基调**(细节见 procedure §3):浅冷底 #f4f7fc + 白卡 #ffffff + 深 navy 字 #13213f + azure 强调 #1f8fd6 + 亮 azure #2f9fe0(信号/品牌)+ TM 渐变 linear-gradient(135deg,#16306e,#2f9fe0)(仅品牌标记/hero)。批量替换关键技巧:`255,248,235→19,33,63`(高 alpha=深字、低 alpha=淡填充,一条搞定)。
