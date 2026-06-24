@@ -797,7 +797,7 @@ function renderTodayTodo() {
     <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid ${item.urgent ? 'rgba(248,113,113,.15)' : 'rgba(19,33,63,.04)'}" onmouseover="this.style.background='rgba(19,33,63,.04)'" onmouseout="this.style.background=''">
       <div style="width:7px;height:7px;border-radius:50%;background:${item.color};flex-shrink:0;margin:0 3px"></div>
       <div style="flex:1;min-width:0">
-        <div style="font-size:12px;font-weight:600;color:${item.urgent ? '#e5484d' : '#e2e8f0'}">${item.text}</div>
+        <div style="font-size:12px;font-weight:600;color:${item.urgent ? '#e5484d' : 'var(--t-primary)'}">${item.text}</div>
         <div style="font-size:10px;color:var(--t-muted)">${item.sub}</div>
       </div>
       ${item.urgent ? '<div style="font-size:9px;font-weight:700;color:#e5484d;background:rgba(248,113,113,.12);padding:2px 6px;border-radius:4px;flex-shrink:0">紧急</div>' : '<div style="font-size:10px;color:var(--t-muted)">→</div>'}
@@ -959,7 +959,7 @@ function renderCpool(filter) {
     items.forEach(item => {
       const dotColor = {replied:'#17a673',overdue:'#e5484d','no-reply':'#c8860a',pending:'#6b7280'}[item.status]||'#6b7280';
       html += `<div class="cpool-item" onclick="highlightCustRow(${item.id})" style="padding:7px 8px;border-radius:8px;cursor:pointer;transition:.15s;background:rgba(19,33,63,.02);border:1px solid rgba(19,33,63,.04);margin-bottom:2px" onmouseover="this.style.background='rgba(31,143,214,.08)'" onmouseout="this.style.background='rgba(19,33,63,.02)'">
-        <div style="font-size:12px;font-weight:600;color:#e2e8f0;margin-bottom:3px">${item.flag} ${item.name}</div>
+        <div style="font-size:12px;font-weight:600;color:var(--t-primary);margin-bottom:3px">${item.flag} ${item.name}</div>
         <div style="display:flex;align-items:center;gap:5px">
           <div style="width:6px;height:6px;border-radius:50%;background:${dotColor};flex-shrink:0"></div>
           <span style="font-size:10px;color:var(--t-muted)">${item.statusText}</span>
@@ -1081,7 +1081,7 @@ function buildFeedItem(c, delay) {
   return `<div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(19,33,63,.03);border:1px solid rgba(19,33,63,.05);border-radius:8px;transition:all .4s ease;cursor:pointer" onclick="showLeadsView('customers')">
     <div style="font-size:20px">${c.flag}</div>
     <div style="flex:1">
-      <div style="font-size:12px;font-weight:600;color:#e2e8f0">${c.company}</div>
+      <div style="font-size:12px;font-weight:600;color:var(--t-primary)">${c.company}</div>
       <div style="font-size:10px;color:var(--t-muted)">${c.country} · 来源: ${c.source}</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px">
@@ -1368,7 +1368,7 @@ function renderPoolTable() {
         <div style="display:flex;align-items:center;gap:10px">
           <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
           <div>
-            <div style="font-size:13px;font-weight:600;color:#e2e8f0">${item.name}</div>
+            <div style="font-size:13px;font-weight:600;color:var(--t-primary)">${item.name}</div>
             <div style="font-size:11px;color:var(--t-muted);margin-top:1px">${item.group === '搜索推送客户' ? '搜索推送' : item.group === '精准建联客户' ? '精准建联' : item.group === 'WhatsApp 商机' ? 'WhatsApp' : '海关数据'}</div>
           </div>
         </div>
@@ -1425,7 +1425,7 @@ function showPoolDetail(name) {
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
         <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
         <div style="flex:1">
-          <div style="font-size:15px;font-weight:700;color:#e2e8f0;margin-bottom:4px">${name}</div>
+          <div style="font-size:15px;font-weight:700;color:var(--t-primary);margin-bottom:4px">${name}</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap">
             <span style="font-size:10px;color:${si.color};background:${si.color}18;padding:2px 7px;border-radius:8px">${item.group}</span>
             <span style="font-size:10px;color:${sc.color};background:${sc.color}18;padding:2px 7px;border-radius:8px">${sc.label}</span>
@@ -1455,7 +1455,7 @@ function showPoolDetail(name) {
       <div style="font-size:11px;font-weight:700;color:var(--t-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">联系人</div>
       ${contacts.map(c=>`
         <div style="background:rgba(19,33,63,.03);border-radius:8px;padding:10px;margin-bottom:6px">
-          <div style="font-size:12px;font-weight:600;color:#e2e8f0">${c.name}</div>
+          <div style="font-size:12px;font-weight:600;color:var(--t-primary)">${c.name}</div>
           <div style="font-size:11px;color:var(--t-muted);margin-top:2px">${c.title}</div>
           ${cust.email ? `<div style="font-size:10px;color:#1e5fd0;margin-top:4px">✉️ ${cust.email}</div>` : ''}
           ${cust.phone ? `<div style="font-size:10px;color:#17a673;margin-top:2px">📞 ${cust.phone}</div>` : ''}
@@ -1546,7 +1546,7 @@ function renderPoolCards() {
       <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px">
         <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
         <div style="flex:1;min-width:0">
-          <div style="font-size:14px;font-weight:700;color:#e2e8f0;margin-bottom:3px">${item.name}</div>
+          <div style="font-size:14px;font-weight:700;color:var(--t-primary);margin-bottom:3px">${item.name}</div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="font-size:10px;color:${si.color};background:${si.color}18;padding:2px 7px;border-radius:8px">${item.group}</span>
             <span style="font-size:10px;color:${sc.color};background:${sc.bg};border:1px solid ${sc.border};padding:2px 7px;border-radius:8px">${sc.label}</span>
@@ -2113,18 +2113,18 @@ function renderIntelTable() {
     // 采购商显示：未解锁则隐藏名称，显示马赛克字符
     const buyerDisplay = isLocked
       ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>解锁查看采购商</div>`
-      : `<div style="font-size:13px;font-weight:600;color:#e2e8f0">${d.buyer}</div>`;
+      : `<div style="font-size:13px;font-weight:600;color:var(--t-primary)">${d.buyer}</div>`;
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#17a673' : d.contactRate >= 50 ? '#c8860a' : '#e5484d';
     return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "showModal('modal-unlock')" : "toast('\ud83e\udd1d','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
         ${ccBadge(d.flag)}
-        <span style="font-size:12px;color:#e2e8f0">${d.country}</span>
+        <span style="font-size:12px;color:var(--t-primary)">${d.country}</span>
         <div style="font-size:10px;color:var(--t-muted);margin-top:1px">${d.region}</div>
         <div style="margin-top:4px;display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:${sc.color}"><span style="width:5px;height:5px;border-radius:2px;background:${sc.color};flex-shrink:0"></span>${sc.label}</div>
       </td>
       <td style="padding:12px 16px">${buyerDisplay}</td>
       <td style="padding:12px 16px">
-        <div style="font-size:12px;color:#e2e8f0">${d.need}</div>
+        <div style="font-size:12px;color:var(--t-primary)">${d.need}</div>
         <div style="font-size:10px;color:var(--t-muted);margin-top:2px">${d.cat}</div>
       </td>
       <td style="padding:12px 16px;text-align:center">

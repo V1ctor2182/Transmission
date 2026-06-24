@@ -50,7 +50,7 @@
             </div>
             <!-- Link to Customer Pool -->
             <div id="wa-link-bar" style="padding:10px 14px;border-bottom:1px solid rgba(19,33,63,.05);display:flex;align-items:center;justify-content:space-between;gap:8px">
-              <div style="font-size:11px;color:var(--t-muted);line-height:1.4">当前对话：<span id="wa-link-name" style="color:#e2e8f0;font-weight:600">Klaus Weber</span></div>
+              <div style="font-size:11px;color:var(--t-muted);line-height:1.4">当前对话：<span id="wa-link-name" style="color:var(--t-primary);font-weight:600">Klaus Weber</span></div>
               <div id="wa-link-btn" onclick="linkWaToPool()" style="font-size:11px;font-weight:600;color:#1e5fd0;background:rgba(31,143,214,.12);border:1px solid rgba(31,143,214,.25);border-radius:8px;padding:5px 10px;cursor:pointer;white-space:nowrap;transition:.2s" onmouseover="this.style.background='rgba(31,143,214,.22)'" onmouseout="this.style.background='rgba(31,143,214,.12)'">关联至客户池</div>
             </div>
             <div class="intel-scroll" id="intel-scroll"></div>

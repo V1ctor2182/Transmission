@@ -47,11 +47,11 @@
 #page-pool.on{display:flex;height:100%;overflow:hidden;flex-direction:row;padding:0}
 #page-intel.on{display:flex;height:100%;overflow:hidden;flex-direction:column;padding:0}
 .pool-sort-btn{font-size:11px;padding:4px 10px;border-radius:7px;cursor:pointer;color:var(--t-muted);background:rgba(19,33,63,.04);border:1px solid transparent;transition:.15s;white-space:nowrap}
-.pool-sort-btn:hover{color:#e2e8f0}
+.pool-sort-btn:hover{color:var(--t-primary)}
 .pool-sort-btn.on{color:#1e5fd0;background:rgba(31,143,214,.12);border-color:rgba(31,143,214,.2)}
 /* Pool tabs */
 .pool-tab{font-size:11px;padding:5px 10px;border-radius:7px;cursor:pointer;color:var(--t-muted);background:rgba(19,33,63,.04);border:1px solid transparent;transition:.15s;white-space:nowrap;display:flex;align-items:center;gap:4px}
-.pool-tab:hover{color:#e2e8f0;background:rgba(19,33,63,.07)}
+.pool-tab:hover{color:var(--t-primary);background:rgba(19,33,63,.07)}
 .pool-tab.on{color:#1e5fd0;background:rgba(31,143,214,.12);border-color:rgba(31,143,214,.2)}
 .pool-tab.overdue.on{color:#e5484d;background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.2)}
 .pool-tab.warn.on{color:#c8860a;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.2)}

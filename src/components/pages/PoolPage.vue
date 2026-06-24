@@ -27,15 +27,15 @@
               <div style="display:flex;align-items:center;gap:8px">
                 <div style="display:flex;align-items:center;gap:6px;flex:1;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:8px;padding:5px 12px">
                   <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:var(--t-muted);fill:none"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                  <input id="pool-search" type="text" placeholder="搜索客户、国家、来源…" oninput="renderPoolTable()" style="background:none;border:none;outline:none;font-size:12px;color:#e2e8f0;flex:1" />
+                  <input id="pool-search" type="text" placeholder="搜索客户、国家、来源…" oninput="renderPoolTable()" style="background:none;border:none;outline:none;font-size:12px;color:var(--t-primary);flex:1" />
                 </div>
-                <select id="pool-sort" onchange="renderPoolTable()" style="font-size:11px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:7px;padding:5px 8px;color:#e2e8f0;cursor:pointer">
+                <select id="pool-sort" onchange="renderPoolTable()" style="font-size:11px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:7px;padding:5px 8px;color:var(--t-primary);cursor:pointer">
                   <option value="status">按状态</option>
                   <option value="score">按匹配度</option>
                   <option value="name">按名称</option>
                   <option value="time">按最近活跃</option>
                 </select>
-                <select id="pool-filter-source" onchange="renderPoolTable()" style="font-size:11px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:7px;padding:5px 8px;color:#e2e8f0;cursor:pointer">
+                <select id="pool-filter-source" onchange="renderPoolTable()" style="font-size:11px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:7px;padding:5px 8px;color:var(--t-primary);cursor:pointer">
                   <option value="">全部来源</option>
                   <option value="搜索推送客户">搜索推送</option>
                   <option value="精准建联客户">精准建联</option>

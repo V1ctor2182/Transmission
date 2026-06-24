@@ -33,6 +33,8 @@ const NAV = {
   intel:    `enterApp(); navTo('intel',3)`,
   whatsapp: `enterApp(); navTo('whatsapp',4); if(window.renderWaContacts)renderWaContacts(); if(window.selectWaContact)selectWaContact(0); else if(window.renderWaChat)renderWaChat(0);`,
   pool:     `enterApp(); navTo('pool',5)`,
+  feedback: `enterApp(); navTo('leads',1); if(window.openFeedback)openFeedback(0);`,
+  leadsrg:  `enterApp(); navTo('leads',1); if(window.showRgDropdown)showRgDropdown();`,
 }
 
 // ── machine-checkable assertions per task (run in the page) ──

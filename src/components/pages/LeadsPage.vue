@@ -16,7 +16,7 @@
           <!-- Header -->
           <div style="display:flex;align-items:flex-start;justify-content:space-between">
             <div>
-              <div style="font-size:20px;font-weight:700;color:#e2e8f0;letter-spacing:-.3px">AI 自动找客户</div>
+              <div style="font-size:20px;font-weight:700;color:var(--t-primary);letter-spacing:-.3px">AI 自动找客户</div>
               <div style="font-size:13px;color:var(--t-muted);margin-top:4px">已接入 <strong style="color:#1e5fd0">28</strong> 个全球数据源，AI 每日自动搜索并匹配潜在买家</div>
             </div>
             <div style="display:flex;gap:10px;align-items:center">
@@ -27,7 +27,7 @@
 
           <!-- Data Sources Full Display -->
           <div style="background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px">
-            <div style="font-size:13px;font-weight:600;color:#e2e8f0;margin-bottom:18px;display:flex;align-items:center;gap:8px">
+            <div style="font-size:13px;font-weight:600;color:var(--t-primary);margin-bottom:18px;display:flex;align-items:center;gap:8px">
               <span style="width:8px;height:8px;border-radius:50%;background:#17a673;display:inline-block;box-shadow:0 0 6px #17a673"></span>
               已连接 28 个全球数据源
               <span style="font-size:11px;color:var(--t-muted);font-weight:400;margin-left:4px">实时在线，每日自动更新</span>
@@ -74,7 +74,7 @@
 
           <!-- Task Config -->
           <div style="background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px 24px">
-            <div style="font-size:13px;font-weight:600;color:#e2e8f0;margin-bottom:16px">配置搜索任务</div>
+            <div style="font-size:13px;font-weight:600;color:var(--t-primary);margin-bottom:16px">配置搜索任务</div>
             <div class="icp-task-form" style="margin:0">
               <div class="icp-form-row" style="align-items:flex-start">
                 <div class="icp-form-label" style="padding-top:8px">拓展地区</div>
@@ -90,7 +90,7 @@
                   <div style="position:relative;display:flex;align-items:center;gap:8px">
                     <div style="position:relative;flex:1">
                       <svg viewBox="0 0 24 24" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:13px;height:13px;stroke:var(--t-muted);fill:none"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                      <input id="rg-search-input" type="text" placeholder="搜索添加国家，如 日本、英国…" oninput="filterRgDropdown()" onfocus="showRgDropdown()" style="width:100%;padding:7px 12px 7px 30px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.1);border-radius:8px;font-size:12px;color:#e2e8f0;outline:none" />
+                      <input id="rg-search-input" type="text" placeholder="搜索添加国家，如 日本、英国…" oninput="filterRgDropdown()" onfocus="showRgDropdown()" style="width:100%;padding:7px 12px 7px 30px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.1);border-radius:8px;font-size:12px;color:var(--t-primary);outline:none" />
                       <!-- 下拉面板 -->
                       <div id="rg-dropdown" style="display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:#e9f0f9;border:1px solid rgba(19,33,63,.1);border-radius:10px;z-index:100;max-height:320px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.5)">
                         <!-- 洲选择导航 -->
@@ -131,7 +131,7 @@
                   <div style="font-size:9px;font-weight:400;color:var(--t-muted);margin-top:2px">optional</div>
                 </div>
                 <div style="flex:1;position:relative">
-                  <textarea id="icp-task-desc" rows="3" placeholder="用自然语言描述你的获客目标，如：我想找 30 家美国加州的甜品公司 CEO" style="width:100%;padding:10px 14px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.08);border-radius:10px;font-size:12px;color:#e2e8f0;outline:none;resize:vertical;min-height:72px;line-height:1.6;font-family:inherit;transition:.2s" onfocus="this.style.borderColor='rgba(31,143,214,.5)'" onblur="this.style.borderColor='rgba(19,33,63,.08)'" oninput="updateIcpDescCount(this)"></textarea>
+                  <textarea id="icp-task-desc" rows="3" placeholder="用自然语言描述你的获客目标，如：我想找 30 家美国加州的甜品公司 CEO" style="width:100%;padding:10px 14px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.08);border-radius:10px;font-size:12px;color:var(--t-primary);outline:none;resize:vertical;min-height:72px;line-height:1.6;font-family:inherit;transition:.2s" onfocus="this.style.borderColor='rgba(31,143,214,.5)'" onblur="this.style.borderColor='rgba(19,33,63,.08)'" oninput="updateIcpDescCount(this)"></textarea>
                   <div style="display:flex;align-items:center;justify-content:space-between;margin-top:5px">
                     <div style="font-size:10px;color:var(--t-muted)">AI 将根据描述自动优化搜索策略和关键词</div>
                     <div style="font-size:10px;color:var(--t-muted)"><span id="icp-desc-count">0</span> / 200</div>
@@ -150,7 +150,7 @@
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div style="display:flex;align-items:center;gap:10px">
               <div onclick="showLeadsView('datasource')" style="cursor:pointer;color:var(--t-muted);font-size:13px;display:flex;align-items:center;gap:4px">← 返回</div>
-              <div style="font-size:18px;font-weight:700;color:#e2e8f0">执行中的任务</div>
+              <div style="font-size:18px;font-weight:700;color:var(--t-primary)">执行中的任务</div>
             </div>
             <div class="icp-task-btn primary" onclick="submitIcpTask()">+ 新建任务</div>
           </div>
@@ -166,7 +166,7 @@
               <div style="width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--brand);fill:none;stroke-width:1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                  <div style="font-size:15px;font-weight:700;color:#e2e8f0">每天自动找客户 · 东南亚 + 北美 + 澳洲</div>
+                  <div style="font-size:15px;font-weight:700;color:var(--t-primary)">每天自动找客户 · 东南亚 + 北美 + 澳洲</div>
                   <div style="font-size:10px;font-weight:700;color:#17a673;background:rgba(123,212,123,.12);padding:2px 8px;border-radius:10px;border:1px solid rgba(123,212,123,.2)">♻️ 执行中</div>
                 </div>
                 <div style="font-size:12px;color:var(--t-muted);margin-bottom:12px">所有已接入数据源 · 50 个/天 · 已执行 14 天 / 30 天 · 自动寻找联系人已开启</div>
@@ -211,7 +211,7 @@
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
               <div style="display:flex;align-items:center;gap:8px">
                 <span style="width:7px;height:7px;border-radius:50%;background:#17a673;display:inline-block;animation:pulse 2s infinite"></span>
-                <span style="font-size:13px;font-weight:600;color:#e2e8f0">实时推送的客户</span>
+                <span style="font-size:13px;font-weight:600;color:var(--t-primary)">实时推送的客户</span>
                 <span style="font-size:11px;color:var(--t-muted)">AI 每分钟自动搜索并推送</span>
               </div>
               <div class="icp-task-btn secondary" onclick="showLeadsView('customers')">查看全部 →</div>
@@ -228,7 +228,7 @@
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div style="display:flex;align-items:center;gap:10px">
               <div onclick="showLeadsView('tasks')" style="cursor:pointer;color:var(--t-muted);font-size:13px">← 返回任务</div>
-              <div style="font-size:18px;font-weight:700;color:#e2e8f0">已推送客户 <span style="font-size:13px;font-weight:400;color:#1e5fd0">2,847</span></div>
+              <div style="font-size:18px;font-weight:700;color:var(--t-primary)">已推送客户 <span style="font-size:13px;font-weight:400;color:#1e5fd0">2,847</span></div>
             </div>
             <div style="display:flex;gap:8px">
               <div class="icp-task-btn secondary" onclick="enrichSelected()">寻找联系人</div>
