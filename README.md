@@ -14,6 +14,18 @@ pnpm dev        # 浏览器自动打开
 ## 目录结构
 
 ```
+README.md                    本文件
+LOOP-STATE.md                持续 loop 的台账（每轮状态落盘）
+BACKLOG.md                   候选池（loop 每轮排序取顶）
+docs/                        流程 / 规范 / 历史文档
+  loop-procedure.md          ← 当前方向：TRANS·MISSION 信号蓝亮色品牌改造（权威流程）
+  loop-prompt.md             直接复制即可启动 rebrand loop 的 /loop 整段
+  HERO-FEATURES.md           三个 Hero 体验规格
+  DELTA-RUBRIC.md            Standard 轮 critic 评判标尺
+  DELIGHT-RUBRIC.md          Hero 轮 delight 评判标尺
+  archive/                   历史文档（OVERNIGHT-GOAL · SUMMARY-AM · REFACTOR-NOTES · REVIEW-RUBRIC）
+reports/                     每轮报告 + 截图（INDEX.md 倒序目录，round-NNN-*.md，shots/）
+scripts/                     verify.mjs（截图机检）· h2-golden.mjs · h3-golden.mjs（黄金路径）
 public/
   legacy-app.js              原 <script> 的忠实抽取（经典全局脚本）。重写时逐段拆掉。
 src/
@@ -21,7 +33,7 @@ src/
   App.vue                    根：按原 <body> 顺序渲染三个屏 + 全局浮层
   styles/
     index.css                按顺序 @import 全部分片（polish 最后）
-    tokens.css               reset + :root 设计令牌（Signal Room）
+    tokens.css               reset + :root 设计令牌（**single source of truth**：换色先改这里）
     login / onboarding / app-shell / dashboard / leads /
     whatsapp / marketing / intel / ai-bubble / modals / toast / polish .css
   components/
@@ -41,6 +53,8 @@ src/
 - 重写每一屏时：把 `onclick="fn()"` 改成 `@click`，状态搬进 `<script setup>`，
   `innerHTML` 渲染函数改成模板 + `v-for`。改完那一屏，shim 自然就没有可接管的节点了，最后整段删掉。
 
-## 下一步看 [REFACTOR-NOTES.md](./REFACTOR-NOTES.md)
+## 当前方向 → [docs/loop-procedure.md](./docs/loop-procedure.md)
 
-逐屏的「AI 味」诊断 + 具体改造建议 + 数据/逻辑拆分接缝表。
+正在做的是 **TRANS·MISSION 品牌改造**（暖琥珀暗色 → 信号蓝亮色 + 更名），流程与调色板都在那里；
+直接启动用 [docs/loop-prompt.md](./docs/loop-prompt.md)。
+历史的「AI 味」诊断 / 迁移笔记见 [docs/archive/REFACTOR-NOTES.md](./docs/archive/REFACTOR-NOTES.md)。
