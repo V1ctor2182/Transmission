@@ -71,13 +71,33 @@
 - 纯色/纯动效静图难判时,以 build+golden+机检+逻辑自检为闸门并注明。
 - 过 → 自动落库 commit + push origin <分支> + `ScheduleWakeup(600)`。**R1 例外:暂停等 review,不 ScheduleWakeup。**
 
-## 6. 红线
+## 6. 落库 + 报告(每轮必做 —— 过闸门后立刻按序做完,别跳)
+1. **截图归档**:把本轮 before/after(Hero 加序列帧)从 `.review/` 拷到 `reports/shots/r<NNN>-*.png`(轮号命名,不覆盖历史)。
+2. **写报告** `reports/round-<NNN>-<task>.md`(模板见下)。
+3. **更新台账**:`reports/INDEX.md` 顶部加一行(倒序,最新在上)+ `LOOP-STATE.md` 轮次日志 append 一条(时间/档/做了什么/闸门结果/残留/next)。
+4. **落库**:`git add -A && git commit` → `git push origin <分支>`(R1 在 `feat/rebrand-transmission`;定调后逐屏精修轮在该分支或 main,视 review 结果)。
+5. 非 R1 轮:末尾 `ScheduleWakeup(600)` 排下一轮;**R1 暂停等 review,不 ScheduleWakeup。**
+
+### 报告模板 `reports/round-<NNN>-<task>.md`
+```markdown
+# Round <NNN> · <档> · <任务(如:R1 令牌反相+更名 / login 亮色品牌化)>
+- 时间 / 档位 / 分支 / backlog 来源项
+- **做了什么**:1-3 句(改了哪些令牌 / 字面量 / 组件 / 文案更名)
+- **验收**:build ✓ · 机检 <零错?> · golden h2/h3 <PASS?> · 3 critic 两轴(品牌契合 logo + 回退/slop+对比度)<grades + 裁决 ≥2/3 KEEP?>
+- **截图**:![before](shots/r<NNN>-<screen>-before.png) ![after](shots/r<NNN>-<screen>-after.png) <Hero 加三帧>
+- **残留 → backlog**:这轮没收干净的(暗底假设残留 / 对比度不足 / 未命中的暖色渐变)写回 §8
+- commit / 分支 / push
+```
+> 报告 = 永久可查的轮次记录(带前后图),换 context / 会话也能接上进度。**每轮都写。**
+> 纯色 / 纯动效静图难判时,报告里**注明用 build+golden+机检+逻辑自检做的闸门**(同 §5)。
+
+## 7. 红线
 - 只动 `traderadar-vue/`。不碰 ../ 下只读参考(`../DESIGN.md`、`../logo.jpg`、`../原型-单页app/`、`../设计预览/`、`../商务资料/`)。
 - **保住前 30 轮去 AI 味成果**:换蓝 ≠ 把 glow/渐变/撞色 slop 用蓝色请回来;亮色下尤其克制 glow。
 - **亮色对比度是新风险**:深 navy 字 on 浅底要够对比(WCAG AA);azure 强调别太浅以致看不清。
 - 「活」必须挣来,不许假 %。每轮 push GitHub(V1ctor2182/Transmission)。
 
-## 7. Rebrand backlog(每轮排序取顶)
+## 8. Rebrand backlog(每轮排序取顶)
 - [ ] **R1 令牌反相 + 字面量批量替换 + 更名 TRANS·MISSION**(大件,feat 分支 + 暂停)
 - [ ] login 亮色品牌化(TM 渐变 mark + 白底 + navy 字)
 - [ ] 工作台 dashboard:暗底残留→亮、地图 azure 信号化、KPI/feed/买家对比度
@@ -88,7 +108,7 @@
 - [ ] 信号母题动效(轨道 swoosh,可选)
 - [ ] logo 实图接入 public/(可选)
 
-## 8. /loop 启动指令(用户 review 本文件 OK 后再用)
+## 9. /loop 启动指令(用户 review 本文件 OK 后再用)
 ```
 /loop 持续改造 TradeRadar→TRANS·MISSION 视觉:信号蓝 + 亮色,匹配 ../logo.jpg。每轮严格按
 traderadar-vue/docs/loop-procedure.md:读 docs/loop-procedure.md + LOOP-STATE.md + BACKLOG.md → 排序取顶
