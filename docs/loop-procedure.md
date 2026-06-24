@@ -72,7 +72,7 @@
 - 过 → 自动落库 commit + push origin <分支> + `ScheduleWakeup(600)`。**R1 例外:暂停等 review,不 ScheduleWakeup。**
 
 ## 6. 红线
-- 只动 `traderadar-vue/`。不碰 `../index (31).html` / `../DESIGN.md` / `../*preview*.html` / `../*.pdf`(只读)。
+- 只动 `traderadar-vue/`。不碰 ../ 下只读参考(`../DESIGN.md`、`../logo.jpg`、`../原型-单页app/`、`../设计预览/`、`../商务资料/`)。
 - **保住前 30 轮去 AI 味成果**:换蓝 ≠ 把 glow/渐变/撞色 slop 用蓝色请回来;亮色下尤其克制 glow。
 - **亮色对比度是新风险**:深 navy 字 on 浅底要够对比(WCAG AA);azure 强调别太浅以致看不清。
 - 「活」必须挣来,不许假 %。每轮 push GitHub(V1ctor2182/Transmission)。

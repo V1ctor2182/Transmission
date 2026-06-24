@@ -15,4 +15,4 @@
 
 **写报告**:截图拷 reports/shots/r<NNN>-*.png,写 reports/round-<NNN>-*.md,更新 reports/INDEX.md + LOOP-STATE.md,git commit + push。
 
-**红线**:只动 traderadar-vue/;不碰 ../index (31).html / ../DESIGN.md / ../*preview*.html / ../*.pdf / ../logo.jpg(只读参考);保住前 30 轮去 AI 味成果(换蓝 ≠ 把 glow/渐变/撞色 slop 用蓝色请回来,亮色下尤其克制 glow,只点 hero/LIVE/关键信号);亮色深字浅底要够对比(WCAG AA);「活」必须挣来不许假 %;文案腔调除"更名 TRANS·MISSION"外暂不动。每轮 push 到 GitHub(V1ctor2182/Transmission)。
+**红线**:只动 traderadar-vue/;不碰 ../ 下只读参考(../DESIGN.md、../logo.jpg、../原型-单页app/、../设计预览/、../商务资料/);保住前 30 轮去 AI 味成果(换蓝 ≠ 把 glow/渐变/撞色 slop 用蓝色请回来,亮色下尤其克制 glow,只点 hero/LIVE/关键信号);亮色深字浅底要够对比(WCAG AA);「活」必须挣来不许假 %;文案腔调除"更名 TRANS·MISSION"外暂不动。每轮 push 到 GitHub(V1ctor2182/Transmission)。
