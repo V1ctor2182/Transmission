@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 047 | 🟦 产品轴 | 客户池进入即填充(无选中→自动选最紧急客户,消灭半屏空态,直达行动) | ✅ build✓ 机检✓ golden✓ 实拍 KEEP | [round-047](round-047-pool-autoselect.md) |
 | 046 | 🟦 产品轴 | WhatsApp 情报面板解锁真实揭示(R044 同款补第二处:真 un-blur 真实电话/邮箱+真扣次数) | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-046](round-046-wa-panel-unlock.md) |
 | 045 | 🟦 产品轴 | 工作台「今日待办」chip-strip(找回 R012 并掉的 TODAY_TODOS,真实优先级待办→直达,明确下一步) | ✅ build✓ 机检✓ golden✓ 两北极星 KEEP | [round-045](round-045-today-todos.md) |
 | 044 | 🔴→✅ 产品轴 | 情报解锁假反馈→真实揭示(红线):解锁真 un-mask 行+真扣次数 47→46+重渲染,toast 诚实点名 | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-044](round-044-real-unlock.md) |

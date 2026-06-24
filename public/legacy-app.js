@@ -1403,6 +1403,8 @@ function renderPoolTable() {
       </td>
     </tr>`;
   }).join('');
+  // 进入即填充:无选中时自动选最紧急客户(默认按状态排序,逾期在首),避免半屏空态
+  if(!selectedPoolItem && allItems.length) showPoolDetail(allItems[0].name);
 }
 
 let selectedPoolItem = null;
