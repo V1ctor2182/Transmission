@@ -116,7 +116,8 @@
 - 「活」必须挣来,不许假 %。每轮 push GitHub(V1ctor2182/Transmission)。
 
 ## 8. Rebrand backlog(每轮排序取顶)
-- [ ] **R1 令牌反相 + 字面量批量替换 + 更名 TRANS·MISSION**(大件,feat 分支 + 暂停)
+- [~] **R1 令牌反相 + 字面量批量替换 + 更名 TRANS·MISSION**(R031,分支 `feat/rebrand-transmission`,⏸ 待 review 定调):tokens.css 全反相 + 13 条字面量批量替(残留=0)+ 全站更名 + 创拾觅深署名。build✓ 机检 9 屏零错✓ golden h3✓。**未 merge。**
+  - 残留(R1 后逐屏修):① `.toast` bg `rgba(10,14,26,.96)` 深 navy 块 + `rgba(0,0,0,.4)` 重阴影 → 亮色化/减淡;② `.wh-land path fill:#1c160c` 暖近黑大陆 + `.wh-lbl #fff8eb` 浅字 fallback → 浅冷大陆 + navy 字;③ src 内 11 处 `rgba(0,0,0,…)` 遮罩/阴影逐屏减淡;④ 未命中暖色 `#1c160c`/hot dot `#ff7a3d` 收成蓝/语义。
 - [ ] login 亮色品牌化(TM 渐变 mark + 白底 + navy 字)
 - [ ] 工作台 dashboard:暗底残留→亮、地图 azure 信号化、KPI/feed/买家对比度
 - [ ] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)

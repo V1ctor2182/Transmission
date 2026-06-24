@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 031 | 🟥 大件 ⏸ | **R1 令牌反相 + 字面量批量替换 + 全站更名 TRANS·MISSION**(暖琥珀暗 → 信号蓝亮 + 创拾觅深署名) | ✅ build✓ 机检 9 屏零错✓ golden h3✓ 残留字面量=0 · **待 review 定调** | [round-031](round-031-R1-rebrand-transmission.md) |
 | 030 | 🟦 Standard | CP5 渐变清零(wa-send/icp-person-av/进度条/toast 渐变→flat,CP5 收口) | ✅ build✓ golden✓ 屏检 | [round-030](round-030-cp5-gradient-clear.md) |
 | 029 | 🟦 Standard | #4 bundle 分包(应用主包 1.4MB→86KB + vendor/worldmap 拆分,告警消除) | ✅ build✓ golden✓(纯 build 配置) | [round-029](round-029-bundle-split.md) |
 | 028 | 🟦 Standard | CP5 长尾 品牌 logo marks 去渐变去 glow(login/wm/rso/sb/ob-final→flat 琥珀) | ✅ build✓ golden✓ critic 3/3 KEEP | [round-028](round-028-brandmark-deglow.md) |

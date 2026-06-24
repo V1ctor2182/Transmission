@@ -188,9 +188,9 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 <style scoped>
 /* 令牌桥:把 preview 的 Signal-Room 名映射到 Phosphor 全局令牌(cyan 退役) */
 .dash-cc{
-  --acc:var(--brand); --acc-soft:rgba(245,183,61,.13); --acc-line:rgba(245,183,61,.34);
-  --hot:#ff7a3d; --up:var(--green); --iris:#6b78ff;
-  --s1:var(--bg2); --s2:var(--bg3); --bd:var(--card-border); --bd2:rgba(255,248,235,.14);
+  --acc:var(--brand); --acc-soft:rgba(31,143,214,.13); --acc-line:rgba(31,143,214,.34);
+  --hot:#ff7a3d; --up:var(--green); --iris:#1e5fd0;
+  --s1:var(--bg2); --s2:var(--bg3); --bd:var(--card-border); --bd2:rgba(19,33,63,.14);
   --t1:var(--t-primary); --t2:var(--t-sec); --t3:var(--t-muted);
   --pane-r:12px;
 }
@@ -215,9 +215,9 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 
 /* 面板(终端窗口) */
 .pane{ background:var(--s1); border:1px solid var(--bd); border-radius:var(--pane-r); overflow:hidden;
-  display:flex; flex-direction:column; min-height:0; box-shadow:inset 0 1px 0 rgba(255,248,235,.04) }
+  display:flex; flex-direction:column; min-height:0; box-shadow:inset 0 1px 0 rgba(19,33,63,.04) }
 .pane-h{ height:34px; flex-shrink:0; display:flex; align-items:center; gap:9px; padding:0 13px;
-  border-bottom:1px solid var(--bd); background:rgba(255,248,235,.015) }
+  border-bottom:1px solid var(--bd); background:rgba(19,33,63,.015) }
 .pane-h .t{ font-size:12px; font-weight:600; letter-spacing:.01em; color:var(--t1) }
 .pane-h .live{ font:600 10px/1 'JetBrains Mono',monospace; letter-spacing:.12em; color:var(--acc);
   display:flex; align-items:center; gap:5px; text-transform:uppercase }
@@ -227,7 +227,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .pane-h .seg b{ font:500 10.5px 'Geist',sans-serif; color:var(--t3); padding:3px 8px; border-radius:5px; cursor:pointer; transition:.15s }
 .pane-h .seg b.on{ background:var(--acc-soft); color:var(--acc) }
 .pane-b{ flex:1; min-height:0; overflow:auto; position:relative }
-.pane-b::-webkit-scrollbar{ width:5px } .pane-b::-webkit-scrollbar-thumb{ background:rgba(255,248,235,.1); border-radius:3px }
+.pane-b::-webkit-scrollbar{ width:5px } .pane-b::-webkit-scrollbar-thumb{ background:rgba(19,33,63,.1); border-radius:3px }
 @keyframes cc-pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
 
 /* MAP pane */
@@ -283,17 +283,17 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
   font:700 9.5px 'JetBrains Mono',monospace; letter-spacing:.04em; text-align:center }
 /* 一键建联(行内,默认低调、hover/选区时显形) */
 .brow .bconnect{ grid-area:connect; align-self:center; display:inline-flex; align-items:center; gap:4px;
-  border:1px solid var(--acc-line); background:var(--acc-soft); color:var(--brand2,#ffd27a);
+  border:1px solid var(--acc-line); background:var(--acc-soft); color:var(--brand2,#1e5fd0);
   border-radius:7px; padding:5px 9px; font:600 11px 'Geist',sans-serif; cursor:pointer;
   white-space:nowrap; opacity:0; transform:translateX(4px); transition:.15s }
 .brow:hover .bconnect, .brow:focus-within .bconnect{ opacity:1; transform:none }
-.brow .bconnect:hover{ background:var(--brand); color:#1a1305; border-color:var(--brand) }
+.brow .bconnect:hover{ background:var(--brand); color:#ffffff; border-color:var(--brand) }
 .brow .bconnect:active{ transform:translateY(1px) scale(.98) }
 .brow .bconnect svg{ width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.8 }
 /* 区域筛选 / 清除 */
 .region-clear{ font:600 10.5px 'Geist',sans-serif; color:var(--acc); background:var(--acc-soft);
   border:1px solid var(--acc-line); border-radius:6px; padding:3px 9px; cursor:pointer; transition:.15s; white-space:nowrap }
-.region-clear:hover{ background:var(--brand); color:#1a1305; border-color:var(--brand) }
+.region-clear:hover{ background:var(--brand); color:#ffffff; border-color:var(--brand) }
 /* 地图下钻提示 */
 .map-hint{ position:absolute; right:14px; bottom:12px; font:500 10.5px 'Geist',sans-serif; color:var(--t3);
   pointer-events:none; background:rgba(11,10,7,.5); border:1px solid var(--bd); border-radius:7px; padding:4px 9px }

@@ -38,7 +38,12 @@
 - v1(旧 cyan/侧栏 app 去 AI 味):T0 数据抽取 · Tb appendChild 修复 · T1 登录重写 · T2 KPI · T3 Onboarding 标题 · T4 砍 Leads 假计数 · T5 Intel 去 emoji · T6 Marketing 去✅ · T7 WhatsApp 去💬。
 - 设计:Phosphor + 多窗格 + 首启旅程 已定稿(DESIGN.md / *preview*.html)。
 
+## ★ 方向切换(2026-06-24):Phosphor 暖琥珀暗 → TRANS·MISSION 信号蓝**亮色** + 更名
+> 权威流程改为 `docs/loop-procedure.md`。本文件上方旧配置/Done 台账(Phosphor amber/暗色)**只读存档,作废不再追加该方向**。新 backlog 见 loop-procedure.md §8。
+
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
+- 2026-06-24 R031 🟥 大件(R1)令牌反相 + 字面量批量替换 + 全站更名 TRANS·MISSION。tokens.css :root 全量反相成信号蓝亮色(浅冷底/白卡/深 navy 字/azure 强调)+ 新增 --brand-navy/--brand-azure/--brand-grad/--ink;perl exact-match 批量替 13 条字面量(27 文件+index.html+legacy,残留=0);Trade<em>Radar</em>/onboarding 字标/title/legacy toast→TRANS·MISSION + login 加「创拾觅深」中文署名。build✓ 机检 9 屏零错✓ golden h3✓。逐屏肉眼:login/leads/whatsapp 干净高级,dashboard 亮色成立。残留(预期):.toast 深 navy 块 rgba(10,14,26)+重阴影、.wh-land 大陆 #1c160c 暖近黑、11 处 rgba(0,0,0) 遮罩 → 写回 backlog 逐屏修。**提分支 feat/rebrand-transmission,commit+push origin,暂停等用户色彩定调,本轮不 ScheduleWakeup。**
+
 - (v2 未启动 —— 等用户最终 GO) → 已 GO,启动。
 - 2026-06-16 R001 🟦 Phosphor 全局换色(B1/B2)✅ build✓ 机检✓ critic 3/3 KEEP A/A/A−。自动落库。报告 reports/round-001。新增候选 B3(次级色)/B4(地图暖化)。next: 排序后大概率 B4/B3 或多窗格。
 - 2026-06-16 R002 🟦 地图暖化+彻底去cyan(B4+B3)。build✓机检✓。critic 2轮均2/3 REVERT(理由=屏内既有emoji/iris slop,非本轮回退)→操作员override落库(净改进无regression)。新增高优 B5(dashboard去emoji)/B6(iris收掉)。教训:emoji/iris重的屏要先清再做色彩。next: B5。

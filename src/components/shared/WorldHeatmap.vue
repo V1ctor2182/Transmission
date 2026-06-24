@@ -38,7 +38,7 @@ defineEmits(['hotspot'])
   stroke-width: .5;
   vector-effect: non-scaling-stroke;
 }
-.wh-dot { fill: var(--brand, #f5b73d); }
+.wh-dot { fill: var(--brand, #1f8fd6); }
 .wh-dot.hot { fill: var(--hot, #ff7a3d); }
 .wh-ping {
   fill: none;
@@ -52,9 +52,9 @@ defineEmits(['hotspot'])
 .wh-spot[role="button"] { cursor: pointer; outline: none; }
 .wh-hit { fill: transparent; }
 .wh-spot[role="button"]:hover .wh-dot, .wh-spot.sel .wh-dot { r: 4.6; }
-.wh-spot[role="button"]:focus-visible .wh-dot { stroke: var(--brand2, #ffd27a); stroke-width: 1.5; }
-.wh-spot.sel .wh-ping { animation-duration: 1.4s; stroke-width: 1.6; stroke: var(--brand2, #ffd27a); }
-.wh-spot.sel .wh-lbl { fill: var(--brand2, #ffd27a); }
+.wh-spot[role="button"]:focus-visible .wh-dot { stroke: var(--brand2, #1e5fd0); stroke-width: 1.5; }
+.wh-spot.sel .wh-ping { animation-duration: 1.4s; stroke-width: 1.6; stroke: var(--brand2, #1e5fd0); }
+.wh-spot.sel .wh-lbl { fill: var(--brand2, #1e5fd0); }
 .wh-spot.dim { opacity: .32; transition: opacity .2s; }
 .wh-lbl {
   fill: var(--t-primary, #fff8eb);
