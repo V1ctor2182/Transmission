@@ -40,7 +40,7 @@
 .approved-stamp{position:absolute;top:14px;right:14px;background:rgba(123,212,123,.12);border:1px solid rgba(123,212,123,.25);border-radius:8px;padding:4px 10px;font-size:11px;font-weight:800;color:var(--green);opacity:0;transition:.3s;transform:scale(.9)}
 .approved-stamp.show{opacity:1;transform:scale(1)}
 .email-actions{display:flex;gap:10px}
-.btn-approve{flex:1;background:linear-gradient(135deg,rgba(123,212,123,.15),rgba(16,185,129,.1));border:1px solid rgba(123,212,123,.25);border-radius:9px;padding:10px;font-size:13px;font-weight:700;color:var(--green);cursor:pointer;transition:.15s;text-align:center}
+.btn-approve{flex:1;background:rgba(23,166,115,.12);border:1px solid rgba(23,166,115,.28);border-radius:9px;padding:10px;font-size:13px;font-weight:700;color:var(--green);cursor:pointer;transition:.15s;text-align:center}
 .btn-approve:hover{background:rgba(123,212,123,.2)}
 .btn-edit{padding:10px 16px;border-radius:9px;font-size:13px;color:var(--t-muted);cursor:pointer;background:rgba(19,33,63,.03);border:1px solid rgba(19,33,63,.06);transition:.15s}
 .btn-edit:hover{color:var(--t-sec)}

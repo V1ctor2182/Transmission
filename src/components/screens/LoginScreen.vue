@@ -108,7 +108,7 @@ const startScan = () => window.startScan?.()
 }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}
 .lg-logo em{font-style:normal; color:var(--brand)}
-.lg-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 22px rgba(31,143,214,.25)}
+.lg-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:var(--brand-grad); box-shadow:0 4px 12px rgba(31,143,214,.18)}
 .lg-mark svg{width:18px; height:18px; stroke:#ffffff; fill:none; stroke-width:1.8}
 .lg-brand h1{
   margin-top:auto; font-family:'Bricolage Grotesque',sans-serif; font-weight:800;

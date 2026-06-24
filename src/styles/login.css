@@ -39,10 +39,10 @@
 .login-field input:focus{border-color:rgba(31,143,214,.5);background:rgba(31,143,214,.06);box-shadow:0 0 0 3px rgba(31,143,214,.1)}
 .login-field input::placeholder{color:var(--t-muted)}
 /* Login button */
-.login-btn{width:100%;background:linear-gradient(135deg,var(--brand),var(--brand2));border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;transition:.2s;margin-top:8px;letter-spacing:.01em;position:relative;overflow:hidden}
+.login-btn{width:100%;background:var(--brand);border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;transition:.2s;margin-top:8px;letter-spacing:.01em;position:relative;overflow:hidden}
 .login-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(19,33,63,.1),transparent);opacity:0;transition:.2s}
 .login-btn:hover::after{opacity:1}
-.login-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(31,143,214,.4)}
+.login-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
 .login-btn:active{transform:translateY(0)}
 /* Divider */
 .login-divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--t-muted);font-size:12px}
