@@ -103,7 +103,7 @@ const startScan = () => window.startScan?.()
   border-right:1px solid var(--card-border);
   background:
     radial-gradient(900px 500px at 18% 12%, rgba(31,143,214,.10), transparent 60%),
-    radial-gradient(700px 460px at 90% 100%, rgba(107,120,255,.08), transparent 60%),
+    radial-gradient(700px 460px at 90% 100%, rgba(30,95,200,.08), transparent 60%),
     var(--bg);
 }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}

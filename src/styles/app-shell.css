@@ -53,8 +53,8 @@
 .pool-tab{font-size:11px;padding:5px 10px;border-radius:7px;cursor:pointer;color:var(--t-muted);background:rgba(19,33,63,.04);border:1px solid transparent;transition:.15s;white-space:nowrap;display:flex;align-items:center;gap:4px}
 .pool-tab:hover{color:var(--t-primary);background:rgba(19,33,63,.07)}
 .pool-tab.on{color:#1e5fd0;background:rgba(31,143,214,.12);border-color:rgba(31,143,214,.2)}
-.pool-tab.overdue.on{color:#e5484d;background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.2)}
-.pool-tab.warn.on{color:#c8860a;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.2)}
+.pool-tab.overdue.on{color:#e5484d;background:rgba(229,72,77,.1);border-color:rgba(229,72,77,.2)}
+.pool-tab.warn.on{color:#c8860a;background:rgba(200,134,10,.08);border-color:rgba(200,134,10,.2)}
 /* Pool table rows */
 .pool-tr{cursor:pointer;transition:.12s;border-bottom:1px solid rgba(19,33,63,.04)}
 .pool-tr:hover{background:rgba(19,33,63,.04)}

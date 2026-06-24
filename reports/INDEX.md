@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 040 | 🟦 Standard | 语义色旧 RGB 三元组残留补扫(66 处 tint 底 amber/red/green/purple → 深化令牌值) | ✅ build✓ 机检 6 屏✓ golden h3✓ critic KEEP | [round-040](round-040-semantic-rgb-sweep.md) |
 | 039 | 🟦 Standard | 真实 logo 实图接入(侧栏/登录/网址弹窗/favicon:azure 方块+通用 SVG → 真 TM monogram PNG) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-039](round-039-real-logo.md) |
 | 038 | 🟦 Standard | 实时屏按钮去蓝渐变+去 glow(login/leads/marketing primary→实心 azure;审计标记 scan/onboard 死代码归 T11) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-038](round-038-button-deslop.md) |
 | 037 | 🟦 Standard | 暖橙 --hot→亮 azure(KPI/feed/首启 #ff7a3d→--brand-azure,单一 azure 锁收口) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-037](round-037-hot-azure.md) |

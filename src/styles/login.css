@@ -55,7 +55,7 @@
 .login-stat{text-align:center}
 .login-stat-val{font-size:15px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif}
 .login-stat-label{font-size:10px;color:var(--t-muted);margin-top:2px}
-.login-stat-dot{display:inline-block;width:5px;height:5px;background:#17a673;border-radius:50%;margin-right:4px;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(123,212,123,.6)}
+.login-stat-dot{display:inline-block;width:5px;height:5px;background:#17a673;border-radius:50%;margin-right:4px;animation:pulse 2s infinite;box-shadow:0 0 6px rgba(23,166,115,.6)}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes pulseGlow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
 @keyframes ringExpand{0%{opacity:.6;transform:scale(.85)}50%{opacity:.2;transform:scale(1.1)}100%{opacity:.6;transform:scale(.85)}}
@@ -90,10 +90,10 @@
 .rso-steps{display:flex;flex-direction:column;gap:10px;width:320px}
 .rso-step{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:12px;background:rgba(19,33,63,.03);border:1px solid rgba(19,33,63,.05);opacity:.3;transition:.5s}
 .rso-step.active{opacity:1;border-color:rgba(31,143,214,.3);background:rgba(31,143,214,.06)}
-.rso-step.done{opacity:.7;border-color:rgba(123,212,123,.2);background:rgba(123,212,123,.04)}
+.rso-step.done{opacity:.7;border-color:rgba(23,166,115,.2);background:rgba(23,166,115,.04)}
 .rso-step-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:rgba(19,33,63,.05)}
 .rso-step.active .rso-step-icon{background:rgba(31,143,214,.2);animation:iconPulse 1s ease-in-out infinite}
-.rso-step.done .rso-step-icon{background:rgba(123,212,123,.15)}
+.rso-step.done .rso-step-icon{background:rgba(23,166,115,.15)}
 @keyframes iconPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 .rso-step-text{font-size:13px;font-weight:500}
 .rso-step.active .rso-step-text{color:var(--t-primary)}

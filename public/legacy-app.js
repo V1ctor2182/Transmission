@@ -145,8 +145,8 @@ Liu Wei | 万仟糕饼`},
 const INTEL_CENTER_CARDS = [
   {id:0,icon:'🇸🇬',bg:'rgba(31,143,214,.08)',title:'新加坡节庆礼盒需求',sub:'Fairprice Group · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'5,000-8,000 盒'},{label:'目标产品',val:'月饼礼盒、椰子酥'},{label:'预算范围',val:'SGD 15-25/盒'},{label:'交货时间',val:'中秋节前 45 天'}],locked:false},
   {id:1,icon:'🇲🇾',bg:'rgba(31,143,214,.06)',title:'马来西亚月饼批发商',sub:'Jaya Grocer · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'3,000-5,000 盒'},{label:'目标产品',val:'精品月饼礼盒'},{label:'预算范围',val:'MYR 45-80/盒'},{label:'交货时间',val:'端午节前 60 天'}],locked:false},
-  {id:2,icon:'🇺🇸',bg:'rgba(123,212,123,.06)',title:'北美华人超市联采',sub:'99 Ranch Market · 昨日更新',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
-  {id:3,icon:'🇦🇺',bg:'rgba(107,120,255,.06)',title:'澳洲华人社区采购',sub:'Asian Grocery Pty · 2天前',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
+  {id:2,icon:'🇺🇸',bg:'rgba(23,166,115,.06)',title:'北美华人超市联采',sub:'99 Ranch Market · 昨日更新',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
+  {id:3,icon:'🇦🇺',bg:'rgba(30,95,200,.06)',title:'澳洲华人社区采购',sub:'Asian Grocery Pty · 2天前',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
 ];
 
 const AI_MSGS = [
@@ -185,7 +185,7 @@ let actIntervalId = null;
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-  const COLORS = ['rgba(31,143,214,','rgba(31,143,214,','rgba(107,120,255,','rgba(123,212,123,'];
+  const COLORS = ['rgba(31,143,214,','rgba(31,143,214,','rgba(30,95,200,','rgba(23,166,115,'];
   for (let i = 0; i < 80; i++) {
     particles.push({ x:Math.random()*1920, y:Math.random()*1080, vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35, r:Math.random()*1.4+.4, c:COLORS[Math.floor(Math.random()*COLORS.length)], a:Math.random()*.4+.1 });
   }
@@ -359,13 +359,13 @@ const CONTINENTS = [
   // South America
   { color:'rgba(31,143,214,0.10)', points:[[0.23,0.43],[0.30,0.41],[0.34,0.46],[0.33,0.56],[0.30,0.66],[0.26,0.70],[0.22,0.66],[0.20,0.56],[0.21,0.48]] },
   // Europe
-  { color:'rgba(107,120,255,0.14)', points:[[0.43,0.14],[0.55,0.12],[0.58,0.16],[0.56,0.24],[0.52,0.28],[0.47,0.28],[0.43,0.24],[0.42,0.18]] },
+  { color:'rgba(30,95,200,0.14)', points:[[0.43,0.14],[0.55,0.12],[0.58,0.16],[0.56,0.24],[0.52,0.28],[0.47,0.28],[0.43,0.24],[0.42,0.18]] },
   // Africa
-  { color:'rgba(251,191,36,0.10)', points:[[0.45,0.28],[0.56,0.26],[0.60,0.32],[0.58,0.46],[0.54,0.58],[0.50,0.62],[0.46,0.58],[0.43,0.46],[0.43,0.36]] },
+  { color:'rgba(200,134,10,0.10)', points:[[0.45,0.28],[0.56,0.26],[0.60,0.32],[0.58,0.46],[0.54,0.58],[0.50,0.62],[0.46,0.58],[0.43,0.46],[0.43,0.36]] },
   // Asia (main)
   { color:'rgba(31,143,214,0.13)', points:[[0.57,0.12],[0.80,0.10],[0.90,0.16],[0.92,0.26],[0.86,0.36],[0.80,0.42],[0.74,0.46],[0.68,0.44],[0.62,0.38],[0.58,0.30],[0.56,0.22]] },
   // SE Asia peninsula
-  { color:'rgba(123,212,123,0.12)', points:[[0.72,0.40],[0.78,0.40],[0.80,0.46],[0.79,0.54],[0.76,0.56],[0.73,0.52],[0.71,0.46]] },
+  { color:'rgba(23,166,115,0.12)', points:[[0.72,0.40],[0.78,0.40],[0.80,0.46],[0.79,0.54],[0.76,0.56],[0.73,0.52],[0.71,0.46]] },
   // Australia
   { color:'rgba(31,143,214,0.12)', points:[[0.79,0.58],[0.88,0.56],[0.92,0.62],[0.90,0.70],[0.84,0.74],[0.78,0.72],[0.76,0.66],[0.77,0.60]] },
 ];
@@ -401,11 +401,11 @@ const OB_CONTENTS = [
         <div style="font-size:22px;font-weight:800;color:#1f8fd6">4</div>
         <div style="font-size:11px;color:rgba(19,33,63,.4);margin-top:4px">目标市场</div>
       </div>
-      <div style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.15);border-radius:12px;padding:14px">
+      <div style="background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.15);border-radius:12px;padding:14px">
         <div style="font-size:22px;font-weight:800;color:#17a673">400+</div>
         <div style="font-size:11px;color:rgba(19,33,63,.4);margin-top:4px">可出海 SKU</div>
       </div>
-      <div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);border-radius:12px;padding:14px">
+      <div style="background:rgba(200,134,10,.08);border:1px solid rgba(200,134,10,.15);border-radius:12px;padding:14px">
         <div style="font-size:22px;font-weight:800;color:#c8860a">35年</div>
         <div style="font-size:11px;color:rgba(19,33,63,.4);margin-top:4px">品牌沉淠</div>
       </div>
@@ -420,8 +420,8 @@ const OB_CONTENTS = [
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
       <div style="background:rgba(31,143,214,.1);border:1px solid rgba(31,143,214,.2);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#1e5fd0">5240亿</div><div style="font-size:10px;color:rgba(19,33,63,.4);margin-top:3px">2025全球市场规模</div></div>
       <div style="background:rgba(31,143,214,.08);border:1px solid rgba(31,143,214,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#1f8fd6">8785亿</div><div style="font-size:10px;color:rgba(19,33,63,.4);margin-top:3px">2035年预测规模</div></div>
-      <div style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#17a673">6000万+</div><div style="font-size:10px;color:rgba(19,33,63,.4);margin-top:3px">全球华人华侨人口</div></div>
-      <div style="background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#c8860a">95.2%</div><div style="font-size:10px;color:rgba(19,33,63,.4);margin-top:3px">椒子出口同比增速</div></div>
+      <div style="background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#17a673">6000万+</div><div style="font-size:10px;color:rgba(19,33,63,.4);margin-top:3px">全球华人华侨人口</div></div>
+      <div style="background:rgba(200,134,10,.08);border:1px solid rgba(200,134,10,.15);border-radius:10px;padding:12px"><div style="font-size:18px;font-weight:800;color:#c8860a">95.2%</div><div style="font-size:10px;color:rgba(19,33,63,.4);margin-top:3px">椒子出口同比增速</div></div>
     </div>
     <div style="font-size:11px;color:rgba(19,33,63,.35);margin-bottom:8px">目标市场优先级</div>
     ${[{f:'🇸🇬',n:'东南亚',g:'6.6%',p:'3300万+',c:'#17a673',l:'首选'},{f:'🇺🇸',n:'北美',g:'4.2%',p:'530万+',c:'#1e5fd0',l:'重点'},{f:'🇦🇺',n:'澳洲',g:'4.0%',p:'120万+',c:'#1f8fd6',l:'重点'},{f:'🇬🇧',n:'欧洲',g:'3.8%',p:'215万+',c:'#1e5fd0',l:'布局'}].map(r=>`
@@ -794,13 +794,13 @@ function renderTodayTodo() {
   const el = document.getElementById('today-todo-list');
   if(!el) return;
   el.innerHTML = TODAY_TODOS.map(item => `
-    <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid ${item.urgent ? 'rgba(248,113,113,.15)' : 'rgba(19,33,63,.04)'}" onmouseover="this.style.background='rgba(19,33,63,.04)'" onmouseout="this.style.background=''">
+    <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid ${item.urgent ? 'rgba(229,72,77,.15)' : 'rgba(19,33,63,.04)'}" onmouseover="this.style.background='rgba(19,33,63,.04)'" onmouseout="this.style.background=''">
       <div style="width:7px;height:7px;border-radius:50%;background:${item.color};flex-shrink:0;margin:0 3px"></div>
       <div style="flex:1;min-width:0">
         <div style="font-size:12px;font-weight:600;color:${item.urgent ? '#e5484d' : 'var(--t-primary)'}">${item.text}</div>
         <div style="font-size:10px;color:var(--t-muted)">${item.sub}</div>
       </div>
-      ${item.urgent ? '<div style="font-size:9px;font-weight:700;color:#e5484d;background:rgba(248,113,113,.12);padding:2px 6px;border-radius:4px;flex-shrink:0">紧急</div>' : '<div style="font-size:10px;color:var(--t-muted)">→</div>'}
+      ${item.urgent ? '<div style="font-size:9px;font-weight:700;color:#e5484d;background:rgba(229,72,77,.12);padding:2px 6px;border-radius:4px;flex-shrink:0">紧急</div>' : '<div style="font-size:10px;color:var(--t-muted)">→</div>'}
     </div>
   `).join('');
 }
@@ -988,16 +988,16 @@ function linkWaToPool() {
   if(exists) {
     btn.textContent = '✓ 已关联至客户池';
     btn.style.color = '#17a673';
-    btn.style.borderColor = 'rgba(123,212,123,.3)';
-    btn.style.background = 'rgba(123,212,123,.08)';
+    btn.style.borderColor = 'rgba(23,166,115,.3)';
+    btn.style.background = 'rgba(23,166,115,.08)';
     showToast('✓ 已关联','该对话已在客户池中跟进','success');
   } else {
     // Add to pool
     CPOOL_DATA[2].items.push({id:99, name:name, status:'active', statusText:'刚刚关联 · 待跟进', flag:'💬'});
     btn.textContent = '✓ 已关联至客户池';
     btn.style.color = '#17a673';
-    btn.style.borderColor = 'rgba(123,212,123,.3)';
-    btn.style.background = 'rgba(123,212,123,.08)';
+    btn.style.borderColor = 'rgba(23,166,115,.3)';
+    btn.style.background = 'rgba(23,166,115,.08)';
     renderCpool();
     showToast('🔗 关联成功',`${name} 已加入客户池，可在客户池页面跟进`,'success');
   }
@@ -1132,7 +1132,7 @@ function renderCustTable(filter) {
         <div class="icp-cust-contact ${c.status}">${c.status==='enriched'?'<span style="color:#17a673">✓ 已找到</span><br><span style="font-size:9px;color:var(--t-muted)">'+c.email+'</span>':'<span style="color:#c8860a">待寻找</span>'}</div>
         <div class="icp-cust-ops">
           ${c.status==='pending'?`<div class="icp-op-btn enrich" onclick="event.stopPropagation();enrichOne(${c.id})">&#x1F50D; 寻找联系人</div>`:''}
-          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-op-btn" style="color:#17a673;border-color:rgba(123,212,123,.2)">✓ 已营销</div>'}
+          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-op-btn" style="color:#17a673;border-color:rgba(23,166,115,.2)">✓ 已营销</div>'}
           <div class="icp-op-btn feedback" onclick="event.stopPropagation();openFeedback(${c.id})">⚠ 反馈不精准</div>
         </div>
       </div>
@@ -1346,9 +1346,9 @@ function renderPoolTable() {
     return ta.localeCompare(tb);
   });
   const statusCfg = {
-    replied:    {color:'#17a673', bg:'rgba(123,212,123,.1)',  border:'rgba(123,212,123,.2)',  label:'已回复'},
-    overdue:    {color:'#e5484d', bg:'rgba(248,113,113,.1)', border:'rgba(248,113,113,.2)', label:'逐期跟进'},
-    'no-reply': {color:'#c8860a', bg:'rgba(251,191,36,.1)',  border:'rgba(251,191,36,.2)',  label:'无回复'},
+    replied:    {color:'#17a673', bg:'rgba(23,166,115,.1)',  border:'rgba(23,166,115,.2)',  label:'已回复'},
+    overdue:    {color:'#e5484d', bg:'rgba(229,72,77,.1)', border:'rgba(229,72,77,.2)', label:'逐期跟进'},
+    'no-reply': {color:'#c8860a', bg:'rgba(200,134,10,.1)',  border:'rgba(200,134,10,.2)',  label:'无回复'},
     pending:    {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'待跟进'},
   };
   if(!allItems.length) {
@@ -1395,7 +1395,7 @@ function renderPoolTable() {
       <td style="padding:12px;text-align:center">
         <div style="display:flex;gap:4px;justify-content:center">
           <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer">AI 跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" title="发 WhatsApp" style="font-size:10px;padding:3px 7px;border-radius:6px;background:rgba(123,212,123,.08);color:#17a673;border:1px solid rgba(123,212,123,.2);cursor:pointer;display:flex;align-items:center"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" title="发 WhatsApp" style="font-size:10px;padding:3px 7px;border-radius:6px;background:rgba(23,166,115,.08);color:#17a673;border:1px solid rgba(23,166,115,.2);cursor:pointer;display:flex;align-items:center"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         </div>
       </td>
     </tr>`;
@@ -1462,13 +1462,13 @@ function showPoolDetail(name) {
         </div>
       `).join('')}
     </div>` : `
-    <div style="margin-bottom:16px;background:rgba(251,191,36,.05);border:1px solid rgba(251,191,36,.15);border-radius:8px;padding:12px">
+    <div style="margin-bottom:16px;background:rgba(200,134,10,.05);border:1px solid rgba(200,134,10,.15);border-radius:8px;padding:12px">
       <div style="font-size:11px;color:#c8860a;font-weight:600;margin-bottom:4px">未获取联系方式</div>
       <div style="font-size:11px;color:var(--t-muted)">到「找客户」页面为该客户执行 Enrich</div>
     </div>`}
     <div style="display:flex;flex-direction:column;gap:8px">
       <div onclick="poolFollowUp('${name}')" style="background:rgba(31,143,214,.12);border:1px solid rgba(31,143,214,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#1e5fd0;cursor:pointer;text-align:center">AI 生成跟进话术</div>
-      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#17a673;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发送 WhatsApp 消息</div>
+      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#17a673;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发送 WhatsApp 消息</div>
       <div onclick="navTo('leads')" style="background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:var(--t-muted);cursor:pointer;text-align:center">查看完整客户资料</div>
     </div>
   `;
@@ -1524,9 +1524,9 @@ function renderPoolCards() {
     return;
   }
   const statusCfg = {
-    replied: {color:'#17a673', bg:'rgba(123,212,123,.1)', border:'rgba(123,212,123,.2)', label:'已回复'},
-    overdue: {color:'#e5484d', bg:'rgba(248,113,113,.1)', border:'rgba(248,113,113,.2)', label:'逐期跟进'},
-    'no-reply': {color:'#c8860a', bg:'rgba(251,191,36,.1)', border:'rgba(251,191,36,.2)', label:'无回复'},
+    replied: {color:'#17a673', bg:'rgba(23,166,115,.1)', border:'rgba(23,166,115,.2)', label:'已回复'},
+    overdue: {color:'#e5484d', bg:'rgba(229,72,77,.1)', border:'rgba(229,72,77,.2)', label:'逐期跟进'},
+    'no-reply': {color:'#c8860a', bg:'rgba(200,134,10,.1)', border:'rgba(200,134,10,.2)', label:'无回复'},
     pending: {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'待跟进'},
   };
   const sourceInfo = (group) => POOL_SOURCE_MAP[group] || {color:'#1e5fd0', icon:'📂'};
@@ -1575,7 +1575,7 @@ function renderPoolCards() {
         </div>
         <div style="display:flex;gap:6px">
           <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(31,143,214,.12);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(31,143,214,.2)'" onmouseout="this.style.background='rgba(31,143,214,.12)'">AI 跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(123,212,123,.08);color:#17a673;border:1px solid rgba(123,212,123,.2);cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px" onmouseover="this.style.background='rgba(123,212,123,.15)'" onmouseout="this.style.background='rgba(123,212,123,.08)'"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发消息</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(23,166,115,.08);color:#17a673;border:1px solid rgba(23,166,115,.2);cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px" onmouseover="this.style.background='rgba(23,166,115,.15)'" onmouseout="this.style.background='rgba(23,166,115,.08)'"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发消息</div>
         </div>
       </div>
     </div>`;
@@ -2099,7 +2099,7 @@ function renderIntelTable() {
   if(countEl) countEl.textContent = data.length;
   const statusCfg = {
     new:    {color:'#1f8fd6', bg:'rgba(31,143,214,.08)',  border:'rgba(31,143,214,.2)',  label:'新增'},
-    hot:    {color:'#e5484d', bg:'rgba(248,113,113,.08)', border:'rgba(248,113,113,.2)', label:'热门'},
+    hot:    {color:'#e5484d', bg:'rgba(229,72,77,.08)', border:'rgba(229,72,77,.2)', label:'热门'},
     locked: {color:'#6b7280', bg:'rgba(107,114,128,.08)', border:'rgba(107,114,128,.2)', label:'需解锁'},
   };
   if(!data.length) {

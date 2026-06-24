@@ -11,7 +11,7 @@
           <div style="padding:16px 24px 12px;border-bottom:1px solid rgba(19,33,63,.06);flex-shrink:0;background:rgba(19,33,63,.01)">
             <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
               <div style="font-size:13px;font-weight:700;color:var(--t-primary);margin-right:4px">全球采购需求</div>
-              <div style="font-size:11px;color:var(--t-muted);background:rgba(123,212,123,.08);border:1px solid rgba(123,212,123,.15);padding:2px 10px;border-radius:20px"><span style="color:#17a673">●</span> 实时 · 今日新增 98,241 条</div>
+              <div style="font-size:11px;color:var(--t-muted);background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.15);padding:2px 10px;border-radius:20px"><span style="color:#17a673">●</span> 实时 · 今日新增 98,241 条</div>
               <div style="flex:1"></div>
               <!-- Search -->
               <div style="display:flex;align-items:center;gap:6px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:8px;padding:5px 12px">

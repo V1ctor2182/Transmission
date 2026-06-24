@@ -109,7 +109,7 @@
                         <div id="rg-country-list" style="overflow-y:auto;max-height:240px;padding:6px"></div>
                       </div>
                     </div>
-                    <div onclick="clearAllRgTags()" style="font-size:11px;padding:6px 12px;border-radius:8px;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#e5484d;cursor:pointer;white-space:nowrap;flex-shrink:0">清空</div>
+                    <div onclick="clearAllRgTags()" style="font-size:11px;padding:6px 12px;border-radius:8px;background:rgba(229,72,77,.08);border:1px solid rgba(229,72,77,.2);color:#e5484d;cursor:pointer;white-space:nowrap;flex-shrink:0">清空</div>
                   </div>
                   <div style="font-size:10px;color:var(--t-muted);margin-top:6px">已选 <span id="rg-count" style="color:#1e5fd0;font-weight:700">4</span> 个国家/地区</div>
                 </div>
@@ -167,7 +167,7 @@
               <div style="flex:1">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
                   <div style="font-size:15px;font-weight:700;color:var(--t-primary)">每天自动找客户 · 东南亚 + 北美 + 澳洲</div>
-                  <div style="font-size:10px;font-weight:700;color:#17a673;background:rgba(123,212,123,.12);padding:2px 8px;border-radius:10px;border:1px solid rgba(123,212,123,.2)">♻️ 执行中</div>
+                  <div style="font-size:10px;font-weight:700;color:#17a673;background:rgba(23,166,115,.12);padding:2px 8px;border-radius:10px;border:1px solid rgba(23,166,115,.2)">♻️ 执行中</div>
                 </div>
                 <div style="font-size:12px;color:var(--t-muted);margin-bottom:12px">所有已接入数据源 · 50 个/天 · 已执行 14 天 / 30 天 · 自动寻找联系人已开启</div>
                 <div style="display:flex;gap:24px">
@@ -191,7 +191,7 @@
               </div>
               <div style="display:flex;gap:8px;flex-shrink:0">
                 <div class="icp-task-btn secondary" onclick="showLeadsView('customers')">👥 查看客户</div>
-                <div class="icp-task-btn" style="background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.3);color:#e5484d" onclick="toast('⏸️','任务已暂停','可在任务列表重新启动')">⏸ 暂停</div>
+                <div class="icp-task-btn" style="background:rgba(229,72,77,.1);border-color:rgba(229,72,77,.3);color:#e5484d" onclick="toast('⏸️','任务已暂停','可在任务列表重新启动')">⏸ 暂停</div>
               </div>
             </div>
 
