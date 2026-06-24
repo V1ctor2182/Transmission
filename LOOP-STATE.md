@@ -42,6 +42,7 @@
 > 权威流程改为 `docs/loop-procedure.md`。本文件上方旧配置/Done 台账(Phosphor amber/暗色)**只读存档,作废不再追加该方向**。新 backlog 见 loop-procedure.md §8。
 
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
+- 2026-06-25 R043 🟦 产品轴:成就感反馈层去 emoji。33 处 toast 首参图标(⚠️🧠⚡✅📧📄📨📡✏️✕🤝🔓✉️+空)→ ◆(ASCII 安全 \x{25c6},hexdump 验 E2 97 86 无损双编码);intel 建联键 🤝 前缀去掉。build✓ 机检 5 屏零错✓ golden h3 PASS✓。两北极星 KEEP(视觉:反馈层零 emoji 单一 ◆ azure;产品:成就感反馈干净一致、真实触发)。残留→backlog:通知数据 emoji 图标(765/2037 🤝💬🔔)、**confirmUnlock 假反馈(解锁 toast 称已显示但 UI 未 un-mask ██,违真实挣来红线,专轮修)**。commit+push origin。cron 1min 不 ScheduleWakeup。
 - 2026-06-25 R042 🟦 产品轴:AI 工作流 feed 行动化。feed 每项加 action(查看线索/去跟进/去审批/看报告/查看客户)+ 渲染右侧 .fmeta(.faction azure-soft 常驻药丸 opacity:.72 + .fa 时间);hover 点亮实心 azure;整行 @click nav 保留。feed 从被动叙述→可执行任务队列(明确下一步/有事做/整齐)。build✓ 机检 dashboard 零错✓ golden h3 PASS✓。两北极星 KEEP。commit+push origin。cron 1min 不 ScheduleWakeup。
 - 2026-06-25 ★ 用户 AskUserQuestion 选定:视觉 rebrand 主体完成 → **loop 转产品北极星轴**(整齐/有事做/成就感/希望)。cron 重建为产品轴 prompt(job f24bb99f)。T11 死代码删除作废(用户 login 重构注释明确保留 #reg-scan-overlay markup「for legacy flow」)。
 - 2026-06-25 R041 🟦 产品轴首轮:实时买家信号「建联」行动常驻可见。.brow .bconnect opacity:0(hover 才显形,缺明确下一步)→ opacity:.72 常驻 azure-soft 药丸,hover 点亮。点击=真实 H3 connectBuyer(物化 WA 联系人+seed 对话=真实挣来成就感)。build✓ 机检 dashboard 零错✓ golden h3 PASS✓。两北极星 KEEP(产品:明确下一步/有事做/成就感真实;视觉:单一 azure/整齐/零 slop)。产品轴新候选→§8:今日待办聚合、完成动作即时正反馈、数字可读性。commit+push origin。cron 1min 不 ScheduleWakeup。

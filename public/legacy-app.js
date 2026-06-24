@@ -1199,12 +1199,12 @@ function openFeedback(id) {
 
 function submitFeedback() {
   const reason = document.getElementById('feedback-input').value.trim();
-  if(!reason) { toast('⚠️','请输入反馈原因',''); return; }
+  if(!reason) { toast('◆','请输入反馈原因',''); return; }
   document.getElementById('feedback-form').style.display='none';
   document.getElementById('feedback-result').style.display='flex';
   setTimeout(() => {
     document.getElementById('feedback-modal').style.display='none';
-    toast('🧠','企业大脑已自动优化',`已根据反馈调整 ICP 匹配模型，后续推送的客户将更精准`);
+    toast('◆','企业大脑已自动优化',`已根据反馈调整 ICP 匹配模型，后续推送的客户将更精准`);
   }, 2200);
 }
 
@@ -1227,42 +1227,42 @@ function setCf(el, filter) {
 function enrichOne(id) {
   const c = CUST_DATA.find(x => x.id===id);
   if(!c) return;
-  toast('⚡','正在 Enrich 联系方式',`AI 正在从 Hunter / Apollo 获取 ${c.company} 的联系方式…`);
+  toast('◆','正在 Enrich 联系方式',`AI 正在从 Hunter / Apollo 获取 ${c.company} 的联系方式…`);
   setTimeout(() => {
     c.status = 'enriched';
     c.email = `contact@${c.company.toLowerCase().replace(/\s+/g,'')}.com`;
     c.phone = '+XX XXXX-XXXX';
     renderCustTable(custFilter);
-    toast('✅','Enrich 完成',`已获取 ${c.company} 的邮箱与电话`);
+    toast('◆','Enrich 完成',`已获取 ${c.company} 的邮箱与电话`);
   }, 1800);
 }
 
 function enrichSelected() {
   const pending = CUST_DATA.filter(c => c.selected && c.status==='pending');
-  if(pending.length===0) { toast('⚠️','无待 Enrich 客户','请先勾选状态为「待 Enrich」的客户'); return; }
-  toast('⚡',`批量 Enrich ${pending.length} 个客户`,`AI 正在从 Hunter / Apollo / Clearbit 获取联系方式…`);
+  if(pending.length===0) { toast('◆','无待 Enrich 客户','请先勾选状态为「待 Enrich」的客户'); return; }
+  toast('◆',`批量 Enrich ${pending.length} 个客户`,`AI 正在从 Hunter / Apollo / Clearbit 获取联系方式…`);
   setTimeout(() => {
     pending.forEach(c => { c.status='enriched'; c.email=`contact@${c.company.toLowerCase().replace(/\s+/g,'')}.com`; c.phone='+XX XXXX-XXXX'; });
     renderCustTable(custFilter);
-    toast('✅',`Enrich 完成`,`已成功获取 ${pending.length} 个客户的联系方式`);
+    toast('◆',`Enrich 完成`,`已成功获取 ${pending.length} 个客户的联系方式`);
   }, 2000);
 }
 
 function addToEdm(id) {
   const c = CUST_DATA.find(x => x.id===id);
   if(!c) return;
-  if(c.status==='pending') { toast('⚠️','请先 Enrich 联系方式',`${c.company} 尚未获取联系方式，无法加入 EDM`); return; }
+  if(c.status==='pending') { toast('◆','请先 Enrich 联系方式',`${c.company} 尚未获取联系方式，无法加入 EDM`); return; }
   c.edm = true;
   renderCustTable(custFilter);
-  toast('📧',`${c.company} 已加入 EDM 队列`,`AI 将为其生成个性化邮件，请到「营销队列」审批后发送`);
+  toast('◆',`${c.company} 已加入 EDM 队列`,`AI 将为其生成个性化邮件，请到「营销队列」审批后发送`);
 }
 
 function pushSelectedToEdm() {
   const sel = CUST_DATA.filter(c => c.selected && c.status==='enriched' && !c.edm);
-  if(sel.length===0) { toast('⚠️','无可推送客户','请勾选已 Enrich 且未加入 EDM 的客户'); return; }
+  if(sel.length===0) { toast('◆','无可推送客户','请勾选已 Enrich 且未加入 EDM 的客户'); return; }
   sel.forEach(c => c.edm = true);
   renderCustTable(custFilter);
-  toast('📧',`已推送 ${sel.length} 个客户到营销队列`,`AI 正在生成个性化邮件，请到「营销队列」审批后发送`);
+  toast('◆',`已推送 ${sel.length} 个客户到营销队列`,`AI 正在生成个性化邮件，请到「营销队列」审批后发送`);
   setTimeout(() => navTo('marketing'), 1400);
 }
 
@@ -1598,7 +1598,7 @@ function openPoolDetail(name) {
       }, 100);
     }, 50);
   } else {
-    toast('📄', name, '点击查看详细客户信息');
+    toast('◆', name, '点击查看详细客户信息');
   }
 }
 
@@ -1624,18 +1624,18 @@ function poolBatchFollowUp() {
 
 function autoExecute() {
   const enriched = CUST_DATA.filter(c => c.selected && c.status==='enriched');
-  if(enriched.length===0) { toast('⚠️','请先选择已 Enrich 的客户','勾选已获取联系方式的客户后再执行全自动'); return; }
+  if(enriched.length===0) { toast('◆','请先选择已 Enrich 的客户','勾选已获取联系方式的客户后再执行全自动'); return; }
   toast('◆','AI 全自动执行已启动',`跳过审批，直接为 ${enriched.length} 个客户生成并发送个性化邮件`);
-  setTimeout(() => toast('📨',`${enriched.length} 封邮件已发出`,`预计 ${Math.round(enriched.length*0.3)} 个客户将回复，平均回复时间 2.3 天`), 2500);
+  setTimeout(() => toast('◆',`${enriched.length} 封邮件已发出`,`预计 ${Math.round(enriched.length*0.3)} 个客户将回复，平均回复时间 2.3 天`), 2500);
 }
 
 function submitIcpTask() {
   const daily = document.getElementById('icp-daily')?.value || 50;
   const days = document.getElementById('icp-days')?.value || 30;
-  toast('⚡','任务已下达！','AI 正在启动全球数据源搜索…');
+  toast('◆','任务已下达！','AI 正在启动全球数据源搜索…');
   setTimeout(() => {
     showLeadsView('tasks');
-    toast('📡','ICP Agent 已启动',`已从 28 个数据源开始搜索，每天 ${daily} 个客户，持续 ${days} 天`);
+    toast('◆','ICP Agent 已启动',`已从 28 个数据源开始搜索，每天 ${daily} 个客户，持续 ${days} 天`);
   }, 800);
 }
 
@@ -1998,7 +1998,7 @@ function selectMktItem(id) {
     </div>
     <div class="email-actions">
       <div class="btn-approve" onclick="approveEmail(${id})">批准并发送</div>
-      <div class="btn-edit" onclick="toast('✏️','编辑模式','邮件编辑功能开发中，敬请期待')">编辑</div>
+      <div class="btn-edit" onclick="toast('◆','编辑模式','邮件编辑功能开发中，敬请期待')">编辑</div>
       <div class="btn-reject" onclick="rejectEmail(${id})">✕ 拒绝</div>
     </div>
   `;
@@ -2020,11 +2020,11 @@ function approveEmail(id) {
   if(statusEl) { statusEl.textContent = '已批准'; statusEl.className = 'mkt-item-status approved'; }
   pendingCount = Math.max(0, pendingCount-1);
   document.getElementById('mkt-pending-badge').textContent = pendingCount + ' 待审批';
-  toast('','邮件已批准','正在加入发送队列，预计 5 分钟内发出');
+  toast('◆','邮件已批准','正在加入发送队列，预计 5 分钟内发出');
 }
 
 function rejectEmail(id) {
-  toast('✕','已拒绝该邮件','AI 将重新生成新的邮件变体');
+  toast('◆','已拒绝该邮件','AI 将重新生成新的邮件变体');
   setTimeout(() => selectMktItem(id), 500);
 }
 
@@ -2116,7 +2116,7 @@ function renderIntelTable() {
       : `<div style="font-size:13px;font-weight:600;color:var(--t-primary)">${d.buyer}</div>`;
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#17a673' : d.contactRate >= 50 ? '#c8860a' : '#e5484d';
-    return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "showModal('modal-unlock')" : "toast('\ud83e\udd1d','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
+    return `<tr class="intel-tr" style="cursor:pointer" onclick="${isLocked ? "showModal('modal-unlock')" : "toast('◆','\u5efa\u8054\u5df2\u542f\u52a8','AI \u6b63\u5728\u4e3a ${d.buyer} \u751f\u6210\u4e2a\u6027\u5316\u5f00\u573a\u767d\u2026')"}">\n      <td style="padding:12px 24px;white-space:nowrap">
         ${ccBadge(d.flag)}
         <span style="font-size:12px;color:var(--t-primary)">${d.country}</span>
         <div style="font-size:10px;color:var(--t-muted);margin-top:1px">${d.region}</div>
@@ -2146,7 +2146,7 @@ function renderIntelTable() {
       <td style="padding:12px 16px;text-align:center" onclick="event.stopPropagation()">
         ${isLocked
           ? `<div onclick="showModal('modal-unlock')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);cursor:pointer;white-space:nowrap">🔒 解锁</div>`
-          : `<div onclick="toast('🤝','建联已启动','AI 正在为 ${d.buyer} 生成个性化开场白…')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;white-space:nowrap">🤝 建联</div>`
+          : `<div onclick="toast('◆','建联已启动','AI 正在为 ${d.buyer} 生成个性化开场白…')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;white-space:nowrap">建联</div>`
         }
       </td>
     </tr>`;
@@ -2178,7 +2178,7 @@ function renderIntelCenter() {
         </div>
       ` : `
         ${c.rows.map(r => `<div class="intel-data-row"><div class="intel-data-label">${r.label}</div><div class="intel-data-val">${r.val}</div></div>`).join('')}
-        <button style="width:100%;margin-top:12px;background:rgba(31,143,214,.1);border:1px solid rgba(31,143,214,.2);border-radius:8px;padding:8px;font-size:12px;font-weight:700;color:var(--brand2);cursor:pointer;" onclick="toast('🤝','建联成功','AI 正在为该采购商生成个性化开场白…')">🤝 立即建联</button>
+        <button style="width:100%;margin-top:12px;background:rgba(31,143,214,.1);border:1px solid rgba(31,143,214,.2);border-radius:8px;padding:8px;font-size:12px;font-weight:700;color:var(--brand2);cursor:pointer;" onclick="toast('◆','建联成功','AI 正在为该采购商生成个性化开场白…')">立即建联</button>
       `}
     </div>
   `).join('');
@@ -2192,7 +2192,7 @@ function closeModal(id) { document.getElementById(id).classList.remove('show'); 
 function selectUnlock(el) { document.querySelectorAll('.unlock-opt').forEach(o => o.classList.remove('on')); el.classList.add('on'); }
 function confirmUnlock() {
   closeModal('modal-unlock');
-  toast('🔓','情报已解锁！','完整联系方式和采购记录已显示，祝您谈判顺利');
+  toast('◆','情报已解锁！','完整联系方式和采购记录已显示，祝您谈判顺利');
 }
 
 // ═══════════════════════════════════════════════════════
@@ -2208,7 +2208,7 @@ function rotateAiMsg() {
 }
 function aiAction(type) {
   toggleAi();
-  if(type==='draft') { navTo('marketing'); toast('✉️','正在生成跟进邮件','AI 正在为 Klaus Weber 生成个性化跟进邮件…'); }
+  if(type==='draft') { navTo('marketing'); toast('◆','正在生成跟进邮件','AI 正在为 Klaus Weber 生成个性化跟进邮件…'); }
   else if(type==='leads') navTo('leads');
   else if(type==='whatsapp') navTo('whatsapp');
 }
