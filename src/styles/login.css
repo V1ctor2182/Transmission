@@ -61,9 +61,9 @@
 @keyframes ringExpand{0%{opacity:.6;transform:scale(.85)}50%{opacity:.2;transform:scale(1.1)}100%{opacity:.6;transform:scale(.85)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 /* Website input modal (post-login) */
-#website-modal-overlay{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center}
+#website-modal-overlay{position:fixed;inset:0;z-index:60;background:rgba(20,40,80,.35);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center}
 #website-modal-overlay.show{display:flex}
-.wm-card{background:rgba(13,18,37,.95);border:1px solid rgba(31,143,214,.25);border-radius:20px;padding:36px;width:480px;box-shadow:0 32px 80px rgba(0,0,0,.6);animation:loginCardIn .4s ease}
+.wm-card{background:var(--bg2);border:1px solid var(--card-border);border-radius:20px;padding:36px;width:480px;box-shadow:0 32px 80px rgba(20,50,110,.18);animation:loginCardIn .4s ease}
 .wm-logo{width:48px;height:48px;background:var(--brand);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .wm-logo svg{width:24px;height:24px;stroke:#fff}
 .wm-title{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;text-align:center;margin-bottom:6px}
@@ -73,8 +73,8 @@
 .wm-input:focus{border-color:rgba(31,143,214,.5);background:rgba(31,143,214,.06);box-shadow:0 0 0 3px rgba(31,143,214,.1)}
 .wm-input::placeholder{color:var(--t-muted)}
 .wm-hint{font-size:11px;color:var(--t-muted);margin-bottom:20px;padding-left:4px}
-.wm-btn{width:100%;background:linear-gradient(135deg,var(--brand),var(--brand2));border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
-.wm-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(31,143,214,.4)}
+.wm-btn{width:100%;background:var(--brand);border:none;border-radius:10px;padding:14px;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.wm-btn:hover{transform:translateY(-1px);background:var(--brand2)}
 .wm-btn svg{width:16px;height:16px;stroke:#fff}
 .wm-features{display:flex;gap:16px;margin-top:20px;justify-content:center}
 .wm-feat{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t-muted)}

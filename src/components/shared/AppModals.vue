@@ -49,7 +49,7 @@
 </div>
 
 <!-- FEEDBACK MODAL -->
-<div class="modal-overlay" id="feedback-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);align-items:center;justify-content:center;z-index:300">
+<div class="modal-overlay" id="feedback-modal" style="display:none;position:fixed;inset:0;background:rgba(20,40,80,.35);backdrop-filter:blur(8px);align-items:center;justify-content:center;z-index:300">
   <div class="modal" style="max-width:420px;width:90%">
     <div class="modal-close" onclick="document.getElementById('feedback-modal').style.display='none'">✕</div>
     <div class="modal-icon">⚠️</div>

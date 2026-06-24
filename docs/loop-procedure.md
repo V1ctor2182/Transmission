@@ -124,7 +124,7 @@
 - [ ] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)
 - [ ] 首启 FirstRunAnalysis 亮色蓝信号化
 - [ ] 按钮系统 azure + 白字(polish.css,保去 slop)
-- [ ] modal/toast overlay 亮色化(rgba(0,0,0) 遮罩减淡)
+- [x] modal/toast overlay 亮色化(toast R032 · modal/网址弹窗/AI 气泡 R033:深块→白卡 + 浓黑遮罩→冷遮罩 rgba(20,40,80,.35) + primary/wm-btn 蓝渐变→实心 azure)。残留:通用解锁卡未单截 / modal-cost amber / rso hero 渐变可换 --brand-grad。
 - [ ] 信号母题动效(轨道 swoosh,可选)
 - [ ] logo 实图接入 public/(可选)
 
