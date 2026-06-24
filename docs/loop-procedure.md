@@ -122,7 +122,7 @@
 - [ ] login 亮色品牌化(TM 渐变 mark + 白底 + navy 字)
 - [ ] 工作台 dashboard:暗底残留→亮、地图 azure 信号化、KPI/feed/买家对比度
 - [ ] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)
-- [ ] 首启 FirstRunAnalysis 亮色蓝信号化
+- [x] 首启 FirstRunAnalysis 亮色蓝信号化(R034:.fra-mapbody 暗近黑→浅冷+azure 辉光 + .fra-hl chip 浅化;浅大陆与工作台一致)。余:首启动效(逐区点亮/count-up/买家流入)hero 节奏专轮。
 - [ ] 按钮系统 azure + 白字(polish.css,保去 slop)
 - [x] modal/toast overlay 亮色化(toast R032 · modal/网址弹窗/AI 气泡 R033:深块→白卡 + 浓黑遮罩→冷遮罩 rgba(20,40,80,.35) + primary/wm-btn 蓝渐变→实心 azure)。残留:通用解锁卡未单截 / modal-cost amber / rso hero 渐变可换 --brand-grad。
 - [ ] 信号母题动效(轨道 swoosh,可选)

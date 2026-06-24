@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 034 | 🟦 Standard | 首启 FirstRunAnalysis 暗底地图亮色化(near-black 地图主体→浅冷+azure 辉光,标签 chip 浅化) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-034](round-034-firstrun-light.md) |
 | 033 | 🟦 Standard | 浮层暗底全亮色化 + 去蓝渐变按钮(modal/网址弹窗/AI 气泡 深块→白卡+冷遮罩,primary/wm-btn 蓝渐变→实心 azure) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-033](round-033-modal-dark-surfaces.md) |
 | 032 | 🟦 Standard | 工作台暗底残留清理(地图暖近黑大陆→浅冷+azure 信号 / toast 深块→白卡 / 提示 chip 浅化) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-032](round-032-dash-dark-residue.md) |
 | 031 | 🟥 大件 ⏸ | **R1 令牌反相 + 字面量批量替换 + 全站更名 TRANS·MISSION**(暖琥珀暗 → 信号蓝亮 + 创拾觅深署名) | ✅ build✓ 机检 9 屏零错✓ golden h3✓ 残留字面量=0 · **待 review 定调** | [round-031](round-031-R1-rebrand-transmission.md) |
