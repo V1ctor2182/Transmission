@@ -13,6 +13,7 @@
   --brand-azure:#2f9fe0;   /* 亮 azure,信号/点亮(同 logo monogram 亮支) */
   --brand-grad:linear-gradient(135deg,#16306e,#2f9fe0); /* TM 渐变,仅品牌标记/hero/信号 */
   --ink:#ffffff;           /* azure 实心按钮上的白字 */
+  --hot:var(--brand-azure); /* 热度/强度信号 = 亮 azure(单一 azure 锁,不用暖橙)*/
   --cyan:#1f8fd6;          /* 并入 --brand */
   --green:#17a673;         /* 正向(压深以在白底可读) */
   --amber:#c8860a;         /* 仅 warning 语义(白底压深) */

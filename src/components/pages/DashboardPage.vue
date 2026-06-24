@@ -189,7 +189,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 /* 令牌桥:把 preview 的 Signal-Room 名映射到 Phosphor 全局令牌(cyan 退役) */
 .dash-cc{
   --acc:var(--brand); --acc-soft:rgba(31,143,214,.13); --acc-line:rgba(31,143,214,.34);
-  --hot:#ff7a3d; --up:var(--green); --iris:#1e5fd0;
+  --hot:var(--brand-azure); --up:var(--green); --iris:#1e5fd0;
   --s1:var(--bg2); --s2:var(--bg3); --bd:var(--card-border); --bd2:rgba(19,33,63,.14);
   --t1:var(--t-primary); --t2:var(--t-sec); --t3:var(--t-muted);
   --pane-r:12px;

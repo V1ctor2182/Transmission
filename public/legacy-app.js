@@ -2036,7 +2036,7 @@ const AI_DAILY_ITEMS = [
   {icon:'📣', color:'#17a673', label:'AI 营销发送', value:'23 封邮件', detail:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
   {icon:'🤝', color:'#1f8fd6', label:'新增建联客户', value:'8 家', detail:'Fairprice、Jaya Grocer 等已回复', page:'pool'},
   {icon:'💬', color:'#c8860a', label:'WhatsApp 新消息', value:'5 条', detail:'Klaus Weber 回复了报价，T&T 询问交期', page:'whatsapp'},
-  {icon:'🌐', color:'#ff7a3d', label:'情报中心更新', value:'98,241 条需求', detail:'全球采购需求实时同步', page:'intel'},
+  {icon:'🌐', color:'#2f9fe0', label:'情报中心更新', value:'98,241 条需求', detail:'全球采购需求实时同步', page:'intel'},
 ];
 
 function renderAiDailyReport() {
