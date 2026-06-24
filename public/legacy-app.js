@@ -166,6 +166,8 @@ let currentVariant = 0;
 let aiMsgIdx = 0;
 let credits = 47;
 let intelUnlockTarget = null;
+let intelPanelUnlockTarget = null;
+const unlockedIntel = {};
 let obSlide = 0;
 let obTimer = null;
 let pendingCount = 7;
@@ -1932,16 +1934,18 @@ function renderIntelPanel(id) {
     </div>
     <div class="intel-section">
       <div class="intel-section-title">深度情报</div>
-      <div class="intel-blur-section">
+      ${unlockedIntel[id]
+        ? d.locked.map(irow).join('')
+        : `<div class="intel-blur-section">
         <div class="intel-blur">
           ${d.locked.map(irow).join('')}
         </div>
-        <div class="intel-lock-overlay" onclick="showModal('modal-unlock')">
+        <div class="intel-lock-overlay" onclick="openPanelUnlock()">
           <div class="intel-lock-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
           <div class="intel-lock-text">解锁深度情报</div>
           <div class="intel-lock-price">¥29 单条 / ¥99 月度无限</div>
         </div>
-      </div>
+      </div>`}
     </div>
   `;
 }
@@ -2192,8 +2196,21 @@ function showModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 function selectUnlock(el) { document.querySelectorAll('.unlock-opt').forEach(o => o.classList.remove('on')); el.classList.add('on'); }
 function openIntelUnlock(id) { intelUnlockTarget = id; showModal('modal-unlock'); }
+function openPanelUnlock() { intelPanelUnlockTarget = currentWaContact; showModal('modal-unlock'); }
 function confirmUnlock() {
   closeModal('modal-unlock');
+  if(intelPanelUnlockTarget != null) {
+    const id = intelPanelUnlockTarget; intelPanelUnlockTarget = null;
+    const c = INTEL_DATA[id];
+    if(c && !unlockedIntel[id]) {
+      unlockedIntel[id] = true;
+      credits = Math.max(0, credits - 1);
+      const cv = document.getElementById('credits-val'); if(cv) cv.textContent = credits;
+      renderIntelPanel(id);
+      toast('◆','深度情报已解锁',`${c.name} 的电话/邮箱/采购额已显示 · 剩余建联次数 ${credits}`);
+      return;
+    }
+  }
   if(intelUnlockTarget != null) {
     const row = INTEL_TABLE_DATA.find(d => d.id === intelUnlockTarget);
     intelUnlockTarget = null;
