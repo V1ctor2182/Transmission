@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 036 | 🟦 Standard | 营销屏国旗 emoji→mono 国家码(renderMktList + 详情头 ccBadge,emoji→mono 收官) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-036](round-036-marketing-flags.md) |
 | 035 | 🟦 Standard | 暗主题浅字残留→navy(39 处 #e2e8f0/#cbd5e1 隐形文字 → t-primary/t-sec,对比 bug 修复) | ✅ build✓ 机检 8 屏✓ golden h3✓ critic KEEP | [round-035](round-035-slate-text-contrast.md) |
 | 034 | 🟦 Standard | 首启 FirstRunAnalysis 暗底地图亮色化(near-black 地图主体→浅冷+azure 辉光,标签 chip 浅化) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-034](round-034-firstrun-light.md) |
 | 033 | 🟦 Standard | 浮层暗底全亮色化 + 去蓝渐变按钮(modal/网址弹窗/AI 气泡 深块→白卡+冷遮罩,primary/wm-btn 蓝渐变→实心 azure) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-033](round-033-modal-dark-surfaces.md) |

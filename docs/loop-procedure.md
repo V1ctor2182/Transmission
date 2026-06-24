@@ -121,7 +121,7 @@
   - 残留(续修):③ src 内仍有 `rgba(0,0,0,…)` 遮罩(modal overlay 等)逐屏减淡;④ **带空格 rgb 漏替**(批量表只命中无空格):`rgba(245, 183, 61,…)`/`rgba(255, 248, 235,…)` 在 `modals.css`、`FirstRunAnalysis.vue` 残留(6 处)→ 补扫含空格变体;⑤ **暖橙 `--hot:#ff7a3d`**(DashboardPage KPI/spark/feed)冷色主题里违反单一 azure 锁 → 定调收蓝 or 保留热度语义(动 KPI 语义色,单独一轮 critic)。
 - [ ] login 亮色品牌化(TM 渐变 mark + 白底 + navy 字)
 - [ ] 工作台 dashboard:暗底残留→亮、地图 azure 信号化、KPI/feed/买家对比度
-- [~] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)。R035:39 处 #e2e8f0/#cbd5e1 暗主题浅字→navy(隐形文字对比修复,跨 leads/pool/marketing/弹窗)。余:🟦 marketing 左栏国旗 emoji(renderMktList .mkt-item-flag→ccBadge,R007/R015 漏)下轮顶。
+- [~] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)。R035:39 处 #e2e8f0/#cbd5e1 暗主题浅字→navy(隐形文字对比修复)。R036:营销屏国旗 emoji→ccBadge(emoji→mono 全站收官)。余:逐屏继续抠 AI 味/对比细节。
 - [x] 首启 FirstRunAnalysis 亮色蓝信号化(R034:.fra-mapbody 暗近黑→浅冷+azure 辉光 + .fra-hl chip 浅化;浅大陆与工作台一致)。余:首启动效(逐区点亮/count-up/买家流入)hero 节奏专轮。
 - [ ] 按钮系统 azure + 白字(polish.css,保去 slop)
 - [x] modal/toast overlay 亮色化(toast R032 · modal/网址弹窗/AI 气泡 R033:深块→白卡 + 浓黑遮罩→冷遮罩 rgba(20,40,80,.35) + primary/wm-btn 蓝渐变→实心 azure)。残留:通用解锁卡未单截 / modal-cost amber / rso hero 渐变可换 --brand-grad。

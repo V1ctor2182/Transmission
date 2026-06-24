@@ -1953,7 +1953,7 @@ function renderMktList() {
   list.innerHTML = MKT_ITEMS.map(m => `
     <div class="mkt-item ${m.id===0?'on':''}" id="mkt-i-${m.id}" onclick="selectMktItem(${m.id})">
       <div class="mkt-item-top">
-        <div class="mkt-item-flag">${m.flag}</div>
+        ${ccBadge(m.flag)}
         <div class="mkt-item-name">${m.name}</div>
         <div class="mkt-item-score">${m.score}分</div>
       </div>
@@ -1975,7 +1975,7 @@ function selectMktItem(id) {
   const col = document.getElementById('mkt-review-col');
   col.innerHTML = `
     <div class="mkt-review-head">
-      <div class="mkt-review-name">${item.flag} ${item.name} · ${item.company}</div>
+      <div class="mkt-review-name">${ccBadge(item.flag)}${item.name} · ${item.company}</div>
       <div class="mkt-review-meta"><span>${item.product}</span><span>ICP 匹配 ${item.score}分</span></div>
     </div>
     <div class="variants-label">AI 生成 3 种开场白变体，选择最佳版本审批发送</div>
