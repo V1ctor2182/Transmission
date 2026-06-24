@@ -87,7 +87,7 @@
   - 残留暗底假设(深色卡/浅字on深、内联 `rgba(0,0,0)` 阴影过重)→ 调成亮色。
   - 没被精确替换命中的暖色/渐变/glow 变体 → 收成蓝。
   - **地图**:暖近黑大陆 → 浅冷大陆 + azure 信号热点;ping/LIVE 极淡 azure;热力配色亮色化。
-  - **logo marks**:login/sidebar/welcome → `--brand-grad` 复刻 TM 渐变(品牌标记可渐变),或把 `../logo.jpg` 拷 `public/` 直接用图。
+  - **logo marks**:用**真实 logo 图**(`public/logo-full.png` / `public/logo-mark.png`,见 §8 logo 任务),**不要再 CSS 复刻 TM**。
   - **按钮系统**(polish.css):主按钮实心 azure + 白字;hover 极淡;次按钮白底描边。保去 slop。
   - **信号母题**(可选后期):轨道 swoosh 动效呼应 logo;克制。
 - 顺序:R1 →(定调)→ login → 工作台 → 找客户/情报/whatsapp/池/营销 → 首启 → 母题动效。
@@ -136,7 +136,18 @@
 - [ ] ⬜ **T11 删死代码**(R038 审计确认):`#reg-scan-overlay`/`.rso-*` + `#s-onboard`/`runOnboarding`/`OB_CONTENTS` 是死 UI(live=login→网址弹窗→FirstRunAnalysis→enterApp,绕过 scan/onboard),含蓝渐变按钮/暖橙 orb 残留;确认无引用后删(Utility,勿单独抛光死 UI)。
 - [x] modal/toast overlay 亮色化(toast R032 · modal/网址弹窗/AI 气泡 R033:深块→白卡 + 浓黑遮罩→冷遮罩 rgba(20,40,80,.35) + primary/wm-btn 蓝渐变→实心 azure)。残留:通用解锁卡未单截 / modal-cost amber / rso hero 渐变可换 --brand-grad。
 - [ ] 信号母题动效(轨道 swoosh,可选)
-- [ ] logo 实图接入 public/(可选)
+- [ ] 🟦 **logo 实图接入(用户 2026-06-25 点名:所有用到 logo 的地方换真实 logo)** — 影响高·把握高·风险低,优先做:
+  真实矢量在 `../logo/LOGO矢量.{ai,cdr,pdf}`,**已转出两个透明 PNG 放进 `public/`**(loop 直接用,别再 CSS 复刻 TM):
+  - `public/logo-full.png` — 全锁版(TM 标 + TRANS·MISSION 字标 + 创拾觅深),透明,997×843
+  - `public/logo-mark.png` — 仅 TM monogram + 轨道,透明,396×250
+  （转法备查:`sips -s format png "../logo/LOGO矢量.pdf" --out x.png` 得透明 PNG;再 `sips --cropOffset 236 302 -c 250 396 x.png` 裁出 monogram。）
+  **逐处把「彩色方块底 + 通用 3 层 SVG」换成真 logo `<img object-fit:contain>`,去掉 `background:var(--brand-grad/--brand)` 方块底**(真 logo 自带色+透明,亮色 UI 直接放):
+  - `LoginScreen.vue` `.lg-logo`/`.lg-mark`(L24-28,左侧品牌栏)→ 用 **logo-full.png** 替换整个 .lg-logo+.lg-sign 块(已含字标+署名);或 .lg-mark 换 monogram 留文字。
+  - `LoginScreen.vue` `.wm-logo`(L58,网址弹窗)→ **logo-mark.png**
+  - `SidebarNav.vue` `.sb-logo`(L9,每屏可见 36px)→ **logo-mark.png**(确认 TM 小尺寸够清晰,糊则裁更紧)
+  - `LoginScreen.vue` `.rso-logo`(L79,扫描层)→ monogram **(注:rso 可能属 T11 死 UI,若删则跳过)**
+  - `index.html` favicon 顺手指 logo-mark.png
+  CSS(login.css/app-shell.css)对应去掉方块底色、给 img 尺寸。验收:登录/侧栏/弹窗截图肉眼 logo 清晰透明不脏 + build+golden。
 
 ## 9. /loop 启动指令(用户 review 本文件 OK 后再用)
 ```
