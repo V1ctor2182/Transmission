@@ -9,15 +9,15 @@
 // DATA
 // ═══════════════════════════════════════════════════════
 const LEADS = [
-  {id:0,flag:'🇸🇬',country:'新加坡',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,color:'#1f8fd6',tags:['节庆食品','紧急','高匹配'],insight:'AI 分析：<strong>中秋节前 3 个月</strong>是该采购商最活跃的采购窗口，建议本周内完成首次建联。'},
-  {id:1,flag:'🇲🇾',country:'马来西亚',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,color:'#1f8fd6',tags:['月饼','新商机'],insight:'AI 分析：该采购商去年同期采购量 <strong>同比增长 34%</strong>，今年预算预计上调，优先级高。'},
-  {id:2,flag:'🇺🇸',country:'美国',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,color:'#17a673',tags:['华人超市','北美'],insight:'AI 分析：该连锁超市在 <strong>洛杉矶、旧金山</strong> 共 56 家门店，节庆礼盒年采购额约 $120 万。'},
-  {id:3,flag:'🇹🇭',country:'泰国',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,color:'#c8860a',tags:['椰子酥','东南亚'],insight:'AI 分析：泰国华人人口 <strong>700 万+</strong>，中式节庆食品需求强劲，该采购商为当地最大连锁超市。'},
-  {id:4,flag:'🇦🇺',country:'澳大利亚',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,color:'#1e5fd0',tags:['澳洲','礼品'],insight:'AI 分析：澳洲华人社区 <strong>120 万+</strong>，悉尼、墨尔本节庆礼盒需求稳定，该采购商有稳定复购记录。'},
-  {id:5,flag:'🇮🇩',country:'印度尼西亚',company:'Transmart Carrefour',product:'中式糕点系列',score:82,color:'#e5484d',tags:['印尼','新商机'],insight:'AI 分析：印尼华人 <strong>1000 万+</strong>，是东南亚最大华人市场，节庆食品渗透率仍有较大提升空间。'},
-  {id:6,flag:'🇨🇦',country:'加拿大',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,color:'#1f8fd6',tags:['月饼','北美','高匹配'],insight:'AI 分析：T&T 是北美最大亚裔超市连锁，<strong>温哥华、多伦多</strong>门店月饼年采购量约 $80 万。'},
-  {id:7,flag:'🇳🇿',country:'新西兰',company:'Asian Food Centre',product:'节庆礼盒进口',score:79,color:'#17a673',tags:['新西兰','澳洲'],insight:'AI 分析：新西兰华人社区集中在奥克兰，该采购商为当地最大华人食品专营商，年采购额约 $30 万。'},
-  {id:8,flag:'🇸🇬',country:'新加坡',company:'Cold Storage',product:'高端礼盒系列',score:88,color:'#1f8fd6',tags:['新加坡','高端','紧急'],insight:'AI 分析：Cold Storage 是新加坡高端超市连锁，<strong>目标客群与万仟高端礼盒定位高度吻合</strong>。'},
+  {id:0,flag:'🇸🇬',country:'Singapore',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,color:'#1f8fd6',tags:['节庆食品','紧急','高匹配'],insight:'AI 分析：<strong>中秋节前 3 个月</strong>是该采购商最活跃的采购窗口，建议本周内完成首次建联。'},
+  {id:1,flag:'🇲🇾',country:'Malaysia',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,color:'#1f8fd6',tags:['月饼','新商机'],insight:'AI 分析：该采购商去年同期采购量 <strong>同比增长 34%</strong>，今年预算预计上调，优先级高。'},
+  {id:2,flag:'🇺🇸',country:'USA',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,color:'#17a673',tags:['华人超市','北美'],insight:'AI 分析：该连锁超市在 <strong>洛杉矶、旧金山</strong> 共 56 家门店，节庆礼盒年采购额约 $120 万。'},
+  {id:3,flag:'🇹🇭',country:'Thailand',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,color:'#c8860a',tags:['椰子酥','东南亚'],insight:'AI 分析：泰国华人人口 <strong>700 万+</strong>，中式节庆食品需求强劲，该采购商为当地最大连锁超市。'},
+  {id:4,flag:'🇦🇺',country:'Australia',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,color:'#1e5fd0',tags:['澳洲','礼品'],insight:'AI 分析：澳洲华人社区 <strong>120 万+</strong>，悉尼、墨尔本节庆礼盒需求稳定，该采购商有稳定复购记录。'},
+  {id:5,flag:'🇮🇩',country:'Indonesia',company:'Transmart Carrefour',product:'中式糕点系列',score:82,color:'#e5484d',tags:['印尼','新商机'],insight:'AI 分析：印尼华人 <strong>1000 万+</strong>，是东南亚最大华人市场，节庆食品渗透率仍有较大提升空间。'},
+  {id:6,flag:'🇨🇦',country:'Canada',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,color:'#1f8fd6',tags:['月饼','北美','高匹配'],insight:'AI 分析：T&T 是北美最大亚裔超市连锁，<strong>温哥华、多伦多</strong>门店月饼年采购量约 $80 万。'},
+  {id:7,flag:'🇳🇿',country:'New Zealand',company:'Asian Food Centre',product:'节庆礼盒进口',score:79,color:'#17a673',tags:['新西兰','澳洲'],insight:'AI 分析：新西兰华人社区集中在奥克兰，该采购商为当地最大华人食品专营商，年采购额约 $30 万。'},
+  {id:8,flag:'🇸🇬',country:'Singapore',company:'Cold Storage',product:'高端礼盒系列',score:88,color:'#1f8fd6',tags:['新加坡','高端','紧急'],insight:'AI 分析：Cold Storage 是新加坡高端超市连锁，<strong>目标客群与万仟高端礼盒定位高度吻合</strong>。'},
 ];
 
 const WA_CONTACTS = [
@@ -72,13 +72,13 @@ const IROW_ICON = {
 
 const INTEL_DATA = {
   0: {
-    name:'Klaus Weber',company:'Weber Import GmbH',country:'德国',flag:'🇩🇪',score:88,
+    name:'Klaus Weber',company:'Weber Import GmbH',country:'Germany',flag:'🇩🇪',score:88,
     basic:[{icon:'biz',key:'公司规模',val:'50-100人'},{icon:'cal',key:'成立年份',val:'2008年'},{icon:'rev',key:'年营业额',val:'€500万+'},{icon:'cart',key:'采购频率',val:'季度采购'}],
     locked:[{icon:'phone',key:'直线电话',val:'+49 30 XXXX XXXX'},{icon:'mail',key:'采购负责人邮箱',val:'k.weber@weber-import.de'},{icon:'chart',key:'历史采购额',val:'€120万/年'},{icon:'target',key:'决策周期',val:'2-3周'}],
     followup:{ico:'bell',title:'跟进提醒',text:'Klaus Weber 昨日查看了产品手册 3 次，今日是最佳跟进时机。建议发送包含欧盟认证文件的完整报价单。',btn:'立即生成跟进邮件'}
   },
   1: {
-    name:'Rajesh Kumar',company:'Kumar Foods Pte Ltd',country:'新加坡',flag:'🇸🇬',score:93,
+    name:'Rajesh Kumar',company:'Kumar Foods Pte Ltd',country:'Singapore',flag:'🇸🇬',score:93,
     basic:[{icon:'biz',key:'公司规模',val:'20-50人'},{icon:'cal',key:'成立年份',val:'2015年'},{icon:'rev',key:'年营业额',val:'SGD 300万+'},{icon:'cart',key:'采购频率',val:'月度采购'}],
     locked:[{icon:'phone',key:'直线电话',val:'+65 9XXX XXXX'},{icon:'mail',key:'采购负责人邮箱',val:'rajesh@kumarfoods.sg'},{icon:'chart',key:'历史采购额',val:'SGD 80万/年'},{icon:'target',key:'决策周期',val:'1-2周'}],
     followup:{ico:'bulb',title:'AI 建议',text:'Rajesh 正在等待产品目录，建议在 1 小时内发送，并附上新加坡本地仓储信息以增加竞争优势。',btn:'发送产品目录'}
@@ -891,24 +891,24 @@ function connectBuyer(co, country, flag, region, val, need, score) {
 // ═══════════════════════════════════════════════════════
 // ICP AGENT DATA
 const ICP_BUYERS = [
-  {id:0,flag:'🇸🇬',country:'新加坡',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,source:'海关数据',enriched:true,email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX'},
-  {id:1,flag:'🇲🇾',country:'马来西亚',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,source:'LinkedIn',enriched:true,email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX'},
-  {id:2,flag:'🇺🇸',country:'美国',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,source:'全球黄页',enriched:true,email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX'},
-  {id:3,flag:'🇹🇭',country:'泰国',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,source:'海关数据',enriched:false,email:'',phone:''},
-  {id:4,flag:'🇦🇺',country:'澳大利亚',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,source:'全球黄页',enriched:false,email:'',phone:''},
-  {id:5,flag:'🇮🇩',country:'印度尼西亚',company:'Transmart Carrefour',product:'中式糕点系列',score:82,source:'LinkedIn',enriched:true,email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX'},
-  {id:6,flag:'🇨🇦',country:'加拿大',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,source:'海关数据',enriched:true,email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX'},
-  {id:7,flag:'🇦🇪',country:'阿联酋',company:'Al Madina Group',product:'进口食品采购',score:78,source:'招投标数据',enriched:false,email:'',phone:''},
-  {id:8,flag:'🇬🇧',country:'英国',company:'Wing Yip Foods',product:'亚洲食品年度进口',score:85,source:'全球黄页',enriched:true,email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX'},
+  {id:0,flag:'🇸🇬',country:'Singapore',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,source:'海关数据',enriched:true,email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX'},
+  {id:1,flag:'🇲🇾',country:'Malaysia',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,source:'LinkedIn',enriched:true,email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX'},
+  {id:2,flag:'🇺🇸',country:'USA',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,source:'全球黄页',enriched:true,email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX'},
+  {id:3,flag:'🇹🇭',country:'Thailand',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,source:'海关数据',enriched:false,email:'',phone:''},
+  {id:4,flag:'🇦🇺',country:'Australia',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,source:'全球黄页',enriched:false,email:'',phone:''},
+  {id:5,flag:'🇮🇩',country:'Indonesia',company:'Transmart Carrefour',product:'中式糕点系列',score:82,source:'LinkedIn',enriched:true,email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX'},
+  {id:6,flag:'🇨🇦',country:'Canada',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,source:'海关数据',enriched:true,email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX'},
+  {id:7,flag:'🇦🇪',country:'UAE',company:'Al Madina Group',product:'进口食品采购',score:78,source:'招投标数据',enriched:false,email:'',phone:''},
+  {id:8,flag:'🇬🇧',country:'UK',company:'Wing Yip Foods',product:'亚洲食品年度进口',score:85,source:'全球黄页',enriched:true,email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX'},
 ];
 
 const ICP_EDM_POOL = [
-  {id:0,flag:'🇸🇬',company:'Fairprice Group',country:'新加坡',product:'高端节庆礼盒',score:96,selected:true},
-  {id:1,flag:'🇲🇾',company:'Jaya Grocer',country:'马来西亚',product:'精品月饼礼盒',score:93,selected:true},
-  {id:2,flag:'🇺🇸',company:'99 Ranch Market',country:'美国',product:'中式糕点年度供应',score:89,selected:true},
-  {id:3,flag:'🇨🇦',company:'T&T Supermarket',country:'加拿大',product:'月饼礼盒年度采购',score:91,selected:false},
-  {id:4,flag:'🇮🇩',company:'Transmart Carrefour',country:'印度尼西亚',product:'中式糕点系列',score:82,selected:false},
-  {id:5,flag:'🇬🇧',company:'Wing Yip Foods',country:'英国',product:'亚洲食品年度进口',score:85,selected:true},
+  {id:0,flag:'🇸🇬',company:'Fairprice Group',country:'Singapore',product:'高端节庆礼盒',score:96,selected:true},
+  {id:1,flag:'🇲🇾',company:'Jaya Grocer',country:'Malaysia',product:'精品月饼礼盒',score:93,selected:true},
+  {id:2,flag:'🇺🇸',company:'99 Ranch Market',country:'USA',product:'中式糕点年度供应',score:89,selected:true},
+  {id:3,flag:'🇨🇦',company:'T&T Supermarket',country:'Canada',product:'月饼礼盒年度采购',score:91,selected:false},
+  {id:4,flag:'🇮🇩',company:'Transmart Carrefour',country:'Indonesia',product:'中式糕点系列',score:82,selected:false},
+  {id:5,flag:'🇬🇧',company:'Wing Yip Foods',country:'UK',product:'亚洲食品年度进口',score:85,selected:true},
 ];
 
 // ─── Customer Pool Data ───
@@ -1045,14 +1045,14 @@ function showLeadsView(view) {
 let taskFoundCount = 2847;
 let taskFeedInterval = null;
 const LIVE_CUSTOMERS = [
-  {flag:'🇸🇬',company:'FairMart Singapore',country:'新加坡',source:'领英',score:91},
-  {flag:'🇺🇸',company:'Pacific Asian Foods',country:'美国',source:'Google',score:88},
-  {flag:'🇦🇺',company:'Eastern Grocers Pty',country:'澳大利亚',source:'海关数据',score:85},
-  {flag:'🇲🇾',company:'Aeon Superstore',country:'马来西亚',source:'Store Leads',score:83},
-  {flag:'🇨🇦',company:'T&T Foods Canada',country:'加拿大',source:'全球黄页',score:90},
-  {flag:'🇬🇧',company:'Wing Tai Imports',country:'英国',source:'领英',score:79},
-  {flag:'🇳🇿',company:'Asian Delights NZ',country:'新西兰',source:'Google',score:76},
-  {flag:'🇦🇪',company:'Dubai Asian Market',country:'阿联酋',source:'商业数据库',score:81},
+  {flag:'🇸🇬',company:'FairMart Singapore',country:'Singapore',source:'领英',score:91},
+  {flag:'🇺🇸',company:'Pacific Asian Foods',country:'USA',source:'Google',score:88},
+  {flag:'🇦🇺',company:'Eastern Grocers Pty',country:'Australia',source:'海关数据',score:85},
+  {flag:'🇲🇾',company:'Aeon Superstore',country:'Malaysia',source:'Store Leads',score:83},
+  {flag:'🇨🇦',company:'T&T Foods Canada',country:'Canada',source:'全球黄页',score:90},
+  {flag:'🇬🇧',company:'Wing Tai Imports',country:'UK',source:'领英',score:79},
+  {flag:'🇳🇿',company:'Asian Delights NZ',country:'New Zealand',source:'Google',score:76},
+  {flag:'🇦🇪',company:'Dubai Asian Market',country:'UAE',source:'商业数据库',score:81},
 ];
 let liveFeedIdx = 0;
 
@@ -1098,18 +1098,18 @@ function buildFeedItem(c, delay) {
 
 // ─── Customer table data (GTM-engine core: find → enrich → EDM) ───
 const CUST_DATA = [
-  {id:1,flag:'🇸🇬',company:'Fairprice Group',country:'新加坡',industry:'连锁超市',desc:'新加坡最大连锁超市集团，拥有 400+ 门店，年采购额超过 20 亿新元，长期从亚洲各地进口高端食品。',website:'www.fairprice.com.sg',employees:'22,000+',founded:'1973',contacts:[{name:'David Tan',title:'采购总监',linkedin:true},{name:'Sarah Lim',title:'进口部经理',linkedin:true}],news:['刚完成 2025 年度亚洲食品展采购行程','计划扩大中式糕点产品线'],source:'搜索引擎',score:96,status:'enriched',email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX',edm:false,selected:false,expanded:false},
-  {id:2,flag:'🇲🇾',company:'Jaya Grocer',country:'马来西亚',industry:'精品超市',desc:'马来西亚高端超市品牌，主打进口精品食材，在吉隆坡、雪兰获等地拥有 80+ 门店，目标客户群为中上层消费者。',website:'www.jayagrocer.com',employees:'5,000+',founded:'2011',contacts:[{name:'Kevin Wong',title:'采购总监',linkedin:true},{name:'Priya Nair',title:'进口专员',linkedin:false}],news:['新开 3 家旗舰店，展示亚洲精品食品区','正在寻找 2026 年度中式糕点供应商'],source:'LinkedIn',score:93,status:'enriched',email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX',edm:true,selected:false,expanded:false},
-  {id:3,flag:'🇺🇸',company:'99 Ranch Market',country:'美国',industry:'亚裔超市',desc:'美国最大亚裔超市链，主要服务华裔市场，在加州、德州、华盛顿等地拥有 60+ 门店，年进口中式食品超过 5 亿美元。',website:'www.99ranch.com',employees:'8,000+',founded:'1984',contacts:[{name:'Michael Chen',title:'商品采购总监',linkedin:true},{name:'Lisa Wang',title:'进口部主管',linkedin:true}],news:['计划在东北部新开 5 家门店','正在扩大亚洲精品食品采购预算'],source:'全球黄页',score:89,status:'enriched',email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:4,flag:'🇹🇭',company:'Central Food Hall',country:'泰国',industry:'百货公司超市',desc:'泰国 Central Pattana 旗下高端食品专区，入驻曼谷克、第一百货等高端商场，主打进口精品食材与伴手礼品。',website:'www.centralfoodhall.com',employees:'3,000+',founded:'2008',contacts:[{name:'Somchai P.',title:'进口部总监',linkedin:false},{name:'Nattaya K.',title:'采购专员',linkedin:true}],news:['新店开幕，亚洲食品区面积扩大 30%','开展 2026 年度中式节庆食品采购'],source:'海关数据',score:87,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:5,flag:'🇦🇺',company:'Asian Grocery Pty',country:'澳大利亚',industry:'亚裔食品零售',desc:'澳大利亚最大亚裔食品零售商，在悉尼、墨尔本、布里斯本拥有 120+ 门店，长期进口中式、越南、泰式食品。',website:'www.asiangrocery.com.au',employees:'4,500+',founded:'1995',contacts:[{name:'James Wu',title:'CEO',linkedin:true},{name:'Helen Zhang',title:'采购总监',linkedin:true}],news:['尚在寻找中式糕点类供应商','计划 2026 年引入更多中国品牌'],source:'全球黄页',score:84,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:6,flag:'🇨🇦',company:'T&T Supermarket',country:'加拿大',industry:'亚裔超市',desc:'加拿大最大亚裔超市链，隆属亚太山集团，在多伦多、温哥华等地拥有 30+ 门店，年进口中式食品超过 3 亿加元。',website:'www.tnt-supermarket.com',employees:'6,000+',founded:'1993',contacts:[{name:'Raymond Ho',title:'采购副总裁',linkedin:true},{name:'Cindy Liu',title:'进口部经理',linkedin:true}],news:['将在亚伯塔开设新店','正在寻找新的中式糕点供应商合作'],source:'海关数据',score:91,status:'enriched',email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX',edm:true,selected:false,expanded:false},
-  {id:7,flag:'🇮🇩',company:'Transmart Carrefour',country:'印度尼西亚',industry:'大型超市',desc:'印度尼西亚最大连锁超市之一，与法国家乐福合作，在全国拥有 130+ 门店，年进口亚洲食品超过 1.5 亿美元。',website:'www.transmart.co.id',employees:'35,000+',founded:'1998',contacts:[{name:'Budi Santoso',title:'商品采购部总监',linkedin:true},{name:'Dewi Rahayu',title:'进口专员',linkedin:false}],news:['开展 2026 亚洲食品进口展采购','正在优化中式食品供应商结构'],source:'LinkedIn',score:82,status:'enriched',email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:8,flag:'🇺🇦',company:'Al Madina Group',country:'阿联酋',industry:'进口食品零售',desc:'阿联酋主要进口食品零售商，在迪拜、阿布扎比拥有多家连锁超市，主要进口亚洲及中东地区食品。',website:'www.almadinagroup.ae',employees:'2,000+',founded:'2001',contacts:[{name:'Ahmed Al Rashid',title:'采购总监',linkedin:false},{name:'Fatima Hassan',title:'进口专员',linkedin:true}],news:['正在扩大亚洲食品进口渠道','计划引入中式糕点产品线'],source:'商业数据库',score:78,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:9,flag:'🇬🇧',company:'Wing Yip Foods',country:'英国',industry:'亚裔食品分销',desc:'英国最大亚裔食品分销商，主要向英国各地中餐馆、超市供货，年进口中式食品超过 5000 万英镑。',website:'www.wingyip.co.uk',employees:'1,200+',founded:'1970',contacts:[{name:'William Yip',title:'采购总监',linkedin:true},{name:'Emma Clarke',title:'进口部经理',linkedin:true}],news:['展开新一轮亚洲食品供应商寻找','将在伦敦开设新的分销仓库'],source:'全球黄页',score:85,status:'enriched',email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:10,flag:'🇳🇿',company:'Asian Food Mart',country:'新西兰',industry:'亚裔食品零售',desc:'新西兰主要亚裔食品零售商，在奥克兰、惠灵顿拥有 25 家门店，主要进口中式、韩式食品。',website:'www.asianfoodmart.co.nz',employees:'800+',founded:'2003',contacts:[{name:'Tony Zhang',title:'CEO',linkedin:true},{name:'Mary Kim',title:'采购经理',linkedin:false}],news:['计划引入更多中式烘焙类产品','开展新一轮亚洲食品供应商寻找'],source:'搜索引擎',score:76,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:11,flag:'🇵🇭',company:'Rustan Supercenters',country:'菲律宾',industry:'高端百货公司',desc:'菲律宾最大高端百货公司集团，在马尼拉、宿务市等地拥有 50+ 门店，长期进口高端亚洲食品与礼品。',website:'www.rustans.com.ph',employees:'12,000+',founded:'1952',contacts:[{name:'Donnie Tantoco',title:'集团采购副总裁',linkedin:true},{name:'Maria Santos',title:'进口部经理',linkedin:true}],news:['新店开幕，亚洲食品区全面升级','正在寻找新的中式糕点供应商'],source:'LinkedIn',score:80,status:'enriched',email:'import@rustan.com.ph',phone:'+63 2-XXXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:12,flag:'🇻🇳',company:'Big C Vietnam',country:'越南',industry:'连锁超市',desc:'越南最大外资超市链，在全国拥有 230+ 门店，年进口亚洲食品超过 2 亿美元，长期寻找中式糕点类供应商。',website:'www.bigc.vn',employees:'18,000+',founded:'1998',contacts:[{name:'Nguyen Van Minh',title:'采购部总监',linkedin:true},{name:'Tran Thi Lan',title:'进口专员',linkedin:false}],news:['展开 2026 年度全国采购巡回','计划引入更多中式糕点产品'],source:'海关数据',score:83,status:'enriched',email:'buying@bigc.vn',phone:'+84 28-XXXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:1,flag:'🇸🇬',company:'Fairprice Group',country:'Singapore',industry:'连锁超市',desc:'新加坡最大连锁超市集团，拥有 400+ 门店，年采购额超过 20 亿新元，长期从亚洲各地进口高端食品。',website:'www.fairprice.com.sg',employees:'22,000+',founded:'1973',contacts:[{name:'David Tan',title:'采购总监',linkedin:true},{name:'Sarah Lim',title:'进口部经理',linkedin:true}],news:['刚完成 2025 年度亚洲食品展采购行程','计划扩大中式糕点产品线'],source:'搜索引擎',score:96,status:'enriched',email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX',edm:false,selected:false,expanded:false},
+  {id:2,flag:'🇲🇾',company:'Jaya Grocer',country:'Malaysia',industry:'精品超市',desc:'马来西亚高端超市品牌，主打进口精品食材，在吉隆坡、雪兰获等地拥有 80+ 门店，目标客户群为中上层消费者。',website:'www.jayagrocer.com',employees:'5,000+',founded:'2011',contacts:[{name:'Kevin Wong',title:'采购总监',linkedin:true},{name:'Priya Nair',title:'进口专员',linkedin:false}],news:['新开 3 家旗舰店，展示亚洲精品食品区','正在寻找 2026 年度中式糕点供应商'],source:'LinkedIn',score:93,status:'enriched',email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX',edm:true,selected:false,expanded:false},
+  {id:3,flag:'🇺🇸',company:'99 Ranch Market',country:'USA',industry:'亚裔超市',desc:'美国最大亚裔超市链，主要服务华裔市场，在加州、德州、华盛顿等地拥有 60+ 门店，年进口中式食品超过 5 亿美元。',website:'www.99ranch.com',employees:'8,000+',founded:'1984',contacts:[{name:'Michael Chen',title:'商品采购总监',linkedin:true},{name:'Lisa Wang',title:'进口部主管',linkedin:true}],news:['计划在东北部新开 5 家门店','正在扩大亚洲精品食品采购预算'],source:'全球黄页',score:89,status:'enriched',email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:4,flag:'🇹🇭',company:'Central Food Hall',country:'Thailand',industry:'百货公司超市',desc:'泰国 Central Pattana 旗下高端食品专区，入驻曼谷克、第一百货等高端商场，主打进口精品食材与伴手礼品。',website:'www.centralfoodhall.com',employees:'3,000+',founded:'2008',contacts:[{name:'Somchai P.',title:'进口部总监',linkedin:false},{name:'Nattaya K.',title:'采购专员',linkedin:true}],news:['新店开幕，亚洲食品区面积扩大 30%','开展 2026 年度中式节庆食品采购'],source:'海关数据',score:87,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:5,flag:'🇦🇺',company:'Asian Grocery Pty',country:'Australia',industry:'亚裔食品零售',desc:'澳大利亚最大亚裔食品零售商，在悉尼、墨尔本、布里斯本拥有 120+ 门店，长期进口中式、越南、泰式食品。',website:'www.asiangrocery.com.au',employees:'4,500+',founded:'1995',contacts:[{name:'James Wu',title:'CEO',linkedin:true},{name:'Helen Zhang',title:'采购总监',linkedin:true}],news:['尚在寻找中式糕点类供应商','计划 2026 年引入更多中国品牌'],source:'全球黄页',score:84,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:6,flag:'🇨🇦',company:'T&T Supermarket',country:'Canada',industry:'亚裔超市',desc:'加拿大最大亚裔超市链，隆属亚太山集团，在多伦多、温哥华等地拥有 30+ 门店，年进口中式食品超过 3 亿加元。',website:'www.tnt-supermarket.com',employees:'6,000+',founded:'1993',contacts:[{name:'Raymond Ho',title:'采购副总裁',linkedin:true},{name:'Cindy Liu',title:'进口部经理',linkedin:true}],news:['将在亚伯塔开设新店','正在寻找新的中式糕点供应商合作'],source:'海关数据',score:91,status:'enriched',email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX',edm:true,selected:false,expanded:false},
+  {id:7,flag:'🇮🇩',company:'Transmart Carrefour',country:'Indonesia',industry:'大型超市',desc:'印度尼西亚最大连锁超市之一，与法国家乐福合作，在全国拥有 130+ 门店，年进口亚洲食品超过 1.5 亿美元。',website:'www.transmart.co.id',employees:'35,000+',founded:'1998',contacts:[{name:'Budi Santoso',title:'商品采购部总监',linkedin:true},{name:'Dewi Rahayu',title:'进口专员',linkedin:false}],news:['开展 2026 亚洲食品进口展采购','正在优化中式食品供应商结构'],source:'LinkedIn',score:82,status:'enriched',email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:8,flag:'🇺🇦',company:'Al Madina Group',country:'UAE',industry:'进口食品零售',desc:'阿联酋主要进口食品零售商，在迪拜、阿布扎比拥有多家连锁超市，主要进口亚洲及中东地区食品。',website:'www.almadinagroup.ae',employees:'2,000+',founded:'2001',contacts:[{name:'Ahmed Al Rashid',title:'采购总监',linkedin:false},{name:'Fatima Hassan',title:'进口专员',linkedin:true}],news:['正在扩大亚洲食品进口渠道','计划引入中式糕点产品线'],source:'商业数据库',score:78,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:9,flag:'🇬🇧',company:'Wing Yip Foods',country:'UK',industry:'亚裔食品分销',desc:'英国最大亚裔食品分销商，主要向英国各地中餐馆、超市供货，年进口中式食品超过 5000 万英镑。',website:'www.wingyip.co.uk',employees:'1,200+',founded:'1970',contacts:[{name:'William Yip',title:'采购总监',linkedin:true},{name:'Emma Clarke',title:'进口部经理',linkedin:true}],news:['展开新一轮亚洲食品供应商寻找','将在伦敦开设新的分销仓库'],source:'全球黄页',score:85,status:'enriched',email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:10,flag:'🇳🇿',company:'Asian Food Mart',country:'New Zealand',industry:'亚裔食品零售',desc:'新西兰主要亚裔食品零售商，在奥克兰、惠灵顿拥有 25 家门店，主要进口中式、韩式食品。',website:'www.asianfoodmart.co.nz',employees:'800+',founded:'2003',contacts:[{name:'Tony Zhang',title:'CEO',linkedin:true},{name:'Mary Kim',title:'采购经理',linkedin:false}],news:['计划引入更多中式烘焙类产品','开展新一轮亚洲食品供应商寻找'],source:'搜索引擎',score:76,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:11,flag:'🇵🇭',company:'Rustan Supercenters',country:'Philippines',industry:'高端百货公司',desc:'菲律宾最大高端百货公司集团，在马尼拉、宿务市等地拥有 50+ 门店，长期进口高端亚洲食品与礼品。',website:'www.rustans.com.ph',employees:'12,000+',founded:'1952',contacts:[{name:'Donnie Tantoco',title:'集团采购副总裁',linkedin:true},{name:'Maria Santos',title:'进口部经理',linkedin:true}],news:['新店开幕，亚洲食品区全面升级','正在寻找新的中式糕点供应商'],source:'LinkedIn',score:80,status:'enriched',email:'import@rustan.com.ph',phone:'+63 2-XXXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:12,flag:'🇻🇳',company:'Big C Vietnam',country:'Vietnam',industry:'连锁超市',desc:'越南最大外资超市链，在全国拥有 230+ 门店，年进口亚洲食品超过 2 亿美元，长期寻找中式糕点类供应商。',website:'www.bigc.vn',employees:'18,000+',founded:'1998',contacts:[{name:'Nguyen Van Minh',title:'采购部总监',linkedin:true},{name:'Tran Thi Lan',title:'进口专员',linkedin:false}],news:['展开 2026 年度全国采购巡回','计划引入更多中式糕点产品'],source:'海关数据',score:83,status:'enriched',email:'buying@bigc.vn',phone:'+84 28-XXXX-XXXX',edm:false,selected:false,expanded:false},
 ];
 let custFilter = 'all';
 let feedbackTarget = null;
@@ -2067,21 +2067,21 @@ function renderAiDailyReport() {
 // INTEL CENTER TABLE
 // ═══════════════════════════════════════════════════════
 const INTEL_TABLE_DATA = [
-  {id:0, flag:'🇸🇬', country:'新加坡', region:'东南亚', buyer:'Fairprice Group', need:'节庆礼盒采购', cat:'月饼', score:96, contactRate:72, leadId:'TR-2406-0001', status:'new', time:'2026-06-14 09:12', unlocked:true},
-  {id:1, flag:'🇲🇾', country:'马来西亚', region:'东南亚', buyer:'Jaya Grocer', need:'精品月饼礼盒批发', cat:'月饼', score:93, contactRate:68, leadId:'TR-2406-0002', status:'new', time:'2026-06-14 09:08', unlocked:true},
-  {id:2, flag:'🇹🇭', country:'泰国', region:'东南亚', buyer:'Central Food Hall', need:'椰子酥礼盒进口', cat:'椰子', score:87, contactRate:61, leadId:'TR-2406-0003', status:'hot', time:'2026-06-14 09:05', unlocked:false},
-  {id:3, flag:'🇦🇺', country:'澳大利亚', region:'澳洲', buyer:'Asian Grocery Pty', need:'节庆礼品盒采购', cat:'礼品', score:84, contactRate:55, leadId:'TR-2406-0004', status:'locked', time:'2026-06-14 09:02', unlocked:false},
-  {id:4, flag:'🇺🇸', country:'美国', region:'北美', buyer:'99 Ranch Market', need:'中式糕点年度供应', cat:'糕点', score:89, contactRate:64, leadId:'TR-2406-0005', status:'locked', time:'2026-06-14 08:55', unlocked:false},
-  {id:5, flag:'🇨🇦', country:'加拿大', region:'北美', buyer:'T&T Supermarket', need:'月饼礼盒年度采购', cat:'月饼', score:91, contactRate:70, leadId:'TR-2406-0006', status:'hot', time:'2026-06-14 08:49', unlocked:true},
-  {id:6, flag:'🇮🇩', country:'印度尼西亚', region:'东南亚', buyer:'Transmart Carrefour', need:'中式糕点系列', cat:'糕点', score:82, contactRate:58, leadId:'TR-2406-0007', status:'new', time:'2026-06-14 08:42', unlocked:false},
-  {id:7, flag:'🇬🇧', country:'英国', region:'欧洲', buyer:'Wing Yip Group', need:'亚洲食品年度采购', cat:'礼品', score:79, contactRate:52, leadId:'TR-2406-0008', status:'new', time:'2026-06-14 08:36', unlocked:false},
-  {id:8, flag:'🇩🇪', country:'德国', region:'欧洲', buyer:'Asia Markt GmbH', need:'中式节庆礼品进口', cat:'礼品', score:76, contactRate:48, leadId:'TR-2406-0009', status:'locked', time:'2026-06-14 08:22', unlocked:false},
-  {id:9, flag:'🇦🇪', country:'阿联酋', region:'中东', buyer:'Al Madina Group', need:'进口食品采购', cat:'糕点', score:78, contactRate:51, leadId:'TR-2406-0010', status:'new', time:'2026-06-14 08:07', unlocked:false},
-  {id:10, flag:'🇫🇷', country:'法国', region:'欧洲', buyer:'Paris Store', need:'亚洲食品展示采购', cat:'礼品', score:72, contactRate:44, leadId:'TR-2406-0011', status:'new', time:'2026-06-14 07:15', unlocked:false},
-  {id:11, flag:'🇵🇭', country:'菲律宾', region:'东南亚', buyer:'Robinsons Supermarket', need:'节庆礼盒批发', cat:'月饼', score:80, contactRate:56, leadId:'TR-2406-0012', status:'new', time:'2026-06-14 06:28', unlocked:false},
-  {id:12, flag:'🇻🇳', country:'越南', region:'东南亚', buyer:'Vinmart+', need:'中式糕点进口', cat:'糕点', score:75, contactRate:49, leadId:'TR-2406-0013', status:'hot', time:'2026-06-14 05:44', unlocked:false},
-  {id:13, flag:'🇳🇿', country:'新西兰', region:'澳洲', buyer:'Countdown NZ', need:'亚洲食品系列', cat:'糕点', score:71, contactRate:42, leadId:'TR-2406-0014', status:'locked', time:'2026-06-14 04:58', unlocked:false},
-  {id:14, flag:'🇰🇷', country:'韩国', region:'东南亚', buyer:'Lotte Mart', need:'中式节庆礼品采购', cat:'礼品', score:83, contactRate:60, leadId:'TR-2406-0015', status:'new', time:'2026-06-14 03:22', unlocked:false},
+  {id:0, flag:'🇸🇬', country:'Singapore', region:'SE Asia', buyer:'Fairprice Group', need:'Festive gift-box sourcing', cat:'Mooncake', score:96, contactRate:72, leadId:'TR-2406-0001', status:'new', time:'2026-06-14 09:12', unlocked:true},
+  {id:1, flag:'🇲🇾', country:'Malaysia', region:'SE Asia', buyer:'Jaya Grocer', need:'Premium mooncake gift-box wholesale', cat:'Mooncake', score:93, contactRate:68, leadId:'TR-2406-0002', status:'new', time:'2026-06-14 09:08', unlocked:true},
+  {id:2, flag:'🇹🇭', country:'Thailand', region:'SE Asia', buyer:'Central Food Hall', need:'Coconut pastry gift-box import', cat:'Coconut', score:87, contactRate:61, leadId:'TR-2406-0003', status:'hot', time:'2026-06-14 09:05', unlocked:false},
+  {id:3, flag:'🇦🇺', country:'Australia', region:'Oceania', buyer:'Asian Grocery Pty', need:'Festive gift-set sourcing', cat:'Gift', score:84, contactRate:55, leadId:'TR-2406-0004', status:'locked', time:'2026-06-14 09:02', unlocked:false},
+  {id:4, flag:'🇺🇸', country:'USA', region:'N. America', buyer:'99 Ranch Market', need:'Annual Chinese pastry supply', cat:'Pastry', score:89, contactRate:64, leadId:'TR-2406-0005', status:'locked', time:'2026-06-14 08:55', unlocked:false},
+  {id:5, flag:'🇨🇦', country:'Canada', region:'N. America', buyer:'T&T Supermarket', need:'Annual mooncake gift-box buy', cat:'Mooncake', score:91, contactRate:70, leadId:'TR-2406-0006', status:'hot', time:'2026-06-14 08:49', unlocked:true},
+  {id:6, flag:'🇮🇩', country:'Indonesia', region:'SE Asia', buyer:'Transmart Carrefour', need:'Chinese pastry range', cat:'Pastry', score:82, contactRate:58, leadId:'TR-2406-0007', status:'new', time:'2026-06-14 08:42', unlocked:false},
+  {id:7, flag:'🇬🇧', country:'UK', region:'Europe', buyer:'Wing Yip Group', need:'Annual Asian-food sourcing', cat:'Gift', score:79, contactRate:52, leadId:'TR-2406-0008', status:'new', time:'2026-06-14 08:36', unlocked:false},
+  {id:8, flag:'🇩🇪', country:'Germany', region:'Europe', buyer:'Asia Markt GmbH', need:'Chinese festive-gift import', cat:'Gift', score:76, contactRate:48, leadId:'TR-2406-0009', status:'locked', time:'2026-06-14 08:22', unlocked:false},
+  {id:9, flag:'🇦🇪', country:'UAE', region:'Middle East', buyer:'Al Madina Group', need:'Imported food sourcing', cat:'Pastry', score:78, contactRate:51, leadId:'TR-2406-0010', status:'new', time:'2026-06-14 08:07', unlocked:false},
+  {id:10, flag:'🇫🇷', country:'France', region:'Europe', buyer:'Paris Store', need:'Asian-food retail sourcing', cat:'Gift', score:72, contactRate:44, leadId:'TR-2406-0011', status:'new', time:'2026-06-14 07:15', unlocked:false},
+  {id:11, flag:'🇵🇭', country:'Philippines', region:'SE Asia', buyer:'Robinsons Supermarket', need:'Festive gift-box wholesale', cat:'Mooncake', score:80, contactRate:56, leadId:'TR-2406-0012', status:'new', time:'2026-06-14 06:28', unlocked:false},
+  {id:12, flag:'🇻🇳', country:'Vietnam', region:'SE Asia', buyer:'Vinmart+', need:'Chinese pastry import', cat:'Pastry', score:75, contactRate:49, leadId:'TR-2406-0013', status:'hot', time:'2026-06-14 05:44', unlocked:false},
+  {id:13, flag:'🇳🇿', country:'New Zealand', region:'Oceania', buyer:'Countdown NZ', need:'Asian-food range', cat:'Pastry', score:71, contactRate:42, leadId:'TR-2406-0014', status:'locked', time:'2026-06-14 04:58', unlocked:false},
+  {id:14, flag:'🇰🇷', country:'South Korea', region:'SE Asia', buyer:'Lotte Mart', need:'Chinese festive-gift sourcing', cat:'Gift', score:83, contactRate:60, leadId:'TR-2406-0015', status:'new', time:'2026-06-14 03:22', unlocked:false},
 ];
 
 // 国旗 emoji → 两字母 mono 国家码(终端风,去 emoji);跨屏复用。
@@ -2106,12 +2106,12 @@ function renderIntelTable() {
   const countEl = document.getElementById('intel-count');
   if(countEl) countEl.textContent = data.length;
   const statusCfg = {
-    new:    {color:'#1f8fd6', bg:'rgba(31,143,214,.08)',  border:'rgba(31,143,214,.2)',  label:'新增'},
-    hot:    {color:'#e5484d', bg:'rgba(229,72,77,.08)', border:'rgba(229,72,77,.2)', label:'热门'},
-    locked: {color:'#6b7280', bg:'rgba(107,114,128,.08)', border:'rgba(107,114,128,.2)', label:'需解锁'},
+    new:    {color:'#1f8fd6', bg:'rgba(31,143,214,.08)',  border:'rgba(31,143,214,.2)',  label:'New'},
+    hot:    {color:'#e5484d', bg:'rgba(229,72,77,.08)', border:'rgba(229,72,77,.2)', label:'Hot'},
+    locked: {color:'#6b7280', bg:'rgba(107,114,128,.08)', border:'rgba(107,114,128,.2)', label:'Locked'},
   };
   if(!data.length) {
-    tbody.innerHTML = `<tr><td colspan="8" style="padding:40px;text-align:center;color:var(--t-muted);font-size:13px">暂无匹配采购需求</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="8" style="padding:40px;text-align:center;color:var(--t-muted);font-size:13px">No matching demand</td></tr>`;
     return;
   }
   tbody.innerHTML = data.map(d => {
@@ -2120,7 +2120,7 @@ function renderIntelTable() {
     const isLocked = !d.unlocked;
     // 采购商显示：未解锁则隐藏名称，显示马赛克字符
     const buyerDisplay = isLocked
-      ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>解锁查看采购商</div>`
+      ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Unlock buyer</div>`
       : `<div style="font-size:13px;font-weight:600;color:var(--t-primary)">${d.buyer}</div>`;
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#17a673' : d.contactRate >= 50 ? '#c8860a' : '#e5484d';
@@ -2153,8 +2153,8 @@ function renderIntelTable() {
       <td style="padding:12px 16px;font-size:11px;color:var(--t-muted);white-space:nowrap">${d.time}</td>
       <td style="padding:12px 16px;text-align:center" onclick="event.stopPropagation()">
         ${isLocked
-          ? `<div onclick="openIntelUnlock(${d.id})" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);cursor:pointer;white-space:nowrap">解锁</div>`
-          : `<div onclick="toast('◆','建联已启动','AI 正在为 ${d.buyer} 生成个性化开场白…')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;white-space:nowrap">建联</div>`
+          ? `<div onclick="openIntelUnlock(${d.id})" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);cursor:pointer;white-space:nowrap">Unlock</div>`
+          : `<div onclick="toast('◆','Outreach started','AI is drafting a personalized opener for ${d.buyer}…')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;white-space:nowrap">Connect</div>`
         }
       </td>
     </tr>`;
@@ -2210,7 +2210,7 @@ function confirmUnlock() {
       credits = Math.max(0, credits - 1);
       const cv = document.getElementById('credits-val'); if(cv) cv.textContent = credits;
       renderIntelPanel(id);
-      toast('◆','深度情报已解锁',`${c.name} 的电话/邮箱/采购额已显示 · 剩余建联次数 ${credits}`);
+      toast('◆','Deep intel unlocked',`${c.name}'s phone/email/spend now shown · ${credits} connect credits left`);
       return;
     }
   }
@@ -2223,11 +2223,11 @@ function confirmUnlock() {
       credits = Math.max(0, credits - 1);
       const cv = document.getElementById('credits-val'); if(cv) cv.textContent = credits;
       renderIntelTable();
-      toast('◆','情报已解锁',`${row.buyer} 的完整采购情报已显示 · 剩余建联次数 ${credits}`);
+      toast('◆','Intel unlocked',`Full purchasing intel for ${row.buyer} now shown · ${credits} connect credits left`);
       return;
     }
   }
-  toast('◆','情报已解锁','完整联系方式和采购记录已显示');
+  toast('◆','Intel unlocked','Full contacts and purchase records now shown');
 }
 
 // ═══════════════════════════════════════════════════════
