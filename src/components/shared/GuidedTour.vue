@@ -58,7 +58,14 @@ function prev ()  { if (i.value > 0) { i.value--; show() } }
 function end ()   { active.value = false; spot.value = { display:'none' }; markSeen() }
 function showNudge () { try { if (localStorage.getItem(SEEN_KEY)) return } catch {} nudge.value = true }
 function dismissNudge () { nudge.value = false; markSeen() }
-onMounted(() => { window.startTour = start; window.__tourNudge = showNudge })
+// 键盘驱动(demo 演示更顺):→/Enter/空格 下一步,← 上一步,Esc 退出
+function onKey (e) {
+  if (!active.value) return
+  if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next() }
+  else if (e.key === 'ArrowLeft') { prev() }
+  else if (e.key === 'Escape') { end() }
+}
+onMounted(() => { window.startTour = start; window.__tourNudge = showNudge; window.addEventListener('keydown', onKey) })
 </script>
 
 <template>
@@ -74,6 +81,7 @@ onMounted(() => { window.startTour = start; window.__tourNudge = showNudge })
         <button v-if="i > 0" class="tour-btn ghost" @click="prev">上一步</button>
         <button class="tour-btn" @click="next">{{ i === steps.length - 1 ? '完成' : '下一步 →' }}</button>
       </div>
+      <div class="tour-prog"><div class="tour-prog-fill" :style="{ width: ((i + 1) / steps.length * 100) + '%' }"></div></div>
     </div>
   </div>
 
@@ -110,6 +118,8 @@ onMounted(() => { window.startTour = start; window.__tourNudge = showNudge })
   font:700 12px 'Geist',sans-serif; cursor:pointer; transition:.15s }
 .tour-btn:hover{ filter:brightness(1.06) }
 .tour-btn.ghost{ background:transparent; border:1px solid var(--card-border); color:var(--t-sec) }
+.tour-prog{ height:3px; background:rgba(31,143,214,.12); border-radius:2px; margin-top:14px; overflow:hidden }
+.tour-prog-fill{ height:100%; background:var(--brand); border-radius:2px; transition:width .3s cubic-bezier(.22,.61,.36,1) }
 /* 首访提示卡(底部居中,自带「开始引导」,不挡可点元素)*/
 .tour-nudge{ position:fixed; bottom:22px; left:50%; transform:translateX(-50%); width:320px; z-index:590; pointer-events:auto;
   background:var(--bg2); border:1px solid var(--card-border); border-top:2px solid var(--brand);
