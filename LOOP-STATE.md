@@ -42,6 +42,8 @@
 > 权威流程改为 `docs/loop-procedure.md`。本文件上方旧配置/Done 台账(Phosphor amber/暗色)**只读存档,作废不再追加该方向**。新 backlog 见 loop-procedure.md §8。
 
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
+- 2026-06-25 ★★ 用户新三焦点:①全站英文 ②开头动画科技感 ③登录页酷炫(走品牌 Signal Room 路线,零 slop)。cron 重建(job 85b28e9f)。先 QA 普查:18 屏零 JS 报错(基线干净)。
+- 2026-06-25 R063 🟦(main,新焦点首轮):登录页酷炫+英文。①轨道/雷达信号母题:3 同心 azure 细环+2 节点慢速反向公转(呼应 logo)+淡蓝图网格,纯 SVG/CSS,reduce 停转,零 glow/渐变 slop;②登录页全英文(品牌栏 "The world's buyers, in one live view."/表单 Welcome back·Sign in/网址弹窗 Tell us about your product…),保留创拾觅深 logo 署名。build✓ 机检 login 零错✓ h1✓ h3✓ tour-check✓。实拍:轨道环+节点+英文;网址弹窗英文。两北极星 KEEP(科技感靠 azure 轨道动效 on-brand 非 slop)。残留:②开头动画科技感+英文、①其余屏英文化(dashboard/leads/intel/wa/营销/池/tour/toast/legacy 大量串)。commit+push origin main。cron 1min(85b28e9f)。
 - 2026-06-25 ★ 收敛点(§6,main):讲解型新手引导已功能齐(R058-062:骨架/6屏12步/首访提示+记忆/修tooltip/键盘+进度/点任意处+提示,全 golden 绿)。审计本轮:剩余皆「换范式」(真交互式点击=点真实元素执行动作+跨屏处理,大件中风险)或移动端,非增量微调。**停 1min cron(job 1c56944f),发 digest 问方向(交互式范式? 移动端? 更多覆盖? 新焦点?)。**
 - 2026-06-25 R062 🟦 产品轴(main):引导点任意处继续+导航提示。① .tour @click.self="next"(点背景/高亮区=下一步,点卡片不触发);② 卡底 muted 提示「← → 或点任意处继续 · Esc 退出」讲清全部驱动。build✓ tour-check 12 步✓(按钮路径无双触发)h1✓ h3✓ 机检零错✓。两北极星 KEEP(下一步/点击/方向键/Esc 全套,demo 流畅)。**讲解型引导功能基本齐(R058-062)。余可选/换范式:真交互式高亮(点元素执行真实动作)、移动端;下轮低价值则发 digest。** commit+push origin main。cron 1min(1c56944f)。
 - 2026-06-25 R061 🟦 产品轴(main):引导加键盘驱动+进度条。审计 tour 各步(leads/pool 实拍)定位干净。① 键盘:激活时 →/Enter/空格=下一步,←=上一步,Esc=退出(window keydown,!active 不响应);② 提示卡底部细 azure 进度条 width=(i+1)/总步数 平滑过渡。build✓ tour-check 12 步✓ h1✓ h3✓ 机检零错✓。实拍:卡底进度条。两北极星 KEEP(demo 键盘流畅+进度可见,单一 azure)。引导较完整(R058 骨架/R059 6屏12步/R060 首访+记忆+修tooltip/R061 键盘+进度)。残留:交互式可点高亮、移动端。commit+push origin main。cron 1min(1c56944f)。

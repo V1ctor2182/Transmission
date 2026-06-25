@@ -21,33 +21,41 @@ const startScan = () => window.startScan?.()
   <div class="screen active login-split" id="s-register">
     <!-- LEFT · brand + value -->
     <section class="lg-brand">
+      <!-- kinetic signal motif: faint grid + slow orbital ring with a drifting node (echoes the logo) -->
+      <svg class="lg-orbit" viewBox="0 0 440 440" aria-hidden="true">
+        <circle class="lg-ring" cx="220" cy="220" r="200"/>
+        <circle class="lg-ring" cx="220" cy="220" r="150"/>
+        <circle class="lg-ring" cx="220" cy="220" r="100"/>
+        <g class="lg-orbit-spin"><circle class="lg-node" cx="420" cy="220" r="4.5"/></g>
+        <g class="lg-orbit-spin2"><circle class="lg-node lg-node2" cx="370" cy="220" r="3"/></g>
+      </svg>
       <div class="lg-logo">
         <span class="lg-mark"><img src="/logo-mark.svg" alt="TRANS·MISSION" /></span>
         TRANS·<em>MISSION</em>
       </div>
       <div class="lg-sign" style="font-size:11px;letter-spacing:.42em;color:var(--t-muted);margin-top:-14px;margin-bottom:6px">创 拾 觅 深</div>
-      <h1>全球买家的需求，<br/>此刻就在眼前。</h1>
-      <p>把分散在各国的采购信号汇成一块可观察的大盘。你不再逐条搜索市场，而是看着它流动，先一步联系。</p>
-      <div class="lg-foot">华南区销售工作台 · 万仟糕饼</div>
+      <h1>The world's buyers,<br/>in one live view.</h1>
+      <p>We pull scattered purchasing signals from every market into one observable board. Stop searching deal by deal — watch demand flow, and reach out first.</p>
+      <div class="lg-foot">South China Sales Desk · Wanqian Foods</div>
     </section>
 
     <!-- RIGHT · form -->
     <section class="lg-formwrap">
       <div class="lg-card">
-        <h2>欢迎回来</h2>
-        <p class="lg-sub">登录继续你的拓客工作台</p>
+        <h2>Welcome back</h2>
+        <p class="lg-sub">Sign in to your growth desk</p>
 
         <label class="lg-field">
-          <span>邮箱地址</span>
+          <span>Email</span>
           <input type="email" id="login-email" v-model="email" placeholder="you@company.com" @keydown.enter="login"/>
         </label>
         <label class="lg-field">
-          <span>密码</span>
+          <span>Password</span>
           <input type="password" id="login-password" v-model="password" placeholder="••••••••" @keydown.enter="login"/>
         </label>
 
-        <button class="login-btn" @click="login">登录工作台</button>
-        <div class="lg-hint">演示账号已预填，直接登录即可。</div>
+        <button class="login-btn" @click="login">Sign in</button>
+        <div class="lg-hint">Demo account pre-filled — just sign in.</div>
       </div>
     </section>
   </div>
@@ -56,20 +64,20 @@ const startScan = () => window.startScan?.()
   <div id="website-modal-overlay">
     <div class="wm-card">
       <div class="wm-logo"><img src="/logo-mark.svg" alt="TRANS·MISSION" /></div>
-      <div class="wm-title">告诉我们你的产品</div>
-      <div class="wm-sub">输入官网地址，我们会分析你的产品，匹配全球采购需求并给出市场进入建议。</div>
+      <div class="wm-title">Tell us about your product</div>
+      <div class="wm-sub">Enter your website. We'll analyze your products, match them to global purchasing demand, and suggest how to enter each market.</div>
       <div class="wm-input-wrap">
-        <input class="wm-input" id="wm-url-input" type="text" placeholder="输入官网地址，如 wanqianfood.com" value="wanqianfood.com" autocomplete="off"/>
+        <input class="wm-input" id="wm-url-input" type="text" placeholder="Enter your website, e.g. wanqianfood.com" value="wanqianfood.com" autocomplete="off"/>
       </div>
-      <div class="wm-hint">你的信息仅用于生成专属分析报告，不会对外分享。</div>
+      <div class="wm-hint">Used only to generate your private analysis — never shared.</div>
       <button class="wm-btn" @click="startScan">
         <svg viewBox="0 0 24 24"><path d="m5 12 14 0M12 5l7 7-7 7"/></svg>
-        开始全球市场分析
+        Start global market analysis
       </button>
       <div class="wm-features">
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#1e5fd0"></div>全球商机匹配</div>
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#1f8fd6"></div>竞争格局分析</div>
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#17a673"></div>市场进入策略</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#1e5fd0"></div>Demand matching</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#1f8fd6"></div>Competitor mapping</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#17a673"></div>Entry strategy</div>
       </div>
     </div>
   </div>
@@ -100,12 +108,26 @@ const startScan = () => window.startScan?.()
 /* LEFT brand panel */
 .lg-brand{
   flex:1.15; min-width:0; padding:56px 64px; display:flex; flex-direction:column;
+  position:relative; overflow:hidden;
   border-right:1px solid var(--card-border);
   background:
+    linear-gradient(rgba(31,143,214,.05) 1px, transparent 1px) 0 0/44px 44px,
+    linear-gradient(90deg, rgba(31,143,214,.05) 1px, transparent 1px) 0 0/44px 44px,
     radial-gradient(900px 500px at 18% 12%, rgba(31,143,214,.10), transparent 60%),
     radial-gradient(700px 460px at 90% 100%, rgba(30,95,200,.08), transparent 60%),
     var(--bg);
 }
+.lg-brand > :not(.lg-orbit){ position:relative; z-index:1 }
+/* 轨道信号母题(雷达/orbit,呼应 logo;克制,无 glow)*/
+.lg-orbit{ position:absolute; z-index:0; right:-120px; top:50%; transform:translateY(-50%);
+  width:660px; height:660px; pointer-events:none }
+.lg-ring{ fill:none; stroke:rgba(31,143,214,.14); stroke-width:1; vector-effect:non-scaling-stroke }
+.lg-node{ fill:var(--brand) }
+.lg-node2{ fill:var(--brand2) }
+.lg-orbit-spin{ transform-origin:220px 220px; animation:lg-rot 17s linear infinite }
+.lg-orbit-spin2{ transform-origin:220px 220px; animation:lg-rot 26s linear infinite reverse }
+@keyframes lg-rot{ to{ transform:rotate(360deg) } }
+@media(prefers-reduced-motion:reduce){ .lg-orbit-spin,.lg-orbit-spin2{ animation:none } }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}
 .lg-logo em{font-style:normal; color:var(--brand)}
 .lg-mark{width:40px; height:34px; display:grid; place-items:center}

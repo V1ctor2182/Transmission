@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 063 | 🟦 产品轴(main) | 登录页酷炫化(轨道/雷达信号母题+网格,呼应 logo,零 slop)+ 全英文(品牌栏/表单/网址弹窗) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-063](round-063-login-cool-en.md) |
 | 062 | 🟦 产品轴(main) | 引导点任意处继续(@click.self)+ 导航提示(下一步/点击/方向键/Esc 全套) | ✅ build✓ tour-check✓ h1/h3✓ KEEP | [round-062](round-062-tour-clickanywhere.md) |
 | 061 | 🟦 产品轴(main) | 引导加键盘驱动(→/←/Esc)+ 进度条(demo 演示更顺) | ✅ build✓ tour-check✓ h1/h3✓ KEEP | [round-061](round-061-tour-keyboard-progress.md) |
 | 060 | 🟦 产品轴(main) | 引导首访提示+完成记忆(localStorage)+ 修暗色侧栏 tooltip(用户报黑块)+ nudge 底部居中防挡 | ✅ build✓ h1/h3/tour-check✓ KEEP | [round-060](round-060-tour-nudge-tooltip.md) |
