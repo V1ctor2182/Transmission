@@ -15,11 +15,11 @@ const stage = ref(0)            // 0 连接 →1 识别产品 →2 匹配需求 
 const statusText = ['正在连接全球商机数据库…', '读取官网,识别主营产品与定位…', '匹配全球 2.8M+ 采购需求…', '定位火热区域,生成买家清单…', '分析完成 · 已锁定你的市场']
 const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-// 真数据(揭示出来的,不是装饰)。坐标在真实世界地图 viewBox 1010x666 上。
+// 真数据(揭示出来的,不是装饰)。坐标 + 量级与工作台地图一致(万仟出海剧本:东南亚 T1 最热)。
 const hotspots = [
-  { x: 250, y: 246, label: '北美 · 512K', hot: true },
+  { x: 778, y: 398, label: '东南亚 · 512K', hot: true },  // T1 首选,与工作台一致
+  { x: 250, y: 246, label: '北美 · 188K' },
   { x: 516, y: 182, label: '欧洲 · 96K' },
-  { x: 778, y: 398, label: '新加坡 · 188K' },
   { x: 852, y: 470, label: '澳洲 · 77K' },
 ]
 const kpis = [
@@ -28,11 +28,12 @@ const kpis = [
   { label: '火热区域', target: 4,       color: 'var(--brand)' },
   { label: '高匹配商机', target: 12,    color: 'var(--green)' },
 ]
+// 与工作台「实时买家信号」一致 = 万仟剧本点名的真实华人超市渠道(开头揭示的就是稍后落到工作台的买家)
 const buyers = [
-  { co: 'Nordwind Foods GmbH', cc: 'DE', mt: 96, val: '€420,000' },
-  { co: 'Lim Heng Trading',    cc: 'SG', mt: 91, val: '$188,400' },
-  { co: 'Pacific Gourmet Inc', cc: 'US', mt: 84, val: '$512,750' },
-  { co: 'Saveur Atlantique',   cc: 'FR', mt: 79, val: '€96,200' },
+  { co: 'Fairprice Group',   cc: 'SG', mt: 96, val: '$188,400' },
+  { co: 'Jaya Grocer Bhd',   cc: 'MY', mt: 93, val: '$142,000' },
+  { co: 'T&T Supermarket',   cc: 'CA', mt: 91, val: '$204,000' },
+  { co: '99 Ranch Market',   cc: 'US', mt: 89, val: '$331,500' },
 ]
 
 const kpiShown = ref([0, 0, 0, 0])     // count-up 当前值
