@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 072 | 🟦 产品轴(main) | WhatsApp 商机中心英文化(markup/WA_CONTACTS·CHATS·CHIPS/INTEL_DATA/渲染函数/connectBuyer seed/dashboard 买家 country·need;**h3 seed 正则同步英文**;Arabic chat 保留) | ✅ build✓ 机检✓ h3(seeded✓)/h1/tour✓ KEEP | [round-072](round-072-whatsapp-en.md) |
 | 071 | 🟦 产品轴(main) | 找客户 leads 数据层英文化(CUST_DATA 12 家 industry·desc·title·news·source + LIVE_CUSTOMERS + renderCustTable + 展开卡 + 6 toast + 反馈弹窗;修 id8 flag 🇺🇦→🇦🇪) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-071](round-071-leads-data-en.md) |
 | 070 | 🟦 产品轴(main) | 找客户 leads 页 UI 英文化(3 视图 markup:28 源面板/配置表单/任务/客户视图 + RG 45 国系统 data-country 同步 + 2 toast) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-070](round-070-leads-en.md) |
 | 069 | 🟦 产品轴(main) | 引导 tour 全英文(12 步 title/desc + 卡片 Skip/Back/Next/Done/hint + 首访 nudge;跨全屏新用户第一触点) | ✅ build✓ tour-check 12/12✓ h1/h3✓ KEEP | [round-069](round-069-tour-en.md) |

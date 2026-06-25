@@ -53,8 +53,8 @@ try {
   out.steps.push(['chat header = the buyer I connected', chatName.includes(buyerCo) || buyerCo.includes(chatName), `chat="${chatName}" buyer="${buyerCo}"`])
   const chatTxt = await page.locator('#wa-messages, .wa-messages, #wa-chat-body').innerText().catch(()=> '')
   const chipTxt = await page.locator('#wa-chips').innerText().catch(()=> '')
-  out.steps.push(['conversation seeded (inbound signal)', /采购|供应商|报价/.test(chatTxt), `len=${chatTxt.length}`])
-  out.steps.push(['AI 话术 chips present', chipTxt.trim().length > 0, `len=${chipTxt.length}`])
+  out.steps.push(['conversation seeded (inbound signal)', /sourcing|supplier|pricing|quote/i.test(chatTxt), `len=${chatTxt.length}`])
+  out.steps.push(['AI script chips present', chipTxt.trim().length > 0, `len=${chipTxt.length}`])
 
   out.frames = ['.review/h3-t0.png','.review/h3-t1.png','.review/h3-t2.png']
   out.pass = out.steps.every(s => s[1]) && out.errors.length === 0

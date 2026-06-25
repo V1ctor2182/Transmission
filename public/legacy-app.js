@@ -21,22 +21,22 @@ const LEADS = [
 ];
 
 const WA_CONTACTS = [
-  {id:0,name:'Klaus Weber',company:'Weber Import GmbH',country:'🇩🇪',av:'K',color:'#1e40af',last:'好的，我们明天确认报价',time:'刚刚',unread:2,status:'在线'},
-  {id:1,name:'Rajesh Kumar',company:'Kumar Foods Pte',country:'🇸🇬',av:'R',color:'#065f46',last:'请发送产品目录',time:'10分钟',unread:1,status:'在线'},
-  {id:2,name:'Ahmed Al-Rashid',company:'Al-Rashid Trading',country:'🇦🇪',av:'A',color:'#7c2d12',last:'已收到，正在查看',time:'1小时',unread:0,status:'离线'},
-  {id:3,name:'Carlos Silva',company:'Silva Distribuidora',country:'🇧🇷',av:'C',color:'#1e3a5f',last:'我们对月饼很感兴趣',time:'昨天',unread:0,status:'离线'},
-  {id:4,name:'Yuki Tanaka',company:'Tanaka Foods Co.',country:'🇯🇵',av:'Y',color:'#4a1d96',last:'价格可以商量吗？',time:'昨天',unread:0,status:'离线'},
-  {id:5,name:'Sarah Chen',company:'Chen Family Imports',country:'🇺🇸',av:'S',color:'#134e4a',last:'非常感谢，期待合作',time:'2天前',unread:0,status:'离线'},
+  {id:0,name:'Klaus Weber',company:'Weber Import GmbH',country:'🇩🇪',av:'K',color:'#1e40af',last:"Sure, we'll confirm the quote tomorrow",time:'now',unread:2,status:'online'},
+  {id:1,name:'Rajesh Kumar',company:'Kumar Foods Pte',country:'🇸🇬',av:'R',color:'#065f46',last:'Please send the product catalog',time:'10 min',unread:1,status:'online'},
+  {id:2,name:'Ahmed Al-Rashid',company:'Al-Rashid Trading',country:'🇦🇪',av:'A',color:'#7c2d12',last:'Received, reviewing now',time:'1 h',unread:0,status:'offline'},
+  {id:3,name:'Carlos Silva',company:'Silva Distribuidora',country:'🇧🇷',av:'C',color:'#1e3a5f',last:"We're very interested in mooncakes",time:'Yesterday',unread:0,status:'offline'},
+  {id:4,name:'Yuki Tanaka',company:'Tanaka Foods Co.',country:'🇯🇵',av:'Y',color:'#4a1d96',last:'Can we negotiate on price?',time:'Yesterday',unread:0,status:'offline'},
+  {id:5,name:'Sarah Chen',company:'Chen Family Imports',country:'🇺🇸',av:'S',color:'#134e4a',last:'Thank you, looking forward to working together',time:'2 days ago',unread:0,status:'offline'},
 ];
 
 const WA_CHATS = {
   0: [
-    {type:'in',text:'您好！我是 Klaus Weber，来自德国 Weber Import GmbH。我们专注进口亚洲食品，对贵公司的节庆礼盒系列非常感兴趣。',time:'09:15'},
-    {type:'out',text:'您好 Klaus！感谢您的关注。我们的节庆礼盒系列包含高端椰子酥、精品月饼等，均符合欧盟食品安全标准。请问您主要关注哪类产品？',time:'09:22'},
-    {type:'in',text:'主要是月饼礼盒和椰子酥。我们在德国有稳定的华人社区渠道，每年中秋节前需求量很大。请问最小起订量是多少？',time:'09:35'},
-    {type:'out',text:'月饼礼盒 MOQ 为 500 盒，椰子酥 MOQ 为 300 盒。我们提供定制包装服务，可以添加德语说明。需要我发送详细报价单吗？',time:'09:40'},
-    {type:'in',text:'好的，请发送报价单。另外，你们有欧盟食品安全认证吗？这对我们进口很重要。',time:'09:52'},
-    {type:'follow',text:'跟进提醒：Klaus Weber 正在等待报价单，建议在 2 小时内回复以保持谈判热度'},
+    {type:'in',text:'Hello! I am Klaus Weber from Weber Import GmbH in Germany. We specialize in importing Asian foods and are very interested in your festive gift-box range.',time:'09:15'},
+    {type:'out',text:'Hello Klaus! Thanks for reaching out. Our festive gift-box range includes premium coconut pastry and fine mooncakes, all meeting EU food-safety standards. Which products are you most interested in?',time:'09:22'},
+    {type:'in',text:'Mainly mooncake gift boxes and coconut pastry. We have a steady Chinese-community channel in Germany with strong demand before Mid-Autumn each year. What is your minimum order quantity?',time:'09:35'},
+    {type:'out',text:'MOQ is 500 boxes for mooncakes and 300 boxes for coconut pastry. We offer custom packaging and can add German labelling. Shall I send a detailed quote?',time:'09:40'},
+    {type:'in',text:'Yes, please send the quote. Also, do you hold EU food-safety certification? That is important for our import.',time:'09:52'},
+    {type:'follow',text:'Follow-up: Klaus Weber is waiting for the quote — reply within 2 hours to keep the negotiation warm.'},
   ],
   1: [
     {type:'in',text:'Hello! I am Rajesh from Kumar Foods Singapore. We are interested in your festival gift boxes for the Chinese New Year season.',time:'10:05'},
@@ -51,9 +51,9 @@ const WA_CHATS = {
 };
 
 const WA_CHIPS = {
-  0: ['我们持有 EC 852/2004 欧盟食品安全认证，可提供完整证书文件','正在为您准备详细报价单，预计 2 小时内发送，请稍候','我们提供德语定制包装，可在包装上印制您的品牌 Logo'],
-  1: ['产品目录已准备好，包含完整规格和价格，马上发送给您','我们在新加坡有合作仓储，可实现 3-5 天快速交货','2000 盒以上享受 8 折优惠，CNY 旺季建议提前 3 个月下单'],
-  2: ['我们可以提供阿拉伯语产品说明书和清真认证文件','我们的节庆礼盒非常适合斋月和开斋节市场','欢迎安排视频会议，详细介绍我们的产品线和合作条件'],
+  0: ['We hold EC 852/2004 EU food-safety certification and can provide full documents','Preparing a detailed quote for you — expect it within 2 hours, please hold','We offer German-language custom packaging and can print your brand logo on the box'],
+  1: ['The product catalog is ready with full specs and pricing — sending it now','We have partner warehousing in Singapore for 3-5 day fast delivery','20% off for 2000+ boxes — for the CNY peak we suggest ordering 3 months ahead'],
+  2: ['We can provide Arabic product documentation and Halal certification','Our festive gift boxes are well suited to the Ramadan and Eid market','Happy to set up a video call to walk through our line and terms'],
 };
 
 // flat stroke-SVG inner markup for intel-row icons (terminal style, no emoji)
@@ -73,15 +73,15 @@ const IROW_ICON = {
 const INTEL_DATA = {
   0: {
     name:'Klaus Weber',company:'Weber Import GmbH',country:'Germany',flag:'🇩🇪',score:88,
-    basic:[{icon:'biz',key:'公司规模',val:'50-100人'},{icon:'cal',key:'成立年份',val:'2008年'},{icon:'rev',key:'年营业额',val:'€500万+'},{icon:'cart',key:'采购频率',val:'季度采购'}],
-    locked:[{icon:'phone',key:'直线电话',val:'+49 30 XXXX XXXX'},{icon:'mail',key:'采购负责人邮箱',val:'k.weber@weber-import.de'},{icon:'chart',key:'历史采购额',val:'€120万/年'},{icon:'target',key:'决策周期',val:'2-3周'}],
-    followup:{ico:'bell',title:'跟进提醒',text:'Klaus Weber 昨日查看了产品手册 3 次，今日是最佳跟进时机。建议发送包含欧盟认证文件的完整报价单。',btn:'立即生成跟进邮件'}
+    basic:[{icon:'biz',key:'Company size',val:'50-100 staff'},{icon:'cal',key:'Founded',val:'2008'},{icon:'rev',key:'Annual revenue',val:'€5M+'},{icon:'cart',key:'Buying frequency',val:'Quarterly'}],
+    locked:[{icon:'phone',key:'Direct line',val:'+49 30 XXXX XXXX'},{icon:'mail',key:'Buyer email',val:'k.weber@weber-import.de'},{icon:'chart',key:'Past spend',val:'€1.2M/yr'},{icon:'target',key:'Decision cycle',val:'2-3 weeks'}],
+    followup:{ico:'bell',title:'Follow-up',text:'Klaus Weber viewed the product brochure 3 times yesterday — today is the best time to follow up. Send a full quote with EU certification documents.',btn:'Draft follow-up email'}
   },
   1: {
     name:'Rajesh Kumar',company:'Kumar Foods Pte Ltd',country:'Singapore',flag:'🇸🇬',score:93,
-    basic:[{icon:'biz',key:'公司规模',val:'20-50人'},{icon:'cal',key:'成立年份',val:'2015年'},{icon:'rev',key:'年营业额',val:'SGD 300万+'},{icon:'cart',key:'采购频率',val:'月度采购'}],
-    locked:[{icon:'phone',key:'直线电话',val:'+65 9XXX XXXX'},{icon:'mail',key:'采购负责人邮箱',val:'rajesh@kumarfoods.sg'},{icon:'chart',key:'历史采购额',val:'SGD 80万/年'},{icon:'target',key:'决策周期',val:'1-2周'}],
-    followup:{ico:'bulb',title:'AI 建议',text:'Rajesh 正在等待产品目录，建议在 1 小时内发送，并附上新加坡本地仓储信息以增加竞争优势。',btn:'发送产品目录'}
+    basic:[{icon:'biz',key:'Company size',val:'20-50 staff'},{icon:'cal',key:'Founded',val:'2015'},{icon:'rev',key:'Annual revenue',val:'SGD 3M+'},{icon:'cart',key:'Buying frequency',val:'Monthly'}],
+    locked:[{icon:'phone',key:'Direct line',val:'+65 9XXX XXXX'},{icon:'mail',key:'Buyer email',val:'rajesh@kumarfoods.sg'},{icon:'chart',key:'Past spend',val:'SGD 800K/yr'},{icon:'target',key:'Decision cycle',val:'1-2 weeks'}],
+    followup:{ico:'bulb',title:'AI suggestion',text:'Rajesh is waiting for the product catalog — send it within 1 hour and include Singapore local warehousing info to strengthen your edge.',btn:'Send product catalog'}
   }
 };
 
@@ -851,31 +851,31 @@ function connectBuyer(co, country, flag, region, val, need, score) {
   if (id === -1) {
     id = WA_CONTACTS.length;
     WA_CONTACTS.push({ id, name: co, company: co, country: flag || '🌐', av: (co||'·')[0],
-      color: '#1f8fd6', last: need ? ('正在寻找' + need) : '新采购信号', time: '刚刚', unread: 1, status: '在线' });
+      color: '#1f8fd6', last: need ? ('Sourcing ' + need) : 'New buying signal', time: 'now', unread: 1, status: 'online' });
     WA_CHATS[id] = [
-      { type: 'in', text: `您好,我们是${co}(${country})。我们正在寻找${need || '相关产品'}的供应商,本季度预计采购额约 ${val}。希望了解贵司的供货能力与报价。`, time: '刚刚' },
-      { type: 'follow', text: `跟进提醒:${co} 刚从${country}发来约 ${val} 的采购信号,建议 30 分钟内回复,抢占先机。` },
+      { type: 'in', text: `Hi, we are ${co} (${country}). We are sourcing a supplier for ${need || 'relevant products'}, with an estimated spend of about ${val} this quarter. We'd like to learn about your supply capacity and pricing.`, time: 'now' },
+      { type: 'follow', text: `Follow-up: ${co} just sent a buying signal of about ${val} from ${country} — reply within 30 minutes to get ahead.` },
     ];
     WA_CHIPS[id] = [
-      `我们可提供${need || '相关产品'}的完整目录与报价单,支持定制包装`,
-      '我们持有欧盟 / 清真等多项食品安全认证,可提供完整证书文件',
-      '欢迎安排视频会议,详细介绍产品线与合作条款,并可寄送样品',
+      `We can share a full catalog and quote for ${need || 'relevant products'}, with custom packaging available`,
+      'We hold EU / Halal and other food-safety certifications, with full documents available',
+      'Happy to set up a video call to walk through our line and terms, and we can send samples',
     ];
     INTEL_DATA[id] = {
       name: co, company: need || co, country: country, flag: flag, score: score || 88,
       basic: [
-        { icon: 'biz',  key: '所在区域', val: country + ' · ' + region },
-        { icon: 'cart', key: '采购需求', val: need || '—' },
-        { icon: 'rev',  key: '本季采购额', val: val },
-        { icon: 'cal',  key: '信号时间', val: '刚刚' },
+        { icon: 'biz',  key: 'Region', val: country + ' · ' + region },
+        { icon: 'cart', key: 'Demand', val: need || '—' },
+        { icon: 'rev',  key: 'Quarter spend', val: val },
+        { icon: 'cal',  key: 'Signal time', val: 'just now' },
       ],
       locked: [
-        { icon: 'phone',  key: '直线电话', val: '+•• ••• ••• •••' },
-        { icon: 'mail',   key: '采购负责人邮箱', val: '••••@' + co.toLowerCase().replace(/[^a-z]/g,'').slice(0,8) + '.com' },
-        { icon: 'chart',  key: '历史采购额', val: '████ / 年' },
-        { icon: 'target', key: '决策周期', val: '██ 周' },
+        { icon: 'phone',  key: 'Direct line', val: '+•• ••• ••• •••' },
+        { icon: 'mail',   key: 'Buyer email', val: '••••@' + co.toLowerCase().replace(/[^a-z]/g,'').slice(0,8) + '.com' },
+        { icon: 'chart',  key: 'Past spend', val: '████ / yr' },
+        { icon: 'target', key: 'Decision cycle', val: '██ weeks' },
       ],
-      followup: { ico: 'bell', title: '建联时机', text: `${co} 的采购信号刚刚触发,匹配度 ${score || 88} 分。建议立即发送包含报价与认证的开场信息,转化概率最高。`, btn: '生成个性化开场白' },
+      followup: { ico: 'bell', title: 'Connect window', text: `${co}'s buying signal just fired — match ${score || 88}. Send an opener with your quote and certifications now for the best conversion.`, btn: 'Draft a personalized opener' },
     };
   } else {
     WA_CONTACTS[id].unread = 0;
@@ -883,7 +883,7 @@ function connectBuyer(co, country, flag, region, val, need, score) {
   navTo('whatsapp', PAGE_IDX.whatsapp);
   renderWaContacts();
   selectWaContact(id);
-  toast('◆', '已建联 · ' + co, `${country} · ${val} 采购信号 → 对话已打开,AI 话术已就绪`);
+  toast('◆', 'Connected · ' + co, `${country} · ${val} buying signal → chat opened, AI scripts ready`);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -985,25 +985,25 @@ function filterCpool(el, filter) {
 }
 
 function linkWaToPool() {
-  const name = document.getElementById('wa-link-name')?.textContent || '当前联系人';
+  const name = document.getElementById('wa-link-name')?.textContent || 'this contact';
   // Check if already in pool
   const exists = CPOOL_DATA.some(g => g.items.some(i => i.name.includes(name.split(' ')[0])));
   const btn = document.getElementById('wa-link-btn');
   if(exists) {
-    btn.textContent = '✓ 已关联至客户池';
+    btn.textContent = '✓ Linked to pool';
     btn.style.color = '#17a673';
     btn.style.borderColor = 'rgba(23,166,115,.3)';
     btn.style.background = 'rgba(23,166,115,.08)';
-    showToast('✓ 已关联','该对话已在客户池中跟进','success');
+    showToast('✓ Linked','This chat is now tracked in the pool','success');
   } else {
     // Add to pool
-    CPOOL_DATA[2].items.push({id:99, name:name, status:'active', statusText:'刚刚关联 · 待跟进', flag:'💬'});
-    btn.textContent = '✓ 已关联至客户池';
+    CPOOL_DATA[2].items.push({id:99, name:name, status:'active', statusText:'Just linked · to follow up', flag:'💬'});
+    btn.textContent = '✓ Linked to pool';
     btn.style.color = '#17a673';
     btn.style.borderColor = 'rgba(23,166,115,.3)';
     btn.style.background = 'rgba(23,166,115,.08)';
     renderCpool();
-    showToast('🔗 关联成功',`${name} 已加入客户池，可在客户池页面跟进`,'success');
+    showToast('🔗 Linked',`${name} added to the pool — follow up on the Customer pool page`,'success');
   }
 }
 
@@ -1853,8 +1853,8 @@ function selectWaContact(id) {
   const c = WA_CONTACTS[id];
   document.getElementById('wa-chat-av').textContent = c.av;
   document.getElementById('wa-chat-name').textContent = c.name;
-  document.getElementById('wa-chat-status').textContent = c.status === '在线' ? '● 在线' : '○ 离线';
-  document.getElementById('wa-chat-status').style.color = c.status === '在线' ? 'var(--green)' : 'var(--t-muted)';
+  document.getElementById('wa-chat-status').textContent = c.status === 'online' ? '● Online' : '○ Offline';
+  document.getElementById('wa-chat-status').style.color = c.status === 'online' ? 'var(--green)' : 'var(--t-muted)';
   const linkName = document.getElementById('wa-link-name');
   if (linkName) linkName.textContent = c.name;
   renderWaChat(id);
@@ -1864,7 +1864,7 @@ function selectWaContact(id) {
 function renderWaChat(id) {
   const msgs = WA_CHATS[id] || [];
   const container = document.getElementById('wa-messages');
-  container.innerHTML = `<div class="wa-date-sep">今天</div>` + msgs.map(m => {
+  container.innerHTML = `<div class="wa-date-sep">Today</div>` + msgs.map(m => {
     if(m.type === 'follow') return `<div class="wa-follow-alert"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0;vertical-align:-2px;margin-right:6px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${m.text}</div>`;
     return `<div class="wa-msg ${m.type}"><div class="wa-bubble">${m.text}</div><div class="wa-msg-time">${m.time}</div></div>`;
   }).join('');
@@ -1880,7 +1880,7 @@ function useChip(el, text) {
   document.querySelectorAll('.wa-chip').forEach(c => c.style.opacity = '0.5');
   el.style.opacity = '1';
   el.style.background = 'rgba(31,143,214,0.2)';
-  toast('◆','AI 话术已填入','点击发送按钮发送，或继续编辑');
+  toast('◆','AI script inserted','Hit send, or keep editing');
 }
 
 function sendWaMsg() {
@@ -1890,7 +1890,7 @@ function sendWaMsg() {
   const container = document.getElementById('wa-messages');
   const msgEl = document.createElement('div');
   msgEl.className = 'wa-msg out';
-  msgEl.innerHTML = `<div class="wa-bubble">${text}</div><div class="wa-msg-time">刚刚 ✓✓</div>`;
+  msgEl.innerHTML = `<div class="wa-bubble">${text}</div><div class="wa-msg-time">now ✓✓</div>`;
   container.appendChild(msgEl);
   input.value = '';
   container.scrollTop = container.scrollHeight;
@@ -1902,16 +1902,16 @@ function sendWaMsg() {
     container.appendChild(typingEl);
     container.scrollTop = container.scrollHeight;
   }, 800);
-  const replies = ['好的，我们明天确认报价单。', '非常感谢！我会尽快回复您。', '收到，请稍等，我需要确认一下库存情况。', '这个价格很合理，我们可以进一步讨论。'];
+  const replies = ["Sure, we'll confirm the quote tomorrow.", 'Thank you! I will get back to you shortly.', 'Got it, one moment — I need to check our stock.', 'This price looks reasonable, we can discuss further.'];
   const reply = replies[Math.floor(Math.random()*replies.length)];
   setTimeout(() => {
     typingEl.remove();
     const replyEl = document.createElement('div');
     replyEl.className = 'wa-msg in';
-    replyEl.innerHTML = `<div class="wa-bubble">${reply}</div><div class="wa-msg-time">刚刚</div>`;
+    replyEl.innerHTML = `<div class="wa-bubble">${reply}</div><div class="wa-msg-time">now</div>`;
     container.appendChild(replyEl);
     container.scrollTop = container.scrollHeight;
-    toast('◆','收到回复',`${WA_CONTACTS[currentWaContact].name}：${reply.substring(0,30)}…`);
+    toast('◆','Reply received',`${WA_CONTACTS[currentWaContact].name}: ${reply.substring(0,30)}…`);
   }, 2500);
 }
 
@@ -1923,20 +1923,20 @@ function renderIntelPanel(id) {
     <div class="follow-up-alert">
       <div class="follow-up-title"><svg viewBox="0 0 24 24" class="follow-up-ico">${IROW_ICON[d.followup.ico]||''}</svg>${d.followup.title}</div>
       <div class="follow-up-text">${d.followup.text}</div>
-      <button class="follow-up-btn" onclick="toast('◆','正在生成跟进邮件','AI 正在为 ${d.name} 生成个性化跟进邮件…')">${d.followup.btn}</button>
+      <button class="follow-up-btn" onclick="toast('◆','Drafting follow-up email','AI is drafting a personalized follow-up for ${d.name}…')">${d.followup.btn}</button>
     </div>
     <div class="intel-company-card">
       <div class="intel-co-av">${d.name[0]}</div>
       <div class="intel-co-name">${d.name}</div>
       <div class="intel-co-sub">${d.company} · ${ccBadge(d.flag)}${d.country}</div>
-      <div class="intel-score-badge">ICP 匹配 ${d.score}分</div>
+      <div class="intel-score-badge">ICP match ${d.score}</div>
     </div>
     <div class="intel-section">
-      <div class="intel-section-title">基础信息</div>
+      <div class="intel-section-title">Basics</div>
       ${d.basic.map(irow).join('')}
     </div>
     <div class="intel-section">
-      <div class="intel-section-title">深度情报</div>
+      <div class="intel-section-title">Deep intel</div>
       ${unlockedIntel[id]
         ? d.locked.map(irow).join('')
         : `<div class="intel-blur-section">
@@ -1945,8 +1945,8 @@ function renderIntelPanel(id) {
         </div>
         <div class="intel-lock-overlay" onclick="openPanelUnlock()">
           <div class="intel-lock-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-          <div class="intel-lock-text">解锁深度情报</div>
-          <div class="intel-lock-price">¥29 单条 / ¥99 月度无限</div>
+          <div class="intel-lock-text">Unlock deep intel</div>
+          <div class="intel-lock-price">¥29 each / ¥99 monthly</div>
         </div>
       </div>`}
     </div>
@@ -2180,7 +2180,7 @@ function renderIntelCenter() {
           </div>
           <div class="intel-lock-overlay" onclick="showModal('modal-unlock')">
             <div class="intel-lock-icon">🔒</div>
-            <div class="intel-lock-text">解锁深度情报</div>
+            <div class="intel-lock-text">Unlock deep intel</div>
             <div class="intel-lock-price">¥29 / ¥99月度无限</div>
           </div>
         </div>

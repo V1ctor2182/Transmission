@@ -47,14 +47,14 @@ const todos = [
 // Storage·Jaya Grocer 东南亚 / 99 Ranch·T&T 北美 / Asian Grocery 澳),需求为粽子/月饼/节庆礼盒。
 // region 对应地图热点;flag/country/need 喂给建联对话上下文。东南亚为核心,占比最大。
 const buyers = [
-  { cc: 'SG', co: 'Fairprice Group',     mt: 96, sub: 'Singapore · 2m ago',  val: '$188,400', region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '中秋精品月饼礼盒' },
-  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 93, sub: 'Malaysia · 14m ago',  val: '$142,000', region: '东南亚', country: '马来西亚', flag: '🇲🇾', need: '精品月饼批发' },
-  { cc: 'SG', co: 'Cold Storage',        mt: 88, sub: 'Singapore · 38m ago', val: '$96,500',  region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '高端节庆礼盒' },
-  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: 'Thailand · 1h ago',   val: '$77,800',  mid: true, region: '东南亚', country: '泰国', flag: '🇹🇭', need: '节庆礼品盒' },
-  { cc: 'CA', co: 'T&T Supermarket',     mt: 91, sub: 'Canada · 2h ago',     val: '$204,000', region: '北美',   country: '加拿大',   flag: '🇨🇦', need: '月饼礼盒年度采购' },
-  { cc: 'US', co: '99 Ranch Market',     mt: 89, sub: 'USA · 2h ago',        val: '$331,500', region: '北美',   country: '美国',     flag: '🇺🇸', need: '中式糕点年度采购' },
-  { cc: 'AU', co: 'Asian Grocery Pty',   mt: 84, sub: 'Australia · 4h ago',  val: '$120,400', mid: true, region: '澳洲', country: '澳大利亚', flag: '🇦🇺', need: '高端粽子礼盒' },
-  { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: 'UK · 5h ago',         val: '£96,200',  mid: true, region: '欧洲', country: '英国', flag: '🇬🇧', need: '亚洲节庆食品年度进口' },
+  { cc: 'SG', co: 'Fairprice Group',     mt: 96, sub: 'Singapore · 2m ago',  val: '$188,400', region: '东南亚', country: 'Singapore',   flag: '🇸🇬', need: 'Mid-Autumn mooncake gift boxes' },
+  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 93, sub: 'Malaysia · 14m ago',  val: '$142,000', region: '东南亚', country: 'Malaysia', flag: '🇲🇾', need: 'Premium mooncake wholesale' },
+  { cc: 'SG', co: 'Cold Storage',        mt: 88, sub: 'Singapore · 38m ago', val: '$96,500',  region: '东南亚', country: 'Singapore',   flag: '🇸🇬', need: 'Premium festive gift boxes' },
+  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: 'Thailand · 1h ago',   val: '$77,800',  mid: true, region: '东南亚', country: 'Thailand', flag: '🇹🇭', need: 'Festive gift sets' },
+  { cc: 'CA', co: 'T&T Supermarket',     mt: 91, sub: 'Canada · 2h ago',     val: '$204,000', region: '北美',   country: 'Canada',   flag: '🇨🇦', need: 'Annual mooncake gift-box buy' },
+  { cc: 'US', co: '99 Ranch Market',     mt: 89, sub: 'USA · 2h ago',        val: '$331,500', region: '北美',   country: 'USA',     flag: '🇺🇸', need: 'Annual Chinese pastry buy' },
+  { cc: 'AU', co: 'Asian Grocery Pty',   mt: 84, sub: 'Australia · 4h ago',  val: '$120,400', mid: true, region: '澳洲', country: 'Australia', flag: '🇦🇺', need: 'Premium rice-dumpling gift boxes' },
+  { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: 'UK · 5h ago',         val: '£96,200',  mid: true, region: '欧洲', country: 'UK', flag: '🇬🇧', need: 'Annual Asian festive-food import' },
 ]
 
 // 每区实时买家信号数 → 驱动地图热点的脉冲节奏(信号越多,ping 越快;非装饰性恒定脉冲)
@@ -69,7 +69,7 @@ const regionLabel = { '东南亚': 'SE Asia', '北美': 'N. America', '澳洲': 
 const activeRegion = ref(null)
 const onHotspot = (h) => { activeRegion.value = activeRegion.value === h.region ? null : h.region }
 const shownBuyers = computed(() => activeRegion.value ? buyers.filter(b => b.region === activeRegion.value) : buyers)
-const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, b.region, b.val, b.need, b.mt)
+const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, regionLabel[b.region] || b.region, b.val, b.need, b.mt)
 
 // KPI 进入工作台时一次性 count-up(指挥台「上线」入场,真实终值,非循环)
 const kpiNums = kpis.map(k => parseInt(k.value.replace(/[^0-9]/g, ''), 10))
