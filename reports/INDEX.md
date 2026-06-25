@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 082 | 🟦 Utility(main) | T11 续:删死 renderAiReport/TodayTodo/AiDailyReport + AI_REPORT_ITEMS/TODAY_TODOS/AI_DAILY_ITEMS(面板 R066 已并入 Dashboard,guarded no-op)+ enterApp 调用;legacy −77 行,清最后死中文数据 | ✅ build✓ h1/h3/tour✓ 机检✓ KEEP | [round-082](round-082-dead-renderers-removed.md) |
 | 081 | 🟦 Utility(main) | T11 删整个死 onboarding+canvas 引擎(OB_CHAPTERS/OB_CONTENTS/runOnboarding/canvas drawMap 簇,自包含 0 live 调用,legacy −455 行含大块死中文) | ✅ build✓ h1/h3/tour✓ 机检 login+dash✓ KEEP | [round-081](round-081-onboarding-engine-removed.md) |
 | 080 | 🟦 Utility(main) | 消除 R079 footgun 类:切除 startScan 死尾(移除所有 live 引用已删 #s-onboard/#reg-scan-overlay/rso/runOnboarding)+ renderWaContacts/MktList 加空守;安全审计确认无遗留活 bug(net −58 行) | ✅ build✓ h1(visible✓)/h3/tour✓ 机检✓ KEEP | [round-080](round-080-startscan-hardened.md) |
 | 079 | 🔴 修回归(main) | 修 R076 严重回归:enterApp 引用已删 #s-onboard→TypeError 中止→工作台进不去(空守修复)+ h1 加可见性断言防复发 + #f59e0b 暖橙→品牌 amber 令牌归一 | ✅ build✓ h1(visible✓)/h3(rows=4)/tour✓ 机检✓ KEEP | [round-079](round-079-app-entry-regression.md) |

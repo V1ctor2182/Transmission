@@ -246,53 +246,6 @@ function goStep(n) {} // legacy stub
 function startAnalysis() { startScan(); }
 
 
-// ─── AI Today Report & Todo ───
-const AI_REPORT_ITEMS = [
-  {icon:'🔍', color:'#1e5fd0', label:'新增全球线索', value:'147 条', sub:'来自搜索引擎、海关数据、LinkedIn', page:'leads'},
-  {icon:'📣', color:'#17a673', label:'AI 营销发送', value:'23 封邮件', sub:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
-  {icon:'🤝', color:'#1f8fd6', label:'新增建联客户', value:'8 家', sub:'Fairprice、Jaya Grocer 等已回复', page:'leads'},
-  {icon:'💬', color:'#c8860a', label:'WhatsApp 新消息', value:'5 条', sub:'Klaus Weber 回复了报价，T&T 询问交期', page:'whatsapp'},
-];
-
-const TODAY_TODOS = [
-  {icon:'⚠️', color:'#e5484d', urgent:true, text:'Klaus Weber 等待报价回复', sub:'WhatsApp · 已等待 2 小时', page:'whatsapp'},
-  {icon:'✉️', color:'#1e5fd0', urgent:false, text:'7 封邮件待审批发送', sub:'营销队列 · 建议今日处理', page:'marketing'},
-  {icon:'🔔', color:'#c8860a', urgent:false, text:'T&T Supermarket 3 天无沟通', sub:'客户池 · 建议今日跟进', page:'pool'},
-  {icon:'📋', color:'#1f8fd6', urgent:false, text:'147 条新线索待处理', sub:'找客户 · 今日新增，建议寻找联系人', page:'leads'},
-  {icon:'🇦🇺', color:'#1e5fd0', urgent:false, text:'Asian Grocery Pty 5 天无沟通', sub:'WhatsApp 商机 · 逾期跟进', page:'whatsapp'},
-];
-
-function renderAiReport() {
-  const el = document.getElementById('ai-report-list');
-  if(!el) return;
-  el.innerHTML = AI_REPORT_ITEMS.map(item => `
-    <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid rgba(19,33,63,.04)" onmouseover="this.style.background='rgba(19,33,63,.04)'" onmouseout="this.style.background=''">
-      <div style="width:4px;height:34px;border-radius:3px;background:${item.color};flex-shrink:0;opacity:.85"></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:11px;color:var(--t-muted)">${item.label}</div>
-        <div style="font-size:13px;font-weight:700;color:${item.color}">${item.value}</div>
-        <div style="font-size:10px;color:var(--t-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.sub}</div>
-      </div>
-      <div style="font-size:10px;color:var(--t-muted)">→</div>
-    </div>
-  `).join('');
-}
-
-function renderTodayTodo() {
-  const el = document.getElementById('today-todo-list');
-  if(!el) return;
-  el.innerHTML = TODAY_TODOS.map(item => `
-    <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid ${item.urgent ? 'rgba(229,72,77,.15)' : 'rgba(19,33,63,.04)'}" onmouseover="this.style.background='rgba(19,33,63,.04)'" onmouseout="this.style.background=''">
-      <div style="width:7px;height:7px;border-radius:50%;background:${item.color};flex-shrink:0;margin:0 3px"></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:12px;font-weight:600;color:${item.urgent ? '#e5484d' : 'var(--t-primary)'}">${item.text}</div>
-        <div style="font-size:10px;color:var(--t-muted)">${item.sub}</div>
-      </div>
-      ${item.urgent ? '<div style="font-size:9px;font-weight:700;color:#e5484d;background:rgba(229,72,77,.12);padding:2px 6px;border-radius:4px;flex-shrink:0">紧急</div>' : '<div style="font-size:10px;color:var(--t-muted)">→</div>'}
-    </div>
-  `).join('');
-}
-
 function enterApp() {
   clearTimeout(obTimer);
   // #s-onboard removed in R076 (dead OnboardingScreen) — guard so enterApp never aborts here
@@ -303,9 +256,6 @@ function enterApp() {
   renderWaContacts();
   selectWaContact(0);
   renderMktList();
-  renderAiReport();
-  renderTodayTodo();
-  renderAiDailyReport();
   renderPoolPage();
   setTimeout(() => toast('◆','Welcome to TRANS·MISSION','AI searched 147 global leads, sent 23 marketing emails, and lined up 5 tasks for you today'), 800);
   setTimeout(() => { if(window.__tourNudge) window.__tourNudge(); }, 1500);
@@ -1522,33 +1472,6 @@ function approveEmail(id) {
 function rejectEmail(id) {
   toast('◆','Email rejected','AI will generate new variants');
   setTimeout(() => selectMktItem(id), 500);
-}
-
-// ═══════════════════════════════════════════════════════
-// AI DAILY REPORT (Dashboard right panel)
-// ═══════════════════════════════════════════════════════
-const AI_DAILY_ITEMS = [
-  {icon:'🔍', color:'#1e5fd0', label:'Global lead search', value:'147 new leads', detail:'From search engines, customs data, LinkedIn', page:'leads'},
-  {icon:'📣', color:'#17a673', label:'AI marketing sent', value:'23 emails', detail:'Delivered to 23 buyers · avg open rate 61%', page:'marketing'},
-  {icon:'🤝', color:'#1f8fd6', label:'New connected buyers', value:'8', detail:'Fairprice, Jaya Grocer and others replied', page:'pool'},
-  {icon:'💬', color:'#c8860a', label:'New WhatsApp messages', value:'5', detail:'Klaus Weber replied on pricing, T&T asked about lead time', page:'whatsapp'},
-  {icon:'🌐', color:'#2f9fe0', label:'Intel center update', value:'98,241 demands', detail:'Global purchasing demand synced live', page:'intel'},
-];
-
-function renderAiDailyReport() {
-  const el = document.getElementById('ai-daily-report');
-  if(!el) return;
-  el.innerHTML = AI_DAILY_ITEMS.map(item => `
-    <div onclick="navTo('${item.page}')" style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:.15s;border:1px solid rgba(19,33,63,.04)" onmouseover="this.style.background='rgba(19,33,63,.04)'" onmouseout="this.style.background=''">
-      <div style="width:4px;height:36px;border-radius:3px;background:${item.color};flex-shrink:0;opacity:.85"></div>
-      <div style="flex:1;min-width:0">
-        <div style="font-size:11px;color:var(--t-muted)">${item.label}</div>
-        <div style="font-size:13px;font-weight:700;color:${item.color}">${item.value}</div>
-        <div style="font-size:10px;color:var(--t-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.detail}</div>
-      </div>
-      <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:var(--t-muted);fill:none;flex-shrink:0"><polyline points="9 18 15 12 9 6"/></svg>
-    </div>
-  `).join('');
 }
 
 // ═══════════════════════════════════════════════════════
