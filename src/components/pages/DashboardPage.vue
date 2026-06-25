@@ -13,48 +13,48 @@ const nav = (p) => window.navTo?.(p)
 // 地图热点 = 万仟出海战略的四级目标市场(T1 东南亚首选→T2 北美→T3 澳洲/欧洲)。
 // region = 下钻分组键;东南亚为核心市场,标 hot。
 const mapHotspots = [
-  { x: 778, y: 398, label: '东南亚 · 512K', hot: true, region: '东南亚' },  // T1 首选(3300万华侨)
-  { x: 250, y: 246, label: '北美 · 188K',   region: '北美' },                // T2 重点
-  { x: 852, y: 470, label: '澳洲 · 77K',    region: '澳洲' },                // T3 布局
-  { x: 516, y: 182, label: '欧洲 · 96K',    region: '欧洲' },                // T3 布局
+  { x: 778, y: 398, label: 'SE Asia · 512K', hot: true, region: '东南亚' },  // T1 首选(3300万华侨)
+  { x: 250, y: 246, label: 'N. America · 188K', region: '北美' },             // T2 重点
+  { x: 852, y: 470, label: 'Oceania · 77K',  region: '澳洲' },                // T3 布局
+  { x: 516, y: 182, label: 'Europe · 96K',   region: '欧洲' },                // T3 布局
 ]
 const kpis = [
-  { label: '全球商机总数', value: '2,847,392', delta: '+3.2% 较昨日',  hot: false, page: 'intel',     spark: [12,14,13,16,18,17,21,24] },
-  { label: '今日新增需求', value: '98,241',    delta: '+12.7% 较昨日', hot: true,  page: 'intel',     spark: [8,9,11,10,13,15,19,23] },
-  { label: '已建联采购商', value: '1,284',     delta: '+5.1% 本月',    hot: false, page: 'whatsapp',  spark: [20,21,22,24,25,27,29,31] },
-  { label: 'EDM 触达人数', value: '3,847',     delta: '+8.9% 本月',    hot: false, page: 'marketing', spark: [14,15,17,16,19,22,24,28] },
+  { label: 'Global demand',    value: '2,847,392', delta: '+3.2% vs yesterday',  hot: false, page: 'intel',     spark: [12,14,13,16,18,17,21,24] },
+  { label: 'New today',        value: '98,241',    delta: '+12.7% vs yesterday', hot: true,  page: 'intel',     spark: [8,9,11,10,13,15,19,23] },
+  { label: 'Buyers contacted', value: '1,284',     delta: '+5.1% this month',    hot: false, page: 'whatsapp',  spark: [20,21,22,24,25,27,29,31] },
+  { label: 'EDM reach',        value: '3,847',     delta: '+8.9% this month',    hot: false, page: 'marketing', spark: [14,15,17,16,19,22,24,28] },
 ]
 function sparkPath (d) {
   const w = 72, h = 18, max = Math.max(...d), min = Math.min(...d), rng = (max - min) || 1
   return d.map((v, i) => `${i ? 'L' : 'M'}${(i / (d.length - 1) * w).toFixed(1)},${(h - (v - min) / rng * h).toFixed(1)}`).join(' ')
 }
-// AI 工作流实时 feed(承接旧「AI 今日工作报告」的意义)
+// AI workflow live feed
 const feed = [
-  { tone: 'acc',  html: 'AI 搜索引擎新推送 <b>23 条</b>东南亚超市采购线索', at: '刚刚',   page: 'intel',     action: '查看线索' },
-  { tone: 'up',   html: '<b>Fairprice Group</b> 回复了产品目录请求，建议跟进', at: '2分钟',  page: 'whatsapp',  action: '去跟进' },
-  { tone: 'hot',  html: 'AI 已自动生成 <b>7 封</b>个性化邮件，待审批',        at: '8分钟',  page: 'marketing', action: '去审批' },
-  { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel',     action: '看报告' },
-  { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads',     action: '查看客户' },
+  { tone: 'acc',  html: 'AI search engine pushed <b>23</b> new SE Asia supermarket leads', at: 'now',   page: 'intel',     action: 'View leads' },
+  { tone: 'up',   html: '<b>Fairprice Group</b> replied to your catalog request — follow up', at: '2m',  page: 'whatsapp',  action: 'Follow up' },
+  { tone: 'hot',  html: 'AI drafted <b>7</b> personalized emails — awaiting approval',        at: '8m',  page: 'marketing', action: 'Approve' },
+  { tone: 'iris', html: 'Intel center updated the <b>Germany</b> quarterly purchasing report', at: '14m', page: 'intel',     action: 'View report' },
+  { tone: 'acc',  html: 'ICP Agent found <b>5</b> high-match new target accounts',            at: '27m', page: 'leads',     action: 'View accounts' },
 ]
 // 今日待办(卖方「该做什么」= 明确下一步;真实条目,urgent 优先,点击直达对应屏)
 const todos = [
-  { urgent: true,  text: 'Klaus Weber 等待报价回复', at: '已等待 2 小时', page: 'whatsapp' },
-  { urgent: false, text: '7 封邮件待审批发送',       at: '营销队列',     page: 'marketing' },
-  { urgent: false, text: 'T&T Supermarket 3 天无沟通', at: '建议今日跟进', page: 'pool' },
-  { urgent: false, text: 'Asian Grocery Pty 逾期跟进', at: '已 5 天',      page: 'whatsapp' },
+  { urgent: true,  text: 'Klaus Weber is waiting on your quote', at: 'waiting 2h',     page: 'whatsapp' },
+  { urgent: false, text: '7 emails awaiting approval',           at: 'Marketing queue', page: 'marketing' },
+  { urgent: false, text: 'T&T Supermarket — 3 days silent',      at: 'follow up today', page: 'pool' },
+  { urgent: false, text: 'Asian Grocery Pty — follow-up overdue', at: '5 days',         page: 'whatsapp' },
 ]
 // 实时买家信号(右侧常驻整列)= 万仟报告点名的真实华人超市渠道(Fairprice/NTUC·Cold
 // Storage·Jaya Grocer 东南亚 / 99 Ranch·T&T 北美 / Asian Grocery 澳),需求为粽子/月饼/节庆礼盒。
 // region 对应地图热点;flag/country/need 喂给建联对话上下文。东南亚为核心,占比最大。
 const buyers = [
-  { cc: 'SG', co: 'Fairprice Group',     mt: 96, sub: '新加坡 · 2分钟前',  val: '$188,400', region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '中秋精品月饼礼盒' },
-  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 93, sub: '马来西亚 · 14分钟前', val: '$142,000', region: '东南亚', country: '马来西亚', flag: '🇲🇾', need: '精品月饼批发' },
-  { cc: 'SG', co: 'Cold Storage',        mt: 88, sub: '新加坡 · 38分钟前',  val: '$96,500',  region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '高端节庆礼盒' },
-  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: '泰国 · 1小时前',    val: '$77,800',  mid: true, region: '东南亚', country: '泰国', flag: '🇹🇭', need: '节庆礼品盒' },
-  { cc: 'CA', co: 'T&T Supermarket',     mt: 91, sub: '加拿大 · 2小时前',  val: '$204,000', region: '北美',   country: '加拿大',   flag: '🇨🇦', need: '月饼礼盒年度采购' },
-  { cc: 'US', co: '99 Ranch Market',     mt: 89, sub: '美国 · 2小时前',    val: '$331,500', region: '北美',   country: '美国',     flag: '🇺🇸', need: '中式糕点年度采购' },
-  { cc: 'AU', co: 'Asian Grocery Pty',   mt: 84, sub: '澳大利亚 · 4小时前', val: '$120,400', mid: true, region: '澳洲', country: '澳大利亚', flag: '🇦🇺', need: '高端粽子礼盒' },
-  { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: '英国 · 5小时前',    val: '£96,200',  mid: true, region: '欧洲', country: '英国', flag: '🇬🇧', need: '亚洲节庆食品年度进口' },
+  { cc: 'SG', co: 'Fairprice Group',     mt: 96, sub: 'Singapore · 2m ago',  val: '$188,400', region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '中秋精品月饼礼盒' },
+  { cc: 'MY', co: 'Jaya Grocer Bhd',     mt: 93, sub: 'Malaysia · 14m ago',  val: '$142,000', region: '东南亚', country: '马来西亚', flag: '🇲🇾', need: '精品月饼批发' },
+  { cc: 'SG', co: 'Cold Storage',        mt: 88, sub: 'Singapore · 38m ago', val: '$96,500',  region: '东南亚', country: '新加坡',   flag: '🇸🇬', need: '高端节庆礼盒' },
+  { cc: 'TH', co: 'Central Food Hall',   mt: 82, sub: 'Thailand · 1h ago',   val: '$77,800',  mid: true, region: '东南亚', country: '泰国', flag: '🇹🇭', need: '节庆礼品盒' },
+  { cc: 'CA', co: 'T&T Supermarket',     mt: 91, sub: 'Canada · 2h ago',     val: '$204,000', region: '北美',   country: '加拿大',   flag: '🇨🇦', need: '月饼礼盒年度采购' },
+  { cc: 'US', co: '99 Ranch Market',     mt: 89, sub: 'USA · 2h ago',        val: '$331,500', region: '北美',   country: '美国',     flag: '🇺🇸', need: '中式糕点年度采购' },
+  { cc: 'AU', co: 'Asian Grocery Pty',   mt: 84, sub: 'Australia · 4h ago',  val: '$120,400', mid: true, region: '澳洲', country: '澳大利亚', flag: '🇦🇺', need: '高端粽子礼盒' },
+  { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: 'UK · 5h ago',         val: '£96,200',  mid: true, region: '欧洲', country: '英国', flag: '🇬🇧', need: '亚洲节庆食品年度进口' },
 ]
 
 // 每区实时买家信号数 → 驱动地图热点的脉冲节奏(信号越多,ping 越快;非装饰性恒定脉冲)
@@ -64,6 +64,8 @@ const liveHotspots = mapHotspots.map((h, i) => {
   return { ...h, count: n, dur: Math.max(1.5, 3.4 - n * 0.45).toFixed(2), delay: (i * 0.35).toFixed(2) }
 })
 
+// region 内部键保持中文(与买家数据匹配);展示用英文 label 映射
+const regionLabel = { '东南亚': 'SE Asia', '北美': 'N. America', '澳洲': 'Oceania', '欧洲': 'Europe' }
 const activeRegion = ref(null)
 const onHotspot = (h) => { activeRegion.value = activeRegion.value === h.region ? null : h.region }
 const shownBuyers = computed(() => activeRegion.value ? buyers.filter(b => b.region === activeRegion.value) : buyers)
@@ -101,11 +103,11 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 <template>
   <div class="page on dash-cc" id="page-dashboard">
     <div class="cc-bar">
-      <div class="cc-greet">早上好，<em>Liu Wei</em></div>
-      <div class="cc-sub">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 <span class="cc-link" @click="nav('intel')">12 条高匹配商机 →</span></div>
+      <div class="cc-greet">Good morning, <em>Liu Wei</em></div>
+      <div class="cc-sub">Today is Jun 14, 2026 · 98,241 new purchasing signals · <span class="cc-link" @click="nav('intel')">12 high-match leads picked for you →</span></div>
     </div>
-    <div class="cc-todos" role="list" aria-label="今日待办">
-      <span class="cc-todos-lbl">今日待办</span>
+    <div class="cc-todos" role="list" aria-label="Today's tasks">
+      <span class="cc-todos-lbl">Today</span>
       <button class="todo-chip" :class="{ urgent: t.urgent }" v-for="(t, i) in todos" :key="i" @click="nav(t.page)" role="listitem">
         <span class="td-dot"></span><span class="td-text">{{ t.text }}</span><span class="td-at">{{ t.at }}</span>
       </button>
@@ -115,24 +117,24 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
       <!-- MAP (hero, always on) -->
       <section class="pane map-pane">
         <div class="pane-h">
-          <span class="t">全球商机热力图</span>
+          <span class="t">Global demand heatmap</span>
           <span class="live"><i></i>LIVE</span>
           <span class="sp"></span>
           <div class="seg">
-            <b class="on" onclick="setPf(this)">全部</b>
-            <b onclick="setPf(this)">食品</b>
-            <b onclick="setPf(this)">东南亚</b>
-            <b onclick="setPf(this)">北美</b>
+            <b class="on" onclick="setPf(this)">All</b>
+            <b onclick="setPf(this)">Food</b>
+            <b onclick="setPf(this)">SE Asia</b>
+            <b onclick="setPf(this)">N. America</b>
           </div>
         </div>
         <div class="pane-b">
           <div class="cc-map"><WorldHeatmap :hotspots="liveHotspots" :active="activeRegion" @hotspot="onHotspot" /></div>
           <div class="map-stat">
-            <div>2,847,392<span>全球商机</span></div>
-            <div>98,241<span>今日新增</span></div>
-            <div>4<span>目标市场</span></div>
+            <div>2,847,392<span>Global demand</span></div>
+            <div>98,241<span>New today</span></div>
+            <div>4<span>Markets</span></div>
           </div>
-          <div class="map-hint" v-if="!activeRegion">点击地图热点,下钻该区域实时买家</div>
+          <div class="map-hint" v-if="!activeRegion">Click a hotspot to drill into that region's live buyers</div>
         </div>
       </section>
 
@@ -154,7 +156,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 
       <!-- AI 工作流 feed -->
       <section class="pane tasks-pane">
-        <div class="pane-h"><span class="t">AI 工作流</span><span class="sp"></span><span class="live"><i></i>运行中</span></div>
+        <div class="pane-h"><span class="t">AI workflow</span><span class="sp"></span><span class="live"><i></i>Running</span></div>
         <div class="pane-b">
           <div class="feed">
             <div class="frow" v-for="(f, i) in feed" :key="i" @click="nav(f.page)"
@@ -170,11 +172,11 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
       <!-- BUYERS (live, full height) -->
       <section class="pane buyers-pane">
         <div class="pane-h">
-          <span class="t">实时买家信号</span>
-          <span class="live"><i></i>{{ activeRegion ? activeRegion : '4 市场' }}</span>
+          <span class="t">Live buyer signals</span>
+          <span class="live"><i></i>{{ activeRegion ? regionLabel[activeRegion] : '4 markets' }}</span>
           <span class="sp"></span>
-          <button v-if="activeRegion" class="region-clear" @click="activeRegion = null">{{ shownBuyers.length }} 个 · 全部 ✕</button>
-          <div v-else class="seg"><b class="on">匹配度</b><b>时间</b></div>
+          <button v-if="activeRegion" class="region-clear" @click="activeRegion = null">{{ shownBuyers.length }} shown · All ✕</button>
+          <div v-else class="seg"><b class="on">Match</b><b>Time</b></div>
         </div>
         <div class="pane-b">
           <div class="brow" v-for="(b, i) in shownBuyers" :key="b.co" @click="connect(b)"

@@ -29,7 +29,7 @@ try {
   await page.screenshot({ path: join(REVIEW,'h3-t0.png') })
 
   // STEP 1: click the 东南亚 hotspot (region drill-down)
-  const spot = page.locator('.wh-spot[role="button"]').filter({ hasText: '东南亚' })
+  const spot = page.locator('.wh-spot[role="button"]').filter({ hasText: 'SE Asia' })
   const spotCount = await spot.count()
   out.steps.push(['东南亚 hotspot present', spotCount > 0, `count=${spotCount}`])
   await spot.first().click({ force:true })
