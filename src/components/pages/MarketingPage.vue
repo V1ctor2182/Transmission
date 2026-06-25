@@ -9,13 +9,13 @@
         <div class="mkt-layout">
           <div class="mkt-list-col">
             <div class="mkt-list-head">
-              <div class="mkt-list-title">营销队列</div>
-              <div class="mkt-pending-badge" id="mkt-pending-badge">7 待审批</div>
+              <div class="mkt-list-title">Marketing queue</div>
+              <div class="mkt-pending-badge" id="mkt-pending-badge">7 pending</div>
             </div>
             <div id="mkt-list"></div>
           </div>
           <div class="mkt-review-col" id="mkt-review-col">
-            <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--t-muted);font-size:13px">← 选择左侧邮件开始审批</div>
+            <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--t-muted);font-size:13px">← Select an email on the left to start</div>
           </div>
         </div>
       </div>

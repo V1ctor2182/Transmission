@@ -86,74 +86,74 @@ const INTEL_DATA = {
 };
 
 const MKT_ITEMS = [
-  {id:0,flag:'🇸🇬',name:'Klaus Weber',company:'Weber Import GmbH',product:'月饼礼盒 · 欧洲市场',score:88,status:'pending'},
-  {id:1,flag:'🇲🇾',name:'Rajesh Kumar',company:'Kumar Foods Pte',product:'椰子酥礼盒 · 新加坡',score:93,status:'pending'},
-  {id:2,flag:'🇺🇸',name:'Sarah Chen',company:'Chen Family Imports',product:'节庆礼盒 · 北美华人',score:89,status:'pending'},
-  {id:3,flag:'🇦🇺',name:'James Wong',company:'Asian Grocery Pty',product:'精品月饼 · 澳洲',score:84,status:'pending'},
-  {id:4,flag:'🇹🇭',name:'Somchai Patel',company:'Central Food Hall',product:'椰子酥 · 泰国',score:87,status:'pending'},
-  {id:5,flag:'🇨🇦',name:'Emily Zhang',company:'T&T Supermarket',product:'节庆礼盒 · 加拿大',score:91,status:'approved'},
-  {id:6,flag:'🇮🇩',name:'Budi Santoso',company:'Transmart Carrefour',product:'中式糕点 · 印尼',score:82,status:'pending'},
+  {id:0,flag:'🇸🇬',name:'Klaus Weber',company:'Weber Import GmbH',product:'Mooncake gift boxes · Europe',score:88,status:'pending'},
+  {id:1,flag:'🇲🇾',name:'Rajesh Kumar',company:'Kumar Foods Pte',product:'Coconut pastry boxes · Singapore',score:93,status:'pending'},
+  {id:2,flag:'🇺🇸',name:'Sarah Chen',company:'Chen Family Imports',product:'Festive gift boxes · N. America',score:89,status:'pending'},
+  {id:3,flag:'🇦🇺',name:'James Wong',company:'Asian Grocery Pty',product:'Premium mooncakes · Oceania',score:84,status:'pending'},
+  {id:4,flag:'🇹🇭',name:'Somchai Patel',company:'Central Food Hall',product:'Coconut pastry · Thailand',score:87,status:'pending'},
+  {id:5,flag:'🇨🇦',name:'Emily Zhang',company:'T&T Supermarket',product:'Festive gift boxes · Canada',score:91,status:'approved'},
+  {id:6,flag:'🇮🇩',name:'Budi Santoso',company:'Transmart Carrefour',product:'Chinese pastry · Indonesia',score:82,status:'pending'},
 ];
 
 const EMAIL_VARIANTS = {
   0: [
-    {hook:'文化切入',subject:'正宗漳浦风味，让德国华人重温家乡节庆',conf:92,body:`尊敬的 Klaus Weber 先生，
+    {hook:'Cultural angle',subject:'Authentic Zhangpu flavor — festive nostalgia for Germany\'s Chinese community',conf:92,body:`Dear Mr. Klaus Weber,
 
-您好！我是来自万仟糕饼的 Liu Wei。
+Hello! This is Liu Wei from Wanqian Foods.
 
-我注意到贵公司 Weber Import GmbH 在德国华人食品市场深耕多年，对节庆礼盒有稳定的采购需求。
+I noticed that Weber Import GmbH has years of experience in Germany's Chinese-food market, with steady demand for festive gift boxes.
 
-万仟糕饼创立于 1991 年，扎根漳浦 35 年，是正宗漳浦风味糕饼的代表品牌。我们的高端节庆礼盒系列——尤其是椰子酥礼盒和精品月饼——已在东南亚华人市场获得广泛认可。
+Founded in 1991 and rooted in Zhangpu for 35 years, Wanqian is a flagship brand for authentic Zhangpu-style pastry. Our premium festive gift-box range — especially the coconut pastry boxes and fine mooncakes — is widely recognized across Southeast Asia's Chinese market.
 
-针对欧洲市场，我们提供：
-• 符合 EC 852/2004 欧盟食品安全标准
-• 德语/英语双语包装定制
-• 最小起订量 500 盒，支持混合订购
+For the European market, we offer:
+• Compliance with EC 852/2004 EU food-safety standards
+• Bilingual German/English custom packaging
+• Minimum order of 500 boxes, mixed orders supported
 
-期待与您探讨合作可能性。
+I'd love to explore a possible partnership with you.
 
-Liu Wei | 万仟糕饼 国际业务部`},
-    {hook:'数据驱动',subject:'德国华人节庆食品市场：$2.3M 采购机会分析',conf:87,body:`Klaus Weber 先生，
+Liu Wei | Wanqian Foods · International Business`},
+    {hook:'Data-driven',subject:'Germany\'s Chinese festive-food market: a $2.3M sourcing opportunity',conf:87,body:`Mr. Klaus Weber,
 
-您好！
+Hello!
 
-根据我们的市场数据，德国华人社区（约 21 万人）每年在节庆食品上的消费约达 $2.3M，其中正宗中式糕点占比持续上升。
+Per our market data, Germany's Chinese community (~210,000 people) spends about $2.3M a year on festive foods, with authentic Chinese pastry taking a steadily rising share.
 
-万仟糕饼作为漳浦地区最大的节庆糕饼生产商（年产能 15,000 吨），可为贵公司提供稳定、高品质的供应保障。
+As the largest festive-pastry producer in the Zhangpu region (15,000 tonnes annual capacity), Wanqian can give your company a stable, high-quality supply.
 
-我们的合作客户包括新加坡 Fairprice、马来西亚 Jaya Grocer 等知名连锁，均对产品质量给予高度评价。
+Our partners include well-known chains such as Fairprice in Singapore and Jaya Grocer in Malaysia, all of whom rate our quality highly.
 
-是否方便本周安排 15 分钟视频通话？
+Could we schedule a 15-minute video call this week?
 
 Liu Wei`},
-    {hook:'节庆时机',subject:'中秋节前 90 天：把握欧洲华人礼盒采购窗口',conf:85,body:`Klaus Weber 先生，
+    {hook:'Festive timing',subject:'90 days to Mid-Autumn: catch the European Chinese gift-box window',conf:85,body:`Mr. Klaus Weber,
 
-距离中秋节还有 90 天，这是欧洲华人节庆食品采购的黄金窗口期。
+Mid-Autumn is 90 days away — the prime window for European Chinese festive-food sourcing.
 
-去年同期，我们为欧洲客户完成了超过 50,000 盒节庆礼盒的出口，今年产能已提前规划，但优质档期有限。
+This time last year we exported over 50,000 festive gift boxes for European clients. Capacity is planned ahead this year, but premium slots are limited.
 
-万仟精品月饼礼盒（4 款口味，含传统莲蓉、低糖系列）和椰子酥礼盒（漳浦特色，独家配方）是欧洲华人社区最受欢迎的两款产品。
+Wanqian's fine mooncake boxes (4 flavors, incl. classic lotus-seed and a low-sugar line) and coconut pastry boxes (a Zhangpu specialty, exclusive recipe) are the two most popular products in Europe's Chinese community.
 
-如有意向，建议本周确认意向数量，以便我们为您预留产能。
+If you're interested, I'd suggest confirming an indicative quantity this week so we can reserve capacity for you.
 
-期待您的回复！
+Looking forward to your reply!
 
-Liu Wei | 万仟糕饼`},
+Liu Wei | Wanqian Foods`},
   ]
 };
 
 const INTEL_CENTER_CARDS = [
-  {id:0,icon:'🇸🇬',bg:'rgba(31,143,214,.08)',title:'新加坡节庆礼盒需求',sub:'Fairprice Group · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'5,000-8,000 盒'},{label:'目标产品',val:'月饼礼盒、椰子酥'},{label:'预算范围',val:'SGD 15-25/盒'},{label:'交货时间',val:'中秋节前 45 天'}],locked:false},
-  {id:1,icon:'🇲🇾',bg:'rgba(31,143,214,.06)',title:'马来西亚月饼批发商',sub:'Jaya Grocer · 今日更新',badge:'new',badgeText:'新增',rows:[{label:'采购需求量',val:'3,000-5,000 盒'},{label:'目标产品',val:'精品月饼礼盒'},{label:'预算范围',val:'MYR 45-80/盒'},{label:'交货时间',val:'端午节前 60 天'}],locked:false},
-  {id:2,icon:'🇺🇸',bg:'rgba(23,166,115,.06)',title:'北美华人超市联采',sub:'99 Ranch Market · 昨日更新',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
-  {id:3,icon:'🇦🇺',bg:'rgba(30,95,200,.06)',title:'澳洲华人社区采购',sub:'Asian Grocery Pty · 2天前',badge:'locked',badgeText:'深度情报',rows:[{label:'采购需求量',val:'██████ 盒'},{label:'年度合同金额',val:'$██████'},{label:'决策负责人',val:'██████'},{label:'联系方式',val:'██████'}],locked:true},
+  {id:0,icon:'🇸🇬',bg:'rgba(31,143,214,.08)',title:'Singapore festive gift-box demand',sub:'Fairprice Group · updated today',badge:'new',badgeText:'New',rows:[{label:'Demand volume',val:'5,000-8,000 boxes'},{label:'Target products',val:'Mooncake & coconut pastry'},{label:'Budget',val:'SGD 15-25/box'},{label:'Delivery',val:'45 days before Mid-Autumn'}],locked:false},
+  {id:1,icon:'🇲🇾',bg:'rgba(31,143,214,.06)',title:'Malaysia mooncake wholesaler',sub:'Jaya Grocer · updated today',badge:'new',badgeText:'New',rows:[{label:'Demand volume',val:'3,000-5,000 boxes'},{label:'Target products',val:'Premium mooncake boxes'},{label:'Budget',val:'MYR 45-80/box'},{label:'Delivery',val:'60 days before Dragon Boat'}],locked:false},
+  {id:2,icon:'🇺🇸',bg:'rgba(23,166,115,.06)',title:'N. America Chinese-supermarket buy',sub:'99 Ranch Market · updated yesterday',badge:'locked',badgeText:'Deep intel',rows:[{label:'Demand volume',val:'██████ boxes'},{label:'Annual contract',val:'$██████'},{label:'Decision maker',val:'██████'},{label:'Contact',val:'██████'}],locked:true},
+  {id:3,icon:'🇦🇺',bg:'rgba(30,95,200,.06)',title:'Oceania Chinese-community buy',sub:'Asian Grocery Pty · 2 days ago',badge:'locked',badgeText:'Deep intel',rows:[{label:'Demand volume',val:'██████ boxes'},{label:'Annual contract',val:'$██████'},{label:'Decision maker',val:'██████'},{label:'Contact',val:'██████'}],locked:true},
 ];
 
 const AI_MSGS = [
-  '今日提醒：<strong>Klaus Weber</strong> 昨日查看了您的产品手册，建议今日发送报价单跟进，成单概率较高。',
-  '商机提醒：新加坡 <strong>Fairprice Group</strong> 刚发布节庆礼盒采购需求，匹配度 <strong style="color:#17a673">96分</strong>，建议优先建联。',
-  '队列提醒：营销队列中有 <strong>7 封邮件</strong>待您审批，其中 3 封为高优先级，建议今日处理。',
-  '跟进提醒：<strong>Carlos Silva</strong> 上次联系已超过 7 天，建议今日发送跟进消息，避免商机流失。',
+  'Today: <strong>Klaus Weber</strong> viewed your brochure yesterday — send a quote follow-up today for a strong close.',
+  "Signal: Singapore's <strong>Fairprice Group</strong> just posted a festive-gift-box demand — match <strong style=\"color:#17a673\">96</strong>. Connect first.",
+  'Queue: <strong>7 emails</strong> await your approval, 3 high-priority — clear them today.',
+  "Follow-up: it's been over 7 days since <strong>Carlos Silva</strong> — message today before the deal cools.",
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -1963,10 +1963,10 @@ function renderMktList() {
       <div class="mkt-item-top">
         ${ccBadge(m.flag)}
         <div class="mkt-item-name">${m.name}</div>
-        <div class="mkt-item-score">${m.score}分</div>
+        <div class="mkt-item-score">${m.score}</div>
       </div>
       <div class="mkt-item-product">${m.product}</div>
-      <div class="mkt-item-status ${m.status}">${m.status==='pending'?'待审批':'已批准'}</div>
+      <div class="mkt-item-status ${m.status}">${m.status==='pending'?'Pending':'Approved'}</div>
     </div>
   `).join('');
   selectMktItem(0);
@@ -1984,9 +1984,9 @@ function selectMktItem(id) {
   col.innerHTML = `
     <div class="mkt-review-head">
       <div class="mkt-review-name">${ccBadge(item.flag)}${item.name} · ${item.company}</div>
-      <div class="mkt-review-meta"><span>${item.product}</span><span>ICP 匹配 ${item.score}分</span></div>
+      <div class="mkt-review-meta"><span>${item.product}</span><span>ICP match ${item.score}</span></div>
     </div>
-    <div class="variants-label">AI 生成 3 种开场白变体，选择最佳版本审批发送</div>
+    <div class="variants-label">AI generated 3 opener variants — pick the best to approve and send</div>
     <div class="variants-row">
       ${variants.map((v,i) => `
         <div class="variant-card ${i===0?'on':''}" id="vc-${i}" onclick="selectVariant(${i})">
@@ -2002,12 +2002,12 @@ function selectMktItem(id) {
     <div class="email-preview" id="email-preview">
       <div class="email-subject" id="email-subject">${variants[0].subject}</div>
       <div class="email-body" id="email-body">${variants[0].body}</div>
-      <div class="approved-stamp" id="approved-stamp">已批准发送</div>
+      <div class="approved-stamp" id="approved-stamp">Approved · sent</div>
     </div>
     <div class="email-actions">
-      <div class="btn-approve" onclick="approveEmail(${id})">批准并发送</div>
-      <div class="btn-edit" onclick="toast('◆','编辑模式','邮件编辑功能开发中，敬请期待')">编辑</div>
-      <div class="btn-reject" onclick="rejectEmail(${id})">✕ 拒绝</div>
+      <div class="btn-approve" onclick="approveEmail(${id})">Approve and send</div>
+      <div class="btn-edit" onclick="toast('◆','Edit mode','Email editing is coming soon')">Edit</div>
+      <div class="btn-reject" onclick="rejectEmail(${id})">✕ Reject</div>
     </div>
   `;
 }
@@ -2025,14 +2025,14 @@ function approveEmail(id) {
   stamp.classList.add('show');
   MKT_ITEMS[id].status = 'approved';
   const statusEl = document.querySelector(`#mkt-i-${id} .mkt-item-status`);
-  if(statusEl) { statusEl.textContent = '已批准'; statusEl.className = 'mkt-item-status approved'; }
+  if(statusEl) { statusEl.textContent = 'Approved'; statusEl.className = 'mkt-item-status approved'; }
   pendingCount = Math.max(0, pendingCount-1);
-  document.getElementById('mkt-pending-badge').textContent = pendingCount + ' 待审批';
-  toast('◆','邮件已批准','正在加入发送队列，预计 5 分钟内发出');
+  document.getElementById('mkt-pending-badge').textContent = pendingCount + ' pending';
+  toast('◆','Email approved','Adding to the send queue — out within 5 minutes');
 }
 
 function rejectEmail(id) {
-  toast('◆','已拒绝该邮件','AI 将重新生成新的邮件变体');
+  toast('◆','Email rejected','AI will generate new variants');
   setTimeout(() => selectMktItem(id), 500);
 }
 
@@ -2040,11 +2040,11 @@ function rejectEmail(id) {
 // AI DAILY REPORT (Dashboard right panel)
 // ═══════════════════════════════════════════════════════
 const AI_DAILY_ITEMS = [
-  {icon:'🔍', color:'#1e5fd0', label:'全球线索搜索', value:'147 条新线索', detail:'来自搜索引擎、海关数据、LinkedIn', page:'leads'},
-  {icon:'📣', color:'#17a673', label:'AI 营销发送', value:'23 封邮件', detail:'已送达 23 家潜在买家，平均打开率 61%', page:'marketing'},
-  {icon:'🤝', color:'#1f8fd6', label:'新增建联客户', value:'8 家', detail:'Fairprice、Jaya Grocer 等已回复', page:'pool'},
-  {icon:'💬', color:'#c8860a', label:'WhatsApp 新消息', value:'5 条', detail:'Klaus Weber 回复了报价，T&T 询问交期', page:'whatsapp'},
-  {icon:'🌐', color:'#2f9fe0', label:'情报中心更新', value:'98,241 条需求', detail:'全球采购需求实时同步', page:'intel'},
+  {icon:'🔍', color:'#1e5fd0', label:'Global lead search', value:'147 new leads', detail:'From search engines, customs data, LinkedIn', page:'leads'},
+  {icon:'📣', color:'#17a673', label:'AI marketing sent', value:'23 emails', detail:'Delivered to 23 buyers · avg open rate 61%', page:'marketing'},
+  {icon:'🤝', color:'#1f8fd6', label:'New connected buyers', value:'8', detail:'Fairprice, Jaya Grocer and others replied', page:'pool'},
+  {icon:'💬', color:'#c8860a', label:'New WhatsApp messages', value:'5', detail:'Klaus Weber replied on pricing, T&T asked about lead time', page:'whatsapp'},
+  {icon:'🌐', color:'#2f9fe0', label:'Intel center update', value:'98,241 demands', detail:'Global purchasing demand synced live', page:'intel'},
 ];
 
 function renderAiDailyReport() {
@@ -2181,12 +2181,12 @@ function renderIntelCenter() {
           <div class="intel-lock-overlay" onclick="showModal('modal-unlock')">
             <div class="intel-lock-icon">🔒</div>
             <div class="intel-lock-text">Unlock deep intel</div>
-            <div class="intel-lock-price">¥29 / ¥99月度无限</div>
+            <div class="intel-lock-price">¥29 / ¥99 monthly</div>
           </div>
         </div>
       ` : `
         ${c.rows.map(r => `<div class="intel-data-row"><div class="intel-data-label">${r.label}</div><div class="intel-data-val">${r.val}</div></div>`).join('')}
-        <button style="width:100%;margin-top:12px;background:rgba(31,143,214,.1);border:1px solid rgba(31,143,214,.2);border-radius:8px;padding:8px;font-size:12px;font-weight:700;color:var(--brand2);cursor:pointer;" onclick="toast('◆','建联成功','AI 正在为该采购商生成个性化开场白…')">立即建联</button>
+        <button style="width:100%;margin-top:12px;background:rgba(31,143,214,.1);border:1px solid rgba(31,143,214,.2);border-radius:8px;padding:8px;font-size:12px;font-weight:700;color:var(--brand2);cursor:pointer;" onclick="toast('◆','Connected','AI is drafting a personalized opener for this buyer…')">Connect now</button>
       `}
     </div>
   `).join('');
