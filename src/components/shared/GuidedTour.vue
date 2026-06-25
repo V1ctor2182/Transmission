@@ -9,19 +9,19 @@ import { ref, nextTick, onMounted } from 'vue'
 
 // 每步:page(先 navTo 哪屏)· sel(高亮目标)· title/desc(真实功能解释)· pos(卡片相对目标的方位)
 const steps = [
-  { page:'dashboard', sel:'.sidebar',                  pos:'right',  title:'导航 · 你的拓客流水线', desc:'左侧在 工作台 / 找客户 / 情报中心 / WhatsApp / 营销 / 客户池 之间切换 —— 一条完整的出海拓客流程从左到右。' },
-  { page:'dashboard', sel:'#page-dashboard .cc-todos', pos:'bottom', title:'今日待办 · 先看这', desc:'每天进来第一眼看这行:最紧急的跟进、待审批、待解锁,红点是逾期。点任意一条直达对应屏。' },
-  { page:'dashboard', sel:'#page-dashboard .map-pane', pos:'right',  title:'全球商机热力图', desc:'实时把各国采购需求画成热力图,点亮的是你的目标市场。点地图上的热点,可下钻该区域的实时买家。' },
-  { page:'dashboard', sel:'#page-dashboard .kpis',     pos:'top',    title:'核心指标', desc:'全球商机总数、今日新增需求、已建联采购商、触达人数 —— 一眼看清全局态势与增长。' },
-  { page:'dashboard', sel:'#page-dashboard .brow',     pos:'left',   title:'实时买家信号 · 一键建联', desc:'右侧是实时进来的买家。点每行的「建联」,就把这个买家物化成 WhatsApp 联系人并自动生成开场白 —— 直接开聊。' },
-  { page:'dashboard', sel:'#page-dashboard .tasks-pane',pos:'left',  title:'AI 工作流', desc:'AI 在后台自动做的事:搜线索、回消息、生成邮件。每条都带行动按钮,点了直达去处理。' },
+  { page:'dashboard', sel:'.sidebar',                  pos:'right',  title:'Navigation · your outreach pipeline', desc:'Switch between Workspace / Find buyers / Intel / WhatsApp / Marketing / Customer pool — one full export-outreach flow, left to right.' },
+  { page:'dashboard', sel:'#page-dashboard .cc-todos', pos:'bottom', title:'Today\'s tasks · start here', desc:'Your first glance each day: the most urgent follow-ups, approvals and unlocks — a red dot means overdue. Click any row to jump to its screen.' },
+  { page:'dashboard', sel:'#page-dashboard .map-pane', pos:'right',  title:'Global demand heatmap', desc:'Live purchasing demand mapped by country — the lit hotspots are your target markets. Click a hotspot to drill into that region\'s live buyers.' },
+  { page:'dashboard', sel:'#page-dashboard .kpis',     pos:'top',    title:'Core metrics', desc:'Total global demand, new today, buyers contacted, people reached — your whole position and growth at a glance.' },
+  { page:'dashboard', sel:'#page-dashboard .brow',     pos:'left',   title:'Live buyer signals · connect in one click', desc:'Buyers arrive in real time on the right. Hit Connect on any row to turn that buyer into a WhatsApp contact with an auto-drafted opener — start chatting right away.' },
+  { page:'dashboard', sel:'#page-dashboard .tasks-pane',pos:'left',  title:'AI workflow', desc:'What AI runs in the background: finding leads, replying, drafting emails. Each item has an action button that takes you straight there.' },
   // —— 逐屏走完整条流水线 ——
-  { page:'leads',     sel:'#page-leads .icp-ds-grid',     pos:'bottom', title:'找客户 · AI 自动获客', desc:'按你的 ICP,从 28 个全球数据源(Google / LinkedIn / 海关数据…)自动搜买家、补全联系方式。下达一次任务,它每天替你找。' },
-  { page:'intel',     sel:'#intel-table-body',            pos:'top',    title:'情报中心 · 全球采购需求', desc:'谁在买、买什么、匹配度、建联成功率一目了然。深度情报(直线电话 / 采购负责人邮箱 / 历史采购额)可一键解锁。' },
-  { page:'whatsapp',  sel:'#intel-scroll',                pos:'left',   title:'建联对话 · AI 话术助攻', desc:'把买家变成真实 WhatsApp 联系人。右侧自动汇总客户情报与最佳跟进时机,AI 话术建议帮你开口、报价、谈判。' },
-  { page:'marketing', sel:'#page-marketing .mkt-list-col',pos:'right',  title:'营销队列 · 批量个性化邮件', desc:'AI 为每个买家生成针对性邮件,你只需审批、批量发出 —— 不用一封封写。' },
-  { page:'pool',      sel:'#page-pool #pool-table',       pos:'top',    title:'客户池 · 跟进总览', desc:'所有客户的跟进状态一处总览:逾期跟进、无回复、已回复分类清楚 —— 进来就知道今天该催谁。' },
-  { page:'dashboard', sel:'.tb-help',                     pos:'bottom', title:'就这些 · 开始拓客', desc:'随时点右上角「?」重看引导。现在,去工作台看你的第一批买家,一键建联吧。' },
+  { page:'leads',     sel:'#page-leads .icp-ds-grid',     pos:'bottom', title:'Find buyers · AI lead-gen', desc:'By your ICP, AI searches buyers and fills in contacts across 28 global sources (Google / LinkedIn / customs data…). Set a task once and it hunts for you daily.' },
+  { page:'intel',     sel:'#intel-table-body',            pos:'top',    title:'Intel center · global demand', desc:'Who\'s buying, what, match score and connect rate at a glance. Deep intel (direct line / buyer email / past spend) unlocks in one click.' },
+  { page:'whatsapp',  sel:'#intel-scroll',                pos:'left',   title:'Outreach chat · AI script assist', desc:'Turn buyers into real WhatsApp contacts. The right panel sums up their intel and best follow-up timing; AI script tips help you open, quote and negotiate.' },
+  { page:'marketing', sel:'#page-marketing .mkt-list-col',pos:'right',  title:'Marketing queue · personalized at scale', desc:'AI drafts a tailored email per buyer — you just approve and send in bulk, no writing them one by one.' },
+  { page:'pool',      sel:'#page-pool #pool-table',       pos:'top',    title:'Customer pool · follow-up overview', desc:'Every client\'s follow-up status in one place — overdue, no reply, replied, all sorted — so you know who to chase today.' },
+  { page:'dashboard', sel:'.tb-help',                     pos:'bottom', title:'That\'s it · start reaching out', desc:'Click the "?" at the top-right anytime to replay this tour. Now head to Workspace, see your first buyers, and connect in one click.' },
 ]
 
 const active = ref(false)
@@ -72,30 +72,30 @@ onMounted(() => { window.startTour = start; window.__tourNudge = showNudge; wind
   <div v-if="active" class="tour" @click.self="next">
     <div class="tour-spot" :style="spot"></div>
     <div class="tour-card" :style="card">
-      <div class="tour-step">新手引导 · {{ i + 1 }} / {{ steps.length }}</div>
+      <div class="tour-step">Guided tour · {{ i + 1 }} / {{ steps.length }}</div>
       <div class="tour-title">{{ cur.title }}</div>
       <div class="tour-desc">{{ cur.desc }}</div>
       <div class="tour-foot">
-        <span class="tour-skip" @click="end">跳过</span>
+        <span class="tour-skip" @click="end">Skip</span>
         <span class="tour-sp"></span>
-        <button v-if="i > 0" class="tour-btn ghost" @click="prev">上一步</button>
-        <button class="tour-btn" @click="next">{{ i === steps.length - 1 ? '完成' : '下一步 →' }}</button>
+        <button v-if="i > 0" class="tour-btn ghost" @click="prev">Back</button>
+        <button class="tour-btn" @click="next">{{ i === steps.length - 1 ? 'Done' : 'Next →' }}</button>
       </div>
       <div class="tour-prog"><div class="tour-prog-fill" :style="{ width: ((i + 1) / steps.length * 100) + '%' }"></div></div>
-      <div class="tour-hint">← → 或点任意处继续 · Esc 退出</div>
+      <div class="tour-hint">← → or click anywhere · Esc to exit</div>
     </div>
   </div>
 
   <!-- 首访提示:底部居中,不挡任何可点元素;自带「开始引导」 -->
   <transition name="tn-pop">
     <div v-if="nudge" class="tour-nudge">
-      <div class="tour-step">新手引导</div>
-      <div class="tour-title">第一次来 TRANS·MISSION?</div>
-      <div class="tour-desc">花 30 秒,看懂这个平台怎么帮你找全球买家、一键建联。</div>
+      <div class="tour-step">Guided tour</div>
+      <div class="tour-title">First time at TRANS·MISSION?</div>
+      <div class="tour-desc">Take 30 seconds to see how it finds you global buyers and connects in one click.</div>
       <div class="tour-foot">
-        <span class="tour-skip" @click="dismissNudge">不用了</span>
+        <span class="tour-skip" @click="dismissNudge">No thanks</span>
         <span class="tour-sp"></span>
-        <button class="tour-btn" @click="start">开始引导 →</button>
+        <button class="tour-btn" @click="start">Start tour →</button>
       </div>
     </div>
   </transition>

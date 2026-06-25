@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 069 | 🟦 产品轴(main) | 引导 tour 全英文(12 步 title/desc + 卡片 Skip/Back/Next/Done/hint + 首访 nudge;跨全屏新用户第一触点) | ✅ build✓ tour-check 12/12✓ h1/h3✓ KEEP | [round-069](round-069-tour-en.md) |
 | 068 | 🟦 产品轴(main) | 情报中心 intel 全英文(表头/筛选/option/INTEL_TABLE_DATA country·region·need·cat/解锁链路/confirmUnlock toast;region·cat 值与筛选键同步) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-068](round-068-intel-en.md) |
 | 067 | 🟦 产品轴(main) | app shell 英文化(TopBar/QuotaBar/SidebarNav tooltip/页头 PAGE_NAMES/欢迎 toast,每屏可见) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-067](round-067-shell-en.md) |
 | 066 | 🟦 产品轴(main) | 工作台 dashboard 全文案英文化(问候/待办/地图/KPI/feed/买家;regionLabel 映射保下钻,h3 filter 更新) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-066](round-066-dashboard-en.md) |
