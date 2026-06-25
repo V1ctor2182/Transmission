@@ -236,70 +236,10 @@ function startScan() {
   const modal = document.getElementById('website-modal-overlay');
   if(modal) { modal.style.opacity='0'; setTimeout(()=>modal.style.display='none',400); }
 
-  // H1: 用新的「指挥台自我拼装」分析屏,替代旧的假扫描进度条 + 章节轮播
-  if (window.__showAnalysis) { window.__showAnalysis(domain); return; }
-
-  document.getElementById('rso-domain').textContent = domain;
-  const overlay = document.getElementById('reg-scan-overlay');
-  overlay.style.display = 'flex';
-  overlay.style.opacity = '0';
-  overlay.style.transition = 'opacity .5s ease';
-  requestAnimationFrame(() => { overlay.style.opacity = '1'; });
-
-  const steps = ['rso-s0','rso-s1','rso-s2','rso-s3'];
-  const statuses = [
-    '正在扫描官网与产品信息…',
-    '匹配全球 2,847,392 条采购需求…',
-    '分析东南亚、北美、澳洲市场竞争格局…',
-    '构建专属拓客模型，即将就绪…'
-  ];
-  const pcts = [0, 28, 62, 88];
-  const fill = document.getElementById('rso-progress-fill');
-  const pctEl = document.getElementById('rso-pct');
-  const statusEl = document.getElementById('rso-status');
-
-  let si = 0;
-  function nextStep() {
-    if (si >= steps.length) {
-      fill.style.width = '100%';
-      pctEl.textContent = '100%';
-      statusEl.textContent = '分析完成！正在生成专属工作台…';
-      setTimeout(() => {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-          overlay.style.display = 'none';
-          document.getElementById('s-register').classList.remove('active');
-          document.getElementById('s-onboard').classList.add('active');
-          runOnboarding();
-        }, 500);
-      }, 900);
-      return;
-    }
-    steps.forEach((id, i) => {
-      const el = document.getElementById(id);
-      el.classList.remove('active', 'done');
-      if (i < si) el.classList.add('done');
-      if (i === si) el.classList.add('active');
-    });
-    statusEl.textContent = statuses[si];
-    fill.style.transition = 'width .8s ease';
-    fill.style.width = pcts[si] + '%';
-    // animate pct
-    const target = si < steps.length - 1 ? pcts[si+1] : 100;
-    const start = pcts[si];
-    const dur = si === 0 ? 2200 : si === 1 ? 2800 : si === 2 ? 2500 : 1800;
-    let t0 = null;
-    function animPct(ts) {
-      if (!t0) t0 = ts;
-      const prog = Math.min((ts - t0) / dur, 1);
-      pctEl.textContent = Math.round(start + (target - start) * prog) + '%';
-      if (prog < 1) requestAnimationFrame(animPct);
-    }
-    requestAnimationFrame(animPct);
-    si++;
-    setTimeout(nextStep, dur);
-  }
-  nextStep();
+  // The redesigned self-assembling analysis screen (FirstRunAnalysis.vue) — registered
+  // on App mount as window.__showAnalysis. (Replaced the old fake-scan/chapter overlay;
+  // that dead path referenced #reg-scan-overlay/#s-onboard, both removed — see R076/R080.)
+  if (window.__showAnalysis) window.__showAnalysis(domain);
 }
 
 function goStep(n) {} // legacy stub
@@ -1832,6 +1772,7 @@ function toggleAutoUnlock(el) {
 // ═══════════════════════════════════════════════════════
 function renderWaContacts() {
   const list = document.getElementById('wa-contact-list');
+  if(!list) return;
   list.innerHTML = WA_CONTACTS.map((c,i) => `
     <div class="wa-contact ${i===0?'on':''}" id="wa-c-${c.id}" onclick="selectWaContact(${c.id})">
       <div class="wa-av">${c.av}</div>
@@ -1959,6 +1900,7 @@ function renderIntelPanel(id) {
 // ═══════════════════════════════════════════════════════
 function renderMktList() {
   const list = document.getElementById('mkt-list');
+  if(!list) return;
   list.innerHTML = MKT_ITEMS.map(m => `
     <div class="mkt-item ${m.id===0?'on':''}" id="mkt-i-${m.id}" onclick="selectMktItem(${m.id})">
       <div class="mkt-item-top">

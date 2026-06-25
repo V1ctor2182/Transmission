@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 080 | 🟦 Utility(main) | 消除 R079 footgun 类:切除 startScan 死尾(移除所有 live 引用已删 #s-onboard/#reg-scan-overlay/rso/runOnboarding)+ renderWaContacts/MktList 加空守;安全审计确认无遗留活 bug(net −58 行) | ✅ build✓ h1(visible✓)/h3/tour✓ 机检✓ KEEP | [round-080](round-080-startscan-hardened.md) |
 | 079 | 🔴 修回归(main) | 修 R076 严重回归:enterApp 引用已删 #s-onboard→TypeError 中止→工作台进不去(空守修复)+ h1 加可见性断言防复发 + #f59e0b 暖橙→品牌 amber 令牌归一 | ✅ build✓ h1(visible✓)/h3(rows=4)/tour✓ 机检✓ KEEP | [round-079](round-079-app-entry-regression.md) |
 | 078 | 🟦 产品轴(main) | ② 开头动画 FRA Signal-Room 再强化:地图雷达扫掠精修(亮前沿+余晖)+ KPI/买家「信号锁定」脉冲(绑真实事件,同登录 ping 语言);零 slop | ✅ build✓ h1/h3/tour✓ KEEP | [round-078](round-078-fra-signal.md) |
 | 077 | 🟦 产品轴(main) | ③ 登录 Signal-Room 动效再强化(更酷炫):信号扫掠弧绕轨道 + 节点 ping 脉冲(同地图热点语言)+ 细环提亮;零 glow/渐变 slop,reduce 全停 | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-077](round-077-login-signal.md) |
