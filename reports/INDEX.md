@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 083 | 🟦 Utility(main) | T11 收尾→**全部完成**:删 LoginScreen #reg-scan-overlay markup + login.css .rso 块 + onboarding.css(文件)+ index import + goStep/startAnalysis stub(−156,5 文件) | ✅ build✓ h1(visible)/h3/tour✓ 机检✓ KEEP | [round-083](round-083-t11-complete.md) |
 | 082 | 🟦 Utility(main) | T11 续:删死 renderAiReport/TodayTodo/AiDailyReport + AI_REPORT_ITEMS/TODAY_TODOS/AI_DAILY_ITEMS(面板 R066 已并入 Dashboard,guarded no-op)+ enterApp 调用;legacy −77 行,清最后死中文数据 | ✅ build✓ h1/h3/tour✓ 机检✓ KEEP | [round-082](round-082-dead-renderers-removed.md) |
 | 081 | 🟦 Utility(main) | T11 删整个死 onboarding+canvas 引擎(OB_CHAPTERS/OB_CONTENTS/runOnboarding/canvas drawMap 簇,自包含 0 live 调用,legacy −455 行含大块死中文) | ✅ build✓ h1/h3/tour✓ 机检 login+dash✓ KEEP | [round-081](round-081-onboarding-engine-removed.md) |
 | 080 | 🟦 Utility(main) | 消除 R079 footgun 类:切除 startScan 死尾(移除所有 live 引用已删 #s-onboard/#reg-scan-overlay/rso/runOnboarding)+ renderWaContacts/MktList 加空守;安全审计确认无遗留活 bug(net −58 行) | ✅ build✓ h1(visible✓)/h3/tour✓ 机检✓ KEEP | [round-080](round-080-startscan-hardened.md) |

@@ -3,7 +3,7 @@
   Removed: 3 decorative orbs, particle canvas, bottom vanity counters, "AI 驱动的拓客引擎" slogan.
   Now: asymmetric two-column (brand/value left, form right), honest copy, <script setup> + v-model.
   Kept for the legacy flow: id="s-register".active, class .login-btn, and the
-  #website-modal-overlay / #reg-scan-overlay markup (doLogin/startScan still drive them).
+  #website-modal-overlay markup (doLogin/startScan still drive them).
 -->
 <script setup>
 import { ref } from 'vue'
@@ -87,20 +87,6 @@ const startScan = () => window.startScan?.()
     </div>
   </div>
 
-  <!-- SCAN OVERLAY — ids preserved for the legacy flow -->
-  <div id="reg-scan-overlay">
-    <div class="rso-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-    <div class="rso-title">正在分析 <em id="rso-domain">wanqianfood.com</em></div>
-    <div class="rso-status" id="rso-status">正在连接全球商机数据库…</div>
-    <div class="rso-steps">
-      <div class="rso-step" id="rso-s0"><div class="rso-step-icon"></div><div><div class="rso-step-text">扫描官网与产品信息</div><div class="rso-step-sub">识别主营产品、市场定位、品牌调性</div></div></div>
-      <div class="rso-step" id="rso-s1"><div class="rso-step-icon"></div><div><div class="rso-step-text">匹配全球 2.8M+ 采购需求</div><div class="rso-step-sub">正在过滤高匹配度商机…</div></div></div>
-      <div class="rso-step" id="rso-s2"><div class="rso-step-icon"></div><div><div class="rso-step-text">分析目标市场与竞争格局</div><div class="rso-step-sub">识别差异化机会与进入路径</div></div></div>
-      <div class="rso-step" id="rso-s3"><div class="rso-step-icon"></div><div><div class="rso-step-text">生成专属拓客模型</div><div class="rso-step-sub">构建个性化 ICP 评分与外呼策略</div></div></div>
-    </div>
-    <div class="rso-progress"><div class="rso-progress-fill" id="rso-progress-fill"></div></div>
-    <div class="rso-pct" id="rso-pct">0%</div>
-  </div>
 </template>
 
 <style scoped>

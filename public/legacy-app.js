@@ -242,8 +242,6 @@ function startScan() {
   if (window.__showAnalysis) window.__showAnalysis(domain);
 }
 
-function goStep(n) {} // legacy stub
-function startAnalysis() { startScan(); }
 
 
 function enterApp() {
