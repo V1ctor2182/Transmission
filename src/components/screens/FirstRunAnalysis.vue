@@ -79,6 +79,7 @@ const pipeline = computed(() => '$' + buyers.reduce((s, b) => s + parseInt(b.val
   <div class="fra">
     <!-- status bar (cycling text, NO fake %) -->
     <div class="fra-status">
+      <img class="fra-brand" src="/logo-mark.svg" alt="TRANS·MISSION" />
       <span class="fra-spin" :class="{ done }"></span>
       <span class="fra-txt">{{ done ? '分析完成 ·' : '正在分析' }} <b>{{ domain }}</b></span>
       <span class="fra-step">{{ statusText[stage] }}</span>
@@ -132,6 +133,7 @@ const pipeline = computed(() => '$' + buyers.reduce((s, b) => s + parseInt(b.val
 <style scoped>
 .fra{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
 .fra-status{height:52px;flex-shrink:0;display:flex;align-items:center;gap:14px;padding:0 20px;border-bottom:1px solid var(--card-border);background:linear-gradient(90deg,rgba(31,143,214,.1),transparent 40%)}
+.fra-brand{height:22px;width:auto;flex-shrink:0;display:block}
 .fra-spin{width:15px;height:15px;border:2px solid var(--acc-line,rgba(31,143,214,.34));border-top-color:var(--brand);border-radius:50%;animation:fra-rot 1s linear infinite}
 .fra-spin.done{animation:none;border:none;background:var(--brand);position:relative}
 @keyframes fra-rot{to{transform:rotate(360deg)}}
