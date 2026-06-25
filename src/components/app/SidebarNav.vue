@@ -7,7 +7,7 @@
 <template>
   <nav class="sidebar">
     <div class="sb-logo" onclick="navTo('dashboard',0)">
-      <img src="/logo-mark.png" alt="TRANS·MISSION" />
+      <img src="/logo-mark.svg" alt="TRANS·MISSION" />
     </div>
     <div class="sb-item on" id="sb-0" onclick="navTo('dashboard',0)">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>

@@ -22,7 +22,7 @@ const startScan = () => window.startScan?.()
     <!-- LEFT · brand + value -->
     <section class="lg-brand">
       <div class="lg-logo">
-        <span class="lg-mark"><img src="/logo-mark.png" alt="TRANS·MISSION" /></span>
+        <span class="lg-mark"><img src="/logo-mark.svg" alt="TRANS·MISSION" /></span>
         TRANS·<em>MISSION</em>
       </div>
       <div class="lg-sign" style="font-size:11px;letter-spacing:.42em;color:var(--t-muted);margin-top:-14px;margin-bottom:6px">创 拾 觅 深</div>
@@ -55,7 +55,7 @@ const startScan = () => window.startScan?.()
   <!-- WEBSITE INPUT MODAL (post-login) — ids preserved for the legacy flow -->
   <div id="website-modal-overlay">
     <div class="wm-card">
-      <div class="wm-logo"><img src="/logo-mark.png" alt="TRANS·MISSION" /></div>
+      <div class="wm-logo"><img src="/logo-mark.svg" alt="TRANS·MISSION" /></div>
       <div class="wm-title">告诉我们你的产品</div>
       <div class="wm-sub">输入官网地址，我们会分析你的产品，匹配全球采购需求并给出市场进入建议。</div>
       <div class="wm-input-wrap">
