@@ -26,7 +26,7 @@ const arcs = computed(() => {
 </script>
 
 <template>
-  <svg class="wh" :viewBox="world.viewBox" preserveAspectRatio="xMidYMid meet" role="img" aria-label="全球商机热力图">
+  <svg class="wh" :viewBox="world.viewBox" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Global demand heatmap">
     <g class="wh-land">
       <path v-for="c in world.locations" :key="c.id" :d="c.path" />
     </g>

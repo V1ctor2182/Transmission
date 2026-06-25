@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 075 | 🟦 产品轴(main) | 全站英文终扫:AiBubble 浮动助手/modal-connect 弹窗/doLogin 按钮/heatmap aria-label + 死代码甄别(rso/onboarding/旧报告/orphan 数组确认不可达) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-075](round-075-final-sweep-en.md) |
 | 074 | 🟦 产品轴(main) | 客户池 pool 英文化(CPOOL_DATA group·statusText/POOL_SOURCE_MAP 同步/解析正则同步/renderPoolTable·Cards·Detail/toast)——legacy 收官 | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-074](round-074-pool-en.md) |
 | 073 | 🟦 产品轴(main) | 营销队列 marketing 英文化(MarketingPage/MKT_ITEMS/EMAIL_VARIANTS 邮件正文/renderMktList/approve·reject + AI_MSGS/AI_DAILY_ITEMS/INTEL_CENTER_CARDS/renderIntelCenter) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-073](round-073-marketing-en.md) |
 | 072 | 🟦 产品轴(main) | WhatsApp 商机中心英文化(markup/WA_CONTACTS·CHATS·CHIPS/INTEL_DATA/渲染函数/connectBuyer seed/dashboard 买家 country·need;**h3 seed 正则同步英文**;Arabic chat 保留) | ✅ build✓ 机检✓ h3(seeded✓)/h1/tour✓ KEEP | [round-072](round-072-whatsapp-en.md) |

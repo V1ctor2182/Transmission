@@ -214,7 +214,7 @@ let actIntervalId = null;
 
 function doLogin() {
   const btn = document.querySelector('.login-btn');
-  if(btn) { btn.textContent = '登录中…'; btn.style.opacity='.7'; }
+  if(btn) { btn.textContent = 'Signing in…'; btn.style.opacity='.7'; }
   setTimeout(() => {
     // show website modal
     const modal = document.getElementById('website-modal-overlay');
@@ -226,7 +226,7 @@ function doLogin() {
       const inp = document.getElementById('wm-url-input');
       if(inp) inp.addEventListener('keydown', e => { if(e.key==='Enter') startScan(); });
     }
-    if(btn) { btn.textContent='登录工作台'; btn.style.opacity='1'; }
+    if(btn) { btn.textContent='Sign in'; btn.style.opacity='1'; }
   }, 900);
 }
 
@@ -2243,7 +2243,7 @@ function rotateAiMsg() {
 }
 function aiAction(type) {
   toggleAi();
-  if(type==='draft') { navTo('marketing'); toast('◆','正在生成跟进邮件','AI 正在为 Klaus Weber 生成个性化跟进邮件…'); }
+  if(type==='draft') { navTo('marketing'); toast('◆','Drafting follow-up email','AI is drafting a personalized follow-up for Klaus Weber…'); }
   else if(type==='leads') navTo('leads');
   else if(type==='whatsapp') navTo('whatsapp');
 }

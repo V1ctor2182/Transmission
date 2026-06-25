@@ -10,13 +10,13 @@
   <div class="modal">
     <div class="modal-close" onclick="closeModal('modal-connect')">✕</div>
     <div class="modal-icon">🤝</div>
-    <div class="modal-title" id="mc-title">确认建立联系</div>
-    <div class="modal-sub" id="mc-sub">AI 将为您生成个性化开场白，通过 WhatsApp 或邮件发送</div>
+    <div class="modal-title" id="mc-title">Confirm connection</div>
+    <div class="modal-sub" id="mc-sub">AI will draft a personalized opener, sent via WhatsApp or email</div>
     <div class="modal-info" id="mc-info"></div>
-    <div class="modal-cost">消耗 <strong>1 次</strong>建联次数（剩余 47 次）</div>
+    <div class="modal-cost">Uses <strong>1</strong> connect credit (47 left)</div>
     <div class="modal-actions">
       <div class="modal-btn ghost" onclick="closeModal('modal-connect')">Cancel</div>
-      <div class="modal-btn primary" onclick="confirmConnect()">确认建联</div>
+      <div class="modal-btn primary" onclick="confirmConnect()">Confirm connect</div>
     </div>
   </div>
 </div>
