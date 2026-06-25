@@ -167,8 +167,9 @@ function countUpPipeline (ms = 900) {
 .fra-mapbody{flex:1;position:relative;background:radial-gradient(60% 70% at 30% 38%,rgba(31,143,214,.12),transparent 60%),linear-gradient(180deg,#ffffff,#eef3fa)}
 .fra-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(19,33,63,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(19,33,63,.03) 1px,transparent 1px);background-size:44px 44px}
 /* 雷达扫描扇区(分析中转,呼应 Signal Room;克制 .14 azure,完成即移除)*/
+/* radar sweep: bright leading edge → trailing afterglow (proper sonar sweep, echoes login orbit) */
 .fra-scan{position:absolute;inset:0;pointer-events:none;
-  background:conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(31,143,214,.14) 30deg, transparent 72deg);
+  background:conic-gradient(from 0deg at 50% 50%, rgba(31,143,214,.20), rgba(31,143,214,.05) 24deg, transparent 64deg);
   animation:fra-scan-rot 3.2s linear infinite}
 @keyframes fra-scan-rot{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.fra-scan{display:none}}
@@ -183,14 +184,17 @@ function countUpPipeline (ms = 900) {
 
 .fra-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .fra-kpi{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;justify-content:center;opacity:.35;transform:translateY(6px);transition:opacity .45s,transform .45s cubic-bezier(.22,.61,.36,1)}
-.fra-kpi.on{opacity:1;transform:none}
+.fra-kpi.on{opacity:1;transform:none;animation:fra-lock .6s ease-out}
+/* "signal locked" pulse — azure edge bar flashes as data drops into the slot (tied to real lock event) */
+@keyframes fra-lock{0%{box-shadow:inset 0 2px 0 var(--brand)}100%{box-shadow:inset 0 0 0 transparent}}
 .fra-kl{font-size:11px;color:var(--t-muted)}
 .fra-kv{font:700 24px var(--f-m,monospace);letter-spacing:-.02em;margin-top:3px}
 .mono{font-family:var(--f-m,'JetBrains Mono',monospace);font-variant-numeric:tabular-nums}
 
 .fra-buyers .fra-blist{flex:1;overflow:hidden}
 .fra-brow{display:grid;grid-template-columns:auto 1fr auto;gap:3px 9px;align-items:center;padding:10px 13px;border-bottom:1px solid var(--card-border);opacity:0;transform:translateY(-6px);transition:.35s}
-.fra-brow.on{opacity:1;transform:none}
+.fra-brow.on{opacity:1;transform:none;animation:fra-sig .6s ease-out}
+@keyframes fra-sig{0%{box-shadow:inset 3px 0 0 var(--brand)}100%{box-shadow:inset 0 0 0 transparent}}
 .fra-cc{grid-row:span 2;font-size:10px;font-weight:700;color:var(--t-sec);background:rgba(19,33,63,.05);border:1px solid var(--card-border);border-radius:4px;padding:1px 5px}
 .fra-co{font-size:12.5px;font-weight:600}
 .fra-mt{font:700 12px var(--f-m,monospace);color:var(--brand);text-align:right}.fra-mt.mid{color:var(--hot)}
@@ -205,5 +209,5 @@ function countUpPipeline (ms = 900) {
 .fra-enter:active{transform:translateY(1px) scale(.99)}
 .fra-fade-enter-active{transition:.5s}.fra-fade-enter-from{opacity:0;transform:translateY(10px)}
 
-@media(prefers-reduced-motion:reduce){.fra-spin,.fra-live,.fra-hot.on::after{animation:none}.fra-brow,.fra-kpi,.fra-hl{transition:none}}
+@media(prefers-reduced-motion:reduce){.fra-spin,.fra-live,.fra-hot.on::after,.fra-kpi.on,.fra-brow.on{animation:none}.fra-brow,.fra-kpi,.fra-hl{transition:none}}
 </style>
