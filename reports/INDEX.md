@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 049 | 🟦 产品轴 | TopBar 建联次数实时化(去硬编码 47→live credits)+ Vue 反馈层去 emoji 收尾(9 处→◆,全站 toast 零 emoji) | ✅ build✓ 机检✓ golden✓ KEEP | [round-049](round-049-topbar-credits-deemoji.md) |
 | 048 | 🟦 产品轴 | WhatsApp 进入即填充客户情报面板(enterApp renderWaChat(0)→selectWaContact(0),消右面板空态) | ✅ build✓ 机检✓ golden✓ 实拍 KEEP | [round-048](round-048-wa-entry-intel.md) |
 | 047 | 🟦 产品轴 | 客户池进入即填充(无选中→自动选最紧急客户,消灭半屏空态,直达行动) | ✅ build✓ 机检✓ golden✓ 实拍 KEEP | [round-047](round-047-pool-autoselect.md) |
 | 046 | 🟦 产品轴 | WhatsApp 情报面板解锁真实揭示(R044 同款补第二处:真 un-blur 真实电话/邮箱+真扣次数) | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-046](round-046-wa-panel-unlock.md) |

@@ -191,7 +191,7 @@
               </div>
               <div style="display:flex;gap:8px;flex-shrink:0">
                 <div class="icp-task-btn secondary" onclick="showLeadsView('customers')">👥 查看客户</div>
-                <div class="icp-task-btn" style="background:rgba(229,72,77,.1);border-color:rgba(229,72,77,.3);color:#e5484d" onclick="toast('⏸️','任务已暂停','可在任务列表重新启动')">⏸ 暂停</div>
+                <div class="icp-task-btn" style="background:rgba(229,72,77,.1);border-color:rgba(229,72,77,.3);color:#e5484d" onclick="toast('◆','任务已暂停','可在任务列表重新启动')">⏸ 暂停</div>
               </div>
             </div>
 

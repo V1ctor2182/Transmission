@@ -42,6 +42,7 @@
 > 权威流程改为 `docs/loop-procedure.md`。本文件上方旧配置/Done 台账(Phosphor amber/暗色)**只读存档,作废不再追加该方向**。新 backlog 见 loop-procedure.md §8。
 
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
+- 2026-06-25 R049 🟦 产品轴:TopBar 建联次数实时化 + Vue 反馈层去 emoji 收尾。(a)tb-credits toast 硬编码「47」(R044/46 后 credits 已动态扣减=过期数)→ 读 live #credits-val + 补「解锁/建联各消耗 1 次」说明(数字可读性)。(b)R043 去 emoji 只扫 legacy,Vue 还有 9 处 emoji toast(TopBar 💎🔔👤/SidebarNav ⚙️/WhatsAppPage 📞📋⭐/IntelPage 📥/LeadsPage ⏸️)→ ◆(ASCII 安全,残留0)=全站 toast 零 emoji。build✓ 机检 4 屏零错✓ golden h3 PASS✓。两北极星 KEEP(产品:数字不过期+可读;视觉:单一◆零emoji)。残留:待办内嵌计数静态/通知 bell 静态摘要。**收敛渐近,再 1-2 轮低价值发 digest。** commit+push origin。cron 1min 不 ScheduleWakeup。
 - 2026-06-25 ★ 用户选「继续微调收尾」,cron 重建(job 77f468d0)。
 - 2026-06-25 R048 🟦 产品轴:WhatsApp 进入即填充客户情报面板(消空态,续 R047)。真实进入(enterApp→navTo)右情报面板空(enterApp 只 renderWaChat(0) 未 renderIntelPanel);改 enterApp renderWaChat(0)→selectWaContact(0)(完整选中含情报面板)。进入即填充聊天+客户情报(跟进提醒/基础信息/深度情报锁)。build✓ 机检 waentry+wa+dashboard 零错✓ golden h3 PASS✓。实拍:右面板空→满。两北极星 KEEP(消空态/有事做,真实数据)。commit+push origin。cron 1min 不 ScheduleWakeup。
 - 2026-06-25 ★ 收敛点(§6):marketing 屏产品审计 = 已完备(approve 真实状态推进+stamp+pending-1+toast)。全主屏(工作台/找客户/客户池/情报/whatsapp/营销/首启)两轴审计干净。视觉 rebrand(R031-40)+ 产品轴主干(R041-47:可见行动/任务队列/去emoji反馈/真实解锁×2/今日待办/消空态)均已补齐;剩余多低价值。**停 1min cron(job f24bb99f),发 digest 问方向(merge feat/rebrand-transmission→main? / 新方向? / 继续微调?)。** 等用户定。

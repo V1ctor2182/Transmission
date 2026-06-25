@@ -19,7 +19,7 @@
                 <input id="intel-search" type="text" placeholder="搜索采购商、产品、国家…" oninput="renderIntelTable()" style="background:none;border:none;outline:none;font-size:12px;color:var(--t-primary);width:160px" />
               </div>
               <!-- Export -->
-              <div onclick="toast('📥','导出数据','正在生成 Excel 报表，请稍候…')" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);color:var(--t-muted);cursor:pointer">导出</div>
+              <div onclick="toast('◆','导出数据','正在生成 Excel 报表，请稍候…')" style="font-size:11px;padding:5px 12px;border-radius:8px;background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);color:var(--t-muted);cursor:pointer">导出</div>
             </div>
             <!-- Filter Pills -->
             <div style="display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap">
