@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 054 | ⬜ Utility(main) | 首启 H1 黄金路径 golden(h1-golden.mjs 端到端:登录→网址弹窗→FRA 拼装→settle→进入工作台,护栏开头流程) | ✅ h1-golden PASS 10 断言 · h3✓ build✓ | [round-054](round-054-h1-golden.md) |
 | 053 | 🟦 产品轴(main) | 开头动画 settle 加真实「潜在采购额 $865,900」希望钩子 + seq 抓帧到 settle | ✅ build✓ 序列帧✓ golden✓ KEEP | [round-053](round-053-fra-pipeline-payoff.md) |
 | 052 | 🟦 产品轴(main) | 开头动画逐件拼装编排(KPI 逐个点亮+升入、热点逐区锁定,earned wow 递进感) | ✅ build✓ 序列帧✓ golden✓ KEEP | [round-052](round-052-fra-stagger.md) |
 | 051 | 🟦 产品轴(main) | 开头动画数据对齐工作台(东南亚 512K + Fairprice 等真实渠道,消「拼装预览≠落地」自相矛盾) | ✅ build✓ 序列帧✓ golden✓ KEEP | [round-051](round-051-fra-data-consistency.md) |
