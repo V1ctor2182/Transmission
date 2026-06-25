@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 071 | 🟦 产品轴(main) | 找客户 leads 数据层英文化(CUST_DATA 12 家 industry·desc·title·news·source + LIVE_CUSTOMERS + renderCustTable + 展开卡 + 6 toast + 反馈弹窗;修 id8 flag 🇺🇦→🇦🇪) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-071](round-071-leads-data-en.md) |
 | 070 | 🟦 产品轴(main) | 找客户 leads 页 UI 英文化(3 视图 markup:28 源面板/配置表单/任务/客户视图 + RG 45 国系统 data-country 同步 + 2 toast) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-070](round-070-leads-en.md) |
 | 069 | 🟦 产品轴(main) | 引导 tour 全英文(12 步 title/desc + 卡片 Skip/Back/Next/Done/hint + 首访 nudge;跨全屏新用户第一触点) | ✅ build✓ tour-check 12/12✓ h1/h3✓ KEEP | [round-069](round-069-tour-en.md) |
 | 068 | 🟦 产品轴(main) | 情报中心 intel 全英文(表头/筛选/option/INTEL_TABLE_DATA country·region·need·cat/解锁链路/confirmUnlock toast;region·cat 值与筛选键同步) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-068](round-068-intel-en.md) |

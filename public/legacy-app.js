@@ -891,15 +891,15 @@ function connectBuyer(co, country, flag, region, val, need, score) {
 // ═══════════════════════════════════════════════════════
 // ICP AGENT DATA
 const ICP_BUYERS = [
-  {id:0,flag:'🇸🇬',country:'Singapore',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,source:'海关数据',enriched:true,email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX'},
+  {id:0,flag:'🇸🇬',country:'Singapore',company:'Fairprice Group',product:'高端节庆礼盒采购',score:96,source:'Customs data',enriched:true,email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX'},
   {id:1,flag:'🇲🇾',country:'Malaysia',company:'Jaya Grocer',product:'精品月饼礼盒批发',score:93,source:'LinkedIn',enriched:true,email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX'},
-  {id:2,flag:'🇺🇸',country:'USA',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,source:'全球黄页',enriched:true,email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX'},
-  {id:3,flag:'🇹🇭',country:'Thailand',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,source:'海关数据',enriched:false,email:'',phone:''},
-  {id:4,flag:'🇦🇺',country:'Australia',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,source:'全球黄页',enriched:false,email:'',phone:''},
+  {id:2,flag:'🇺🇸',country:'USA',company:'99 Ranch Market',product:'中式糕点年度供应',score:89,source:'Global directory',enriched:true,email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX'},
+  {id:3,flag:'🇹🇭',country:'Thailand',company:'Central Food Hall',product:'椰子酥礼盒进口',score:87,source:'Customs data',enriched:false,email:'',phone:''},
+  {id:4,flag:'🇦🇺',country:'Australia',company:'Asian Grocery Pty',product:'节庆礼品盒采购',score:84,source:'Global directory',enriched:false,email:'',phone:''},
   {id:5,flag:'🇮🇩',country:'Indonesia',company:'Transmart Carrefour',product:'中式糕点系列',score:82,source:'LinkedIn',enriched:true,email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX'},
-  {id:6,flag:'🇨🇦',country:'Canada',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,source:'海关数据',enriched:true,email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX'},
+  {id:6,flag:'🇨🇦',country:'Canada',company:'T&T Supermarket',product:'月饼礼盒年度采购',score:91,source:'Customs data',enriched:true,email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX'},
   {id:7,flag:'🇦🇪',country:'UAE',company:'Al Madina Group',product:'进口食品采购',score:78,source:'招投标数据',enriched:false,email:'',phone:''},
-  {id:8,flag:'🇬🇧',country:'UK',company:'Wing Yip Foods',product:'亚洲食品年度进口',score:85,source:'全球黄页',enriched:true,email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX'},
+  {id:8,flag:'🇬🇧',country:'UK',company:'Wing Yip Foods',product:'亚洲食品年度进口',score:85,source:'Global directory',enriched:true,email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX'},
 ];
 
 const ICP_EDM_POOL = [
@@ -1045,14 +1045,14 @@ function showLeadsView(view) {
 let taskFoundCount = 2847;
 let taskFeedInterval = null;
 const LIVE_CUSTOMERS = [
-  {flag:'🇸🇬',company:'FairMart Singapore',country:'Singapore',source:'领英',score:91},
+  {flag:'🇸🇬',company:'FairMart Singapore',country:'Singapore',source:'LinkedIn',score:91},
   {flag:'🇺🇸',company:'Pacific Asian Foods',country:'USA',source:'Google',score:88},
-  {flag:'🇦🇺',company:'Eastern Grocers Pty',country:'Australia',source:'海关数据',score:85},
+  {flag:'🇦🇺',company:'Eastern Grocers Pty',country:'Australia',source:'Customs data',score:85},
   {flag:'🇲🇾',company:'Aeon Superstore',country:'Malaysia',source:'Store Leads',score:83},
-  {flag:'🇨🇦',company:'T&T Foods Canada',country:'Canada',source:'全球黄页',score:90},
-  {flag:'🇬🇧',company:'Wing Tai Imports',country:'UK',source:'领英',score:79},
+  {flag:'🇨🇦',company:'T&T Foods Canada',country:'Canada',source:'Global directory',score:90},
+  {flag:'🇬🇧',company:'Wing Tai Imports',country:'UK',source:'LinkedIn',score:79},
   {flag:'🇳🇿',company:'Asian Delights NZ',country:'New Zealand',source:'Google',score:76},
-  {flag:'🇦🇪',company:'Dubai Asian Market',country:'UAE',source:'商业数据库',score:81},
+  {flag:'🇦🇪',company:'Dubai Asian Market',country:'UAE',source:'Business DB',score:81},
 ];
 let liveFeedIdx = 0;
 
@@ -1086,10 +1086,10 @@ function buildFeedItem(c, delay) {
     <div style="font-size:20px">${c.flag}</div>
     <div style="flex:1">
       <div style="font-size:12px;font-weight:600;color:var(--t-primary)">${c.company}</div>
-      <div style="font-size:10px;color:var(--t-muted)">${c.country} · 来源: ${c.source}</div>
+      <div style="font-size:10px;color:var(--t-muted)">${c.country} · Source: ${c.source}</div>
     </div>
     <div style="display:flex;align-items:center;gap:8px">
-      <div style="font-size:11px;font-weight:700;color:#1e5fd0">${c.score}分</div>
+      <div style="font-size:11px;font-weight:700;color:#1e5fd0">${c.score}</div>
       <div style="font-size:9px;color:var(--t-muted)">${timeStr}</div>
       <div style="width:6px;height:6px;border-radius:50%;background:#17a673;animation:pulse 2s infinite"></div>
     </div>
@@ -1098,18 +1098,18 @@ function buildFeedItem(c, delay) {
 
 // ─── Customer table data (GTM-engine core: find → enrich → EDM) ───
 const CUST_DATA = [
-  {id:1,flag:'🇸🇬',company:'Fairprice Group',country:'Singapore',industry:'连锁超市',desc:'新加坡最大连锁超市集团，拥有 400+ 门店，年采购额超过 20 亿新元，长期从亚洲各地进口高端食品。',website:'www.fairprice.com.sg',employees:'22,000+',founded:'1973',contacts:[{name:'David Tan',title:'采购总监',linkedin:true},{name:'Sarah Lim',title:'进口部经理',linkedin:true}],news:['刚完成 2025 年度亚洲食品展采购行程','计划扩大中式糕点产品线'],source:'搜索引擎',score:96,status:'enriched',email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX',edm:false,selected:false,expanded:false},
-  {id:2,flag:'🇲🇾',company:'Jaya Grocer',country:'Malaysia',industry:'精品超市',desc:'马来西亚高端超市品牌，主打进口精品食材，在吉隆坡、雪兰获等地拥有 80+ 门店，目标客户群为中上层消费者。',website:'www.jayagrocer.com',employees:'5,000+',founded:'2011',contacts:[{name:'Kevin Wong',title:'采购总监',linkedin:true},{name:'Priya Nair',title:'进口专员',linkedin:false}],news:['新开 3 家旗舰店，展示亚洲精品食品区','正在寻找 2026 年度中式糕点供应商'],source:'LinkedIn',score:93,status:'enriched',email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX',edm:true,selected:false,expanded:false},
-  {id:3,flag:'🇺🇸',company:'99 Ranch Market',country:'USA',industry:'亚裔超市',desc:'美国最大亚裔超市链，主要服务华裔市场，在加州、德州、华盛顿等地拥有 60+ 门店，年进口中式食品超过 5 亿美元。',website:'www.99ranch.com',employees:'8,000+',founded:'1984',contacts:[{name:'Michael Chen',title:'商品采购总监',linkedin:true},{name:'Lisa Wang',title:'进口部主管',linkedin:true}],news:['计划在东北部新开 5 家门店','正在扩大亚洲精品食品采购预算'],source:'全球黄页',score:89,status:'enriched',email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:4,flag:'🇹🇭',company:'Central Food Hall',country:'Thailand',industry:'百货公司超市',desc:'泰国 Central Pattana 旗下高端食品专区，入驻曼谷克、第一百货等高端商场，主打进口精品食材与伴手礼品。',website:'www.centralfoodhall.com',employees:'3,000+',founded:'2008',contacts:[{name:'Somchai P.',title:'进口部总监',linkedin:false},{name:'Nattaya K.',title:'采购专员',linkedin:true}],news:['新店开幕，亚洲食品区面积扩大 30%','开展 2026 年度中式节庆食品采购'],source:'海关数据',score:87,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:5,flag:'🇦🇺',company:'Asian Grocery Pty',country:'Australia',industry:'亚裔食品零售',desc:'澳大利亚最大亚裔食品零售商，在悉尼、墨尔本、布里斯本拥有 120+ 门店，长期进口中式、越南、泰式食品。',website:'www.asiangrocery.com.au',employees:'4,500+',founded:'1995',contacts:[{name:'James Wu',title:'CEO',linkedin:true},{name:'Helen Zhang',title:'采购总监',linkedin:true}],news:['尚在寻找中式糕点类供应商','计划 2026 年引入更多中国品牌'],source:'全球黄页',score:84,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:6,flag:'🇨🇦',company:'T&T Supermarket',country:'Canada',industry:'亚裔超市',desc:'加拿大最大亚裔超市链，隆属亚太山集团，在多伦多、温哥华等地拥有 30+ 门店，年进口中式食品超过 3 亿加元。',website:'www.tnt-supermarket.com',employees:'6,000+',founded:'1993',contacts:[{name:'Raymond Ho',title:'采购副总裁',linkedin:true},{name:'Cindy Liu',title:'进口部经理',linkedin:true}],news:['将在亚伯塔开设新店','正在寻找新的中式糕点供应商合作'],source:'海关数据',score:91,status:'enriched',email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX',edm:true,selected:false,expanded:false},
-  {id:7,flag:'🇮🇩',company:'Transmart Carrefour',country:'Indonesia',industry:'大型超市',desc:'印度尼西亚最大连锁超市之一，与法国家乐福合作，在全国拥有 130+ 门店，年进口亚洲食品超过 1.5 亿美元。',website:'www.transmart.co.id',employees:'35,000+',founded:'1998',contacts:[{name:'Budi Santoso',title:'商品采购部总监',linkedin:true},{name:'Dewi Rahayu',title:'进口专员',linkedin:false}],news:['开展 2026 亚洲食品进口展采购','正在优化中式食品供应商结构'],source:'LinkedIn',score:82,status:'enriched',email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:8,flag:'🇺🇦',company:'Al Madina Group',country:'UAE',industry:'进口食品零售',desc:'阿联酋主要进口食品零售商，在迪拜、阿布扎比拥有多家连锁超市，主要进口亚洲及中东地区食品。',website:'www.almadinagroup.ae',employees:'2,000+',founded:'2001',contacts:[{name:'Ahmed Al Rashid',title:'采购总监',linkedin:false},{name:'Fatima Hassan',title:'进口专员',linkedin:true}],news:['正在扩大亚洲食品进口渠道','计划引入中式糕点产品线'],source:'商业数据库',score:78,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:9,flag:'🇬🇧',company:'Wing Yip Foods',country:'UK',industry:'亚裔食品分销',desc:'英国最大亚裔食品分销商，主要向英国各地中餐馆、超市供货，年进口中式食品超过 5000 万英镑。',website:'www.wingyip.co.uk',employees:'1,200+',founded:'1970',contacts:[{name:'William Yip',title:'采购总监',linkedin:true},{name:'Emma Clarke',title:'进口部经理',linkedin:true}],news:['展开新一轮亚洲食品供应商寻找','将在伦敦开设新的分销仓库'],source:'全球黄页',score:85,status:'enriched',email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:10,flag:'🇳🇿',company:'Asian Food Mart',country:'New Zealand',industry:'亚裔食品零售',desc:'新西兰主要亚裔食品零售商，在奥克兰、惠灵顿拥有 25 家门店，主要进口中式、韩式食品。',website:'www.asianfoodmart.co.nz',employees:'800+',founded:'2003',contacts:[{name:'Tony Zhang',title:'CEO',linkedin:true},{name:'Mary Kim',title:'采购经理',linkedin:false}],news:['计划引入更多中式烘焙类产品','开展新一轮亚洲食品供应商寻找'],source:'搜索引擎',score:76,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
-  {id:11,flag:'🇵🇭',company:'Rustan Supercenters',country:'Philippines',industry:'高端百货公司',desc:'菲律宾最大高端百货公司集团，在马尼拉、宿务市等地拥有 50+ 门店，长期进口高端亚洲食品与礼品。',website:'www.rustans.com.ph',employees:'12,000+',founded:'1952',contacts:[{name:'Donnie Tantoco',title:'集团采购副总裁',linkedin:true},{name:'Maria Santos',title:'进口部经理',linkedin:true}],news:['新店开幕，亚洲食品区全面升级','正在寻找新的中式糕点供应商'],source:'LinkedIn',score:80,status:'enriched',email:'import@rustan.com.ph',phone:'+63 2-XXXX-XXXX',edm:false,selected:false,expanded:false},
-  {id:12,flag:'🇻🇳',company:'Big C Vietnam',country:'Vietnam',industry:'连锁超市',desc:'越南最大外资超市链，在全国拥有 230+ 门店，年进口亚洲食品超过 2 亿美元，长期寻找中式糕点类供应商。',website:'www.bigc.vn',employees:'18,000+',founded:'1998',contacts:[{name:'Nguyen Van Minh',title:'采购部总监',linkedin:true},{name:'Tran Thi Lan',title:'进口专员',linkedin:false}],news:['展开 2026 年度全国采购巡回','计划引入更多中式糕点产品'],source:'海关数据',score:83,status:'enriched',email:'buying@bigc.vn',phone:'+84 28-XXXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:1,flag:'🇸🇬',company:'Fairprice Group',country:'Singapore',industry:'Supermarket chain',desc:"Singapore's largest supermarket chain with 400+ stores and over SGD 2bn annual procurement, long importing premium foods from across Asia.",website:'www.fairprice.com.sg',employees:'22,000+',founded:'1973',contacts:[{name:'David Tan',title:'Procurement Director',linkedin:true},{name:'Sarah Lim',title:'Import Manager',linkedin:true}],news:['Just wrapped 2025 Asia food-expo sourcing','Expanding its Chinese pastry line'],source:'Search engine',score:96,status:'enriched',email:'procurement@fairprice.com.sg',phone:'+65 6XXX XXXX',edm:false,selected:false,expanded:false},
+  {id:2,flag:'🇲🇾',company:'Jaya Grocer',country:'Malaysia',industry:'Premium grocer',desc:'Malaysian upmarket grocery brand focused on imported fine foods, 80+ stores across KL and Selangor, targeting upper-middle consumers.',website:'www.jayagrocer.com',employees:'5,000+',founded:'2011',contacts:[{name:'Kevin Wong',title:'Procurement Director',linkedin:true},{name:'Priya Nair',title:'Import Specialist',linkedin:false}],news:['Opened 3 flagship stores with an Asian fine-foods section','Sourcing a 2026 Chinese pastry supplier'],source:'LinkedIn',score:93,status:'enriched',email:'buying@jayagrocer.com',phone:'+60 3-XXXX XXXX',edm:true,selected:false,expanded:false},
+  {id:3,flag:'🇺🇸',company:'99 Ranch Market',country:'USA',industry:'Asian supermarket',desc:'Largest Asian supermarket chain in the US, serving the Chinese community, 60+ stores across CA/TX/WA, importing over USD 500m of Chinese food yearly.',website:'www.99ranch.com',employees:'8,000+',founded:'1984',contacts:[{name:'Michael Chen',title:'Merchandising Director',linkedin:true},{name:'Lisa Wang',title:'Import Lead',linkedin:true}],news:['Plans 5 new stores in the Northeast','Expanding its Asian fine-foods budget'],source:'Global directory',score:89,status:'enriched',email:'imports@99ranch.com',phone:'+1 626-XXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:4,flag:'🇹🇭',company:'Central Food Hall',country:'Thailand',industry:'Department-store grocer',desc:"Premium food hall under Thailand's Central Pattana, in Bangkok's top malls, focused on imported fine foods and gifts.",website:'www.centralfoodhall.com',employees:'3,000+',founded:'2008',contacts:[{name:'Somchai P.',title:'Import Director',linkedin:false},{name:'Nattaya K.',title:'Buyer',linkedin:true}],news:['New store opening, Asian section up 30%','Running 2026 Chinese festive-food sourcing'],source:'Customs data',score:87,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:5,flag:'🇦🇺',company:'Asian Grocery Pty',country:'Australia',industry:'Asian food retail',desc:"Australia's largest Asian-food retailer, 120+ stores across Sydney/Melbourne/Brisbane, long importing Chinese, Vietnamese and Thai foods.",website:'www.asiangrocery.com.au',employees:'4,500+',founded:'1995',contacts:[{name:'James Wu',title:'CEO',linkedin:true},{name:'Helen Zhang',title:'Procurement Director',linkedin:true}],news:['Still seeking a Chinese pastry supplier','Plans to add more Chinese brands in 2026'],source:'Global directory',score:84,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:6,flag:'🇨🇦',company:'T&T Supermarket',country:'Canada',industry:'Asian supermarket',desc:"Canada's largest Asian supermarket chain (Loblaw group), 30+ stores in Toronto and Vancouver, importing over CAD 300m of Chinese food yearly.",website:'www.tnt-supermarket.com',employees:'6,000+',founded:'1993',contacts:[{name:'Raymond Ho',title:'VP Procurement',linkedin:true},{name:'Cindy Liu',title:'Import Manager',linkedin:true}],news:['Opening a new store in Alberta','Seeking a new Chinese pastry supplier'],source:'Customs data',score:91,status:'enriched',email:'procurement@tnt-supermarket.ca',phone:'+1 604-XXX-XXXX',edm:true,selected:false,expanded:false},
+  {id:7,flag:'🇮🇩',company:'Transmart Carrefour',country:'Indonesia',industry:'Hypermarket',desc:"One of Indonesia's largest supermarket chains, partnered with Carrefour, 130+ stores nationwide, importing over USD 150m of Asian food yearly.",website:'www.transmart.co.id',employees:'35,000+',founded:'1998',contacts:[{name:'Budi Santoso',title:'Merchandising Director',linkedin:true},{name:'Dewi Rahayu',title:'Import Specialist',linkedin:false}],news:['Sourcing at the 2026 Asia food-import expo','Optimizing its Chinese-food supplier mix'],source:'LinkedIn',score:82,status:'enriched',email:'category@transmart.co.id',phone:'+62 21-XXXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:8,flag:'🇦🇪',company:'Al Madina Group',country:'UAE',industry:'Imported-food retail',desc:'A major UAE imported-food retailer with supermarkets in Dubai and Abu Dhabi, importing Asian and Middle-Eastern foods.',website:'www.almadinagroup.ae',employees:'2,000+',founded:'2001',contacts:[{name:'Ahmed Al Rashid',title:'Procurement Director',linkedin:false},{name:'Fatima Hassan',title:'Import Specialist',linkedin:true}],news:['Expanding Asian-food import channels','Plans to add a Chinese pastry line'],source:'Business DB',score:78,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:9,flag:'🇬🇧',company:'Wing Yip Foods',country:'UK',industry:'Asian food distribution',desc:"The UK's largest Asian-food distributor, supplying Chinese restaurants and grocers nationwide, importing over GBP 50m of Chinese food yearly.",website:'www.wingyip.co.uk',employees:'1,200+',founded:'1970',contacts:[{name:'William Yip',title:'Procurement Director',linkedin:true},{name:'Emma Clarke',title:'Import Manager',linkedin:true}],news:['Opening a new round of Asian-supplier search','Opening a new London distribution warehouse'],source:'Global directory',score:85,status:'enriched',email:'buying@wingyip.co.uk',phone:'+44 121-XXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:10,flag:'🇳🇿',company:'Asian Food Mart',country:'New Zealand',industry:'Asian food retail',desc:'A major New Zealand Asian-food retailer, 25 stores in Auckland and Wellington, importing Chinese and Korean foods.',website:'www.asianfoodmart.co.nz',employees:'800+',founded:'2003',contacts:[{name:'Tony Zhang',title:'CEO',linkedin:true},{name:'Mary Kim',title:'Procurement Manager',linkedin:false}],news:['Plans to add more Chinese bakery products','Opening a new round of Asian-supplier search'],source:'Search engine',score:76,status:'pending',email:'',phone:'',edm:false,selected:false,expanded:false},
+  {id:11,flag:'🇵🇭',company:'Rustan Supercenters',country:'Philippines',industry:'Premium department store',desc:"The Philippines' largest premium department-store group, 50+ stores in Manila and Cebu, long importing premium Asian foods and gifts.",website:'www.rustans.com.ph',employees:'12,000+',founded:'1952',contacts:[{name:'Donnie Tantoco',title:'Group VP Procurement',linkedin:true},{name:'Maria Santos',title:'Import Manager',linkedin:true}],news:['New store opening with an upgraded Asian section','Seeking a new Chinese pastry supplier'],source:'LinkedIn',score:80,status:'enriched',email:'import@rustan.com.ph',phone:'+63 2-XXXX-XXXX',edm:false,selected:false,expanded:false},
+  {id:12,flag:'🇻🇳',company:'Big C Vietnam',country:'Vietnam',industry:'Supermarket chain',desc:"Vietnam's largest foreign-invested supermarket chain, 230+ stores nationwide, importing over USD 200m of Asian food yearly and seeking Chinese pastry suppliers.",website:'www.bigc.vn',employees:'18,000+',founded:'1998',contacts:[{name:'Nguyen Van Minh',title:'Procurement Director',linkedin:true},{name:'Tran Thi Lan',title:'Import Specialist',linkedin:false}],news:['Running a 2026 national sourcing tour','Plans to add more Chinese pastry products'],source:'Customs data',score:83,status:'enriched',email:'buying@bigc.vn',phone:'+84 28-XXXX-XXXX',edm:false,selected:false,expanded:false},
 ];
 let custFilter = 'all';
 let feedbackTarget = null;
@@ -1132,34 +1132,34 @@ function renderCustTable(filter) {
         </div>
         <div class="icp-cust-demand" style="font-size:11px;color:var(--t-muted);line-height:1.5">${c.desc.substring(0,42)}…</div>
         <div><span class="icp-cust-source">${c.source}</span></div>
-        <div class="icp-cust-score">${c.score}分</div>
-        <div class="icp-cust-contact ${c.status}">${c.status==='enriched'?'<span style="color:#17a673">✓ 已找到</span><br><span style="font-size:9px;color:var(--t-muted)">'+c.email+'</span>':'<span style="color:#c8860a">待寻找</span>'}</div>
+        <div class="icp-cust-score">${c.score}</div>
+        <div class="icp-cust-contact ${c.status}">${c.status==='enriched'?'<span style="color:#17a673">✓ Found</span><br><span style="font-size:9px;color:var(--t-muted)">'+c.email+'</span>':'<span style="color:#c8860a">Pending</span>'}</div>
         <div class="icp-cust-ops">
-          ${c.status==='pending'?`<div class="icp-op-btn enrich" onclick="event.stopPropagation();enrichOne(${c.id})">&#x1F50D; 寻找联系人</div>`:''}
-          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-op-btn" style="color:#17a673;border-color:rgba(23,166,115,.2)">✓ 已营销</div>'}
-          <div class="icp-op-btn feedback" onclick="event.stopPropagation();openFeedback(${c.id})">⚠ 反馈不精准</div>
+          ${c.status==='pending'?`<div class="icp-op-btn enrich" onclick="event.stopPropagation();enrichOne(${c.id})">&#x1F50D; Find contacts</div>`:''}
+          ${!c.edm?`<div class="icp-op-btn edm" onclick="event.stopPropagation();addToEdm(${c.id})">📣 Market for me</div>`:'<div class="icp-op-btn" style="color:#17a673;border-color:rgba(23,166,115,.2)">✓ Marketed</div>'}
+          <div class="icp-op-btn feedback" onclick="event.stopPropagation();openFeedback(${c.id})">⚠ Flag mismatch</div>
         </div>
       </div>
       ${c.expanded ? `
       <div class="icp-cust-card">
         <div class="icp-card-left">
           <div class="icp-card-section">
-            <div class="icp-card-label">🏢 公司介绍</div>
+            <div class="icp-card-label">🏢 About</div>
             <div class="icp-card-text">${c.desc}</div>
           </div>
           <div class="icp-card-row">
-            <div class="icp-card-kv"><span class="icp-kv-label">🌐 官网</span><a href="https://${c.website}" target="_blank" style="color:#1e5fd0">${c.website}</a></div>
-            <div class="icp-card-kv"><span class="icp-kv-label">👥 员工数</span>${c.employees}</div>
-            <div class="icp-card-kv"><span class="icp-kv-label">📅 成立年份</span>${c.founded}年</div>
+            <div class="icp-card-kv"><span class="icp-kv-label">🌐 Website</span><a href="https://${c.website}" target="_blank" style="color:#1e5fd0">${c.website}</a></div>
+            <div class="icp-card-kv"><span class="icp-kv-label">👥 Employees</span>${c.employees}</div>
+            <div class="icp-card-kv"><span class="icp-kv-label">📅 Founded</span>${c.founded}</div>
           </div>
           <div class="icp-card-section">
-            <div class="icp-card-label">📰 最近动态</div>
+            <div class="icp-card-label">📰 Recent news</div>
             ${c.news.map(n=>`<div class="icp-card-news">· ${n}</div>`).join('')}
           </div>
         </div>
         <div class="icp-card-right">
           <div class="icp-card-section">
-            <div class="icp-card-label">👤 关键联系人</div>
+            <div class="icp-card-label">👤 Key contacts</div>
             ${c.contacts.map(p=>`
               <div class="icp-card-person">
                 <div class="icp-person-av">${p.name[0]}</div>
@@ -1172,8 +1172,8 @@ function renderCustTable(filter) {
             `).join('')}
           </div>
           <div class="icp-card-actions">
-            ${c.status==='pending'?`<div class="icp-card-btn enrich" onclick="enrichOne(${c.id})">🔍 寻找联系人</div>`:''}
-            ${!c.edm?`<div class="icp-card-btn edm" onclick="addToEdm(${c.id})">📣 帮我营销</div>`:'<div class="icp-card-btn" style="opacity:.5">✓ 已加入营销</div>'}
+            ${c.status==='pending'?`<div class="icp-card-btn enrich" onclick="enrichOne(${c.id})">🔍 Find contacts</div>`:''}
+            ${!c.edm?`<div class="icp-card-btn edm" onclick="addToEdm(${c.id})">📣 Market for me</div>`:'<div class="icp-card-btn" style="opacity:.5">✓ In marketing</div>'}
           </div>
         </div>
       </div>
@@ -1203,12 +1203,12 @@ function openFeedback(id) {
 
 function submitFeedback() {
   const reason = document.getElementById('feedback-input').value.trim();
-  if(!reason) { toast('◆','请输入反馈原因',''); return; }
+  if(!reason) { toast('◆','Please enter a reason',''); return; }
   document.getElementById('feedback-form').style.display='none';
   document.getElementById('feedback-result').style.display='flex';
   setTimeout(() => {
     document.getElementById('feedback-modal').style.display='none';
-    toast('◆','企业大脑已自动优化',`已根据反馈调整 ICP 匹配模型，后续推送的客户将更精准`);
+    toast('◆','Company brain auto-tuned',`ICP match model adjusted from your feedback — future buyers will be more accurate`);
   }, 2200);
 }
 
@@ -1231,42 +1231,42 @@ function setCf(el, filter) {
 function enrichOne(id) {
   const c = CUST_DATA.find(x => x.id===id);
   if(!c) return;
-  toast('◆','正在 Enrich 联系方式',`AI 正在从 Hunter / Apollo 获取 ${c.company} 的联系方式…`);
+  toast('◆','Enriching contacts',`AI is fetching contacts for ${c.company} from Hunter / Apollo…`);
   setTimeout(() => {
     c.status = 'enriched';
     c.email = `contact@${c.company.toLowerCase().replace(/\s+/g,'')}.com`;
     c.phone = '+XX XXXX-XXXX';
     renderCustTable(custFilter);
-    toast('◆','Enrich 完成',`已获取 ${c.company} 的邮箱与电话`);
+    toast('◆','Enrich complete',`Got email and phone for ${c.company}`);
   }, 1800);
 }
 
 function enrichSelected() {
   const pending = CUST_DATA.filter(c => c.selected && c.status==='pending');
-  if(pending.length===0) { toast('◆','无待 Enrich 客户','请先勾选状态为「待 Enrich」的客户'); return; }
-  toast('◆',`批量 Enrich ${pending.length} 个客户`,`AI 正在从 Hunter / Apollo / Clearbit 获取联系方式…`);
+  if(pending.length===0) { toast('◆','No buyers to enrich','Select buyers with status Pending first'); return; }
+  toast('◆',`Enriching ${pending.length} buyers`,`AI is fetching contacts from Hunter / Apollo / Clearbit…`);
   setTimeout(() => {
     pending.forEach(c => { c.status='enriched'; c.email=`contact@${c.company.toLowerCase().replace(/\s+/g,'')}.com`; c.phone='+XX XXXX-XXXX'; });
     renderCustTable(custFilter);
-    toast('◆',`Enrich 完成`,`已成功获取 ${pending.length} 个客户的联系方式`);
+    toast('◆',`Enrich complete`,`Got contacts for ${pending.length} buyers`);
   }, 2000);
 }
 
 function addToEdm(id) {
   const c = CUST_DATA.find(x => x.id===id);
   if(!c) return;
-  if(c.status==='pending') { toast('◆','请先 Enrich 联系方式',`${c.company} 尚未获取联系方式，无法加入 EDM`); return; }
+  if(c.status==='pending') { toast('◆','Enrich contacts first',`${c.company} has no contacts yet — cannot add to EDM`); return; }
   c.edm = true;
   renderCustTable(custFilter);
-  toast('◆',`${c.company} 已加入 EDM 队列`,`AI 将为其生成个性化邮件，请到「营销队列」审批后发送`);
+  toast('◆',`${c.company} added to EDM queue`,`AI will draft a personalized email — approve it in Marketing queue to send`);
 }
 
 function pushSelectedToEdm() {
   const sel = CUST_DATA.filter(c => c.selected && c.status==='enriched' && !c.edm);
-  if(sel.length===0) { toast('◆','无可推送客户','请勾选已 Enrich 且未加入 EDM 的客户'); return; }
+  if(sel.length===0) { toast('◆','No buyers to push','Select enriched buyers not yet in EDM'); return; }
   sel.forEach(c => c.edm = true);
   renderCustTable(custFilter);
-  toast('◆',`已推送 ${sel.length} 个客户到营销队列`,`AI 正在生成个性化邮件，请到「营销队列」审批后发送`);
+  toast('◆',`Pushed ${sel.length} buyers to Marketing queue`,`AI is drafting personalized emails — approve them in Marketing queue to send`);
   setTimeout(() => navTo('marketing'), 1400);
 }
 
@@ -1630,9 +1630,9 @@ function poolBatchFollowUp() {
 
 function autoExecute() {
   const enriched = CUST_DATA.filter(c => c.selected && c.status==='enriched');
-  if(enriched.length===0) { toast('◆','请先选择已 Enrich 的客户','勾选已获取联系方式的客户后再执行全自动'); return; }
-  toast('◆','AI 全自动执行已启动',`跳过审批，直接为 ${enriched.length} 个客户生成并发送个性化邮件`);
-  setTimeout(() => toast('◆',`${enriched.length} 封邮件已发出`,`预计 ${Math.round(enriched.length*0.3)} 个客户将回复，平均回复时间 2.3 天`), 2500);
+  if(enriched.length===0) { toast('◆','Select enriched buyers first','Tick buyers that already have contacts, then run autopilot'); return; }
+  toast('◆','AI autopilot started',`Skipping approval — drafting and sending personalized emails to ${enriched.length} buyers`);
+  setTimeout(() => toast('◆',`${enriched.length} emails sent`,`~${Math.round(enriched.length*0.3)} buyers expected to reply · avg 2.3 days`), 2500);
 }
 
 function submitIcpTask() {
