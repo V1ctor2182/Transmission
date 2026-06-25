@@ -102,7 +102,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
   <div class="page on dash-cc" id="page-dashboard">
     <div class="cc-bar">
       <div class="cc-greet">早上好，<em>Liu Wei</em></div>
-      <div class="cc-sub">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 12 条高匹配商机</div>
+      <div class="cc-sub">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 <span class="cc-link" @click="nav('intel')">12 条高匹配商机 →</span></div>
     </div>
     <div class="cc-todos" role="list" aria-label="今日待办">
       <span class="cc-todos-lbl">今日待办</span>
@@ -218,6 +218,8 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .cc-greet{ font-size:18px; font-weight:600; color:var(--t1) }
 .cc-greet em{ font-style:normal; color:var(--brand) }
 .cc-sub{ font-size:12px; color:var(--t3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.cc-link{ color:var(--brand); font-weight:600; cursor:pointer; transition:.15s }
+.cc-link:hover{ color:var(--brand2); text-decoration:underline }
 /* 今日待办 chip-strip(明确下一步:真实任务,urgent 优先,点击直达) */
 .cc-todos{ flex-shrink:0; display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:10px }
 .cc-todos-lbl{ font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--t3); margin-right:2px }
