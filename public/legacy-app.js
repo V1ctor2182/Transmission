@@ -1638,10 +1638,10 @@ function autoExecute() {
 function submitIcpTask() {
   const daily = document.getElementById('icp-daily')?.value || 50;
   const days = document.getElementById('icp-days')?.value || 30;
-  toast('◆','任务已下达！','AI 正在启动全球数据源搜索…');
+  toast('◆','Task launched','AI is starting the global data-source search…');
   setTimeout(() => {
     showLeadsView('tasks');
-    toast('◆','ICP Agent 已启动',`已从 28 个数据源开始搜索，每天 ${daily} 个客户，持续 ${days} 天`);
+    toast('◆','ICP Agent started',`Searching across 28 sources · ${daily} buyers/day for ${days} days`);
   }, 800);
 }
 
@@ -1658,59 +1658,59 @@ function toggleRg(el) { el.classList.toggle('on'); }
 // ═══════════════════════════════════════════════════════
 const RG_COUNTRIES = [
   // 东南亚
-  {flag:'🇸🇬',name:'新加坡',cont:'sea'},
-  {flag:'🇲🇾',name:'马来西亚',cont:'sea'},
-  {flag:'🇹🇭',name:'泰国',cont:'sea'},
-  {flag:'🇮🇩',name:'印度尼西亚',cont:'sea'},
-  {flag:'🇵🇭',name:'菲律宾',cont:'sea'},
-  {flag:'🇻🇳',name:'越南',cont:'sea'},
-  {flag:'🇲🇲',name:'缅甸',cont:'sea'},
-  {flag:'🇰🇭',name:'柬埔寨',cont:'sea'},
-  {flag:'🇱🇦',name:'老挝',cont:'sea'},
-  {flag:'🇧🇳',name:'文莱',cont:'sea'},
+  {flag:'🇸🇬',name:'Singapore',cont:'sea'},
+  {flag:'🇲🇾',name:'Malaysia',cont:'sea'},
+  {flag:'🇹🇭',name:'Thailand',cont:'sea'},
+  {flag:'🇮🇩',name:'Indonesia',cont:'sea'},
+  {flag:'🇵🇭',name:'Philippines',cont:'sea'},
+  {flag:'🇻🇳',name:'Vietnam',cont:'sea'},
+  {flag:'🇲🇲',name:'Myanmar',cont:'sea'},
+  {flag:'🇰🇭',name:'Cambodia',cont:'sea'},
+  {flag:'🇱🇦',name:'Laos',cont:'sea'},
+  {flag:'🇧🇳',name:'Brunei',cont:'sea'},
   // 北美
-  {flag:'🇺🇸',name:'美国',cont:'na'},
-  {flag:'🇨🇦',name:'加拿大',cont:'na'},
-  {flag:'🇲🇽',name:'墨西哥',cont:'na'},
+  {flag:'🇺🇸',name:'USA',cont:'na'},
+  {flag:'🇨🇦',name:'Canada',cont:'na'},
+  {flag:'🇲🇽',name:'Mexico',cont:'na'},
   // 欧洲
-  {flag:'🇬🇧',name:'英国',cont:'eu'},
-  {flag:'🇩🇪',name:'德国',cont:'eu'},
-  {flag:'🇫🇷',name:'法国',cont:'eu'},
-  {flag:'🇮🇹',name:'意大利',cont:'eu'},
-  {flag:'🇪🇸',name:'西班牙',cont:'eu'},
-  {flag:'🇳🇱',name:'荷兰',cont:'eu'},
-  {flag:'🇧🇪',name:'比利时',cont:'eu'},
-  {flag:'🇵🇱',name:'波兰',cont:'eu'},
-  {flag:'🇸🇪',name:'瑞典',cont:'eu'},
-  {flag:'🇨🇿',name:'瑞士',cont:'eu'},
+  {flag:'🇬🇧',name:'UK',cont:'eu'},
+  {flag:'🇩🇪',name:'Germany',cont:'eu'},
+  {flag:'🇫🇷',name:'France',cont:'eu'},
+  {flag:'🇮🇹',name:'Italy',cont:'eu'},
+  {flag:'🇪🇸',name:'Spain',cont:'eu'},
+  {flag:'🇳🇱',name:'Netherlands',cont:'eu'},
+  {flag:'🇧🇪',name:'Belgium',cont:'eu'},
+  {flag:'🇵🇱',name:'Poland',cont:'eu'},
+  {flag:'🇸🇪',name:'Sweden',cont:'eu'},
+  {flag:'🇨🇿',name:'Switzerland',cont:'eu'},
   // 大洋洲
-  {flag:'🇦🇺',name:'澳大利亚',cont:'oc'},
-  {flag:'🇳🇿',name:'新西兰',cont:'oc'},
+  {flag:'🇦🇺',name:'Australia',cont:'oc'},
+  {flag:'🇳🇿',name:'New Zealand',cont:'oc'},
   // 中东
-  {flag:'🇦🇪',name:'阿联酋',cont:'me'},
-  {flag:'🇸🇦',name:'沙特阿拉伯',cont:'me'},
-  {flag:'🇰🇼',name:'科威特',cont:'me'},
-  {flag:'🇮🇱',name:'以色列',cont:'me'},
-  {flag:'🇹🇷',name:'土耳其',cont:'me'},
-  {flag:'🇪🇬',name:'埃及',cont:'me'},
+  {flag:'🇦🇪',name:'UAE',cont:'me'},
+  {flag:'🇸🇦',name:'Saudi Arabia',cont:'me'},
+  {flag:'🇰🇼',name:'Kuwait',cont:'me'},
+  {flag:'🇮🇱',name:'Israel',cont:'me'},
+  {flag:'🇹🇷',name:'Turkey',cont:'me'},
+  {flag:'🇪🇬',name:'Egypt',cont:'me'},
   // 东亚
-  {flag:'🇯🇵',name:'日本',cont:'ea'},
-  {flag:'🇰🇷',name:'韩国',cont:'ea'},
-  {flag:'🇨🇳',name:'中国内地',cont:'ea'},
-  {flag:'🇭🇰',name:'香港',cont:'ea'},
-  {flag:'🇹🇼',name:'台湾',cont:'ea'},
+  {flag:'🇯🇵',name:'Japan',cont:'ea'},
+  {flag:'🇰🇷',name:'South Korea',cont:'ea'},
+  {flag:'🇨🇳',name:'Mainland China',cont:'ea'},
+  {flag:'🇭🇰',name:'Hong Kong',cont:'ea'},
+  {flag:'🇹🇼',name:'Taiwan',cont:'ea'},
   // 南美
-  {flag:'🇧🇷',name:'巴西',cont:'sa'},
-  {flag:'🇦🇷',name:'阿根廷',cont:'sa'},
-  {flag:'🇨🇱',name:'智利',cont:'sa'},
-  {flag:'🇨🇴',name:'哥伦比亚',cont:'sa'},
-  {flag:'🇵🇪',name:'秘鲁',cont:'sa'},
+  {flag:'🇧🇷',name:'Brazil',cont:'sa'},
+  {flag:'🇦🇷',name:'Argentina',cont:'sa'},
+  {flag:'🇨🇱',name:'Chile',cont:'sa'},
+  {flag:'🇨🇴',name:'Colombia',cont:'sa'},
+  {flag:'🇵🇪',name:'Peru',cont:'sa'},
   // 非洲
-  {flag:'🇳🇬',name:'尼日利亚',cont:'af'},
-  {flag:'🇿🇦',name:'南非',cont:'af'},
-  {flag:'🇰🇪',name:'肯尼亚',cont:'af'},
-  {flag:'🇪🇹',name:'埃塞俄比亚',cont:'af'},
-  {flag:'🇬🇭',name:'加纳',cont:'af'},
+  {flag:'🇳🇬',name:'Nigeria',cont:'af'},
+  {flag:'🇿🇦',name:'South Africa',cont:'af'},
+  {flag:'🇰🇪',name:'Kenya',cont:'af'},
+  {flag:'🇪🇹',name:'Ethiopia',cont:'af'},
+  {flag:'🇬🇭',name:'Ghana',cont:'af'},
 ];
 
 let rgCurrentCont = 'all';
@@ -1759,7 +1759,7 @@ function renderRgCountryList() {
   if(rgCurrentCont !== 'all') countries = countries.filter(c => c.cont === rgCurrentCont);
   if(search) countries = countries.filter(c => c.name.includes(search) || c.name.toLowerCase().includes(search));
   if(!countries.length) {
-    list.innerHTML = `<div style="padding:16px;text-align:center;font-size:12px;color:var(--t-muted)">未找到匹配的国家</div>`;
+    list.innerHTML = `<div style="padding:16px;text-align:center;font-size:12px;color:var(--t-muted)">No matching country</div>`;
     return;
   }
   list.innerHTML = countries.map(c => {
@@ -1823,7 +1823,7 @@ function updateIcpDescCount(textarea) {
 function toggleAutoUnlock(el) {
   el.classList.toggle('on');
   const label = document.getElementById('icp-toggle-label');
-  if(label) label.textContent = el.classList.contains('on') ? '已开启：AI 自动 Enrich 邮箱与电话' : '已关闭：手动解锁联系方式';
+  if(label) label.textContent = el.classList.contains('on') ? 'On — AI auto-enriches email and phone' : 'Off — unlock contacts manually';
 }
 
 // ═══════════════════════════════════════════════════════
