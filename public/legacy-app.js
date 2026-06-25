@@ -914,39 +914,39 @@ const ICP_EDM_POOL = [
 // ─── Customer Pool Data ───
 const CPOOL_DATA = [
   {
-    group: '搜索推送客户',
+    group: 'Search-pushed',
     icon: '🔍',
     items: [
-      {id:1, name:'Fairprice Group', status:'replied', statusText:'跟进 2 次 · 已回复', flag:'🇸🇬'},
-      {id:2, name:'Jaya Grocer', status:'no-reply', statusText:'跟进 3 次 · 无回复', flag:'🇲🇾'},
-      {id:3, name:'99 Ranch Market', status:'replied', statusText:'跟进 1 次 · 已回复', flag:'🇺🇸'},
-      {id:7, name:'Transmart Carrefour', status:'pending', statusText:'已推送 · 待跟进', flag:'🇮🇩'},
-      {id:10, name:'Asian Food Mart', status:'pending', statusText:'已推送 · 待跟进', flag:'🇳🇿'},
+      {id:1, name:'Fairprice Group', status:'replied', statusText:'Followed up 2× · replied', flag:'🇸🇬'},
+      {id:2, name:'Jaya Grocer', status:'no-reply', statusText:'Followed up 3× · no reply', flag:'🇲🇾'},
+      {id:3, name:'99 Ranch Market', status:'replied', statusText:'Followed up 1× · replied', flag:'🇺🇸'},
+      {id:7, name:'Transmart Carrefour', status:'pending', statusText:'Pushed · to follow up', flag:'🇮🇩'},
+      {id:10, name:'Asian Food Mart', status:'pending', statusText:'Pushed · to follow up', flag:'🇳🇿'},
     ]
   },
   {
-    group: '精准建联客户',
+    group: 'Direct-connect',
     icon: '🎯',
     items: [
-      {id:6, name:'T&T Supermarket', status:'overdue', statusText:'3 天无沟通 · 需跟进', flag:'🇨🇦'},
-      {id:9, name:'Wing Yip Foods', status:'replied', statusText:'跟进 4 次 · 已回复', flag:'🇬🇧'},
-      {id:11, name:'Rustan Supercenters', status:'no-reply', statusText:'跟进 2 次 · 无回复', flag:'🇵🇭'},
+      {id:6, name:'T&T Supermarket', status:'overdue', statusText:'3 days quiet · follow up', flag:'🇨🇦'},
+      {id:9, name:'Wing Yip Foods', status:'replied', statusText:'Followed up 4× · replied', flag:'🇬🇧'},
+      {id:11, name:'Rustan Supercenters', status:'no-reply', statusText:'Followed up 2× · no reply', flag:'🇵🇭'},
     ]
   },
   {
-    group: 'WhatsApp 商机',
+    group: 'WhatsApp',
     icon: '💬',
     items: [
-      {id:4, name:'Central Food Hall', status:'replied', statusText:'昨日有新消息', flag:'🇹🇭'},
-      {id:5, name:'Asian Grocery Pty', status:'overdue', statusText:'5 天无沟通 · 需跟进', flag:'🇦🇺'},
-      {id:12, name:'Big C Vietnam', status:'no-reply', statusText:'跟进 1 次 · 无回复', flag:'🇻🇳'},
+      {id:4, name:'Central Food Hall', status:'replied', statusText:'New message yesterday', flag:'🇹🇭'},
+      {id:5, name:'Asian Grocery Pty', status:'overdue', statusText:'5 days quiet · follow up', flag:'🇦🇺'},
+      {id:12, name:'Big C Vietnam', status:'no-reply', statusText:'Followed up 1× · no reply', flag:'🇻🇳'},
     ]
   },
   {
-    group: '海关数据匹配',
+    group: 'Customs-matched',
     icon: '🚢',
     items: [
-      {id:8, name:'Al Madina Group', status:'pending', statusText:'已匹配 · 待联系', flag:'🇦🇪'},
+      {id:8, name:'Al Madina Group', status:'pending', statusText:'Matched · to contact', flag:'🇦🇪'},
     ]
   }
 ];
@@ -971,7 +971,7 @@ function renderCpool(filter) {
       </div>`;
     });
   });
-  el.innerHTML = html || '<div style="padding:16px;text-align:center;font-size:12px;color:var(--t-muted)">暂无客户</div>';
+  el.innerHTML = html || '<div style="padding:16px;text-align:center;font-size:12px;color:var(--t-muted)">No buyers</div>';
   // Update total badge
   const allItems = CPOOL_DATA.flatMap(g=>g.items);
   const badge = document.getElementById('cpool-total-badge');
@@ -1284,23 +1284,23 @@ function getPoolScore(name) {
 
 function getPoolFollowCount(name) {
   const text = CPOOL_DATA.flatMap(g=>g.items).find(i=>i.name===name)?.statusText || '';
-  const m = text.match(/(\d+)\s*次/);
+  const m = text.match(/(\d+)\s*×/);
   return m ? parseInt(m[1]) : 0;
 }
 
 function getPoolLastActivity(name) {
   const statusText = CPOOL_DATA.flatMap(g=>g.items).find(i=>i.name===name)?.statusText || '';
-  if(statusText.includes('刺刺') || statusText.includes('刚刚')) return '刚刚';
-  if(statusText.includes('昨日')) return '昨日';
-  const m = statusText.match(/(\d+)\s*天/);
-  return m ? m[1]+'天前' : '未知';
+  if(statusText.includes('Just linked') || statusText.includes('now')) return 'now';
+  if(statusText.includes('yesterday')) return 'yesterday';
+  const m = statusText.match(/(\d+)\s*days?/);
+  return m ? m[1]+'d ago' : '—';
 }
 
 const POOL_SOURCE_MAP = {
-  '搜索推送客户': {color:'#1e5fd0', icon:'🔍'},
-  '精准建联客户': {color:'#1f8fd6', icon:'🎯'},
-  'WhatsApp 商机': {color:'#17a673', icon:'💬'},
-  '海关数据匹配': {color:'#c8860a', icon:'🚢'},
+  'Search-pushed': {color:'#1e5fd0', icon:'🔍'},
+  'Direct-connect': {color:'#1f8fd6', icon:'🎯'},
+  'WhatsApp': {color:'#17a673', icon:'💬'},
+  'Customs-matched': {color:'#c8860a', icon:'🚢'},
 };
 
 function renderPoolPage() {
@@ -1350,13 +1350,13 @@ function renderPoolTable() {
     return ta.localeCompare(tb);
   });
   const statusCfg = {
-    replied:    {color:'#17a673', bg:'rgba(23,166,115,.1)',  border:'rgba(23,166,115,.2)',  label:'已回复'},
-    overdue:    {color:'#e5484d', bg:'rgba(229,72,77,.1)', border:'rgba(229,72,77,.2)', label:'逐期跟进'},
-    'no-reply': {color:'#c8860a', bg:'rgba(200,134,10,.1)',  border:'rgba(200,134,10,.2)',  label:'无回复'},
-    pending:    {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'待跟进'},
+    replied:    {color:'#17a673', bg:'rgba(23,166,115,.1)',  border:'rgba(23,166,115,.2)',  label:'Replied'},
+    overdue:    {color:'#e5484d', bg:'rgba(229,72,77,.1)', border:'rgba(229,72,77,.2)', label:'Overdue'},
+    'no-reply': {color:'#c8860a', bg:'rgba(200,134,10,.1)',  border:'rgba(200,134,10,.2)',  label:'No reply'},
+    pending:    {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'To follow up'},
   };
   if(!allItems.length) {
-    tbody.innerHTML = `<tr><td colspan="7" style="padding:40px;text-align:center;color:var(--t-muted);font-size:13px">暂无匹配客户</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="padding:40px;text-align:center;color:var(--t-muted);font-size:13px">No matching buyers</td></tr>`;
     return;
   }
   tbody.innerHTML = allItems.map(item => {
@@ -1373,33 +1373,33 @@ function renderPoolTable() {
           <div style="flex-shrink:0">${ccBadge(item.flag)}</div>
           <div>
             <div style="font-size:13px;font-weight:600;color:var(--t-primary)">${item.name}</div>
-            <div style="font-size:11px;color:var(--t-muted);margin-top:1px">${item.group === '搜索推送客户' ? '搜索推送' : item.group === '精准建联客户' ? '精准建联' : item.group === 'WhatsApp 商机' ? 'WhatsApp' : '海关数据'}</div>
+            <div style="font-size:11px;color:var(--t-muted);margin-top:1px">${item.group === 'Search-pushed' ? 'Search' : item.group === 'Direct-connect' ? 'Direct' : item.group === 'WhatsApp' ? 'WhatsApp' : 'Customs'}</div>
           </div>
         </div>
       </td>
       <td style="padding:12px">
-        <span style="font-size:11px;color:${si.color};background:${si.color}14;padding:2px 7px;border-radius:4px">${item.group.replace('客户','').replace('匹配','')}</span>
+        <span style="font-size:11px;color:${si.color};background:${si.color}14;padding:2px 7px;border-radius:4px">${item.group}</span>
       </td>
       <td style="padding:12px;text-align:center">
         <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:${sc.color}"><span style="width:6px;height:6px;border-radius:2px;background:${sc.color};flex-shrink:0"></span>${sc.label}</span>
       </td>
       <td style="padding:12px;text-align:center">
         <span style="font-size:13px;font-weight:700;color:${scoreColor}">${score}</span>
-        <span style="font-size:10px;color:var(--t-muted)">分</span>
+        <span style="font-size:10px;color:var(--t-muted)"></span>
       </td>
       <td style="padding:12px;min-width:120px">
         <div style="display:flex;align-items:center;gap:6px">
           <div style="flex:1;height:4px;background:rgba(19,33,63,.08);border-radius:2px;overflow:hidden">
             <div style="height:100%;width:${progPct}%;background:${sc.color};border-radius:2px"></div>
           </div>
-          <span style="font-size:10px;color:var(--t-muted);white-space:nowrap">${followCount}次</span>
+          <span style="font-size:10px;color:var(--t-muted);white-space:nowrap">${followCount}×</span>
         </div>
       </td>
       <td style="padding:12px;font-size:11px;color:var(--t-muted);white-space:nowrap">${lastAct}</td>
       <td style="padding:12px;text-align:center">
         <div style="display:flex;gap:4px;justify-content:center">
-          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer">AI 跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" title="发 WhatsApp" style="font-size:10px;padding:3px 7px;border-radius:6px;background:rgba(23,166,115,.08);color:#17a673;border:1px solid rgba(23,166,115,.2);cursor:pointer;display:flex;align-items:center"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer">AI follow-up</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" title="Send WhatsApp" style="font-size:10px;padding:3px 7px;border-radius:6px;background:rgba(23,166,115,.08);color:#17a673;border:1px solid rgba(23,166,115,.2);cursor:pointer;display:flex;align-items:center"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         </div>
       </td>
     </tr>`;
@@ -1419,7 +1419,7 @@ function showPoolDetail(name) {
   const cust = CUST_DATA.find(c=>c.company===name);
   const panel = document.getElementById('pool-detail-content');
   if(!panel || !item) return;
-  const sc = {replied:{color:'#17a673',label:'已回复'},overdue:{color:'#e5484d',label:'逐期跟进'},'no-reply':{color:'#c8860a',label:'无回复'},pending:{color:'#6b7280',label:'待跟进'}}[item.status]||{color:'#6b7280',label:'待跟进'};
+  const sc = {replied:{color:'#17a673',label:'Replied'},overdue:{color:'#e5484d',label:'Overdue'},'no-reply':{color:'#c8860a',label:'No reply'},pending:{color:'#6b7280',label:'To follow up'}}[item.status]||{color:'#6b7280',label:'To follow up'};
   const si = POOL_SOURCE_MAP[item.group]||{color:'#1e5fd0',icon:'📂'};
   const score = getPoolScore(name);
   const followCount = getPoolFollowCount(name);
@@ -1440,25 +1440,25 @@ function showPoolDetail(name) {
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
         <div style="background:rgba(19,33,63,.03);border-radius:8px;padding:10px">
-          <div style="font-size:10px;color:var(--t-muted);margin-bottom:2px">匹配度</div>
-          <div style="font-size:20px;font-weight:800;color:#1e5fd0">${score}<span style="font-size:11px;font-weight:400;color:var(--t-muted)">分</span></div>
+          <div style="font-size:10px;color:var(--t-muted);margin-bottom:2px">Match</div>
+          <div style="font-size:20px;font-weight:800;color:#1e5fd0">${score}<span style="font-size:11px;font-weight:400;color:var(--t-muted)"></span></div>
         </div>
         <div style="background:rgba(19,33,63,.03);border-radius:8px;padding:10px">
-          <div style="font-size:10px;color:var(--t-muted);margin-bottom:2px">跟进次数</div>
-          <div style="font-size:20px;font-weight:800;color:#1f8fd6">${followCount}<span style="font-size:11px;font-weight:400;color:var(--t-muted)">次</span></div>
+          <div style="font-size:10px;color:var(--t-muted);margin-bottom:2px">Follow-ups</div>
+          <div style="font-size:20px;font-weight:800;color:#1f8fd6">${followCount}<span style="font-size:11px;font-weight:400;color:var(--t-muted)"></span></div>
         </div>
       </div>
     </div>
     <div style="margin-bottom:16px">
-      <div style="font-size:11px;font-weight:700;color:var(--t-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">跟进进度</div>
+      <div style="font-size:11px;font-weight:700;color:var(--t-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Follow-up progress</div>
       <div style="height:6px;background:rgba(19,33,63,.06);border-radius:3px;overflow:hidden;margin-bottom:6px">
         <div style="height:100%;width:${Math.min(100,followCount*20+10)}%;background:${sc.color};border-radius:3px"></div>
       </div>
-      <div style="font-size:11px;color:var(--t-muted)">最近活跃: ${lastAct} · ${item.statusText||'无记录'}</div>
+      <div style="font-size:11px;color:var(--t-muted)">Last active: ${lastAct} · ${item.statusText||'no record'}</div>
     </div>
     ${hasContact ? `
     <div style="margin-bottom:16px">
-      <div style="font-size:11px;font-weight:700;color:var(--t-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">联系人</div>
+      <div style="font-size:11px;font-weight:700;color:var(--t-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Contact</div>
       ${contacts.map(c=>`
         <div style="background:rgba(19,33,63,.03);border-radius:8px;padding:10px;margin-bottom:6px">
           <div style="font-size:12px;font-weight:600;color:var(--t-primary)">${c.name}</div>
@@ -1469,13 +1469,13 @@ function showPoolDetail(name) {
       `).join('')}
     </div>` : `
     <div style="margin-bottom:16px;background:rgba(200,134,10,.05);border:1px solid rgba(200,134,10,.15);border-radius:8px;padding:12px">
-      <div style="font-size:11px;color:#c8860a;font-weight:600;margin-bottom:4px">未获取联系方式</div>
-      <div style="font-size:11px;color:var(--t-muted)">到「找客户」页面为该客户执行 Enrich</div>
+      <div style="font-size:11px;color:#c8860a;font-weight:600;margin-bottom:4px">No contact yet</div>
+      <div style="font-size:11px;color:var(--t-muted)">Enrich this buyer on the Find-buyers page</div>
     </div>`}
     <div style="display:flex;flex-direction:column;gap:8px">
-      <div onclick="poolFollowUp('${name}')" style="background:rgba(31,143,214,.12);border:1px solid rgba(31,143,214,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#1e5fd0;cursor:pointer;text-align:center">AI 生成跟进话术</div>
-      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#17a673;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发送 WhatsApp 消息</div>
-      <div onclick="navTo('leads')" style="background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:var(--t-muted);cursor:pointer;text-align:center">查看完整客户资料</div>
+      <div onclick="poolFollowUp('${name}')" style="background:rgba(31,143,214,.12);border:1px solid rgba(31,143,214,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#1e5fd0;cursor:pointer;text-align:center">Draft AI follow-up</div>
+      <div onclick="openPoolWhatsApp('${name}')" style="background:rgba(23,166,115,.08);border:1px solid rgba(23,166,115,.2);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:#17a673;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Send WhatsApp message</div>
+      <div onclick="navTo('leads')" style="background:rgba(19,33,63,.04);border:1px solid rgba(19,33,63,.07);border-radius:9px;padding:10px;font-size:12px;font-weight:600;color:var(--t-muted);cursor:pointer;text-align:center">View full buyer profile</div>
     </div>
   `;
 }
@@ -1526,14 +1526,14 @@ function renderPoolCards() {
     allItems.sort((a,b) => (order[a.status]??9) - (order[b.status]??9));
   }
   if(!allItems.length) {
-    container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--t-muted);font-size:13px">暂无匹配客户</div>';
+    container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--t-muted);font-size:13px">No matching buyers</div>';
     return;
   }
   const statusCfg = {
-    replied: {color:'#17a673', bg:'rgba(23,166,115,.1)', border:'rgba(23,166,115,.2)', label:'已回复'},
-    overdue: {color:'#e5484d', bg:'rgba(229,72,77,.1)', border:'rgba(229,72,77,.2)', label:'逐期跟进'},
-    'no-reply': {color:'#c8860a', bg:'rgba(200,134,10,.1)', border:'rgba(200,134,10,.2)', label:'无回复'},
-    pending: {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'待跟进'},
+    replied: {color:'#17a673', bg:'rgba(23,166,115,.1)', border:'rgba(23,166,115,.2)', label:'Replied'},
+    overdue: {color:'#e5484d', bg:'rgba(229,72,77,.1)', border:'rgba(229,72,77,.2)', label:'Overdue'},
+    'no-reply': {color:'#c8860a', bg:'rgba(200,134,10,.1)', border:'rgba(200,134,10,.2)', label:'No reply'},
+    pending: {color:'#6b7280', bg:'rgba(107,114,128,.1)', border:'rgba(107,114,128,.2)', label:'To follow up'},
   };
   const sourceInfo = (group) => POOL_SOURCE_MAP[group] || {color:'#1e5fd0', icon:'📂'};
   container.innerHTML = allItems.map(item => {
@@ -1559,15 +1559,15 @@ function renderPoolCards() {
           </div>
         </div>
         <div style="text-align:right;flex-shrink:0">
-          <div style="font-size:18px;font-weight:800;color:#1e5fd0">${score}<span style="font-size:10px;font-weight:400;color:var(--t-muted)">分</span></div>
-          <div style="font-size:9px;color:var(--t-muted);margin-top:1px">匹配度</div>
+          <div style="font-size:18px;font-weight:800;color:#1e5fd0">${score}<span style="font-size:10px;font-weight:400;color:var(--t-muted)"></span></div>
+          <div style="font-size:9px;color:var(--t-muted);margin-top:1px">Match</div>
         </div>
       </div>
       <!-- Progress Bar -->
       <div style="margin-bottom:10px">
         <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-          <span style="font-size:10px;color:var(--t-muted)">跟进进度</span>
-          <span style="font-size:10px;color:var(--t-muted)">跟进 ${followCount} 次 · 最近活跃: ${lastAct}</span>
+          <span style="font-size:10px;color:var(--t-muted)">Follow-up progress</span>
+          <span style="font-size:10px;color:var(--t-muted)">Followed up ${followCount}× · last active: ${lastAct}</span>
         </div>
         <div style="height:4px;background:rgba(19,33,63,.06);border-radius:2px;overflow:hidden">
           <div style="height:100%;width:${Math.min(100, followCount*20+10)}%;background:${sc.color};border-radius:2px;transition:.3s"></div>
@@ -1576,12 +1576,12 @@ function renderPoolCards() {
       <!-- Bottom Row -->
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div style="display:flex;align-items:center;gap:10px">
-          ${hasContact ? `<span style="font-size:10px;color:#17a673">✓ 已获取联系方式</span>` : `<span style="font-size:10px;color:var(--t-muted)">未获取联系方式</span>`}
+          ${hasContact ? `<span style="font-size:10px;color:#17a673">✓ Contact found</span>` : `<span style="font-size:10px;color:var(--t-muted)">No contact yet</span>`}
           ${contacts.length ? `<span style="font-size:10px;color:var(--t-muted)">· ${contacts[0].name} (${contacts[0].title})</span>` : ''}
         </div>
         <div style="display:flex;gap:6px">
-          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(31,143,214,.12);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(31,143,214,.2)'" onmouseout="this.style.background='rgba(31,143,214,.12)'">AI 跟进</div>
-          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(23,166,115,.08);color:#17a673;border:1px solid rgba(23,166,115,.2);cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px" onmouseover="this.style.background='rgba(23,166,115,.15)'" onmouseout="this.style.background='rgba(23,166,115,.08)'"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>发消息</div>
+          <div onclick="event.stopPropagation();poolFollowUp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(31,143,214,.12);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;transition:.15s" onmouseover="this.style.background='rgba(31,143,214,.2)'" onmouseout="this.style.background='rgba(31,143,214,.12)'">AI follow-up</div>
+          <div onclick="event.stopPropagation();openPoolWhatsApp('${item.name}')" style="font-size:10px;padding:4px 10px;border-radius:7px;background:rgba(23,166,115,.08);color:#17a673;border:1px solid rgba(23,166,115,.2);cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px" onmouseover="this.style.background='rgba(23,166,115,.15)'" onmouseout="this.style.background='rgba(23,166,115,.08)'"><svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Message</div>
         </div>
       </div>
     </div>`;
@@ -1604,12 +1604,12 @@ function openPoolDetail(name) {
       }, 100);
     }, 50);
   } else {
-    toast('◆', name, '点击查看详细客户信息');
+    toast('◆', name, 'Click to view buyer details');
   }
 }
 
 function poolFollowUp(name) {
-  toast('◆','AI 跟进已启动',`正在为 ${name} 生成个性化跟进话术，将通过 WhatsApp 或邮件发送`);
+  toast('◆','AI follow-up started',`Drafting a personalized follow-up for ${name}, to be sent via WhatsApp or email`);
 }
 
 function openPoolWhatsApp(name) {
@@ -1624,7 +1624,7 @@ function openPoolWhatsApp(name) {
 
 function poolBatchFollowUp() {
   const overdue = CPOOL_DATA.flatMap(g=>g.items).filter(i=>i.status==='overdue'||i.status==='no-reply');
-  toast('◆','AI 批量跟进已启动',`正在为 ${overdue.length} 个客户生成个性化跟进消息，请到「营销队列」审批后发送`);
+  toast('◆','AI bulk follow-up started',`Drafting follow-ups for ${overdue.length} buyers — approve them in the Marketing queue to send`);
   setTimeout(() => navTo('marketing'), 1600);
 }
 

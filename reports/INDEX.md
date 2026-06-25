@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 074 | 🟦 产品轴(main) | 客户池 pool 英文化(CPOOL_DATA group·statusText/POOL_SOURCE_MAP 同步/解析正则同步/renderPoolTable·Cards·Detail/toast)——legacy 收官 | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-074](round-074-pool-en.md) |
 | 073 | 🟦 产品轴(main) | 营销队列 marketing 英文化(MarketingPage/MKT_ITEMS/EMAIL_VARIANTS 邮件正文/renderMktList/approve·reject + AI_MSGS/AI_DAILY_ITEMS/INTEL_CENTER_CARDS/renderIntelCenter) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-073](round-073-marketing-en.md) |
 | 072 | 🟦 产品轴(main) | WhatsApp 商机中心英文化(markup/WA_CONTACTS·CHATS·CHIPS/INTEL_DATA/渲染函数/connectBuyer seed/dashboard 买家 country·need;**h3 seed 正则同步英文**;Arabic chat 保留) | ✅ build✓ 机检✓ h3(seeded✓)/h1/tour✓ KEEP | [round-072](round-072-whatsapp-en.md) |
 | 071 | 🟦 产品轴(main) | 找客户 leads 数据层英文化(CUST_DATA 12 家 industry·desc·title·news·source + LIVE_CUSTOMERS + renderCustTable + 展开卡 + 6 toast + 反馈弹窗;修 id8 flag 🇺🇦→🇦🇪) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-071](round-071-leads-data-en.md) |
