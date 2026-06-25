@@ -11,9 +11,18 @@
 - **自检标准**:每张截图问自己 —— **「这个画面敢不敢直接放进给大客户的预售方案 PDF(../商务资料/全球本地化…预售.pdf)?」** 敢 = 高级;有一处 AI 味就不敢,继续抠。
 - **这是持续 loop**:backlog 清完 ≠ 结束 —— 继续逐屏审计 AI 味、抠细节(间距/对齐/层级/微动效)提精致度,直到整站都达到这个水准。每轮都把新发现的「不够高级 / 有 AI 味」写回 backlog。
 
+## ★ 产品北极星(卖方视角,与视觉北极星并列,高于一切):整齐 · 有事做 · 有成就感 · 有希望
+这系统是给**卖方(外贸销售 / 出海企业)每天打开来用**的。界面不只是好看,要让卖方:
+- **界面排布很整齐** —— 信息有秩序、对齐、分组清晰,一眼知道看哪、点哪。整齐本身就给人**掌控感**(也正是高级感)。
+- **每天都有事情做** —— 进来总有明确的下一步:今日待跟进 / 新商机 / 待建联 / 待解锁。**绝不是空仪表盘或一堆看不懂的数字**。
+- **每做一件事都有一点成就感** —— 完成跟进/解锁/建联/发邮件,给**克制、真诚、即时**的正反馈(状态推进、列表 +1、阶段点亮),让人愿意做下一件。
+- **从界面反馈里感受到希望** —— 进展可见、可累积:商机在增长、关系在推进、离成单更近一步。
+- ⚠️ **成就感与希望必须「真实挣来」**:用真实完成的动作 + 真实推进的状态来给反馈,**绝不许假 %/空转计数/为爽而爽的彩带动画**(那既是 AI 味、又是欺骗)。真诚的小反馈 > 浮夸的假高潮。
+> 视觉北极星 = 「怎么看(高级、零 AI 味)」;产品北极星 = 「怎么用、什么感受(整齐 / 有事做 / 有成就感 / 有希望)」。两者一起判 —— 每轮也问:**这屏让卖方更"有事做/有成就感/有希望"了吗?有没有空仪表盘、死路(做完没反馈)、看不懂的数字?**
+
 ## ☆ 每轮闭环(loop-v2 经验:读状态 → 审计 → 排序 → 执行 → 验收 → 落库 → 收敛)
 1. **读状态**:本文件 + LOOP-STATE.md + BACKLOG.md。
-2. **审计**:截当前/相邻屏对照 `../logo.jpg` + 北极星标准,**把新发现的「AI 味 / 不够高级 / 暗底残留 / 对比度不足」去重写进 BACKLOG**(审计本身就在喂 backlog,所以 loop 永远有活、越跑越精)。
+2. **审计**:截当前/相邻屏对照 `../logo.jpg` + **两条北极星**(视觉:AI 味/高级感;产品:整齐/有事做/成就感/希望),**把新发现的问题去重写进 BACKLOG** —— 既包括「AI 味 / 不够高级 / 暗底残留 / 对比度不足」,也包括「空仪表盘 / 死路(做完没反馈)/ 看不懂的数字 / 缺明确下一步」。审计本身就在喂 backlog,所以 loop 永远有活、越跑越精。
 3. **排序取顶**:按 **影响 × 把握 ÷ 风险** 排,跳过 done/冷却项。R1(令牌总换)永远第一;之后大屏(login/工作台)优先于小屏。
 4. **执行一项(分档)**:
    - 🟥 **大件**(R1 令牌反相+更名):走 `feat/rebrand-transmission` 分支,做完**暂停等 review**,不 ScheduleWakeup。
@@ -78,7 +87,7 @@
   - 残留暗底假设(深色卡/浅字on深、内联 `rgba(0,0,0)` 阴影过重)→ 调成亮色。
   - 没被精确替换命中的暖色/渐变/glow 变体 → 收成蓝。
   - **地图**:暖近黑大陆 → 浅冷大陆 + azure 信号热点;ping/LIVE 极淡 azure;热力配色亮色化。
-  - **logo marks**:login/sidebar/welcome → `--brand-grad` 复刻 TM 渐变(品牌标记可渐变),或把 `../logo.jpg` 拷 `public/` 直接用图。
+  - **logo marks**:用**真实 logo 图**(`public/logo-full.png` / `public/logo-mark.png`,见 §8 logo 任务),**不要再 CSS 复刻 TM**。
   - **按钮系统**(polish.css):主按钮实心 azure + 白字;hover 极淡;次按钮白底描边。保去 slop。
   - **信号母题**(可选后期):轨道 swoosh 动效呼应 logo;克制。
 - 顺序:R1 →(定调)→ login → 工作台 → 找客户/情报/whatsapp/池/营销 → 首启 → 母题动效。
@@ -115,16 +124,39 @@
 - **亮色对比度是新风险**:深 navy 字 on 浅底要够对比(WCAG AA);azure 强调别太浅以致看不清。
 - 「活」必须挣来,不许假 %。每轮 push GitHub(V1ctor2182/Transmission)。
 
+## 8b. 产品北极星轴 backlog(用户 2026-06-25 选定;视觉主体完成后的主轴)
+> 判据:整齐 / 有事做 / 有成就感 / 有希望。红线:真实数据、反馈真实挣来、绝不假%/空转。
+- [x] R041:工作台买家信号「建联」行动 hover-gated → 常驻可见(明确下一步)。
+- [x] R042:AI 工作流 feed 每行加常驻行动药丸(查看/去跟进/去审批…),narration → 可执行任务队列。
+- [x] 工作台「今日明确待办」聚合(R045:找回 R012 并掉的 TODAY_TODOS → 头部 chip-strip,真实优先级待办 urgent 优先 + 点击直达对应屏)。余:可接真实计数动态算。
+- [~] 完成动作即时正反馈(建联/解锁/发邮件 → 状态推进 + 列表 +1 + 阶段点亮);真实挣来,不假高潮。R043:反馈层 33 toast 图标去 emoji→◆ + 建联键去 🤝。R044:🔴 confirmUnlock 假反馈修成真实揭示(解锁真 un-mask 行 + 真扣次数 47→46 + 重渲染 + toast 诚实点名)——红线已清。余:wa 情报面板/AI 卡 lock overlay 可后续接同款真揭示;通知数据 emoji 图标(🤝💬🔔 @765/2037)。
+- [ ] 数字可读性:KPI/feed 数字配「对我意味着什么」的解读,去「看不懂的数字」。
+- [~] 各屏空态/死路审计(做完一件事后是否有去向/反馈,有没有空仪表盘)。R047:客户池右侧空占位→进入自动选最紧急客户填充。余:其它 master-detail 屏同款。
+
 ## 8. Rebrand backlog(每轮排序取顶)
-- [ ] **R1 令牌反相 + 字面量批量替换 + 更名 TRANS·MISSION**(大件,feat 分支 + 暂停)
+- [~] **R1 令牌反相 + 字面量批量替换 + 更名 TRANS·MISSION**(R031,分支 `feat/rebrand-transmission`,⏸ 待 review 定调):tokens.css 全反相 + 13 条字面量批量替(残留=0)+ 全站更名 + 创拾觅深署名。build✓ 机检 9 屏零错✓ golden h3✓。**未 merge。**
+  - [x] R032:① `.toast` 深块→白卡 + 冷阴影 + azure ◆;② `.wh-land` 暖近黑→浅冷大陆 + azure 信号/ping + navy 标签白 halo;③ 地图提示 chip `rgba(11,10,7,.5)`→浅磨砂。
+  - 残留(续修):③ src 内仍有 `rgba(0,0,0,…)` 遮罩(modal overlay 等)逐屏减淡;④ **带空格 rgb 漏替**(批量表只命中无空格):`rgba(245, 183, 61,…)`/`rgba(255, 248, 235,…)` 在 `modals.css`、`FirstRunAnalysis.vue` 残留(6 处)→ 补扫含空格变体;⑤ **暖橙 `--hot:#ff7a3d`**(DashboardPage KPI/spark/feed)冷色主题里违反单一 azure 锁 → 定调收蓝 or 保留热度语义(动 KPI 语义色,单独一轮 critic)。
 - [ ] login 亮色品牌化(TM 渐变 mark + 白底 + navy 字)
 - [ ] 工作台 dashboard:暗底残留→亮、地图 azure 信号化、KPI/feed/买家对比度
-- [ ] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)
-- [ ] 首启 FirstRunAnalysis 亮色蓝信号化
-- [ ] 按钮系统 azure + 白字(polish.css,保去 slop)
-- [ ] modal/toast overlay 亮色化(rgba(0,0,0) 遮罩减淡)
+- [~] 找客户 / 情报 / whatsapp / 客户池 / 营销 逐屏精修(暗底假设清理)。R035:39 处 #e2e8f0/#cbd5e1 暗主题浅字→navy(隐形文字对比修复)。R036:营销屏国旗 emoji→ccBadge(emoji→mono 全站收官)。余:逐屏继续抠 AI 味/对比细节。
+- [x] 首启 FirstRunAnalysis 亮色蓝信号化(R034:.fra-mapbody 暗近黑→浅冷+azure 辉光 + .fra-hl chip 浅化;浅大陆与工作台一致)。余:首启动效(逐区点亮/count-up/买家流入)hero 节奏专轮。
+- [x] 按钮系统 azure + 白字(保去 slop):wm-btn/modal-btn.primary(R033)+ login-btn/icp-task-btn/btn-connect/btn-approve(R038)蓝渐变+glow → 实心 azure/扁平 tint。余:modal-cost amber(低优)。
+- [ ] ⬜ **T11 删死代码**(R038 审计确认):`#reg-scan-overlay`/`.rso-*` + `#s-onboard`/`runOnboarding`/`OB_CONTENTS` 是死 UI(live=login→网址弹窗→FirstRunAnalysis→enterApp,绕过 scan/onboard),含蓝渐变按钮/暖橙 orb 残留;确认无引用后删(Utility,勿单独抛光死 UI)。
+- [x] modal/toast overlay 亮色化(toast R032 · modal/网址弹窗/AI 气泡 R033:深块→白卡 + 浓黑遮罩→冷遮罩 rgba(20,40,80,.35) + primary/wm-btn 蓝渐变→实心 azure)。残留:通用解锁卡未单截 / modal-cost amber / rso hero 渐变可换 --brand-grad。
 - [ ] 信号母题动效(轨道 swoosh,可选)
-- [ ] logo 实图接入 public/(可选)
+- [x] 🟦 **logo 实图接入(用户 2026-06-25 点名)**(R039:侧栏 sb-logo + 登录 lg-mark + 网址弹窗 wm-logo → 真 logo-mark.png img,去方块底;favicon 指 logo-mark.png;rso 死 UI 跳过)。余:logo-full.png 全锁版暂未用(login 现 monogram+crisp 文字)。原始任务详情↓:
+  真实矢量在 `../logo/LOGO矢量.{ai,cdr,pdf}`,**已转出两个透明 PNG 放进 `public/`**(loop 直接用,别再 CSS 复刻 TM):
+  - `public/logo-full.png` — 全锁版(TM 标 + TRANS·MISSION 字标 + 创拾觅深),透明,997×843
+  - `public/logo-mark.png` — 仅 TM monogram + 轨道,透明,396×250
+  （转法备查:`sips -s format png "../logo/LOGO矢量.pdf" --out x.png` 得透明 PNG;再 `sips --cropOffset 236 302 -c 250 396 x.png` 裁出 monogram。）
+  **逐处把「彩色方块底 + 通用 3 层 SVG」换成真 logo `<img object-fit:contain>`,去掉 `background:var(--brand-grad/--brand)` 方块底**(真 logo 自带色+透明,亮色 UI 直接放):
+  - `LoginScreen.vue` `.lg-logo`/`.lg-mark`(L24-28,左侧品牌栏)→ 用 **logo-full.png** 替换整个 .lg-logo+.lg-sign 块(已含字标+署名);或 .lg-mark 换 monogram 留文字。
+  - `LoginScreen.vue` `.wm-logo`(L58,网址弹窗)→ **logo-mark.png**
+  - `SidebarNav.vue` `.sb-logo`(L9,每屏可见 36px)→ **logo-mark.png**(确认 TM 小尺寸够清晰,糊则裁更紧)
+  - `LoginScreen.vue` `.rso-logo`(L79,扫描层)→ monogram **(注:rso 可能属 T11 死 UI,若删则跳过)**
+  - `index.html` favicon 顺手指 logo-mark.png
+  CSS(login.css/app-shell.css)对应去掉方块底色、给 img 尺寸。验收:登录/侧栏/弹窗截图肉眼 logo 清晰透明不脏 + build+golden。
 
 ## 9. /loop 启动指令(用户 review 本文件 OK 后再用)
 ```

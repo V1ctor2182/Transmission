@@ -1,24 +1,30 @@
 /* ─── RESET & BASE ─── */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0b0a07;
-  --bg2:#13110b;
-  --bg3:#1c1810;
-  --card:rgba(255,248,235,.04);
-  --card-border:rgba(255,248,235,.07);
-  --brand:#f5b73d;
-  --brand2:#ffd27a;
-  --cyan:#f5b73d;
-  --green:#7bd47b;
-  --amber:#fbbf24;
-  --red:#f87171;
-  --purple:#6b78ff;
-  --t-primary:rgba(255,248,235,.92);
-  --t-sec:rgba(255,248,235,.55);
-  --t-muted:rgba(255,248,235,.28);
+  /* TRANS·MISSION · 信号蓝 · 亮色(反相自旧 Phosphor 暖暗;single source of truth)*/
+  --bg:#f4f7fc;            /* 页面浅冷底 */
+  --bg2:#ffffff;           /* 卡 / 面板(白) */
+  --bg3:#e9f0f9;           /* 抬升 / hover / 次层 */
+  --card:#ffffff;          /* 卡底 */
+  --card-border:#dbe5f2;   /* 冷浅边 */
+  --brand:#1f8fd6;         /* 主强调 azure(白底上略压深以保可读) */
+  --brand2:#1e5fd0;        /* royal,强调/hover */
+  --brand-navy:#16306e;    /* 深 navy,标题/字标/厚重 */
+  --brand-azure:#2f9fe0;   /* 亮 azure,信号/点亮(同 logo monogram 亮支) */
+  --brand-grad:linear-gradient(135deg,#16306e,#2f9fe0); /* TM 渐变,仅品牌标记/hero/信号 */
+  --ink:#ffffff;           /* azure 实心按钮上的白字 */
+  --hot:var(--brand-azure); /* 热度/强度信号 = 亮 azure(单一 azure 锁,不用暖橙)*/
+  --cyan:#1f8fd6;          /* 并入 --brand */
+  --green:#17a673;         /* 正向(压深以在白底可读) */
+  --amber:#c8860a;         /* 仅 warning 语义(白底压深) */
+  --red:#e5484d;           /* 负向 */
+  --purple:#1e5fd0;        /* iris 收成 royal */
+  --t-primary:#13213f;     /* 深 navy 主文字 */
+  --t-sec:#4a5d7e;         /* 次文字 */
+  --t-muted:#8497b5;       /* 弱文字 */
   --radius:14px;
   --radius-sm:8px;
-  --shadow:0 8px 32px rgba(0,0,0,.4);
+  --shadow:0 10px 30px rgba(20,50,110,.10); /* 柔和冷阴影 */
 }
 html,body{height:100%;background:var(--bg);color:var(--t-primary);font-family:'Geist',-apple-system,sans-serif;overflow:hidden}
 button,input{font-family:inherit;outline:none;border:none}

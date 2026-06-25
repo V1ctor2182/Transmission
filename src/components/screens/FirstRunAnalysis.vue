@@ -124,8 +124,8 @@ const done = computed(() => stage.value >= 4)
 
 <style scoped>
 .fra{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
-.fra-status{height:52px;flex-shrink:0;display:flex;align-items:center;gap:14px;padding:0 20px;border-bottom:1px solid var(--card-border);background:linear-gradient(90deg,rgba(245,183,61,.1),transparent 40%)}
-.fra-spin{width:15px;height:15px;border:2px solid var(--acc-line,rgba(245,183,61,.34));border-top-color:var(--brand);border-radius:50%;animation:fra-rot 1s linear infinite}
+.fra-status{height:52px;flex-shrink:0;display:flex;align-items:center;gap:14px;padding:0 20px;border-bottom:1px solid var(--card-border);background:linear-gradient(90deg,rgba(31,143,214,.1),transparent 40%)}
+.fra-spin{width:15px;height:15px;border:2px solid var(--acc-line,rgba(31,143,214,.34));border-top-color:var(--brand);border-radius:50%;animation:fra-rot 1s linear infinite}
 .fra-spin.done{animation:none;border:none;background:var(--brand);position:relative}
 @keyframes fra-rot{to{transform:rotate(360deg)}}
 .fra-txt{font-size:14px;font-weight:600}.fra-txt b{font-family:var(--f-m,'JetBrains Mono',monospace);color:var(--brand)}
@@ -135,25 +135,25 @@ const done = computed(() => stage.value >= 4)
 
 .fra-ws{flex:1;min-height:0;padding:14px;display:grid;gap:12px;grid-template-columns:1.55fr 1fr;grid-template-rows:1.5fr auto;grid-template-areas:"map buyers" "kpi buyers"}
 .fra-map{grid-area:map}.fra-kpis{grid-area:kpi}.fra-buyers{grid-area:buyers}
-.fra-pane{background:var(--card,#13110b);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.fra-pane{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
 .fra-ph{height:34px;flex-shrink:0;display:flex;align-items:center;gap:9px;padding:0 13px;border-bottom:1px solid var(--card-border);font-size:12px;font-weight:600}
 .fra-live{width:5px;height:5px;border-radius:50%;background:var(--brand);box-shadow:0 0 7px var(--brand);animation:fra-pulse 1.6s infinite}
 @keyframes fra-pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .fra-found{margin-left:auto;font-size:11px;color:var(--t-sec)}
 
-.fra-mapbody{flex:1;position:relative;background:radial-gradient(60% 70% at 30% 38%,rgba(245,183,61,.10),transparent 60%),linear-gradient(180deg,#0a0906,#120f0a)}
-.fra-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,248,235,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,248,235,.03) 1px,transparent 1px);background-size:44px 44px}
+.fra-mapbody{flex:1;position:relative;background:radial-gradient(60% 70% at 30% 38%,rgba(31,143,214,.12),transparent 60%),linear-gradient(180deg,#ffffff,#eef3fa)}
+.fra-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(19,33,63,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(19,33,63,.03) 1px,transparent 1px);background-size:44px 44px}
 .fra-hot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--t-muted);opacity:.3;transition:opacity .5s,background .5s}
 .fra-hot.on{background:var(--brand);opacity:1;box-shadow:0 0 12px var(--brand)}
 .fra-hot.on.hot{background:var(--hot);box-shadow:0 0 12px var(--hot)}
-.fra-hot.on::after{content:'';position:absolute;inset:-7px;border:1px solid var(--acc-line,rgba(245,183,61,.34));border-radius:50%;animation:fra-ping 2.4s infinite}
+.fra-hot.on::after{content:'';position:absolute;inset:-7px;border:1px solid var(--acc-line,rgba(31,143,214,.34));border-radius:50%;animation:fra-ping 2.4s infinite}
 @keyframes fra-ping{0%{transform:scale(.4);opacity:.8}100%{transform:scale(1);opacity:0}}
-.fra-hl{position:absolute;top:-25px;left:50%;transform:translateX(-50%);white-space:nowrap;font:600 10px var(--f-m,monospace);color:var(--t-primary);background:rgba(6,9,17,.7);border:1px solid var(--card-border);padding:3px 6px;border-radius:5px;opacity:0;transition:.4s}
+.fra-hl{position:absolute;top:-25px;left:50%;transform:translateX(-50%);white-space:nowrap;font:600 10px var(--f-m,monospace);color:var(--t-primary);background:rgba(255,255,255,.85);border:1px solid var(--card-border);padding:3px 6px;border-radius:5px;opacity:0;transition:.4s}
 .fra-hot.on .fra-hl{opacity:1}
 .fra-mapstat{position:absolute;left:14px;bottom:12px;font:700 13px var(--f-m,monospace);color:var(--brand)}
 
 .fra-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.fra-kpi{background:var(--card,#13110b);border:1px solid var(--card-border);border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .5s}
+.fra-kpi{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .5s}
 .fra-kpi.on{opacity:1}
 .fra-kl{font-size:11px;color:var(--t-muted)}
 .fra-kv{font:700 24px var(--f-m,monospace);letter-spacing:-.02em;margin-top:3px}
@@ -162,15 +162,15 @@ const done = computed(() => stage.value >= 4)
 .fra-buyers .fra-blist{flex:1;overflow:hidden}
 .fra-brow{display:grid;grid-template-columns:auto 1fr auto;gap:3px 9px;align-items:center;padding:10px 13px;border-bottom:1px solid var(--card-border);opacity:0;transform:translateY(-6px);transition:.35s}
 .fra-brow.on{opacity:1;transform:none}
-.fra-cc{grid-row:span 2;font-size:10px;font-weight:700;color:var(--t-sec);background:rgba(255,248,235,.05);border:1px solid var(--card-border);border-radius:4px;padding:1px 5px}
+.fra-cc{grid-row:span 2;font-size:10px;font-weight:700;color:var(--t-sec);background:rgba(19,33,63,.05);border:1px solid var(--card-border);border-radius:4px;padding:1px 5px}
 .fra-co{font-size:12.5px;font-weight:600}
 .fra-mt{font:700 12px var(--f-m,monospace);color:var(--brand);text-align:right}.fra-mt.mid{color:var(--hot)}
 .fra-val{grid-column:2/4;font:500 11px var(--f-m,monospace);color:var(--t-muted)}
 .fra-finding{padding:10px 13px;font-size:11px;color:var(--t-muted);opacity:.6}
 
-.fra-settle{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:20px;padding:16px;border-top:1px solid var(--card-border);font-size:14px;background:rgba(245,183,61,.04)}
+.fra-settle{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:20px;padding:16px;border-top:1px solid var(--card-border);font-size:14px;background:rgba(31,143,214,.04)}
 .fra-settle b{color:var(--t-primary)}.fra-settle b.mono{color:var(--brand)}
-.fra-enter{background:var(--brand);color:#1a1305;border:none;border-radius:10px;padding:11px 26px;font:700 14px var(--f-u,sans-serif);cursor:pointer;transition:.18s}
+.fra-enter{background:var(--brand);color:#ffffff;border:none;border-radius:10px;padding:11px 26px;font:700 14px var(--f-u,sans-serif);cursor:pointer;transition:.18s}
 .fra-enter:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .fra-enter:active{transform:translateY(1px) scale(.99)}
 .fra-fade-enter-active{transition:.5s}.fra-fade-enter-from{opacity:0;transform:translateY(10px)}

@@ -30,11 +30,18 @@ function sparkPath (d) {
 }
 // AI 工作流实时 feed(承接旧「AI 今日工作报告」的意义)
 const feed = [
-  { tone: 'acc',  html: 'AI 搜索引擎新推送 <b>23 条</b>东南亚超市采购线索', at: '刚刚',   page: 'intel' },
-  { tone: 'up',   html: '<b>Fairprice Group</b> 回复了产品目录请求，建议跟进', at: '2分钟',  page: 'whatsapp' },
-  { tone: 'hot',  html: 'AI 已自动生成 <b>7 封</b>个性化邮件，待审批',        at: '8分钟',  page: 'marketing' },
-  { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel' },
-  { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads' },
+  { tone: 'acc',  html: 'AI 搜索引擎新推送 <b>23 条</b>东南亚超市采购线索', at: '刚刚',   page: 'intel',     action: '查看线索' },
+  { tone: 'up',   html: '<b>Fairprice Group</b> 回复了产品目录请求，建议跟进', at: '2分钟',  page: 'whatsapp',  action: '去跟进' },
+  { tone: 'hot',  html: 'AI 已自动生成 <b>7 封</b>个性化邮件，待审批',        at: '8分钟',  page: 'marketing', action: '去审批' },
+  { tone: 'iris', html: '情报中心更新<b>德国</b>市场季度采购报告',            at: '14分钟', page: 'intel',     action: '看报告' },
+  { tone: 'acc',  html: 'ICP Agent 识别出 <b>5 家</b>高匹配新目标客户',        at: '27分钟', page: 'leads',     action: '查看客户' },
+]
+// 今日待办(卖方「该做什么」= 明确下一步;真实条目,urgent 优先,点击直达对应屏)
+const todos = [
+  { urgent: true,  text: 'Klaus Weber 等待报价回复', at: '已等待 2 小时', page: 'whatsapp' },
+  { urgent: false, text: '7 封邮件待审批发送',       at: '营销队列',     page: 'marketing' },
+  { urgent: false, text: 'T&T Supermarket 3 天无沟通', at: '建议今日跟进', page: 'pool' },
+  { urgent: false, text: 'Asian Grocery Pty 逾期跟进', at: '已 5 天',      page: 'whatsapp' },
 ]
 // 实时买家信号(右侧常驻整列)= 万仟报告点名的真实华人超市渠道(Fairprice/NTUC·Cold
 // Storage·Jaya Grocer 东南亚 / 99 Ranch·T&T 北美 / Asian Grocery 澳),需求为粽子/月饼/节庆礼盒。
@@ -95,7 +102,13 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
   <div class="page on dash-cc" id="page-dashboard">
     <div class="cc-bar">
       <div class="cc-greet">早上好，<em>Liu Wei</em></div>
-      <div class="cc-sub">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 12 条高匹配商机</div>
+      <div class="cc-sub">今天是 2026年6月14日 · 今日新增 98,241 条采购需求，已为您筛选 <span class="cc-link" @click="nav('intel')">12 条高匹配商机 →</span></div>
+    </div>
+    <div class="cc-todos" role="list" aria-label="今日待办">
+      <span class="cc-todos-lbl">今日待办</span>
+      <button class="todo-chip" :class="{ urgent: t.urgent }" v-for="(t, i) in todos" :key="i" @click="nav(t.page)" role="listitem">
+        <span class="td-dot"></span><span class="td-text">{{ t.text }}</span><span class="td-at">{{ t.at }}</span>
+      </button>
     </div>
 
     <div class="ws">
@@ -148,7 +161,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
                  :style="{ animationDelay: (i * 0.05).toFixed(2) + 's' }">
               <span class="fd" :class="f.tone"></span>
               <span class="ft" v-html="f.html"></span>
-              <span class="fa">{{ f.at }}</span>
+              <span class="fmeta"><span class="faction">{{ f.action }}</span><span class="fa">{{ f.at }}</span></span>
             </div>
           </div>
         </div>
@@ -188,9 +201,9 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 <style scoped>
 /* 令牌桥:把 preview 的 Signal-Room 名映射到 Phosphor 全局令牌(cyan 退役) */
 .dash-cc{
-  --acc:var(--brand); --acc-soft:rgba(245,183,61,.13); --acc-line:rgba(245,183,61,.34);
-  --hot:#ff7a3d; --up:var(--green); --iris:#6b78ff;
-  --s1:var(--bg2); --s2:var(--bg3); --bd:var(--card-border); --bd2:rgba(255,248,235,.14);
+  --acc:var(--brand); --acc-soft:rgba(31,143,214,.13); --acc-line:rgba(31,143,214,.34);
+  --hot:var(--brand-azure); --up:var(--green); --iris:#1e5fd0;
+  --s1:var(--bg2); --s2:var(--bg3); --bd:var(--card-border); --bd2:rgba(19,33,63,.14);
   --t1:var(--t-primary); --t2:var(--t-sec); --t3:var(--t-muted);
   --pane-r:12px;
 }
@@ -205,6 +218,19 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .cc-greet{ font-size:18px; font-weight:600; color:var(--t1) }
 .cc-greet em{ font-style:normal; color:var(--brand) }
 .cc-sub{ font-size:12px; color:var(--t3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.cc-link{ color:var(--brand); font-weight:600; cursor:pointer; transition:.15s }
+.cc-link:hover{ color:var(--brand2); text-decoration:underline }
+/* 今日待办 chip-strip(明确下一步:真实任务,urgent 优先,点击直达) */
+.cc-todos{ flex-shrink:0; display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:10px }
+.cc-todos-lbl{ font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--t3); margin-right:2px }
+.todo-chip{ display:inline-flex; align-items:center; gap:7px; padding:5px 11px; border-radius:8px;
+  background:var(--bg2); border:1px solid var(--bd); cursor:pointer; transition:.15s; font-family:inherit }
+.todo-chip:hover{ border-color:var(--acc-line); background:var(--acc-soft); transform:translateY(-1px) }
+.todo-chip.urgent{ border-color:rgba(229,72,77,.3); background:rgba(229,72,77,.05) }
+.td-dot{ width:6px; height:6px; border-radius:2px; background:var(--acc); flex-shrink:0 }
+.todo-chip.urgent .td-dot{ background:var(--red) }
+.td-text{ font-size:12px; font-weight:600; color:var(--t1); white-space:nowrap }
+.td-at{ font:500 10.5px 'JetBrains Mono',monospace; color:var(--t3); white-space:nowrap }
 
 /* 多窗格工作区网格 */
 .ws{ flex:1; min-height:0; display:grid; gap:12px;
@@ -215,9 +241,9 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 
 /* 面板(终端窗口) */
 .pane{ background:var(--s1); border:1px solid var(--bd); border-radius:var(--pane-r); overflow:hidden;
-  display:flex; flex-direction:column; min-height:0; box-shadow:inset 0 1px 0 rgba(255,248,235,.04) }
+  display:flex; flex-direction:column; min-height:0; box-shadow:inset 0 1px 0 rgba(19,33,63,.04) }
 .pane-h{ height:34px; flex-shrink:0; display:flex; align-items:center; gap:9px; padding:0 13px;
-  border-bottom:1px solid var(--bd); background:rgba(255,248,235,.015) }
+  border-bottom:1px solid var(--bd); background:rgba(19,33,63,.015) }
 .pane-h .t{ font-size:12px; font-weight:600; letter-spacing:.01em; color:var(--t1) }
 .pane-h .live{ font:600 10px/1 'JetBrains Mono',monospace; letter-spacing:.12em; color:var(--acc);
   display:flex; align-items:center; gap:5px; text-transform:uppercase }
@@ -227,7 +253,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .pane-h .seg b{ font:500 10.5px 'Geist',sans-serif; color:var(--t3); padding:3px 8px; border-radius:5px; cursor:pointer; transition:.15s }
 .pane-h .seg b.on{ background:var(--acc-soft); color:var(--acc) }
 .pane-b{ flex:1; min-height:0; overflow:auto; position:relative }
-.pane-b::-webkit-scrollbar{ width:5px } .pane-b::-webkit-scrollbar-thumb{ background:rgba(255,248,235,.1); border-radius:3px }
+.pane-b::-webkit-scrollbar{ width:5px } .pane-b::-webkit-scrollbar-thumb{ background:rgba(19,33,63,.1); border-radius:3px }
 @keyframes cc-pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
 
 /* MAP pane */
@@ -262,7 +288,12 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .frow .fd.hot{ background:var(--hot) } .frow .fd.iris{ background:var(--iris) }
 .frow .ft{ font-size:12px; color:var(--t2); line-height:1.5 }
 .frow .ft :deep(b){ color:var(--t1); font-weight:600 }
-.frow .fa{ margin-left:auto; font:500 10px 'JetBrains Mono',monospace; color:var(--t3); white-space:nowrap; flex-shrink:0 }
+.frow .fmeta{ margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; gap:3px; flex-shrink:0 }
+.frow .faction{ display:inline-flex; align-items:center; border:1px solid var(--acc-line); background:var(--acc-soft);
+  color:var(--brand2,#1e5fd0); border-radius:6px; padding:2px 8px; font:600 10.5px 'Geist',sans-serif;
+  white-space:nowrap; opacity:.72; transition:.15s }
+.frow:hover .faction{ opacity:1; background:var(--brand); color:#ffffff; border-color:var(--brand) }
+.frow .fa{ font:500 10px 'JetBrains Mono',monospace; color:var(--t3); white-space:nowrap }
 
 /* 买家行 */
 .buyers-pane .pane-b{ padding:0 }
@@ -281,22 +312,22 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
 .cc{ display:inline-block; min-width:22px; padding:1px 4px; margin-right:8px; border-radius:4px;
   background:var(--s2); border:1px solid var(--bd); color:var(--t2);
   font:700 9.5px 'JetBrains Mono',monospace; letter-spacing:.04em; text-align:center }
-/* 一键建联(行内,默认低调、hover/选区时显形) */
+/* 一键建联(行内常驻:默认低调可见=明确下一步,hover/选区时点亮) */
 .brow .bconnect{ grid-area:connect; align-self:center; display:inline-flex; align-items:center; gap:4px;
-  border:1px solid var(--acc-line); background:var(--acc-soft); color:var(--brand2,#ffd27a);
+  border:1px solid var(--acc-line); background:var(--acc-soft); color:var(--brand2,#1e5fd0);
   border-radius:7px; padding:5px 9px; font:600 11px 'Geist',sans-serif; cursor:pointer;
-  white-space:nowrap; opacity:0; transform:translateX(4px); transition:.15s }
-.brow:hover .bconnect, .brow:focus-within .bconnect{ opacity:1; transform:none }
-.brow .bconnect:hover{ background:var(--brand); color:#1a1305; border-color:var(--brand) }
+  white-space:nowrap; opacity:.72; transition:.15s }
+.brow:hover .bconnect, .brow:focus-within .bconnect{ opacity:1 }
+.brow .bconnect:hover{ background:var(--brand); color:#ffffff; border-color:var(--brand) }
 .brow .bconnect:active{ transform:translateY(1px) scale(.98) }
 .brow .bconnect svg{ width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.8 }
 /* 区域筛选 / 清除 */
 .region-clear{ font:600 10.5px 'Geist',sans-serif; color:var(--acc); background:var(--acc-soft);
   border:1px solid var(--acc-line); border-radius:6px; padding:3px 9px; cursor:pointer; transition:.15s; white-space:nowrap }
-.region-clear:hover{ background:var(--brand); color:#1a1305; border-color:var(--brand) }
+.region-clear:hover{ background:var(--brand); color:#ffffff; border-color:var(--brand) }
 /* 地图下钻提示 */
 .map-hint{ position:absolute; right:14px; bottom:12px; font:500 10.5px 'Geist',sans-serif; color:var(--t3);
-  pointer-events:none; background:rgba(11,10,7,.5); border:1px solid var(--bd); border-radius:7px; padding:4px 9px }
+  pointer-events:none; background:rgba(255,255,255,.82); border:1px solid var(--bd); border-radius:7px; padding:4px 9px }
 /* 空区域态 */
 .bempty{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
   padding:48px 20px; text-align:center; color:var(--t3) }

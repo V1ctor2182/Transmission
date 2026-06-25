@@ -49,15 +49,15 @@
 </div>
 
 <!-- FEEDBACK MODAL -->
-<div class="modal-overlay" id="feedback-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);align-items:center;justify-content:center;z-index:300">
+<div class="modal-overlay" id="feedback-modal" style="display:none;position:fixed;inset:0;background:rgba(20,40,80,.35);backdrop-filter:blur(8px);align-items:center;justify-content:center;z-index:300">
   <div class="modal" style="max-width:420px;width:90%">
     <div class="modal-close" onclick="document.getElementById('feedback-modal').style.display='none'">✕</div>
     <div class="modal-icon">⚠️</div>
     <div class="modal-title">反馈不精准</div>
-    <div class="modal-sub">公司：<span id="feedback-company" style="color:#ffd27a"></span></div>
+    <div class="modal-sub">公司：<span id="feedback-company" style="color:#1e5fd0"></span></div>
     <div id="feedback-form">
       <div style="margin:16px 0 8px;font-size:12px;color:var(--t-muted)">请告诉我们不精准的原因，将帮助 AI 自动优化企业大脑：</div>
-      <textarea id="feedback-input" placeholder="例如：该公司主要做内销，不做进口 / 规模太小 / 行业不符合…" style="width:100%;height:90px;background:rgba(255,248,235,.05);border:1px solid rgba(255,248,235,.1);border-radius:8px;padding:10px;color:#e2e8f0;font-size:12px;resize:none;margin-bottom:16px;box-sizing:border-box"></textarea>
+      <textarea id="feedback-input" placeholder="例如：该公司主要做内销，不做进口 / 规模太小 / 行业不符合…" style="width:100%;height:90px;background:rgba(19,33,63,.05);border:1px solid rgba(19,33,63,.1);border-radius:8px;padding:10px;color:var(--t-primary);font-size:12px;resize:none;margin-bottom:16px;box-sizing:border-box"></textarea>
       <div class="modal-actions">
         <div class="modal-btn ghost" onclick="document.getElementById('feedback-modal').style.display='none'">取消</div>
         <div class="modal-btn primary" onclick="submitFeedback()">提交反馈</div>
@@ -65,11 +65,11 @@
     </div>
     <div id="feedback-result" style="display:none;flex-direction:column;align-items:center;padding:24px 0;gap:12px">
       <div style="font-size:40px">🧠</div>
-      <div style="font-size:15px;font-weight:600;color:#e2e8f0">已自动优化企业大脑</div>
+      <div style="font-size:15px;font-weight:600;color:var(--t-primary)">已自动优化企业大脑</div>
       <div style="font-size:12px;color:var(--t-muted);text-align:center">感谢反馈！AI 已更新 ICP 匹配模型，<br>后续推送的客户将更符合您的目标客户画像</div>
       <div style="display:flex;gap:8px;margin-top:4px">
-        <div style="width:8px;height:8px;border-radius:50%;background:#7bd47b;animation:pulse 1s infinite"></div>
-        <div style="font-size:11px;color:#7bd47b">模型优化中…</div>
+        <div style="width:8px;height:8px;border-radius:50%;background:#17a673;animation:pulse 1s infinite"></div>
+        <div style="font-size:11px;color:#17a673">模型优化中…</div>
       </div>
     </div>
   </div>

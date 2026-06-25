@@ -73,9 +73,9 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
 
 /* ── 配额条目 ── */
 .q-item{ display:flex; align-items:center; gap:7px; cursor:pointer;
-  background:rgba(255,248,235,.04); border:1px solid var(--card-border); border-radius:8px;
+  background:rgba(19,33,63,.04); border:1px solid var(--card-border); border-radius:8px;
   padding:5px 10px; white-space:nowrap; transition:.18s; color:inherit }
-.q-item:hover{ background:rgba(255,248,235,.07); border-color:rgba(255,248,235,.14) }
+.q-item:hover{ background:rgba(19,33,63,.07); border-color:rgba(19,33,63,.14) }
 .q-item:active{ transform:translateY(1px) }
 .q-ico{ width:15px; height:15px; stroke:var(--t-muted); fill:none; stroke-width:1.8; flex-shrink:0 }
 .q-item:hover .q-ico{ stroke:var(--brand) }
@@ -96,8 +96,8 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
 .qdd-close{ margin-left:auto; font-size:10px; color:var(--t-muted); background:none; border:none; cursor:pointer; transition:.15s }
 .qdd-close:hover{ color:var(--t-primary) }
 .qdd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px }
-.qr-item{ background:rgba(255,248,235,.04); border:1px solid var(--card-border); border-radius:10px; padding:12px; transition:.18s }
-.qr-item:hover{ border-color:rgba(245,183,61,.35); background:rgba(245,183,61,.06) }
+.qr-item{ background:rgba(19,33,63,.04); border:1px solid var(--card-border); border-radius:10px; padding:12px; transition:.18s }
+.qr-item:hover{ border-color:rgba(31,143,214,.35); background:rgba(31,143,214,.06) }
 .qr-ico{ width:18px; height:18px; stroke:var(--brand); fill:none; stroke-width:1.7; margin-bottom:7px }
 .qr-name{ font-size:11px; font-weight:700; color:var(--t-primary); margin-bottom:2px }
 .qr-desc{ font-size:10px; color:var(--t-muted); margin-bottom:7px; line-height:1.45 }
@@ -105,7 +105,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
 .qr-remaining b{ font-weight:700; color:var(--brand) }
 .qr-remaining b.near{ color:var(--red) }
 .qr-btn{ display:block; width:100%; font-size:10px; padding:5px 10px; border-radius:6px; cursor:pointer; transition:.15s;
-  background:rgba(245,183,61,.12); border:1px solid rgba(245,183,61,.3); color:var(--brand2); text-align:center }
-.qr-btn:hover{ background:rgba(245,183,61,.2) }
+  background:rgba(31,143,214,.12); border:1px solid rgba(31,143,214,.3); color:var(--brand2); text-align:center }
+.qr-btn:hover{ background:rgba(31,143,214,.2) }
 .qr-btn:active{ transform:translateY(1px) }
 </style>

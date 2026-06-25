@@ -20,9 +20,9 @@
    Signal Cyan is a LIGHT accent, so white text/icons on a
    cyan-filled surface fail WCAG. Filled-brand buttons, logo
    marks and the avatar get near-black ink instead. */
-.login-btn,.wm-btn,#ob-next-btn{color:#1a1305 !important}
-.login-logo-mark svg,.wm-logo svg,.sb-logo svg,.wm-btn svg,.rso-logo svg{stroke:#1a1305 !important}
-.sb-av{color:#1a1305}
+.login-btn,.wm-btn,#ob-next-btn{color:#ffffff !important}
+.login-logo-mark svg,.wm-logo svg,.sb-logo svg,.wm-btn svg,.rso-logo svg{stroke:#ffffff !important}
+.sb-av{color:#ffffff}
 
 /* 2 ── ACCESSIBILITY: real keyboard focus ring ──────────
    Line 33 globally killed outlines; restore a visible,
@@ -53,18 +53,18 @@ html{scroll-behavior:smooth}
    catching the card rim. Shadows tinted toward the indigo
    background instead of dead black. */
 .kpi-card,.panel,.lead-card,.intel-big-card{
-  box-shadow:inset 0 1px 0 rgba(255,248,235,.06),0 10px 30px -12px rgba(8,10,30,.7);
+  box-shadow:inset 0 1px 0 rgba(19,33,63,.06),0 10px 30px -12px rgba(8,10,30,.7);
 }
 .kpi-card:hover{
-  box-shadow:inset 0 1px 0 rgba(255,248,235,.10),0 18px 44px -14px rgba(56,52,160,.45);
+  box-shadow:inset 0 1px 0 rgba(19,33,63,.10),0 18px 44px -14px rgba(56,52,160,.45);
 }
 .login-card,.wm-card{
-  box-shadow:inset 0 1px 0 rgba(255,248,235,.10),0 24px 80px rgba(8,10,30,.55);
+  box-shadow:inset 0 1px 0 rgba(19,33,63,.10),0 24px 80px rgba(8,10,30,.55);
 }
 /* Cursor-tracked spotlight tint on KPI cards (uses --mx/--my set in JS-free CSS fallback) */
 .kpi-card::after{
   content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(255,210,122,.10),transparent 60%);
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,0%),rgba(30,95,200,.10),transparent 60%);
   opacity:0;transition:opacity .25s;
 }
 .kpi-card:hover::after{opacity:1}
@@ -96,15 +96,15 @@ body::after{
 
 /* ── B7: Phosphor 仪表级按钮(去渐变填充 / 去 glow 光晕 / 实心琥珀 + 深 ink)── */
 .login-btn,.wm-btn,.modal-btn.primary,.ob-cta-btn,.icp-task-btn.primary{
-  background:var(--brand)!important; color:#1a1305!important; box-shadow:none!important;
+  background:var(--brand)!important; color:#ffffff!important; box-shadow:none!important;
   border:none; border-radius:10px; font-weight:700;
 }
 .login-btn:hover,.wm-btn:hover,.modal-btn.primary:hover,.ob-cta-btn:hover,.icp-task-btn.primary:hover{
   box-shadow:none!important; filter:brightness(1.08); transform:translateY(-1px);
 }
-.login-btn svg,.wm-btn svg,.ob-cta-btn svg,.icp-task-btn.primary svg{stroke:#1a1305}
+.login-btn svg,.wm-btn svg,.ob-cta-btn svg,.icp-task-btn.primary svg{stroke:#ffffff}
 .login-btn:active,.wm-btn:active,.modal-btn.primary:active,.ob-cta-btn:active{transform:translateY(1px) scale(.99)}
 /* 次按钮:扁平 + 1px 描边,去渐变 tint */
 .btn-connect,.icp-task-btn.auto{
-  background:rgba(245,183,61,.1)!important; border:1px solid var(--card-border)!important; box-shadow:none!important;
+  background:rgba(31,143,214,.1)!important; border:1px solid var(--card-border)!important; box-shadow:none!important;
 }

@@ -6,9 +6,9 @@
 .intel-big-title{font-size:14px;font-weight:700}
 .intel-big-sub{font-size:11px;color:var(--t-muted);margin-top:2px}
 .intel-big-badge{margin-left:auto;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px}
-.intel-big-badge.new{background:rgba(123,212,123,.1);color:var(--green)}
-.intel-big-badge.locked{background:rgba(251,191,36,.1);color:var(--amber)}
-.intel-data-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,248,235,.04);font-size:12px}
+.intel-big-badge.new{background:rgba(23,166,115,.1);color:var(--green)}
+.intel-big-badge.locked{background:rgba(200,134,10,.1);color:var(--amber)}
+.intel-data-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(19,33,63,.04);font-size:12px}
 .intel-data-label{color:var(--t-muted);flex:1}
 .intel-data-val{font-weight:600;color:var(--green)}
 .intel-blur-section{position:relative}

@@ -22,9 +22,10 @@ const startScan = () => window.startScan?.()
     <!-- LEFT · brand + value -->
     <section class="lg-brand">
       <div class="lg-logo">
-        <span class="lg-mark"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
-        Trade<em>Radar</em>
+        <span class="lg-mark"><img src="/logo-mark.png" alt="TRANS·MISSION" /></span>
+        TRANS·<em>MISSION</em>
       </div>
+      <div class="lg-sign" style="font-size:11px;letter-spacing:.42em;color:var(--t-muted);margin-top:-14px;margin-bottom:6px">创 拾 觅 深</div>
       <h1>全球买家的需求，<br/>此刻就在眼前。</h1>
       <p>把分散在各国的采购信号汇成一块可观察的大盘。你不再逐条搜索市场，而是看着它流动，先一步联系。</p>
       <div class="lg-foot">华南区销售工作台 · 万仟糕饼</div>
@@ -54,7 +55,7 @@ const startScan = () => window.startScan?.()
   <!-- WEBSITE INPUT MODAL (post-login) — ids preserved for the legacy flow -->
   <div id="website-modal-overlay">
     <div class="wm-card">
-      <div class="wm-logo"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="wm-logo"><img src="/logo-mark.png" alt="TRANS·MISSION" /></div>
       <div class="wm-title">告诉我们你的产品</div>
       <div class="wm-sub">输入官网地址，我们会分析你的产品，匹配全球采购需求并给出市场进入建议。</div>
       <div class="wm-input-wrap">
@@ -66,9 +67,9 @@ const startScan = () => window.startScan?.()
         开始全球市场分析
       </button>
       <div class="wm-features">
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#ffd27a"></div>全球商机匹配</div>
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#f5b73d"></div>竞争格局分析</div>
-        <div class="wm-feat"><div class="wm-feat-dot" style="background:#7bd47b"></div>市场进入策略</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#1e5fd0"></div>全球商机匹配</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#1f8fd6"></div>竞争格局分析</div>
+        <div class="wm-feat"><div class="wm-feat-dot" style="background:#17a673"></div>市场进入策略</div>
       </div>
     </div>
   </div>
@@ -101,14 +102,14 @@ const startScan = () => window.startScan?.()
   flex:1.15; min-width:0; padding:56px 64px; display:flex; flex-direction:column;
   border-right:1px solid var(--card-border);
   background:
-    radial-gradient(900px 500px at 18% 12%, rgba(245,183,61,.10), transparent 60%),
-    radial-gradient(700px 460px at 90% 100%, rgba(107,120,255,.08), transparent 60%),
+    radial-gradient(900px 500px at 18% 12%, rgba(31,143,214,.10), transparent 60%),
+    radial-gradient(700px 460px at 90% 100%, rgba(30,95,200,.08), transparent 60%),
     var(--bg);
 }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}
 .lg-logo em{font-style:normal; color:var(--brand)}
-.lg-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 22px rgba(245,183,61,.25)}
-.lg-mark svg{width:18px; height:18px; stroke:#1a1305; fill:none; stroke-width:1.8}
+.lg-mark{width:40px; height:34px; display:grid; place-items:center}
+.lg-mark img{width:100%; height:100%; object-fit:contain; display:block}
 .lg-brand h1{
   margin-top:auto; font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
   font-size:clamp(34px,3.4vw,52px); line-height:1.06; letter-spacing:-.03em; color:var(--t-primary);
@@ -127,13 +128,13 @@ const startScan = () => window.startScan?.()
   width:100%; background:var(--card); border:1px solid var(--card-border); border-radius:10px;
   padding:12px 14px; font-size:14px; color:var(--t-primary); transition:.18s ease;
 }
-.lg-field input:focus{outline:none; border-color:rgba(245,183,61,.5); box-shadow:0 0 0 3px rgba(245,183,61,.12)}
+.lg-field input:focus{outline:none; border-color:rgba(31,143,214,.5); box-shadow:0 0 0 3px rgba(31,143,214,.12)}
 .lg-field input::placeholder{color:var(--t-muted)}
 .login-btn{
   width:100%; margin-top:26px; border:none; border-radius:10px; padding:13px;
   font-family:'Geist',sans-serif; font-size:14px; font-weight:700; letter-spacing:.01em;
-  color:#1a1305; background:var(--brand); cursor:pointer; transition:.18s ease;
-  box-shadow:0 0 0 1px rgba(245,183,61,.4), 0 10px 28px -12px var(--brand);
+  color:#ffffff; background:var(--brand); cursor:pointer; transition:.18s ease;
+  box-shadow:0 0 0 1px rgba(31,143,214,.4), 0 10px 28px -12px var(--brand);
 }
 .login-btn:hover{filter:brightness(1.07); transform:translateY(-1px)}
 .login-btn:active{transform:translateY(1px) scale(.99)}

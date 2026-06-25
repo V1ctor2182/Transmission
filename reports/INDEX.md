@@ -5,6 +5,26 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 050 | 🟦 产品轴 | 「12 条高匹配商机」静态数→可点直达情报中心(+登记建联数 47vs3/10 不一致) | ✅ build✓ 机检✓ golden✓ KEEP | [round-050](round-050-clickable-stat.md) |
+| 049 | 🟦 产品轴 | TopBar 建联次数实时化(去硬编码 47→live credits)+ Vue 反馈层去 emoji 收尾(9 处→◆,全站 toast 零 emoji) | ✅ build✓ 机检✓ golden✓ KEEP | [round-049](round-049-topbar-credits-deemoji.md) |
+| 048 | 🟦 产品轴 | WhatsApp 进入即填充客户情报面板(enterApp renderWaChat(0)→selectWaContact(0),消右面板空态) | ✅ build✓ 机检✓ golden✓ 实拍 KEEP | [round-048](round-048-wa-entry-intel.md) |
+| 047 | 🟦 产品轴 | 客户池进入即填充(无选中→自动选最紧急客户,消灭半屏空态,直达行动) | ✅ build✓ 机检✓ golden✓ 实拍 KEEP | [round-047](round-047-pool-autoselect.md) |
+| 046 | 🟦 产品轴 | WhatsApp 情报面板解锁真实揭示(R044 同款补第二处:真 un-blur 真实电话/邮箱+真扣次数) | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-046](round-046-wa-panel-unlock.md) |
+| 045 | 🟦 产品轴 | 工作台「今日待办」chip-strip(找回 R012 并掉的 TODAY_TODOS,真实优先级待办→直达,明确下一步) | ✅ build✓ 机检✓ golden✓ 两北极星 KEEP | [round-045](round-045-today-todos.md) |
+| 044 | 🔴→✅ 产品轴 | 情报解锁假反馈→真实揭示(红线):解锁真 un-mask 行+真扣次数 47→46+重渲染,toast 诚实点名 | ✅ build✓ 机检✓ golden✓ 实拍验证 KEEP | [round-044](round-044-real-unlock.md) |
+| 043 | 🟦 产品轴 | 成就感反馈层去 emoji(33 toast 图标→◆ + 建联键去 🤝,反馈层零 emoji 统一) | ✅ build✓ 机检 5 屏✓ golden h3✓ 两北极星 KEEP | [round-043](round-043-toast-deemoji.md) |
+| 042 | 🟦 产品轴 | AI 工作流 feed 行动化(每行加常驻行动药丸 查看/去跟进/去审批,narration→明确下一步) | ✅ build✓ 机检✓ golden h3✓ 两北极星 KEEP | [round-042](round-042-feed-actions.md) |
+| 041 | 🟦 产品轴 | 实时买家信号「建联」行动常驻可见(opacity:0 hover-gated → .72 常驻,明确下一步) | ✅ build✓ 机检✓ golden h3✓ 两北极星 KEEP | [round-041](round-041-buyer-action-visible.md) |
+| 040 | 🟦 Standard | 语义色旧 RGB 三元组残留补扫(66 处 tint 底 amber/red/green/purple → 深化令牌值) | ✅ build✓ 机检 6 屏✓ golden h3✓ critic KEEP | [round-040](round-040-semantic-rgb-sweep.md) |
+| 039 | 🟦 Standard | 真实 logo 实图接入(侧栏/登录/网址弹窗/favicon:azure 方块+通用 SVG → 真 TM monogram PNG) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-039](round-039-real-logo.md) |
+| 038 | 🟦 Standard | 实时屏按钮去蓝渐变+去 glow(login/leads/marketing primary→实心 azure;审计标记 scan/onboard 死代码归 T11) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-038](round-038-button-deslop.md) |
+| 037 | 🟦 Standard | 暖橙 --hot→亮 azure(KPI/feed/首启 #ff7a3d→--brand-azure,单一 azure 锁收口) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-037](round-037-hot-azure.md) |
+| 036 | 🟦 Standard | 营销屏国旗 emoji→mono 国家码(renderMktList + 详情头 ccBadge,emoji→mono 收官) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-036](round-036-marketing-flags.md) |
+| 035 | 🟦 Standard | 暗主题浅字残留→navy(39 处 #e2e8f0/#cbd5e1 隐形文字 → t-primary/t-sec,对比 bug 修复) | ✅ build✓ 机检 8 屏✓ golden h3✓ critic KEEP | [round-035](round-035-slate-text-contrast.md) |
+| 034 | 🟦 Standard | 首启 FirstRunAnalysis 暗底地图亮色化(near-black 地图主体→浅冷+azure 辉光,标签 chip 浅化) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-034](round-034-firstrun-light.md) |
+| 033 | 🟦 Standard | 浮层暗底全亮色化 + 去蓝渐变按钮(modal/网址弹窗/AI 气泡 深块→白卡+冷遮罩,primary/wm-btn 蓝渐变→实心 azure) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-033](round-033-modal-dark-surfaces.md) |
+| 032 | 🟦 Standard | 工作台暗底残留清理(地图暖近黑大陆→浅冷+azure 信号 / toast 深块→白卡 / 提示 chip 浅化) | ✅ build✓ 机检✓ golden h3✓ critic KEEP | [round-032](round-032-dash-dark-residue.md) |
+| 031 | 🟥 大件 ⏸ | **R1 令牌反相 + 字面量批量替换 + 全站更名 TRANS·MISSION**(暖琥珀暗 → 信号蓝亮 + 创拾觅深署名) | ✅ build✓ 机检 9 屏零错✓ golden h3✓ 残留字面量=0 · **待 review 定调** | [round-031](round-031-R1-rebrand-transmission.md) |
 | 030 | 🟦 Standard | CP5 渐变清零(wa-send/icp-person-av/进度条/toast 渐变→flat,CP5 收口) | ✅ build✓ golden✓ 屏检 | [round-030](round-030-cp5-gradient-clear.md) |
 | 029 | 🟦 Standard | #4 bundle 分包(应用主包 1.4MB→86KB + vendor/worldmap 拆分,告警消除) | ✅ build✓ golden✓(纯 build 配置) | [round-029](round-029-bundle-split.md) |
 | 028 | 🟦 Standard | CP5 长尾 品牌 logo marks 去渐变去 glow(login/wm/rso/sb/ob-final→flat 琥珀) | ✅ build✓ golden✓ critic 3/3 KEEP | [round-028](round-028-brandmark-deglow.md) |
