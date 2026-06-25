@@ -810,7 +810,8 @@ function renderTodayTodo() {
 
 function enterApp() {
   clearTimeout(obTimer);
-  document.getElementById('s-onboard').classList.remove('active');
+  // #s-onboard removed in R076 (dead OnboardingScreen) — guard so enterApp never aborts here
+  document.getElementById('s-onboard')?.classList.remove('active');
   document.getElementById('s-app').classList.add('active');
   document.getElementById('ai-bubble').style.display = 'block';
   renderIcpAgent();
@@ -2120,7 +2121,7 @@ function renderIntelTable() {
     const isLocked = !d.unlocked;
     // 采购商显示：未解锁则隐藏名称，显示马赛克字符
     const buyerDisplay = isLocked
-      ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:#f59e0b;fill:none;stroke-width:2;flex-shrink:0"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Unlock buyer</div>`
+      ? `<div style="font-size:13px;font-weight:600;color:var(--t-muted);letter-spacing:2px;filter:blur(4px);user-select:none">████████</div><div style="font-size:10px;color:var(--t-muted);margin-top:3px;display:flex;align-items:center;gap:4px"><svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:#c8860a;fill:none;stroke-width:2;flex-shrink:0"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Unlock buyer</div>`
       : `<div style="font-size:13px;font-weight:600;color:var(--t-primary)">${d.buyer}</div>`;
     // 建联成功率颜色
     const crColor = d.contactRate >= 65 ? '#17a673' : d.contactRate >= 50 ? '#c8860a' : '#e5484d';
@@ -2153,7 +2154,7 @@ function renderIntelTable() {
       <td style="padding:12px 16px;font-size:11px;color:var(--t-muted);white-space:nowrap">${d.time}</td>
       <td style="padding:12px 16px;text-align:center" onclick="event.stopPropagation()">
         ${isLocked
-          ? `<div onclick="openIntelUnlock(${d.id})" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);cursor:pointer;white-space:nowrap">Unlock</div>`
+          ? `<div onclick="openIntelUnlock(${d.id})" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(200,134,10,.08);color:#c8860a;border:1px solid rgba(200,134,10,.2);cursor:pointer;white-space:nowrap">Unlock</div>`
           : `<div onclick="toast('◆','Outreach started','AI is drafting a personalized opener for ${d.buyer}…')" style="font-size:10px;padding:5px 12px;border-radius:7px;background:rgba(31,143,214,.1);color:#1e5fd0;border:1px solid rgba(31,143,214,.2);cursor:pointer;white-space:nowrap">Connect</div>`
         }
       </td>

@@ -92,8 +92,8 @@
 .icp-op-btn:hover{border-color:rgba(31,143,214,.3);color:#1e5fd0}
 .icp-op-btn.enrich{border-color:rgba(31,143,214,.2);color:#1f8fd6}
 .icp-op-btn.edm{border-color:rgba(23,166,115,.2);color:#17a673}
-.icp-op-btn.feedback{border-color:rgba(245,158,11,.25);color:#f59e0b}
-.icp-op-btn.feedback:hover{background:rgba(245,158,11,.08)}
+.icp-op-btn.feedback{border-color:rgba(200,134,10,.25);color:#c8860a}
+.icp-op-btn.feedback:hover{background:rgba(200,134,10,.08)}
 .icp-cust-row-wrap{border-bottom:1px solid rgba(19,33,63,.05)}
 .icp-cust-card{background:rgba(10,16,35,.9);border-top:1px solid rgba(30,95,200,.12);padding:16px 20px;display:grid;grid-template-columns:1fr 260px;gap:20px;animation:fadeIn .25s ease}
 .icp-card-left,.icp-card-right{display:flex;flex-direction:column;gap:12px}
@@ -132,7 +132,7 @@
 .cpool-item-status{font-size:10px;display:flex;align-items:center;gap:4px}
 .cpool-status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .cpool-status-dot.replied{background:#17a673}
-.cpool-status-dot.no-reply{background:#f59e0b}
+.cpool-status-dot.no-reply{background:#c8860a}
 .cpool-status-dot.overdue{background:#e5484d}
 .cpool-status-dot.pending{background:#6b7280}
 .cpool-status-text{color:var(--t-muted)}

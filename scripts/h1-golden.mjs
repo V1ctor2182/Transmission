@@ -59,6 +59,9 @@ try {
   out.steps.push(['进入后 FRA 卸载', fraGone === 0, `count=${fraGone}`])
   const dash = await page.locator('#page-dashboard.dash-cc').count()
   out.steps.push(['工作台已渲染', dash > 0, `count=${dash}`])
+  // visibility, not just DOM presence — catches enterApp aborting so #s-app never activates (R076/R079 regression class)
+  const dashVisible = await page.locator('#page-dashboard.dash-cc').first().isVisible().catch(()=>false)
+  out.steps.push(['工作台真正可见(enterApp 切屏成功)', dashVisible, `visible=${dashVisible}`])
   const todos = await page.locator('#page-dashboard .cc-todos .todo-chip').count()
   out.steps.push(['今日待办 chip 在工作台(有事做)', todos > 0, `count=${todos}`])
 
