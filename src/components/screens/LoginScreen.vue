@@ -26,7 +26,12 @@ const startScan = () => window.startScan?.()
         <circle class="lg-ring" cx="220" cy="220" r="200"/>
         <circle class="lg-ring" cx="220" cy="220" r="150"/>
         <circle class="lg-ring" cx="220" cy="220" r="100"/>
-        <g class="lg-orbit-spin"><circle class="lg-node" cx="420" cy="220" r="4.5"/></g>
+        <!-- signal sweep: a short azure arc travelling the mid ring (data flow) -->
+        <circle class="lg-sweep" cx="220" cy="220" r="150"/>
+        <g class="lg-orbit-spin">
+          <circle class="lg-ping" cx="420" cy="220" r="4.5"/>
+          <circle class="lg-node" cx="420" cy="220" r="4.5"/>
+        </g>
         <g class="lg-orbit-spin2"><circle class="lg-node lg-node2" cx="370" cy="220" r="3"/></g>
       </svg>
       <div class="lg-logo">
@@ -121,13 +126,21 @@ const startScan = () => window.startScan?.()
 /* 轨道信号母题(雷达/orbit,呼应 logo;克制,无 glow)*/
 .lg-orbit{ position:absolute; z-index:0; right:-120px; top:50%; transform:translateY(-50%);
   width:660px; height:660px; pointer-events:none }
-.lg-ring{ fill:none; stroke:rgba(31,143,214,.14); stroke-width:1; vector-effect:non-scaling-stroke }
+.lg-ring{ fill:none; stroke:rgba(31,143,214,.16); stroke-width:1; vector-effect:non-scaling-stroke }
 .lg-node{ fill:var(--brand) }
 .lg-node2{ fill:var(--brand2) }
 .lg-orbit-spin{ transform-origin:220px 220px; animation:lg-rot 17s linear infinite }
 .lg-orbit-spin2{ transform-origin:220px 220px; animation:lg-rot 26s linear infinite reverse }
 @keyframes lg-rot{ to{ transform:rotate(360deg) } }
-@media(prefers-reduced-motion:reduce){ .lg-orbit-spin,.lg-orbit-spin2{ animation:none } }
+/* signal sweep arc — a short bright segment circling the mid ring (r=150, circumference ≈ 942) */
+.lg-sweep{ fill:none; stroke:var(--brand); stroke-width:1.5; stroke-linecap:round; opacity:.5;
+  vector-effect:non-scaling-stroke; stroke-dasharray:64 878;
+  transform-origin:220px 220px; animation:lg-rot 6s linear infinite }
+/* orbiting signal ping — soft expanding ring (echoes the map hotspot ping) */
+.lg-ping{ fill:none; stroke:var(--brand); stroke-width:1.2; vector-effect:non-scaling-stroke;
+  transform-box:fill-box; transform-origin:center; animation:lg-ping 2.8s ease-out infinite }
+@keyframes lg-ping{ 0%{ transform:scale(1); opacity:.7 } 70%,100%{ transform:scale(3.6); opacity:0 } }
+@media(prefers-reduced-motion:reduce){ .lg-orbit-spin,.lg-orbit-spin2,.lg-sweep,.lg-ping{ animation:none } .lg-ping{ opacity:0 } }
 .lg-logo{display:flex; align-items:center; gap:11px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em}
 .lg-logo em{font-style:normal; color:var(--brand)}
 .lg-mark{width:40px; height:34px; display:grid; place-items:center}
