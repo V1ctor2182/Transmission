@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 076 | 🟦 Utility(main) | T11 死代码清理:删 5 个 orphan src/data/*.js(零 import 中文数据副本)+ OnboardingScreen.vue 组件 + App.vue mount(bundle 97→93.7KB) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-076](round-076-deadcode-cleanup.md) |
 | 075 | 🟦 产品轴(main) | 全站英文终扫:AiBubble 浮动助手/modal-connect 弹窗/doLogin 按钮/heatmap aria-label + 死代码甄别(rso/onboarding/旧报告/orphan 数组确认不可达) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-075](round-075-final-sweep-en.md) |
 | 074 | 🟦 产品轴(main) | 客户池 pool 英文化(CPOOL_DATA group·statusText/POOL_SOURCE_MAP 同步/解析正则同步/renderPoolTable·Cards·Detail/toast)——legacy 收官 | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-074](round-074-pool-en.md) |
 | 073 | 🟦 产品轴(main) | 营销队列 marketing 英文化(MarketingPage/MKT_ITEMS/EMAIL_VARIANTS 邮件正文/renderMktList/approve·reject + AI_MSGS/AI_DAILY_ITEMS/INTEL_CENTER_CARDS/renderIntelCenter) | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-073](round-073-marketing-en.md) |

@@ -10,7 +10,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import LoginScreen from './components/screens/LoginScreen.vue'
-import OnboardingScreen from './components/screens/OnboardingScreen.vue'
 import AppShell from './components/screens/AppShell.vue'
 import AiBubble from './components/shared/AiBubble.vue'
 import AppModals from './components/shared/AppModals.vue'
@@ -34,7 +33,6 @@ onMounted(() => {
 
 <template>
   <LoginScreen />
-  <OnboardingScreen />
   <AppShell />
   <AiBubble />
   <AppModals />
