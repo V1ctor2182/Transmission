@@ -822,6 +822,7 @@ function enterApp() {
   renderAiDailyReport();
   renderPoolPage();
   setTimeout(() => toast('◆','欢迎使用 TRANS·MISSION','AI 今日已搜索 147 条全球线索，发送 23 封营销邮件，5 项待办事项等待处理'), 800);
+  setTimeout(() => { if(window.__tourNudge) window.__tourNudge(); }, 1500);
 }
 
 // ═══════════════════════════════════════════════════════

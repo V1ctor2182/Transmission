@@ -39,6 +39,7 @@ const NAV = {
   intelunlock: `enterApp(); navTo('intel',3); if(window.openIntelUnlock)openIntelUnlock(4); if(window.confirmUnlock)confirmUnlock();`,
   waentry:  `enterApp(); navTo('whatsapp', (window.PAGE_IDX&&PAGE_IDX.whatsapp)||4);`,
   tour:     `enterApp(); navTo('dashboard',0); setTimeout(()=>{ if(window.startTour)startTour(); }, 300);`,
+  nudge:    `enterApp(); navTo('dashboard',0); try{localStorage.removeItem('tm_tour_seen')}catch(e){}; if(window.__tourNudge)__tourNudge(); var t=document.querySelector('.sb-item .sb-tip'); if(t)t.style.opacity='1';`,
   waunlock: `enterApp(); navTo('whatsapp',4); if(window.selectWaContact)selectWaContact(0); if(window.openPanelUnlock)openPanelUnlock(); if(window.confirmUnlock)confirmUnlock();`,
 }
 

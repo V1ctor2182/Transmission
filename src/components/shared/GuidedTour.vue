@@ -48,11 +48,17 @@ async function show () {
   top  = Math.max(16, Math.min(top,  window.innerHeight - 172))
   card.value = { left:left+'px', top:top+'px' }
 }
-function start () { active.value = true; i.value = 0; show() }
+// 首访提示(让新用户/demo 发现引导;localStorage 记忆,不重复打扰)
+const SEEN_KEY = 'tm_tour_seen'
+const nudge = ref(false)
+function markSeen () { try { localStorage.setItem(SEEN_KEY, '1') } catch {} }
+function start () { nudge.value = false; markSeen(); active.value = true; i.value = 0; show() }
 function next ()  { if (i.value < steps.length - 1) { i.value++; show() } else end() }
 function prev ()  { if (i.value > 0) { i.value--; show() } }
-function end ()   { active.value = false; spot.value = { display:'none' } }
-onMounted(() => { window.startTour = start })
+function end ()   { active.value = false; spot.value = { display:'none' }; markSeen() }
+function showNudge () { try { if (localStorage.getItem(SEEN_KEY)) return } catch {} nudge.value = true }
+function dismissNudge () { nudge.value = false; markSeen() }
+onMounted(() => { window.startTour = start; window.__tourNudge = showNudge })
 </script>
 
 <template>
@@ -70,6 +76,20 @@ onMounted(() => { window.startTour = start })
       </div>
     </div>
   </div>
+
+  <!-- 首访提示:底部居中,不挡任何可点元素;自带「开始引导」 -->
+  <transition name="tn-pop">
+    <div v-if="nudge" class="tour-nudge">
+      <div class="tour-step">新手引导</div>
+      <div class="tour-title">第一次来 TRANS·MISSION?</div>
+      <div class="tour-desc">花 30 秒,看懂这个平台怎么帮你找全球买家、一键建联。</div>
+      <div class="tour-foot">
+        <span class="tour-skip" @click="dismissNudge">不用了</span>
+        <span class="tour-sp"></span>
+        <button class="tour-btn" @click="start">开始引导 →</button>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <style scoped>
@@ -90,4 +110,10 @@ onMounted(() => { window.startTour = start })
   font:700 12px 'Geist',sans-serif; cursor:pointer; transition:.15s }
 .tour-btn:hover{ filter:brightness(1.06) }
 .tour-btn.ghost{ background:transparent; border:1px solid var(--card-border); color:var(--t-sec) }
+/* 首访提示卡(底部居中,自带「开始引导」,不挡可点元素)*/
+.tour-nudge{ position:fixed; bottom:22px; left:50%; transform:translateX(-50%); width:320px; z-index:590; pointer-events:auto;
+  background:var(--bg2); border:1px solid var(--card-border); border-top:2px solid var(--brand);
+  border-radius:12px; box-shadow:var(--shadow); padding:14px 18px }
+.tn-pop-enter-active{ transition:opacity .28s, transform .28s cubic-bezier(.22,.61,.36,1) }
+.tn-pop-enter-from{ opacity:0; transform:translateX(-50%) translateY(10px) }
 </style>
