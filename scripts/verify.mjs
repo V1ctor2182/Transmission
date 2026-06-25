@@ -38,6 +38,7 @@ const NAV = {
   unlockm:  `enterApp(); navTo('intel',3); var m=document.getElementById('modal-unlock'); if(m)m.classList.add('show');`,
   intelunlock: `enterApp(); navTo('intel',3); if(window.openIntelUnlock)openIntelUnlock(4); if(window.confirmUnlock)confirmUnlock();`,
   waentry:  `enterApp(); navTo('whatsapp', (window.PAGE_IDX&&PAGE_IDX.whatsapp)||4);`,
+  tour:     `enterApp(); navTo('dashboard',0); setTimeout(()=>{ if(window.startTour)startTour(); }, 300);`,
   waunlock: `enterApp(); navTo('whatsapp',4); if(window.selectWaContact)selectWaContact(0); if(window.openPanelUnlock)openPanelUnlock(); if(window.confirmUnlock)confirmUnlock();`,
 }
 

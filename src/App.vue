@@ -16,6 +16,7 @@ import AiBubble from './components/shared/AiBubble.vue'
 import AppModals from './components/shared/AppModals.vue'
 import ToastHost from './components/shared/ToastHost.vue'
 import FirstRunAnalysis from './components/screens/FirstRunAnalysis.vue'
+import GuidedTour from './components/shared/GuidedTour.vue'
 
 // H1: redesigned "AI 分析" first-run. startScan() triggers it (replaces the old
 // fake-scan overlay + onboarding chapters); "进入工作台" → enterApp().
@@ -39,4 +40,5 @@ onMounted(() => {
   <AppModals />
   <ToastHost />
   <FirstRunAnalysis v-if="showAnalysis" :domain="analysisDomain" @done="finishAnalysis" />
+  <GuidedTour />
 </template>

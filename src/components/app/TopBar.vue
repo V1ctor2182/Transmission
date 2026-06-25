@@ -21,6 +21,9 @@ import QuotaBar from './QuotaBar.vue'
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input placeholder="搜索产品、国家、买家…"/>
       </div>
+      <div class="tb-icon tb-help" onclick="window.startTour&&window.startTour()" title="新手引导">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
       <div class="tb-icon" onclick="toast('◆','通知','Klaus Weber 回复了报价单 · 新增德国商机 · 7封邮件待审批')">
         <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         <div class="notif-dot"></div>
