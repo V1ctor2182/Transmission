@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 053 | 🟦 产品轴(main) | 开头动画 settle 加真实「潜在采购额 $865,900」希望钩子 + seq 抓帧到 settle | ✅ build✓ 序列帧✓ golden✓ KEEP | [round-053](round-053-fra-pipeline-payoff.md) |
 | 052 | 🟦 产品轴(main) | 开头动画逐件拼装编排(KPI 逐个点亮+升入、热点逐区锁定,earned wow 递进感) | ✅ build✓ 序列帧✓ golden✓ KEEP | [round-052](round-052-fra-stagger.md) |
 | 051 | 🟦 产品轴(main) | 开头动画数据对齐工作台(东南亚 512K + Fairprice 等真实渠道,消「拼装预览≠落地」自相矛盾) | ✅ build✓ 序列帧✓ golden✓ KEEP | [round-051](round-051-fra-data-consistency.md) |
 | 050 | 🟦 产品轴 | 「12 条高匹配商机」静态数→可点直达情报中心(+登记建联数 47vs3/10 不一致) | ✅ build✓ 机检✓ golden✓ KEEP | [round-050](round-050-clickable-stat.md) |

@@ -141,7 +141,7 @@ try {
   if (NAV[SCREEN]) { await page.evaluate(NAV[SCREEN]).catch(() => {}) }
   if (SEQ) {
     // Hero motion arc: 3 frames over time → .review/<screen>-t0/t1/t2.png
-    const stamps = [200, 1600, 3600]; let prev = 0
+    const stamps = [300, 2600, 5600]; let prev = 0   // t0 起 · t1 拼装中 · t2 settle/就绪
     for (let i = 0; i < stamps.length; i++) {
       await page.waitForTimeout(stamps[i] - prev); prev = stamps[i]
       await page.screenshot({ path: join(REVIEW, `${SCREEN}-t${i}.png`) })

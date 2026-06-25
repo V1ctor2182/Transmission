@@ -71,6 +71,8 @@ onMounted(() => {
 onUnmounted(() => timers.forEach(t => { clearTimeout(t); clearInterval(t) }))
 
 const done = computed(() => stage.value >= 4)
+// 首批买家潜在采购额(真实求和这几个买家的 val,非编造)。当前数据均为 USD。
+const pipeline = computed(() => '$' + buyers.reduce((s, b) => s + parseInt(b.val.replace(/[^0-9]/g, ''), 10), 0).toLocaleString('en-US'))
 </script>
 
 <template>
@@ -120,7 +122,7 @@ const done = computed(() => stage.value >= 4)
     <!-- settle: summary + enter -->
     <transition name="fra-fade">
       <div v-if="done" class="fra-settle">
-        已为 <b>{{ domain }}</b> 锁定 <b class="mono">2,847,392</b> 商机 · <b class="mono">4</b> 个火热区域 · <b class="mono">12</b> 条高匹配
+        已为 <b>{{ domain }}</b> 锁定 <b class="mono">2,847,392</b> 商机 · <b class="mono">12</b> 条高匹配 · 首批 <b class="mono">{{ buyers.length }}</b> 个买家潜在采购 <b class="mono pipeline">{{ pipeline }}</b>
         <button class="fra-enter" @click="emit('done')">进入工作台</button>
       </div>
     </transition>
@@ -175,6 +177,7 @@ const done = computed(() => stage.value >= 4)
 
 .fra-settle{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:20px;padding:16px;border-top:1px solid var(--card-border);font-size:14px;background:rgba(31,143,214,.04)}
 .fra-settle b{color:var(--t-primary)}.fra-settle b.mono{color:var(--brand)}
+.fra-settle b.pipeline{color:var(--green);font-size:15px}
 .fra-enter{background:var(--brand);color:#ffffff;border:none;border-radius:10px;padding:11px 26px;font:700 14px var(--f-u,sans-serif);cursor:pointer;transition:.18s}
 .fra-enter:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .fra-enter:active{transform:translateY(1px) scale(.99)}
