@@ -42,6 +42,7 @@
 > 权威流程改为 `docs/loop-procedure.md`。本文件上方旧配置/Done 台账(Phosphor amber/暗色)**只读存档,作废不再追加该方向**。新 backlog 见 loop-procedure.md §8。
 
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
+- 2026-06-25 R064 🟦(main):开头动画 FRA 加科技感+英文。①.fra-scan 雷达 conic 扇区(.14 azure 绕地图旋转,v-if !done 完成即停,reduce 不显)+ .fra-grid 蓝图网格;②全英文(状态条/面板/热点 SE Asia 512K/KPI Global demand 等/settle "Locked in 2,847,392…$865,900…")。build✓ 序列帧✓ h1✓(pipeline $865,900,.fra-enter 类未变)h3✓ tour-check✓。两北极星 KEEP。残留:①逐屏英文化主战场(dashboard/leads/intel/wa/营销/池/tour/toast/legacy)。commit+push origin main。cron 1min(85b28e9f)。
 - 2026-06-25 ★★ 用户新三焦点:①全站英文 ②开头动画科技感 ③登录页酷炫(走品牌 Signal Room 路线,零 slop)。cron 重建(job 85b28e9f)。先 QA 普查:18 屏零 JS 报错(基线干净)。
 - 2026-06-25 R063 🟦(main,新焦点首轮):登录页酷炫+英文。①轨道/雷达信号母题:3 同心 azure 细环+2 节点慢速反向公转(呼应 logo)+淡蓝图网格,纯 SVG/CSS,reduce 停转,零 glow/渐变 slop;②登录页全英文(品牌栏 "The world's buyers, in one live view."/表单 Welcome back·Sign in/网址弹窗 Tell us about your product…),保留创拾觅深 logo 署名。build✓ 机检 login 零错✓ h1✓ h3✓ tour-check✓。实拍:轨道环+节点+英文;网址弹窗英文。两北极星 KEEP(科技感靠 azure 轨道动效 on-brand 非 slop)。残留:②开头动画科技感+英文、①其余屏英文化(dashboard/leads/intel/wa/营销/池/tour/toast/legacy 大量串)。commit+push origin main。cron 1min(85b28e9f)。
 - 2026-06-25 ★ 收敛点(§6,main):讲解型新手引导已功能齐(R058-062:骨架/6屏12步/首访提示+记忆/修tooltip/键盘+进度/点任意处+提示,全 golden 绿)。审计本轮:剩余皆「换范式」(真交互式点击=点真实元素执行动作+跨屏处理,大件中风险)或移动端,非增量微调。**停 1min cron(job 1c56944f),发 digest 问方向(交互式范式? 移动端? 更多覆盖? 新焦点?)。**

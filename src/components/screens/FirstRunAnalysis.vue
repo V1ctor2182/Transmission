@@ -12,21 +12,21 @@ const emit = defineEmits(['done'])
 const props = defineProps({ domain: { type: String, default: 'wanqianfood.com' } })
 
 const stage = ref(0)            // 0 连接 →1 识别产品 →2 匹配需求 →3 定位区域 →4 完成
-const statusText = ['正在连接全球商机数据库…', '读取官网,识别主营产品与定位…', '匹配全球 2.8M+ 采购需求…', '定位火热区域,生成买家清单…', '分析完成 · 已锁定你的市场']
+const statusText = ['Connecting to the global demand database…', 'Reading your site — identifying products & positioning…', 'Matching against 2.8M+ global purchasing signals…', 'Locating hot regions, building your buyer list…', 'Analysis complete · your market is locked in']
 const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 // 真数据(揭示出来的,不是装饰)。坐标 + 量级与工作台地图一致(万仟出海剧本:东南亚 T1 最热)。
 const hotspots = [
-  { x: 778, y: 398, label: '东南亚 · 512K', hot: true },  // T1 首选,与工作台一致
-  { x: 250, y: 246, label: '北美 · 188K' },
-  { x: 516, y: 182, label: '欧洲 · 96K' },
-  { x: 852, y: 470, label: '澳洲 · 77K' },
+  { x: 778, y: 398, label: 'SE Asia · 512K', hot: true },  // T1 首选,与工作台一致
+  { x: 250, y: 246, label: 'N. America · 188K' },
+  { x: 516, y: 182, label: 'Europe · 96K' },
+  { x: 852, y: 470, label: 'Oceania · 77K' },
 ]
 const kpis = [
-  { label: '全球商机', target: 2847392, color: 'var(--brand)' },
-  { label: '今日新增', target: 98241,  color: 'var(--hot)' },
-  { label: '火热区域', target: 4,       color: 'var(--brand)' },
-  { label: '高匹配商机', target: 12,    color: 'var(--green)' },
+  { label: 'Global demand',   target: 2847392, color: 'var(--brand)' },
+  { label: 'New today',       target: 98241,  color: 'var(--hot)' },
+  { label: 'Hot regions',     target: 4,       color: 'var(--brand)' },
+  { label: 'High-match leads', target: 12,    color: 'var(--green)' },
 ]
 // 与工作台「实时买家信号」一致 = 万仟剧本点名的真实华人超市渠道(开头揭示的就是稍后落到工作台的买家)
 const buyers = [
@@ -93,19 +93,21 @@ function countUpPipeline (ms = 900) {
     <div class="fra-status">
       <img class="fra-brand" src="/logo-mark.svg" alt="TRANS·MISSION" />
       <span class="fra-spin" :class="{ done }"></span>
-      <span class="fra-txt">{{ done ? '分析完成 ·' : '正在分析' }} <b>{{ domain }}</b></span>
+      <span class="fra-txt">{{ done ? 'Analysis complete ·' : 'Analyzing' }} <b>{{ domain }}</b></span>
       <span class="fra-step">{{ statusText[stage] }}</span>
       <span class="fra-sp"></span>
-      <span class="fra-skip" @click="emit('done')">{{ done ? '进入工作台 →' : '直接进入 →' }}</span>
+      <span class="fra-skip" @click="emit('done')">{{ done ? 'Enter workspace →' : 'Skip →' }}</span>
     </div>
 
     <div class="fra-ws">
       <!-- MAP — hotspots light up region by region -->
       <section class="fra-pane fra-map">
-        <div class="fra-ph"><span>全球商机热力图</span><i class="fra-live"></i></div>
+        <div class="fra-ph"><span>Global demand heatmap</span><i class="fra-live"></i></div>
         <div class="fra-mapbody">
+          <div class="fra-grid"></div>
+          <div v-if="!done" class="fra-scan"></div>
           <WorldHeatmap :hotspots="hotspots.slice(0, hotN)" />
-          <div class="fra-mapstat">{{ hotN }}/{{ hotspots.length }} 区域已锁定</div>
+          <div class="fra-mapstat">{{ hotN }}/{{ hotspots.length }} regions locked</div>
         </div>
       </section>
 
@@ -119,7 +121,7 @@ function countUpPipeline (ms = 900) {
 
       <!-- buyers stream in -->
       <section class="fra-pane fra-buyers">
-        <div class="fra-ph"><span>实时买家信号</span><i class="fra-live"></i><span class="fra-found mono">{{ buyerN }} 已发现</span></div>
+        <div class="fra-ph"><span>Live buyer signals</span><i class="fra-live"></i><span class="fra-found mono">{{ buyerN }} found</span></div>
         <div class="fra-blist">
           <div v-for="(b, i) in buyers" :key="b.co" class="fra-brow" :class="{ on: i < buyerN }">
             <span class="fra-cc mono">{{ b.cc }}</span>
@@ -127,7 +129,7 @@ function countUpPipeline (ms = 900) {
             <span class="fra-mt mono" :class="{ mid: b.mt < 85 }">{{ b.mt }}</span>
             <span class="fra-val mono">{{ b.val }}</span>
           </div>
-          <div v-if="buyerN < buyers.length" class="fra-finding mono">发现更多买家…</div>
+          <div v-if="buyerN < buyers.length" class="fra-finding mono">finding more buyers…</div>
         </div>
       </section>
     </div>
@@ -135,8 +137,8 @@ function countUpPipeline (ms = 900) {
     <!-- settle: summary + enter -->
     <transition name="fra-fade">
       <div v-if="done" class="fra-settle">
-        已为 <b>{{ domain }}</b> 锁定 <b class="mono">2,847,392</b> 商机 · <b class="mono">12</b> 条高匹配 · 首批 <b class="mono">{{ buyers.length }}</b> 个买家潜在采购 <b class="mono pipeline">{{ pipeline }}</b>
-        <button class="fra-enter" @click="emit('done')">进入工作台</button>
+        Locked in <b class="mono">2,847,392</b> opportunities for <b>{{ domain }}</b> · <b class="mono">12</b> high-match · first <b class="mono">{{ buyers.length }}</b> buyers worth <b class="mono pipeline">{{ pipeline }}</b> in potential purchasing
+        <button class="fra-enter" @click="emit('done')">Enter workspace</button>
       </div>
     </transition>
   </div>
@@ -164,6 +166,12 @@ function countUpPipeline (ms = 900) {
 
 .fra-mapbody{flex:1;position:relative;background:radial-gradient(60% 70% at 30% 38%,rgba(31,143,214,.12),transparent 60%),linear-gradient(180deg,#ffffff,#eef3fa)}
 .fra-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(19,33,63,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(19,33,63,.03) 1px,transparent 1px);background-size:44px 44px}
+/* 雷达扫描扇区(分析中转,呼应 Signal Room;克制 .14 azure,完成即移除)*/
+.fra-scan{position:absolute;inset:0;pointer-events:none;
+  background:conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(31,143,214,.14) 30deg, transparent 72deg);
+  animation:fra-scan-rot 3.2s linear infinite}
+@keyframes fra-scan-rot{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.fra-scan{display:none}}
 .fra-hot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--t-muted);opacity:.3;transition:opacity .5s,background .5s}
 .fra-hot.on{background:var(--brand);opacity:1;box-shadow:0 0 12px var(--brand)}
 .fra-hot.on.hot{background:var(--hot);box-shadow:0 0 12px var(--hot)}
