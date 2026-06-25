@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 059 | 🟦 产品轴(main) | 新手引导走完整条流水线(6 屏 12 步:找客户/情报/WhatsApp/营销/客户池)+ tour-check.mjs 护栏 | ✅ build✓ tour-check 12 步✓ h1/h3✓ KEEP | [round-059](round-059-tour-allscreens.md) |
 | 058 | 🟦 产品轴(main) | 交互式新手引导 tutorial 骨架(spotlight+azure 卡+下一步/跳过)+ 工作台 6 步 + TopBar「?」入口(用户新重点) | ✅ build✓ 机检✓ h1/h3 golden✓ KEEP | [round-058](round-058-guided-tour.md) |
 | 057 | 🟦 产品轴(main) | 开头动画 settle 潜在采购额数字滚入($0→$865,900 count-up,希望高潮) | ✅ build✓ h1/h3 golden✓ KEEP | [round-057](round-057-pipeline-countup.md) |
 | 056 | 🟦 产品轴(main) | 开头动画状态栏加 TM 品牌标(SVG;串 logo+动画两焦点,开场品牌身份) | ✅ build✓ 序列帧✓ h1 golden✓ KEEP | [round-056](round-056-fra-brand-mark.md) |

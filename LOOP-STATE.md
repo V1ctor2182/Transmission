@@ -42,6 +42,7 @@
 > 权威流程改为 `docs/loop-procedure.md`。本文件上方旧配置/Done 台账(Phosphor amber/暗色)**只读存档,作废不再追加该方向**。新 backlog 见 loop-procedure.md §8。
 
 ## 轮次日志(每轮 append:时间 / 档 / 任务 / 结果 / commit 或 分支)
+- 2026-06-25 R059 🟦 产品轴(main):新手引导走完整条流水线(6 屏 12 步)。承 R058 工作台 6 步,加 6 步逐屏(找客户 .icp-ds-grid / 情报 #intel-table-body / WhatsApp #intel-scroll / 营销 .mkt-list-col / 客户池 #pool-table / 收尾 .tb-help),引导自动 navTo 每屏,真实功能解释。新增 scripts/tour-check.mjs 护栏:走完 12 步断言每步 spotlight 命中(无跳过)+ 完成关闭 + 零错。build✓ tour-check PASS(12 步)✓ h1✓ h3✓ 机检零错✓。实拍 intel(8/12)/wa(9/12)跨屏定位准。两北极星 KEEP(一条引导走完整产品,真实解释零 AI 味)。残留:首访提示/完成记忆/交互式高亮可点/移动端。commit+push origin main。cron 1min(1c56944f)。
 - 2026-06-25 ★★ 用户 AskUserQuestion 选「给新重点」→ 指定:**交互式新手引导/tutorial**(可点可下一步,最快理解整个项目)。cron 重建为引导焦点(job 1c56944f)。
 - 2026-06-25 R058 🟦 产品轴(main,新重点首轮):交互式新手引导骨架。GuidedTour.vue:spotlight(目标 rect→azure 边+box-shadow 9999px navy 调暗,弹性平移)+ azure 提示卡(步数/标题/说明/跳过-上一步-下一步,按方位定位+视口夹取)+ pointer-events 拦 app + window.startTour() 入口 + v-if 不激活 inert;工作台 6 步真实功能解释(侧栏/今日待办/热力图/KPI/买家信号建联/AI工作流);TopBar 加「?」入口;App.vue 挂载;verify.mjs tour NAV。build✓ 机检 dashboard/wa/leads 零错✓ h1✓ h3✓。实拍:侧栏高亮+卡片 1/6。两北极星 KEEP(最快理解产品,真实解释零 AI 味)。残留:逐屏扩展步骤(leads/intel/wa/营销/池)、首次提示、完成记忆。commit+push origin main。cron 1min(1c56944f)。
 - 2026-06-25 ★ 收敛点(§6,main):审计两焦点 = 已收敛。logo→SVG 全 live 处已换(R039/55/56),SVGO 实测仅省 1.4%(路径冗长但非小数密集,不值得);开头动画 R051-57 完整(数据/拼装/payoff/golden/品牌标/金额滚入)。剩余皆低价值/可选(login 用 full lockup、轨道 swoosh 母题)+ 遗留建联数(用户「先不动」)。**停 1min cron(job 1788c6c9),发 digest 问方向。**

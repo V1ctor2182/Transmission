@@ -15,6 +15,13 @@ const steps = [
   { page:'dashboard', sel:'#page-dashboard .kpis',     pos:'top',    title:'核心指标', desc:'全球商机总数、今日新增需求、已建联采购商、触达人数 —— 一眼看清全局态势与增长。' },
   { page:'dashboard', sel:'#page-dashboard .brow',     pos:'left',   title:'实时买家信号 · 一键建联', desc:'右侧是实时进来的买家。点每行的「建联」,就把这个买家物化成 WhatsApp 联系人并自动生成开场白 —— 直接开聊。' },
   { page:'dashboard', sel:'#page-dashboard .tasks-pane',pos:'left',  title:'AI 工作流', desc:'AI 在后台自动做的事:搜线索、回消息、生成邮件。每条都带行动按钮,点了直达去处理。' },
+  // —— 逐屏走完整条流水线 ——
+  { page:'leads',     sel:'#page-leads .icp-ds-grid',     pos:'bottom', title:'找客户 · AI 自动获客', desc:'按你的 ICP,从 28 个全球数据源(Google / LinkedIn / 海关数据…)自动搜买家、补全联系方式。下达一次任务,它每天替你找。' },
+  { page:'intel',     sel:'#intel-table-body',            pos:'top',    title:'情报中心 · 全球采购需求', desc:'谁在买、买什么、匹配度、建联成功率一目了然。深度情报(直线电话 / 采购负责人邮箱 / 历史采购额)可一键解锁。' },
+  { page:'whatsapp',  sel:'#intel-scroll',                pos:'left',   title:'建联对话 · AI 话术助攻', desc:'把买家变成真实 WhatsApp 联系人。右侧自动汇总客户情报与最佳跟进时机,AI 话术建议帮你开口、报价、谈判。' },
+  { page:'marketing', sel:'#page-marketing .mkt-list-col',pos:'right',  title:'营销队列 · 批量个性化邮件', desc:'AI 为每个买家生成针对性邮件,你只需审批、批量发出 —— 不用一封封写。' },
+  { page:'pool',      sel:'#page-pool #pool-table',       pos:'top',    title:'客户池 · 跟进总览', desc:'所有客户的跟进状态一处总览:逾期跟进、无回复、已回复分类清楚 —— 进来就知道今天该催谁。' },
+  { page:'dashboard', sel:'.tb-help',                     pos:'bottom', title:'就这些 · 开始拓客', desc:'随时点右上角「?」重看引导。现在,去工作台看你的第一批买家,一键建联吧。' },
 ]
 
 const active = ref(false)
