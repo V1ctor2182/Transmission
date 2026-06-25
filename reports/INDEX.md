@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 057 | 🟦 产品轴(main) | 开头动画 settle 潜在采购额数字滚入($0→$865,900 count-up,希望高潮) | ✅ build✓ h1/h3 golden✓ KEEP | [round-057](round-057-pipeline-countup.md) |
 | 056 | 🟦 产品轴(main) | 开头动画状态栏加 TM 品牌标(SVG;串 logo+动画两焦点,开场品牌身份) | ✅ build✓ 序列帧✓ h1 golden✓ KEEP | [round-056](round-056-fra-brand-mark.md) |
 | 055 | 🟦 产品轴(main) | logo 全站换矢量 SVG(sidebar/login/wm/favicon PNG→SVG)+ 入库 4 个清洗 SVG + 删 2 PNG | ✅ build✓ 机检✓ h1/h3 golden✓ KEEP | [round-055](round-055-logo-svg.md) |
 | 054 | ⬜ Utility(main) | 首启 H1 黄金路径 golden(h1-golden.mjs 端到端:登录→网址弹窗→FRA 拼装→settle→进入工作台,护栏开头流程) | ✅ h1-golden PASS 10 断言 · h3✓ build✓ | [round-054](round-054-h1-golden.md) |

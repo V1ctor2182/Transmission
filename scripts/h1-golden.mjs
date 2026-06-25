@@ -39,8 +39,8 @@ try {
   out.steps.push(['FirstRunAnalysis 已挂载(拼装中)', fraMounted > 0, `count=${fraMounted}`])
   await page.screenshot({ path: join(REVIEW,'h1-t0.png') })
 
-  // STEP 3: 等到 settle/就绪(动画 ~5.3s 完成)
-  await page.waitForTimeout(3400)
+  // STEP 3: 等到 settle/就绪 + 潜在采购额 count-up 滚完(动画 ~5.3s + 0.9s 数字滚入)
+  await page.waitForTimeout(4400)
   await page.screenshot({ path: join(REVIEW,'h1-t1.png') })
   const settle = await page.locator('.fra-settle').count()
   out.steps.push(['settle 就绪条出现', settle > 0, `count=${settle}`])

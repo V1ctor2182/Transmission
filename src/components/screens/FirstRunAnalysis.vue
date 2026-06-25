@@ -56,7 +56,7 @@ function countUp (i, target, ms) {
 }
 
 onMounted(() => {
-  if (reduce) { stage.value = 4; kpis.forEach((k, i) => { kpiShown.value[i] = k.target; kpiOn.value[i] = true }); hotN.value = hotspots.length; buyerN.value = buyers.length; return }
+  if (reduce) { stage.value = 4; kpis.forEach((k, i) => { kpiShown.value[i] = k.target; kpiOn.value[i] = true }); hotN.value = hotspots.length; buyerN.value = buyers.length; pipelineShown.value = pipelineTotal; return }
   const at = (ms, fn) => timers.push(setTimeout(fn, ms))
   at(400,  () => { stage.value = 1 })
   // KPI 逐个点亮 + count-up(左→右,拼装感)
@@ -66,13 +66,25 @@ onMounted(() => {
   hotspots.forEach((h, i) => at(2000 + i * 340, () => { hotN.value = i + 1 }))
   at(3000, () => { stage.value = 3 })
   at(3300, () => { const iv = setInterval(() => { if (buyerN.value < buyers.length) buyerN.value++; else clearInterval(iv) }, 450); timers.push(iv) })
-  at(5300, () => { stage.value = 4 })
+  at(5300, () => { stage.value = 4; countUpPipeline() })   // settle:潜在采购额数字滚入(希望高潮)
 })
 onUnmounted(() => timers.forEach(t => { clearTimeout(t); clearInterval(t) }))
 
 const done = computed(() => stage.value >= 4)
 // 首批买家潜在采购额(真实求和这几个买家的 val,非编造)。当前数据均为 USD。
-const pipeline = computed(() => '$' + buyers.reduce((s, b) => s + parseInt(b.val.replace(/[^0-9]/g, ''), 10), 0).toLocaleString('en-US'))
+const pipelineTotal = buyers.reduce((s, b) => s + parseInt(b.val.replace(/[^0-9]/g, ''), 10), 0)
+const pipelineShown = ref(0)
+const pipeline = computed(() => '$' + pipelineShown.value.toLocaleString('en-US'))
+function countUpPipeline (ms = 900) {
+  if (reduce) { pipelineShown.value = pipelineTotal; return }
+  const t0 = performance.now()
+  const step = (now) => {
+    const p = Math.min(1, (now - t0) / ms)
+    pipelineShown.value = Math.round(pipelineTotal * (1 - Math.pow(1 - p, 3)))  // ease-out
+    if (p < 1) requestAnimationFrame(step)
+  }
+  requestAnimationFrame(step)
+}
 </script>
 
 <template>
