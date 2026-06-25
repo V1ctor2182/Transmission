@@ -37,6 +37,7 @@ const buyers = [
 ]
 
 const kpiShown = ref([0, 0, 0, 0])     // count-up 当前值
+const kpiOn = ref([false, false, false, false])  // 逐个点亮(拼装感)
 const hotN = ref(0)                    // 已点亮热点数
 const buyerN = ref(0)                  // 已流入买家数
 
@@ -55,14 +56,17 @@ function countUp (i, target, ms) {
 }
 
 onMounted(() => {
-  if (reduce) { stage.value = 4; kpis.forEach((k, i) => kpiShown.value[i] = k.target); hotN.value = hotspots.length; buyerN.value = buyers.length; return }
+  if (reduce) { stage.value = 4; kpis.forEach((k, i) => { kpiShown.value[i] = k.target; kpiOn.value[i] = true }); hotN.value = hotspots.length; buyerN.value = buyers.length; return }
   const at = (ms, fn) => timers.push(setTimeout(fn, ms))
   at(400,  () => { stage.value = 1 })
-  at(1400, () => { stage.value = 2; kpis.forEach((k, i) => countUp(i, k.target, 1400)) })
-  at(2200, () => { hotN.value = 2 })                         // 北美/欧洲 点亮
-  at(3000, () => { stage.value = 3; hotN.value = 4 })        // 全部区域
-  at(3200, () => { const iv = setInterval(() => { if (buyerN.value < buyers.length) buyerN.value++; else clearInterval(iv) }, 450); timers.push(iv) })
-  at(5200, () => { stage.value = 4 })
+  // KPI 逐个点亮 + count-up(左→右,拼装感)
+  at(1400, () => { stage.value = 2 })
+  kpis.forEach((k, i) => at(1400 + i * 180, () => { kpiOn.value[i] = true; countUp(i, k.target, 1200) }))
+  // 热点逐区锁定(一个一个亮,非批量)—— 东南亚(热)先,再北美/欧洲/澳洲
+  hotspots.forEach((h, i) => at(2000 + i * 340, () => { hotN.value = i + 1 }))
+  at(3000, () => { stage.value = 3 })
+  at(3300, () => { const iv = setInterval(() => { if (buyerN.value < buyers.length) buyerN.value++; else clearInterval(iv) }, 450); timers.push(iv) })
+  at(5300, () => { stage.value = 4 })
 })
 onUnmounted(() => timers.forEach(t => { clearTimeout(t); clearInterval(t) }))
 
@@ -92,7 +96,7 @@ const done = computed(() => stage.value >= 4)
 
       <!-- KPIs count up -->
       <section class="fra-kpis">
-        <div v-for="(k, i) in kpis" :key="k.label" class="fra-kpi" :class="{ on: stage >= 2 }">
+        <div v-for="(k, i) in kpis" :key="k.label" class="fra-kpi" :class="{ on: kpiOn[i] }">
           <div class="fra-kl">{{ k.label }}</div>
           <div class="fra-kv mono" :style="{ color: k.color }">{{ kpiShown[i] ? fmt(kpiShown[i]) : '—' }}</div>
         </div>
@@ -154,8 +158,8 @@ const done = computed(() => stage.value >= 4)
 .fra-mapstat{position:absolute;left:14px;bottom:12px;font:700 13px var(--f-m,monospace);color:var(--brand)}
 
 .fra-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.fra-kpi{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;justify-content:center;opacity:.35;transition:opacity .5s}
-.fra-kpi.on{opacity:1}
+.fra-kpi{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;justify-content:center;opacity:.35;transform:translateY(6px);transition:opacity .45s,transform .45s cubic-bezier(.22,.61,.36,1)}
+.fra-kpi.on{opacity:1;transform:none}
 .fra-kl{font-size:11px;color:var(--t-muted)}
 .fra-kv{font:700 24px var(--f-m,monospace);letter-spacing:-.02em;margin-top:3px}
 .mono{font-family:var(--f-m,'JetBrains Mono',monospace);font-variant-numeric:tabular-nums}
