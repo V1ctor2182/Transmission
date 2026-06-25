@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 065 | 🟦 产品轴(main) | 地图交互/游戏感:活的贸易信号网络(航线弧+信号流动)+ 热点 hover 响应环(dashboard+开头动画共用) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-065](round-065-map-trade-network.md) |
 | 064 | 🟦 产品轴(main) | 开头动画加科技感(雷达扫描扇区+蓝图网格,完成即停)+ 全英文(状态/面板/热点/KPI/settle) | ✅ build✓ 序列帧✓ h1/h3/tour-check✓ KEEP | [round-064](round-064-fra-tech-en.md) |
 | 063 | 🟦 产品轴(main) | 登录页酷炫化(轨道/雷达信号母题+网格,呼应 logo,零 slop)+ 全英文(品牌栏/表单/网址弹窗) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-063](round-063-login-cool-en.md) |
 | 062 | 🟦 产品轴(main) | 引导点任意处继续(@click.self)+ 导航提示(下一步/点击/方向键/Esc 全套) | ✅ build✓ tour-check✓ h1/h3✓ KEEP | [round-062](round-062-tour-clickanywhere.md) |
