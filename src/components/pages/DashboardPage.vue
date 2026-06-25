@@ -185,8 +185,8 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
             <div class="mt mono" :class="{ mid: b.mid }">{{ b.mt }}</div>
             <div class="bsub mono">{{ b.sub }}</div>
             <div class="val mono">{{ b.val }}</div>
-            <button class="bconnect" @click.stop="connect(b)" title="一键建联">
-              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>建联
+            <button class="bconnect" @click.stop="connect(b)" title="Connect in one click">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Connect
             </button>
           </div>
           <div class="bempty" v-if="!shownBuyers.length">

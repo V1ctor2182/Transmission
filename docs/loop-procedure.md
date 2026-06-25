@@ -179,3 +179,4 @@
 - **单一强调色锁**:azure 是唯一品牌色;绿/红/amber 仅作语义(正向/负向/warning),别让它们变装饰撞色。
 - **删 live 引用的 DOM 节点(R076 删 #s-onboard → R079 enterApp 崩)**:删组件/节点前必 `grep getElementById('<id>')` 全量,所有引用空守(`?.`)或清理;入口函数(enterApp 这种)崩 = 整 app 进不去。
 - **闸门断言验「可见」非仅「DOM 存在」(R079)**:常挂载组件 `count()>0` 恒真,放跑「挂载但隐藏」;关键屏用 `.isVisible()` / 查 active 类。`enterApp` 中止这类「DOM 在但屏没切」靠可见性断言才抓得到。
+- **可见中文验收靠机检扫 innerText,别靠肉眼/猜文件名 grep(R084 漏 pool chrome 10 轮 / R066 漏单个建联钮)**:R085 给 verify.mjs 加渲染中文守卫(innerText 只含可见文字,忽略隐藏模态 + JS 数据键 region:'东南亚';allowlist 创拾觅深),命中即 pass:false。任何屏/模态出现可见中文秒红。

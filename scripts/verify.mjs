@@ -153,6 +153,16 @@ try {
     await page.waitForTimeout(1400) // let fonts + entrance animations settle
     await page.screenshot({ path: join(REVIEW, `${SCREEN}.png`) })
   }
+  // rendered-Chinese guard (R085) — innerText is only the VISIBLE text, so this catches
+  // untranslated on-screen copy (like the pool chrome that slipped 10 rounds, R084) while
+  // ignoring JS data keys (region:'东南亚' is mapped to English for display) and hidden modals.
+  // Allowlist the intentional 创拾觅深 brand signature on the login panel.
+  const cnHits = await page.evaluate(() => {
+    const m = (document.body.innerText || '').match(/[一-鿿]+/g) || []
+    const ALLOW = ['创拾觅深']
+    return [...new Set(m)].filter(s => !ALLOW.some(a => a.includes(s) || s.includes(a)))
+  }).catch(() => [])
+  verdict.chinese = cnHits
   // Only NEW runtime errors (beyond the known baseline) should fail a task.
   let baseline = []
   try { baseline = JSON.parse(await readFile(join(REVIEW, 'baseline-errors.json'), 'utf8')) } catch {}
@@ -167,9 +177,9 @@ try {
   if (checks) {
     const results = await checks(page)
     verdict.assertions = results.map(([name, ok, detail]) => ({ name, ok, detail }))
-    verdict.pass = results.every(r => r[1]) && newErrors.length === 0
+    verdict.pass = results.every(r => r[1]) && newErrors.length === 0 && cnHits.length === 0
   } else {
-    verdict.pass = newErrors.length === 0
+    verdict.pass = newErrors.length === 0 && cnHits.length === 0
   }
 } finally {
   await browser.close()

@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 085 | 🟦 闸门加固(main) | verify.mjs 加渲染中文守卫(innerText 扫可见文字,allowlist 创拾觅深,命中即 pass:false)→ 自动化 R084 抓漏;守卫即抓到 dashboard 建联钮漏译→Connect;16 屏/态全 chinese:[] | ✅ build✓ 机检(chinese:[])✓ h1/h3/tour✓ KEEP | [round-085](round-085-chinese-guard.md) |
 | 084 | 🟦 产品轴(main) | 视觉 QA 抓漏译:PoolPage 整屏 chrome 英文化(R074 错 grep 文件名漏掉)+ 修源筛选 bug(option value 对齐英文 group 键);全站实拍终验 0 可见中文 | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-084](round-084-pool-chrome-en.md) |
 | 083 | 🟦 Utility(main) | T11 收尾→**全部完成**:删 LoginScreen #reg-scan-overlay markup + login.css .rso 块 + onboarding.css(文件)+ index import + goStep/startAnalysis stub(−156,5 文件) | ✅ build✓ h1(visible)/h3/tour✓ 机检✓ KEEP | [round-083](round-083-t11-complete.md) |
 | 082 | 🟦 Utility(main) | T11 续:删死 renderAiReport/TodayTodo/AiDailyReport + AI_REPORT_ITEMS/TODAY_TODOS/AI_DAILY_ITEMS(面板 R066 已并入 Dashboard,guarded no-op)+ enterApp 调用;legacy −77 行,清最后死中文数据 | ✅ build✓ h1/h3/tour✓ 机检✓ KEEP | [round-082](round-082-dead-renderers-removed.md) |
