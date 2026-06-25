@@ -815,7 +815,7 @@ function enterApp() {
   document.getElementById('ai-bubble').style.display = 'block';
   renderIcpAgent();
   renderWaContacts();
-  renderWaChat(0);
+  selectWaContact(0);
   renderMktList();
   renderAiReport();
   renderTodayTodo();
