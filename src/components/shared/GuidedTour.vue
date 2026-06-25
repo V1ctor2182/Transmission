@@ -69,7 +69,7 @@ onMounted(() => { window.startTour = start; window.__tourNudge = showNudge; wind
 </script>
 
 <template>
-  <div v-if="active" class="tour">
+  <div v-if="active" class="tour" @click.self="next">
     <div class="tour-spot" :style="spot"></div>
     <div class="tour-card" :style="card">
       <div class="tour-step">新手引导 · {{ i + 1 }} / {{ steps.length }}</div>
@@ -82,6 +82,7 @@ onMounted(() => { window.startTour = start; window.__tourNudge = showNudge; wind
         <button class="tour-btn" @click="next">{{ i === steps.length - 1 ? '完成' : '下一步 →' }}</button>
       </div>
       <div class="tour-prog"><div class="tour-prog-fill" :style="{ width: ((i + 1) / steps.length * 100) + '%' }"></div></div>
+      <div class="tour-hint">← → 或点任意处继续 · Esc 退出</div>
     </div>
   </div>
 
@@ -120,6 +121,7 @@ onMounted(() => { window.startTour = start; window.__tourNudge = showNudge; wind
 .tour-btn.ghost{ background:transparent; border:1px solid var(--card-border); color:var(--t-sec) }
 .tour-prog{ height:3px; background:rgba(31,143,214,.12); border-radius:2px; margin-top:14px; overflow:hidden }
 .tour-prog-fill{ height:100%; background:var(--brand); border-radius:2px; transition:width .3s cubic-bezier(.22,.61,.36,1) }
+.tour-hint{ margin-top:8px; font-size:10px; color:var(--t-muted); letter-spacing:.02em; text-align:center }
 /* 首访提示卡(底部居中,自带「开始引导」,不挡可点元素)*/
 .tour-nudge{ position:fixed; bottom:22px; left:50%; transform:translateX(-50%); width:320px; z-index:590; pointer-events:auto;
   background:var(--bg2); border:1px solid var(--card-border); border-top:2px solid var(--brand);
