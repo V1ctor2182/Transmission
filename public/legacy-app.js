@@ -821,15 +821,15 @@ function enterApp() {
   renderTodayTodo();
   renderAiDailyReport();
   renderPoolPage();
-  setTimeout(() => toast('◆','欢迎使用 TRANS·MISSION','AI 今日已搜索 147 条全球线索，发送 23 封营销邮件，5 项待办事项等待处理'), 800);
+  setTimeout(() => toast('◆','Welcome to TRANS·MISSION','AI searched 147 global leads, sent 23 marketing emails, and lined up 5 tasks for you today'), 800);
   setTimeout(() => { if(window.__tourNudge) window.__tourNudge(); }, 1500);
 }
 
 // ═══════════════════════════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════════════════════════
-const PAGE_NAMES = {dashboard:'工作台',leads:'找客户',marketing:'营销队列',intel:'情报中心',whatsapp:'商机中心',pool:'客户池'};
-const PAGE_SUBS = {dashboard:'今日商机概览',leads:'ICP Agent · 自动找客户',marketing:'邮件审批队列',intel:'全球采购情报 · 实时更新',whatsapp:'WhatsApp 对话管理',pool:'全部客户跟进状态'};
+const PAGE_NAMES = {dashboard:'Workspace',leads:'Find buyers',marketing:'Marketing',intel:'Intel center',whatsapp:'Deals',pool:'Customer pool'};
+const PAGE_SUBS = {dashboard:"Today's deals overview",leads:'ICP Agent · auto buyer discovery',marketing:'Email approval queue',intel:'Global purchasing intel · live',whatsapp:'WhatsApp conversations',pool:'All customer follow-up status'};
 const PAGE_IDX = {dashboard:0,leads:1,marketing:2,intel:3,whatsapp:4,pool:5};
 
 function navTo(page, idx) {

@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 067 | 🟦 产品轴(main) | app shell 英文化(TopBar/QuotaBar/SidebarNav tooltip/页头 PAGE_NAMES/欢迎 toast,每屏可见) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-067](round-067-shell-en.md) |
 | 066 | 🟦 产品轴(main) | 工作台 dashboard 全文案英文化(问候/待办/地图/KPI/feed/买家;regionLabel 映射保下钻,h3 filter 更新) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-066](round-066-dashboard-en.md) |
 | 065 | 🟦 产品轴(main) | 地图交互/游戏感:活的贸易信号网络(航线弧+信号流动)+ 热点 hover 响应环(dashboard+开头动画共用) | ✅ build✓ 机检✓ h1/h3/tour-check✓ KEEP | [round-065](round-065-map-trade-network.md) |
 | 064 | 🟦 产品轴(main) | 开头动画加科技感(雷达扫描扇区+蓝图网格,完成即停)+ 全英文(状态/面板/热点/KPI/settle) | ✅ build✓ 序列帧✓ h1/h3/tour-check✓ KEEP | [round-064](round-064-fra-tech-en.md) |

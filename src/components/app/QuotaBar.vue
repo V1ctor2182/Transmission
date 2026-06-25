@@ -16,17 +16,17 @@ const ICONS = {
   track:   '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
 }
 const quotas = [
-  { key: 'leads',   label: '精准客户',   used: 10,  total: 1000,  unit: '个', desc: 'AI 搜索推送的高匹配采购商数量' },
-  { key: 'edm',     label: '营销触达',   used: 847, total: 10000, unit: '封', desc: 'EDM 邮件和 WhatsApp 营销发送量' },
-  { key: 'connect', label: '精准建联',   used: 3,   total: 10,    unit: '次', desc: 'AI 生成个性化开场白并主动建联' },
-  { key: 'track',   label: 'AI 自动跟踪', used: 5,   total: 20,    unit: '个', desc: '每 3 天更新客户社媒动态，捕捉最新信号' },
+  { key: 'leads',   label: 'Target buyers',   used: 10,  total: 1000,  desc: 'High-match buyers AI search has surfaced for you' },
+  { key: 'edm',     label: 'Marketing reach', used: 847, total: 10000, desc: 'EDM emails and WhatsApp marketing messages sent' },
+  { key: 'connect', label: 'Precise connects', used: 3,   total: 10,    desc: 'AI-written openers and proactive outreach' },
+  { key: 'track',   label: 'AI auto-tracking', used: 5,   total: 20,    desc: "Refreshes each buyer's social activity every 3 days to catch new signals" },
 ]
 const fmt = (n) => n.toLocaleString('en-US')
 const near = (q) => q.used / q.total >= 0.8   // ≥80% → 预警转红
 
 function toggle () { open.value = !open.value }
 function recharge (q) {
-  window.toast?.('◆', `充值${q.label}`, `将为您充值 ${fmt(q.total)} ${q.unit}${q.label}，请在充值页面完成支付`)
+  window.toast?.('◆', `Top up ${q.label}`, `We'll add ${fmt(q.total)} to ${q.label} — complete payment on the billing page`)
   open.value = false
 }
 function onDocClick (e) { if (!e.target.closest('.tb-quota-bar')) open.value = false }
@@ -48,19 +48,19 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
     </button>
 
     <!-- 配额充值下拉 -->
-    <div class="quota-dd" :class="{ open }" role="dialog" aria-label="配额充值">
+    <div class="quota-dd" :class="{ open }" role="dialog" aria-label="Quota top-up">
       <div class="qdd-title">
         <svg viewBox="0 0 24 24" class="qdd-bolt" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-        配额充值
-        <button class="qdd-close" @click="open = false">关闭</button>
+        Quota top-up
+        <button class="qdd-close" @click="open = false">Close</button>
       </div>
       <div class="qdd-grid">
         <div class="qr-item" v-for="q in quotas" :key="q.key">
           <svg class="qr-ico" viewBox="0 0 24 24" v-html="ICONS[q.key]" aria-hidden="true" />
           <div class="qr-name">{{ q.label }}</div>
           <div class="qr-desc">{{ q.desc }}</div>
-          <div class="qr-remaining mono">已用 <b :class="{ near: near(q) }">{{ fmt(q.used) }}</b> / {{ fmt(q.total) }}</div>
-          <button class="qr-btn" @click="recharge(q)">+ 充值{{ q.label }}</button>
+          <div class="qr-remaining mono">Used <b :class="{ near: near(q) }">{{ fmt(q.used) }}</b> / {{ fmt(q.total) }}</div>
+          <button class="qr-btn" @click="recharge(q)">+ Top up</button>
         </div>
       </div>
     </div>
