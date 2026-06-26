@@ -57,11 +57,12 @@ const buyers = [
   { cc: 'GB', co: 'Wing Yip Foods',      mt: 85, sub: 'UK · 5h ago',         val: '£96,200',  mid: true, region: '欧洲', country: 'UK', flag: '🇬🇧', need: 'Annual Asian festive-food import' },
 ]
 
-// 每区实时买家信号数 → 驱动地图热点的脉冲节奏(信号越多,ping 越快;非装饰性恒定脉冲)
-const regionCount = buyers.reduce((m, b) => (m[b.region] = (m[b.region] || 0) + 1, m), {})
+// 每区实时买家信号 → 驱动地图热点脉冲节奏(信号越多 ping 越快)+ 锁定时的真实情报读数
 const liveHotspots = mapHotspots.map((h, i) => {
-  const n = regionCount[h.region] || 0
-  return { ...h, count: n, dur: Math.max(1.5, 3.4 - n * 0.45).toFixed(2), delay: (i * 0.35).toFixed(2) }
+  const rb = buyers.filter(b => b.region === h.region)
+  const n = rb.length
+  const topMatch = rb.reduce((m, b) => Math.max(m, b.mt), 0)
+  return { ...h, count: n, topMatch, dur: Math.max(1.5, 3.4 - n * 0.45).toFixed(2), delay: (i * 0.35).toFixed(2) }
 })
 
 // region 内部键保持中文(与买家数据匹配);展示用英文 label 映射

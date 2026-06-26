@@ -35,8 +35,12 @@ function onMove (e) {
   const x = lock ? lock.x : p.x, y = lock ? lock.y : p.y
   // 等距圆柱近似:位置 → 真实经纬(非造假数据,反映指针实际所在)
   const lon = x / VBW * 360 - 180, lat = 90 - y / VBH * 180
+  // 锁定时的真实情报读数(买家数 + 最高匹配;count/topMatch 由 hotspot 数据带入)
+  const intel = lock && lock.count != null
+    ? `${lock.count} live ${lock.count === 1 ? 'buyer' : 'buyers'}${lock.topMatch ? ` · top ${lock.topMatch}%` : ''}`
+    : null
   cursor.value = {
-    x, y, locked: !!lock, region: lock ? lock.region : null, label: lock ? lock.label : null,
+    x, y, locked: !!lock, region: lock ? lock.region : null, label: lock ? lock.label : null, intel,
     lon: `${Math.abs(lon).toFixed(0)}°${lon >= 0 ? 'E' : 'W'}`,
     lat: `${Math.abs(lat).toFixed(0)}°${lat >= 0 ? 'N' : 'S'}`,
   }
@@ -91,7 +95,11 @@ const arcs = computed(() => {
       <line class="wh-cross" x1="0" :y1="cursor.y" :x2="VBW" :y2="cursor.y" />
       <circle class="wh-retic-ring" :cx="cursor.x" :cy="cursor.y" r="9" />
       <circle class="wh-retic-dot" :cx="cursor.x" :cy="cursor.y" r="1.6" />
-      <text class="wh-coord" :x="cursor.x + 12" :y="cursor.y - 10">{{ cursor.locked ? cursor.label : cursor.lat + ' ' + cursor.lon }}</text>
+      <template v-if="cursor.locked">
+        <text class="wh-coord wh-coord-title" :x="cursor.x + 12" :y="cursor.y - 11">{{ cursor.label }}</text>
+        <text v-if="cursor.intel" class="wh-coord wh-intel" :x="cursor.x + 12" :y="cursor.y + 2">{{ cursor.intel }}</text>
+      </template>
+      <text v-else class="wh-coord" :x="cursor.x + 12" :y="cursor.y - 10">{{ cursor.lat }} {{ cursor.lon }}</text>
     </g>
   </svg>
 </template>
@@ -163,5 +171,8 @@ const arcs = computed(() => {
 .wh-reticle.locked .wh-retic-ring { stroke: var(--brand2, #1e5fd0); stroke-width: 1.6; opacity: 1; }
 .wh-reticle.locked .wh-retic-dot { fill: var(--brand2, #1e5fd0); }
 .wh-reticle.locked .wh-coord { fill: var(--brand2, #1e5fd0); }
+/* 锁定情报读数:标题(区域)+ 副行(实时买家·最高匹配,真实数据)*/
+.wh-coord-title { font-weight: 700; }
+.wh-intel { fill: var(--t-sec, #4a5d7e); font-size: 9px; letter-spacing: .02em; }
 @media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow, .wh-lock { animation: none } }
 </style>
