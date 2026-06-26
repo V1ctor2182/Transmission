@@ -18,10 +18,10 @@ const reduce = typeof window !== 'undefined' && window.matchMedia && window.matc
 
 // 真数据(揭示出来的,不是装饰)。坐标 + 量级与工作台地图一致(万仟出海剧本:东南亚 T1 最热)。
 const hotspots = [
-  { x: 778, y: 398, label: 'SE Asia · 512K', hot: true },  // T1 首选,与工作台一致
-  { x: 250, y: 246, label: 'N. America · 188K' },
-  { x: 516, y: 182, label: 'Europe · 96K' },
-  { x: 852, y: 470, label: 'Oceania · 77K' },
+  { x: 778, y: 398, label: 'SE Asia · 512K', hot: true, region: 'SE' },  // T1 首选,与工作台一致
+  { x: 250, y: 246, label: 'N. America · 188K', region: 'NA' },
+  { x: 516, y: 182, label: 'Europe · 96K', region: 'EU' },
+  { x: 852, y: 470, label: 'Oceania · 77K', region: 'OC' },
 ]
 const kpis = [
   { label: 'Global demand',   target: 2847392, color: 'var(--brand)' },
@@ -31,10 +31,10 @@ const kpis = [
 ]
 // 与工作台「实时买家信号」一致 = 万仟剧本点名的真实华人超市渠道(开头揭示的就是稍后落到工作台的买家)
 const buyers = [
-  { co: 'Fairprice Group',   cc: 'SG', mt: 96, val: '$188,400' },
-  { co: 'Jaya Grocer Bhd',   cc: 'MY', mt: 93, val: '$142,000' },
-  { co: 'T&T Supermarket',   cc: 'CA', mt: 91, val: '$204,000' },
-  { co: '99 Ranch Market',   cc: 'US', mt: 89, val: '$331,500' },
+  { co: 'Fairprice Group',   cc: 'SG', mt: 96, val: '$188,400', region: 'SE' },
+  { co: 'Jaya Grocer Bhd',   cc: 'MY', mt: 93, val: '$142,000', region: 'SE' },
+  { co: 'T&T Supermarket',   cc: 'CA', mt: 91, val: '$204,000', region: 'NA' },
+  { co: '99 Ranch Market',   cc: 'US', mt: 89, val: '$331,500', region: 'NA' },
 ]
 
 const kpiShown = ref([0, 0, 0, 0])     // count-up 当前值
@@ -72,6 +72,8 @@ onMounted(() => {
 onUnmounted(() => timers.forEach(t => { clearTimeout(t); clearInterval(t) }))
 
 const done = computed(() => stage.value >= 4)
+// 买家流入时,聚光其来源区域(地图随到货响应:hot regions → buyers from them);完成后清空,settle 时各区平权
+const streamingRegion = computed(() => (done.value || buyerN.value === 0) ? null : buyers[buyerN.value - 1].region)
 // 首批买家潜在采购额(真实求和这几个买家的 val,非编造)。当前数据均为 USD。
 const pipelineTotal = buyers.reduce((s, b) => s + parseInt(b.val.replace(/[^0-9]/g, ''), 10), 0)
 const pipelineShown = ref(0)
@@ -115,7 +117,7 @@ function countUpPipeline (ms = 900) {
         <div class="fra-mapbody">
           <div class="fra-grid"></div>
           <div v-if="!done" class="fra-scan"></div>
-          <WorldHeatmap :hotspots="hotspots.slice(0, hotN)" />
+          <WorldHeatmap :hotspots="hotspots.slice(0, hotN)" :highlight="streamingRegion" />
           <div class="fra-mapstat">{{ hotN }}/{{ hotspots.length }} regions locked</div>
         </div>
       </section>
