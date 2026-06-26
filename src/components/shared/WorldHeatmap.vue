@@ -17,17 +17,26 @@ const [, , VBW, VBH] = world.viewBox.split(' ').map(Number)
 
 // 雷达准星 HUD:鼠标在地图上移动 → 十字准星 + 真实经纬读数(信号台/任务控制台交互感)。
 // 闲置(无悬停)时整组不渲染 → 静态画面零额外装饰,绝不影响截图高级感。
-const cursor = ref(null)   // { x, y, lat, lon } in viewBox units
+const cursor = ref(null)   // { x, y, lat, lon, locked, region, label } in viewBox units
 const svgRef = ref(null)
+const SNAP = 42            // 磁吸半径(viewBox 单位 ≈ 23 屏幕 px):指针靠近热点 → 准星吸附锁定
 function onMove (e) {
   const svg = svgRef.value, ctm = svg && svg.getScreenCTM()
   if (!ctm) return
   const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY
   const p = pt.matrixTransform(ctm.inverse())
+  // 磁吸 snap-to-target:吸附到最近的可点热点(游戏锁定感 + 更易点中)
+  let lock = null, best = SNAP
+  for (const h of props.hotspots) {
+    if (!h.region) continue
+    const d = Math.hypot(h.x - p.x, h.y - p.y)
+    if (d < best) { best = d; lock = h }
+  }
+  const x = lock ? lock.x : p.x, y = lock ? lock.y : p.y
   // 等距圆柱近似:位置 → 真实经纬(非造假数据,反映指针实际所在)
-  const lon = p.x / VBW * 360 - 180, lat = 90 - p.y / VBH * 180
+  const lon = x / VBW * 360 - 180, lat = 90 - y / VBH * 180
   cursor.value = {
-    x: p.x, y: p.y,
+    x, y, locked: !!lock, region: lock ? lock.region : null, label: lock ? lock.label : null,
     lon: `${Math.abs(lon).toFixed(0)}°${lon >= 0 ? 'E' : 'W'}`,
     lat: `${Math.abs(lat).toFixed(0)}°${lat >= 0 ? 'N' : 'S'}`,
   }
@@ -59,7 +68,7 @@ const arcs = computed(() => {
       <path v-for="a in arcs" :key="'f'+a.key" class="wh-arc-flow" :d="a.d" pathLength="100" :style="{ animationDelay: a.delay + 's' }" />
     </g>
     <g v-for="(h, i) in hotspots" :key="i" :transform="`translate(${h.x},${h.y})`"
-       class="wh-spot" :class="{ hot: h.hot, sel: active && active === h.region, dim: active && active !== h.region }"
+       class="wh-spot" :class="{ hot: h.hot, sel: active && active === h.region, dim: active && active !== h.region, snap: cursor && cursor.locked && cursor.region === h.region }"
        :role="h.region ? 'button' : null" :tabindex="h.region ? 0 : null"
        @click="h.region && $emit('hotspot', h)" @keydown.enter="h.region && $emit('hotspot', h)">
       <circle v-if="h.region" class="wh-hit" cx="0" cy="0" r="15" />
@@ -76,13 +85,13 @@ const arcs = computed(() => {
       <circle class="wh-dot" :class="{ hot: h.hot }" cx="0" cy="0" r="3.2" />
       <text v-if="h.label" class="wh-lbl" x="0" y="-9">{{ h.label }}</text>
     </g>
-    <!-- 雷达准星 HUD(跟随指针:十字 + 真实经纬读数)-->
-    <g v-if="cursor" class="wh-reticle">
+    <!-- 雷达准星 HUD(跟随指针:十字 + 真实经纬读数;靠近热点磁吸锁定)-->
+    <g v-if="cursor" class="wh-reticle" :class="{ locked: cursor.locked }">
       <line class="wh-cross" :x1="cursor.x" y1="0" :x2="cursor.x" :y2="VBH" />
       <line class="wh-cross" x1="0" :y1="cursor.y" :x2="VBW" :y2="cursor.y" />
       <circle class="wh-retic-ring" :cx="cursor.x" :cy="cursor.y" r="9" />
       <circle class="wh-retic-dot" :cx="cursor.x" :cy="cursor.y" r="1.6" />
-      <text class="wh-coord" :x="cursor.x + 12" :y="cursor.y - 10">{{ cursor.lat }} {{ cursor.lon }}</text>
+      <text class="wh-coord" :x="cursor.x + 12" :y="cursor.y - 10">{{ cursor.locked ? cursor.label : cursor.lat + ' ' + cursor.lon }}</text>
     </g>
   </svg>
 </template>
@@ -127,7 +136,7 @@ const arcs = computed(() => {
 .wh-lock path { fill: none; stroke: var(--brand-azure, #2f9fe0); stroke-width: 1.4;
   vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
 .wh-lock { transform-box: fill-box; transform-origin: center; opacity: 0; transition: opacity .18s; }
-.wh-spot[role="button"]:hover .wh-lock { opacity: .9; }
+.wh-spot[role="button"]:hover .wh-lock, .wh-spot.snap .wh-lock { opacity: .9; }
 .wh-spot.sel .wh-lock { opacity: 1; stroke: var(--brand2, #1e5fd0); animation: wh-lock-in .42s cubic-bezier(.2,.85,.2,1); }
 .wh-spot.sel .wh-lock path { stroke: var(--brand2, #1e5fd0); }
 @keyframes wh-lock-in { from { transform: scale(1.5); opacity: 0 } to { transform: scale(1); opacity: 1 } }
@@ -148,5 +157,11 @@ const arcs = computed(() => {
   font: 600 10px 'JetBrains Mono', monospace; letter-spacing: .03em;
   paint-order: stroke; stroke: rgba(244, 247, 252, .85); stroke-width: 3px;
 }
+/* 磁吸锁定:准星滑向热点(transition)+ 十字让位 + ring 收紧成 royal 锁定环 */
+.wh-retic-ring, .wh-retic-dot { transition: cx .12s ease-out, cy .12s ease-out; }
+.wh-reticle.locked .wh-cross { opacity: .14; }
+.wh-reticle.locked .wh-retic-ring { stroke: var(--brand2, #1e5fd0); stroke-width: 1.6; opacity: 1; }
+.wh-reticle.locked .wh-retic-dot { fill: var(--brand2, #1e5fd0); }
+.wh-reticle.locked .wh-coord { fill: var(--brand2, #1e5fd0); }
 @media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow, .wh-lock { animation: none } }
 </style>
