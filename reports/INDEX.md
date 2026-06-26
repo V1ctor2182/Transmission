@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 100 | 🟦 Standard(main) | 首启完成「全锁定」收束扫光 —— 分析完成时进度脊整条满 azure + 一道扫光一次性掠过(systems locked 高潮),呼应「your market is locked in」 | ✅ build/h1/h3/i18n✓ locked+扫光 animationName 实测✓ 两轴 KEEP | [round-100](round-100-fra-lock-sweep.md) |
 | 099 | 🟦 Standard(main) | 首启 FRA 拼装进度脊(新焦点首轮)—— Connect→Identify→Match→Locate→Complete 随真实 stage 逐段点亮+连接线填充,mission-control 进度感,非假% | ✅ build/h1/h3/i18n✓ 进度脊逐段推进实测✓ 两轴 KEEP | [round-099](round-099-fra-pipeline-stepper.md) |
 | 098 | 🟦 Standard(main) | Intel 终端交互一致化(地图后首个其它屏)—— 行 hover→azure inset 左标+tint(复用地图/dashboard 语言)+ 静态 Live ● → 脉冲点;纯 Vue/CSS 不碰 legacy | ✅ build/h1/h3/i18n✓ hover shadow+live pulse 实测✓ 两轴 KEEP ⚠️收敛 | [round-098](round-098-intel-hover-live.md) |
 | 097 | 🟦 Standard(main) | 锁定情报加最新信号时间(`4 buyers · 96% · 2m ago` 完整三元:数/匹配/时间)+ 压缩防溢出;🏁 地图焦点收官(R090-097 共 8 轮) | ✅ build/h1/h3/i18n✓ intel 含 recency 实测✓ 两轴 KEEP | [round-097](round-097-map-intel-recency.md) |

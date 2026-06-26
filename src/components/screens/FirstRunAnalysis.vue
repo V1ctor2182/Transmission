@@ -100,8 +100,8 @@ function countUpPipeline (ms = 900) {
       <span class="fra-skip" @click="emit('done')">{{ done ? 'Enter workspace →' : 'Skip →' }}</span>
     </div>
 
-    <!-- 拼装进度脊:5 阶段逐段点亮(mission-control assembly,真实 stage 驱动) -->
-    <div class="fra-pipe">
+    <!-- 拼装进度脊:5 阶段逐段点亮(mission-control assembly,真实 stage 驱动);完成时一道「全锁定」收束扫光 -->
+    <div class="fra-pipe" :class="{ locked: done }">
       <template v-for="(lbl, i) in steps" :key="lbl">
         <div class="fra-pstep" :class="{ done: i < stage, active: i === stage }"><span class="fra-pdot"></span>{{ lbl }}</div>
         <div v-if="i < steps.length - 1" class="fra-pline" :class="{ done: i < stage }"></div>
@@ -166,7 +166,12 @@ function countUpPipeline (ms = 900) {
 .fra-skip{font-size:12px;color:var(--t-muted);cursor:pointer;transition:.2s}.fra-skip:hover{color:var(--t-sec)}
 
 /* 拼装进度脊(stage 逐段点亮,真实阶段;mission-control / 游戏进度感) */
-.fra-pipe{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:9px 20px;border-bottom:1px solid var(--card-border);background:rgba(31,143,214,.02)}
+.fra-pipe{position:relative;overflow:hidden;flex-shrink:0;display:flex;align-items:center;gap:10px;padding:9px 20px;border-bottom:1px solid var(--card-border);background:rgba(31,143,214,.02)}
+/* 完成「全锁定」收束:一道 azure 扫光掠过整条脊(systems locked,一次性) */
+.fra-pipe.locked::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(31,143,214,.22) 45%,rgba(47,159,224,.28) 50%,transparent 55%);
+  transform:translateX(-100%);animation:fra-pipe-sweep .9s cubic-bezier(.4,0,.2,1) 1}
+@keyframes fra-pipe-sweep{to{transform:translateX(100%)}}
 .fra-pstep{display:flex;align-items:center;gap:6px;font:600 11px var(--f-m,'JetBrains Mono',monospace);letter-spacing:.02em;color:var(--t-muted);transition:color .3s;white-space:nowrap}
 .fra-pstep .fra-pdot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.4;transition:.3s}
 .fra-pstep.done{color:var(--brand)}
@@ -229,5 +234,5 @@ function countUpPipeline (ms = 900) {
 .fra-enter:active{transform:translateY(1px) scale(.99)}
 .fra-fade-enter-active{transition:.5s}.fra-fade-enter-from{opacity:0;transform:translateY(10px)}
 
-@media(prefers-reduced-motion:reduce){.fra-spin,.fra-live,.fra-hot.on::after,.fra-kpi.on,.fra-brow.on,.fra-pstep.active .fra-pdot{animation:none}.fra-brow,.fra-kpi,.fra-hl{transition:none}}
+@media(prefers-reduced-motion:reduce){.fra-spin,.fra-live,.fra-hot.on::after,.fra-kpi.on,.fra-brow.on,.fra-pstep.active .fra-pdot,.fra-pipe.locked::after{animation:none}.fra-pipe.locked::after{display:none}.fra-brow,.fra-kpi,.fra-hl{transition:none}}
 </style>
