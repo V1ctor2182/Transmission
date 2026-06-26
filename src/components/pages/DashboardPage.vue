@@ -62,7 +62,9 @@ const liveHotspots = mapHotspots.map((h, i) => {
   const rb = buyers.filter(b => b.region === h.region)
   const n = rb.length
   const topMatch = rb.reduce((m, b) => Math.max(m, b.mt), 0)
-  return { ...h, count: n, topMatch, dur: Math.max(1.5, 3.4 - n * 0.45).toFixed(2), delay: (i * 0.35).toFixed(2) }
+  // 最近一条信号时间(rb 已按新→旧;sub 形如 "Singapore · 2m ago")
+  const latest = rb[0] ? rb[0].sub.split('·').pop().trim() : null
+  return { ...h, count: n, topMatch, latest, dur: Math.max(1.5, 3.4 - n * 0.45).toFixed(2), delay: (i * 0.35).toFixed(2) }
 })
 
 // region 内部键保持中文(与买家数据匹配);展示用英文 label 映射

@@ -39,9 +39,10 @@ function onMove (e) {
   const x = lock ? lock.x : p.x, y = lock ? lock.y : p.y
   // 等距圆柱近似:位置 → 真实经纬(非造假数据,反映指针实际所在)
   const lon = x / VBW * 360 - 180, lat = 90 - y / VBH * 180
-  // 锁定时的真实情报读数(买家数 + 最高匹配;count/topMatch 由 hotspot 数据带入)
+  // 锁定时的真实情报读数(买家数 + 最高匹配 + 最近信号时间;均由 hotspot 数据带入)
   const intel = lock && lock.count != null
-    ? `${lock.count} live ${lock.count === 1 ? 'buyer' : 'buyers'}${lock.topMatch ? ` · top ${lock.topMatch}%` : ''}`
+    ? `${lock.count} ${lock.count === 1 ? 'buyer' : 'buyers'}` +
+      `${lock.topMatch ? ` · ${lock.topMatch}%` : ''}${lock.latest ? ` · ${lock.latest}` : ''}`
     : null
   cursor.value = {
     x, y, locked: !!lock, region: lock ? lock.region : null, label: lock ? lock.label : null, intel,
