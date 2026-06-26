@@ -66,6 +66,13 @@ const arcs = computed(() => {
       <circle class="wh-ping" :class="{ hot: h.hot }" cx="0" cy="0" r="4"
               :style="h.dur ? { animationDuration: h.dur + 's', animationDelay: h.delay + 's' } : null" />
       <circle class="wh-ring" cx="0" cy="0" r="9" />
+      <!-- 目标锁定角括号(hover/选中:game targeting reticle)-->
+      <g v-if="h.region" class="wh-lock">
+        <path d="M-11,-6.5 L-11,-11 L-6.5,-11" />
+        <path d="M6.5,-11 L11,-11 L11,-6.5" />
+        <path d="M11,6.5 L11,11 L6.5,11" />
+        <path d="M-6.5,11 L-11,11 L-11,6.5" />
+      </g>
       <circle class="wh-dot" :class="{ hot: h.hot }" cx="0" cy="0" r="3.2" />
       <text v-if="h.label" class="wh-lbl" x="0" y="-9">{{ h.label }}</text>
     </g>
@@ -116,6 +123,14 @@ const arcs = computed(() => {
 .wh-spot[role="button"]:focus-visible .wh-dot { stroke: var(--brand2, #1e5fd0); stroke-width: 1.5; }
 .wh-spot.sel .wh-ping { animation-duration: 1.4s; stroke-width: 1.6; stroke: var(--brand2, #1e5fd0); }
 .wh-spot.sel .wh-lbl { fill: var(--brand2, #1e5fd0); }
+/* 目标锁定角括号:平时隐;hover 淡入;选中=锁定 snap-in(放大 1.5→1)*/
+.wh-lock path { fill: none; stroke: var(--brand-azure, #2f9fe0); stroke-width: 1.4;
+  vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.wh-lock { transform-box: fill-box; transform-origin: center; opacity: 0; transition: opacity .18s; }
+.wh-spot[role="button"]:hover .wh-lock { opacity: .9; }
+.wh-spot.sel .wh-lock { opacity: 1; stroke: var(--brand2, #1e5fd0); animation: wh-lock-in .42s cubic-bezier(.2,.85,.2,1); }
+.wh-spot.sel .wh-lock path { stroke: var(--brand2, #1e5fd0); }
+@keyframes wh-lock-in { from { transform: scale(1.5); opacity: 0 } to { transform: scale(1); opacity: 1 } }
 .wh-spot.dim { opacity: .32; transition: opacity .2s; }
 .wh-lbl {
   fill: var(--t-primary, #13213f);
@@ -133,5 +148,5 @@ const arcs = computed(() => {
   font: 600 10px 'JetBrains Mono', monospace; letter-spacing: .03em;
   paint-order: stroke; stroke: rgba(244, 247, 252, .85); stroke-width: 3px;
 }
-@media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow { animation: none } }
+@media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow, .wh-lock { animation: none } }
 </style>

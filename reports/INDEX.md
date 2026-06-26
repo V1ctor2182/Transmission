@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 091 | 🟦 Standard(main) | 热点目标锁定角括号 —— hover 淡入/选中 royal snap-in(scale1.5→1)的 game targeting 框,与 R090 准星叠成完整 HUD;仅 hover/选中可见零 slop | ✅ build/h1/h3/i18n✓ 选中态括号实测渲染✓ 两轴 KEEP | [round-091](round-091-map-target-lock.md) |
 | 090 | 🟦 Standard(main) | **新焦点**:地图雷达准星 HUD —— 指针在地图移动 → azure 十字+目标环+真实经纬读数(`15°N 29°E`),被动地图→全图交互;闲置不渲染零 slop,pointer-events 关不挡热点 | ✅ build/h1/h3/i18n✓ reticle 实测渲染✓ 两轴 KEEP | [round-090](round-090-map-reticle-hud.md) |
 | 086 | 🟦 闸门加固(main) | 一条命令全站 i18n 门 scripts/i18n-check.mjs(单 server/browser 扫 17 屏态 innerText,exit 1 即漏译)+ 补验 leads-tasks/leads-customers/connectm 三未覆盖态,全 0 中文 | ✅ i18n exit0✓ h1/h3/tour✓ KEEP | [round-086](round-086-i18n-gate.md) |
 | 085 | 🟦 闸门加固(main) | verify.mjs 加渲染中文守卫(innerText 扫可见文字,allowlist 创拾觅深,命中即 pass:false)→ 自动化 R084 抓漏;守卫即抓到 dashboard 建联钮漏译→Connect;16 屏/态全 chinese:[] | ✅ build✓ 机检(chinese:[])✓ h1/h3/tour✓ KEEP | [round-085](round-085-chinese-guard.md) |
