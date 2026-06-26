@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 090 | 🟦 Standard(main) | **新焦点**:地图雷达准星 HUD —— 指针在地图移动 → azure 十字+目标环+真实经纬读数(`15°N 29°E`),被动地图→全图交互;闲置不渲染零 slop,pointer-events 关不挡热点 | ✅ build/h1/h3/i18n✓ reticle 实测渲染✓ 两轴 KEEP | [round-090](round-090-map-reticle-hud.md) |
 | 086 | 🟦 闸门加固(main) | 一条命令全站 i18n 门 scripts/i18n-check.mjs(单 server/browser 扫 17 屏态 innerText,exit 1 即漏译)+ 补验 leads-tasks/leads-customers/connectm 三未覆盖态,全 0 中文 | ✅ i18n exit0✓ h1/h3/tour✓ KEEP | [round-086](round-086-i18n-gate.md) |
 | 085 | 🟦 闸门加固(main) | verify.mjs 加渲染中文守卫(innerText 扫可见文字,allowlist 创拾觅深,命中即 pass:false)→ 自动化 R084 抓漏;守卫即抓到 dashboard 建联钮漏译→Connect;16 屏/态全 chinese:[] | ✅ build✓ 机检(chinese:[])✓ h1/h3/tour✓ KEEP | [round-085](round-085-chinese-guard.md) |
 | 084 | 🟦 产品轴(main) | 视觉 QA 抓漏译:PoolPage 整屏 chrome 英文化(R074 错 grep 文件名漏掉)+ 修源筛选 bug(option value 对齐英文 group 键);全站实拍终验 0 可见中文 | ✅ build✓ 机检✓ h1/h3/tour✓ KEEP | [round-084](round-084-pool-chrome-en.md) |

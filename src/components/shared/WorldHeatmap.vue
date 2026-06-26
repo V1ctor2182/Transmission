@@ -4,13 +4,35 @@
   Phosphor:暖近黑陆地 + 极淡琥珀描边 + 琥珀 sonar 热点。
 -->
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import world from '@svg-maps/world'
 const props = defineProps({
   hotspots: { type: Array, default: () => [] },  // [{ x, y, label, hot, region }] in 1010x666 viewBox
   active: { type: String, default: null }          // selected region key → highlight that spot, dim others
 })
 defineEmits(['hotspot'])
+
+// viewBox 尺寸(reticle 十字线铺满地图用)
+const [, , VBW, VBH] = world.viewBox.split(' ').map(Number)
+
+// 雷达准星 HUD:鼠标在地图上移动 → 十字准星 + 真实经纬读数(信号台/任务控制台交互感)。
+// 闲置(无悬停)时整组不渲染 → 静态画面零额外装饰,绝不影响截图高级感。
+const cursor = ref(null)   // { x, y, lat, lon } in viewBox units
+const svgRef = ref(null)
+function onMove (e) {
+  const svg = svgRef.value, ctm = svg && svg.getScreenCTM()
+  if (!ctm) return
+  const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY
+  const p = pt.matrixTransform(ctm.inverse())
+  // 等距圆柱近似:位置 → 真实经纬(非造假数据,反映指针实际所在)
+  const lon = p.x / VBW * 360 - 180, lat = 90 - p.y / VBH * 180
+  cursor.value = {
+    x: p.x, y: p.y,
+    lon: `${Math.abs(lon).toFixed(0)}°${lon >= 0 ? 'E' : 'W'}`,
+    lat: `${Math.abs(lat).toFixed(0)}°${lat >= 0 ? 'N' : 'S'}`,
+  }
+}
+const onLeave = () => { cursor.value = null }
 
 // 活的贸易/信号网络:从枢纽(hot 区)向其它区画航线弧,信号沿线流动(= transmission)。
 const arcs = computed(() => {
@@ -26,7 +48,8 @@ const arcs = computed(() => {
 </script>
 
 <template>
-  <svg class="wh" :viewBox="world.viewBox" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Global demand heatmap">
+  <svg ref="svgRef" class="wh" :viewBox="world.viewBox" preserveAspectRatio="xMidYMid meet"
+       role="img" aria-label="Global demand heatmap" @mousemove="onMove" @mouseleave="onLeave">
     <g class="wh-land">
       <path v-for="c in world.locations" :key="c.id" :d="c.path" />
     </g>
@@ -45,6 +68,14 @@ const arcs = computed(() => {
       <circle class="wh-ring" cx="0" cy="0" r="9" />
       <circle class="wh-dot" :class="{ hot: h.hot }" cx="0" cy="0" r="3.2" />
       <text v-if="h.label" class="wh-lbl" x="0" y="-9">{{ h.label }}</text>
+    </g>
+    <!-- 雷达准星 HUD(跟随指针:十字 + 真实经纬读数)-->
+    <g v-if="cursor" class="wh-reticle">
+      <line class="wh-cross" :x1="cursor.x" y1="0" :x2="cursor.x" :y2="VBH" />
+      <line class="wh-cross" x1="0" :y1="cursor.y" :x2="VBW" :y2="cursor.y" />
+      <circle class="wh-retic-ring" :cx="cursor.x" :cy="cursor.y" r="9" />
+      <circle class="wh-retic-dot" :cx="cursor.x" :cy="cursor.y" r="1.6" />
+      <text class="wh-coord" :x="cursor.x + 12" :y="cursor.y - 10">{{ cursor.lat }} {{ cursor.lon }}</text>
     </g>
   </svg>
 </template>
@@ -91,6 +122,16 @@ const arcs = computed(() => {
   font: 600 11px 'JetBrains Mono', monospace;
   text-anchor: middle; paint-order: stroke;
   stroke: rgba(244, 247, 252, .85); stroke-width: 3px;
+}
+/* 雷达准星 HUD(交互感 + 任务控制台游戏感;pointer-events 关,绝不挡热点点击)*/
+.wh-reticle { pointer-events: none; }
+.wh-cross { stroke: var(--brand-azure, #2f9fe0); stroke-width: .6; vector-effect: non-scaling-stroke; opacity: .3; }
+.wh-retic-ring { fill: none; stroke: var(--brand-azure, #2f9fe0); stroke-width: 1; vector-effect: non-scaling-stroke; opacity: .75; }
+.wh-retic-dot { fill: var(--brand-azure, #2f9fe0); }
+.wh-coord {
+  fill: var(--brand2, #1e5fd0);
+  font: 600 10px 'JetBrains Mono', monospace; letter-spacing: .03em;
+  paint-order: stroke; stroke: rgba(244, 247, 252, .85); stroke-width: 3px;
 }
 @media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow { animation: none } }
 </style>
