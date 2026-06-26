@@ -8,7 +8,8 @@ import { computed, ref } from 'vue'
 import world from '@svg-maps/world'
 const props = defineProps({
   hotspots: { type: Array, default: () => [] },  // [{ x, y, label, hot, region }] in 1010x666 viewBox
-  active: { type: String, default: null }          // selected region key → highlight that spot, dim others
+  active: { type: String, default: null },         // selected region key → highlight that spot, dim others
+  highlight: { type: String, default: null }       // soft highlight (e.g. buyer-row hover) → lighter than active
 })
 defineEmits(['hotspot'])
 
@@ -72,7 +73,11 @@ const arcs = computed(() => {
       <path v-for="a in arcs" :key="'f'+a.key" class="wh-arc-flow" :d="a.d" pathLength="100" :style="{ animationDelay: a.delay + 's' }" />
     </g>
     <g v-for="(h, i) in hotspots" :key="i" :transform="`translate(${h.x},${h.y})`"
-       class="wh-spot" :class="{ hot: h.hot, sel: active && active === h.region, dim: active && active !== h.region, snap: cursor && cursor.locked && cursor.region === h.region }"
+       class="wh-spot" :class="{ hot: h.hot,
+         sel: active && active === h.region,
+         hl: highlight && highlight === h.region && active !== h.region,
+         dim: (active || highlight) && active !== h.region && highlight !== h.region,
+         snap: cursor && cursor.locked && cursor.region === h.region }"
        :role="h.region ? 'button' : null" :tabindex="h.region ? 0 : null"
        @click="h.region && $emit('hotspot', h)" @keydown.enter="h.region && $emit('hotspot', h)">
       <circle v-if="h.region" class="wh-hit" cx="0" cy="0" r="15" />
@@ -156,6 +161,10 @@ const arcs = computed(() => {
 .wh-spot.snap .wh-acq, .wh-spot.sel .wh-acq { animation: wh-acquire .5s ease-out; }
 @keyframes wh-acquire { from { r: 4; opacity: .75 } to { r: 18; opacity: 0 } }
 .wh-spot.dim { opacity: .32; transition: opacity .2s; }
+/* 软高亮(买家行 hover 联动):比 sel 轻 —— 点亮环+放大点,不触发括号/锁定脉冲 */
+.wh-spot.hl .wh-ring { opacity: .8; }
+.wh-spot.hl .wh-dot { r: 5; }
+.wh-spot.hl .wh-lbl { fill: var(--brand2, #1e5fd0); }
 .wh-lbl {
   fill: var(--t-primary, #13213f);
   font: 600 11px 'JetBrains Mono', monospace;

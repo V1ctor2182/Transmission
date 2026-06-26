@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 095 | 🟦 Standard(main) | 地图↔买家列表双向联动 —— hover 买家行→其区域软高亮(新 highlight prop,轻于 active 不触发括号/脉冲)+他区 dim;广度复用经审计 N/A(Leads 无图/FRA 非交互) | ✅ build/h1/h3/i18n✓ hover 行→hl=1 dim=3 实测✓ 两轴 KEEP | [round-095](round-095-map-list-link.md) |
 | 094 | 🟦 Standard(main) | target-acquired 确认脉冲 —— 磁吸锁定/选中瞬间一道快速扩散环(r4→18,.5s),绑真实交互的一次性确认(区别于持续 ambient ping),闭合 targeting 反馈链 | ✅ build/h1/h3/i18n✓ snap+sel 均触发 animationName 实测✓ 两轴 KEEP | [round-094](round-094-map-target-acquired-pulse.md) |
 | 093 | 🟦 Standard(main) | 锁定情报读数 —— 磁吸锁定热点时读数升级为 2 行真实情报(`SE Asia · 512K` + `4 live buyers · top 96%`),地图→可交互情报控制台;喂产品轴「看不懂的数字」 | ✅ build/h1/h3/i18n✓ 情报 chip 真实数据实测✓ 两轴 KEEP | [round-093](round-093-map-lock-intel.md) |
 | 092 | 🟦 Standard(main) | 准星磁吸 snap-to-target —— 指针近热点(42u 半径)即平滑滑入锁定其中心,十字让位+royal 锁定环+读数切热点标签(`SE Asia · 512K`)+点亮括号;游戏 targeting + 更易点中 | ✅ build/h1/h3/i18n✓ 磁吸 cx=778 命中中心实测✓ 两轴 KEEP | [round-092](round-092-map-snap-to-target.md) |

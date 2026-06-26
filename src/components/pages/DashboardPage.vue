@@ -68,6 +68,7 @@ const liveHotspots = mapHotspots.map((h, i) => {
 // region 内部键保持中文(与买家数据匹配);展示用英文 label 映射
 const regionLabel = { '东南亚': 'SE Asia', '北美': 'N. America', '澳洲': 'Oceania', '欧洲': 'Europe' }
 const activeRegion = ref(null)
+const hoverRegion = ref(null)   // 悬停某买家行 → 在地图上软高亮其区域(list→map 双向联动)
 const onHotspot = (h) => { activeRegion.value = activeRegion.value === h.region ? null : h.region }
 const shownBuyers = computed(() => activeRegion.value ? buyers.filter(b => b.region === activeRegion.value) : buyers)
 const connect = (b) => window.connectBuyer?.(b.co, b.country, b.flag, regionLabel[b.region] || b.region, b.val, b.need, b.mt)
@@ -129,7 +130,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
           </div>
         </div>
         <div class="pane-b">
-          <div class="cc-map"><WorldHeatmap :hotspots="liveHotspots" :active="activeRegion" @hotspot="onHotspot" /></div>
+          <div class="cc-map"><WorldHeatmap :hotspots="liveHotspots" :active="activeRegion" :highlight="hoverRegion" @hotspot="onHotspot" /></div>
           <div class="map-stat">
             <div>2,847,392<span>Global demand</span></div>
             <div>98,241<span>New today</span></div>
@@ -181,6 +182,7 @@ onBeforeUnmount(() => kpiIO && kpiIO.disconnect())
         </div>
         <div class="pane-b">
           <div class="brow" v-for="(b, i) in shownBuyers" :key="b.co" @click="connect(b)"
+               @mouseenter="hoverRegion = b.region" @mouseleave="hoverRegion = null"
                :style="{ animationDelay: (i * 0.04).toFixed(2) + 's' }">
             <div class="co"><span class="cc mono">{{ b.cc }}</span>{{ b.co }}</div>
             <div class="mt mono" :class="{ mid: b.mid }">{{ b.mt }}</div>
