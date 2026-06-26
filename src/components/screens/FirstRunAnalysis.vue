@@ -5,7 +5,7 @@
   阶段由 onMounted 时间线推进;尊重 prefers-reduced-motion(直接到终态)。
 -->
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, nextTick, watch } from 'vue'
 import WorldHeatmap from '../shared/WorldHeatmap.vue'
 
 const emit = defineEmits(['done'])
@@ -74,6 +74,38 @@ onUnmounted(() => timers.forEach(t => { clearTimeout(t); clearInterval(t) }))
 const done = computed(() => stage.value >= 4)
 // 买家流入时,聚光其来源区域(地图随到货响应:hot regions → buyers from them);完成后清空,settle 时各区平权
 const streamingRegion = computed(() => (done.value || buyerN.value === 0) ? null : buyers[buyerN.value - 1].region)
+
+// ── 跨栏信号连线(Hero):买家到货时,一道信号线从其来源区域(地图)飞入买家行 ──
+const wsRef = ref(null)        // .fra-ws(连线覆盖层坐标系 = 相对它的 px)
+const mapbodyRef = ref(null)   // 含 WorldHeatmap svg,用于把热点 viewBox 坐标换算到屏幕
+const wires = ref([])          // [{ id, d }]
+let wireId = 0
+function spawnWire (region, rowEl) {
+  const ws = wsRef.value, mapbody = mapbodyRef.value
+  if (!ws || !mapbody || !rowEl) return
+  const svg = mapbody.querySelector('svg'); if (!svg || !svg.getScreenCTM) return
+  const ctm = svg.getScreenCTM(); if (!ctm) return
+  const hs = hotspots.find(h => h.region === region); if (!hs) return
+  const pt = svg.createSVGPoint(); pt.x = hs.x; pt.y = hs.y
+  const sp = pt.matrixTransform(ctm)                 // 热点屏幕 px
+  const wr = ws.getBoundingClientRect(), rr = rowEl.getBoundingClientRect()
+  const x1 = sp.x - wr.left, y1 = sp.y - wr.top
+  const x2 = rr.left - wr.left + 8, y2 = rr.top - wr.top + rr.height / 2
+  const mx = (x1 + x2) / 2, my = Math.min(y1, y2) - 36   // 上凸弧(信号飞行轨迹)
+  const id = ++wireId
+  wires.value.push({ id, d: `M${x1.toFixed(1)},${y1.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}` })
+  const t = setTimeout(() => { wires.value = wires.value.filter(w => w.id !== id) }, 1150)
+  timers.push(t)
+}
+// 每有买家流入 → 从其来源区域射一道信号线到该买家行
+watch(buyerN, (n, old) => {
+  if (reduce || n <= old || n < 1) return
+  const region = buyers[n - 1].region
+  nextTick(() => {
+    const rows = wsRef.value && wsRef.value.querySelectorAll('.fra-brow')
+    spawnWire(region, rows && rows[n - 1])
+  })
+})
 // 首批买家潜在采购额(真实求和这几个买家的 val,非编造)。当前数据均为 USD。
 const pipelineTotal = buyers.reduce((s, b) => s + parseInt(b.val.replace(/[^0-9]/g, ''), 10), 0)
 const pipelineShown = ref(0)
@@ -110,11 +142,11 @@ function countUpPipeline (ms = 900) {
       </template>
     </div>
 
-    <div class="fra-ws">
+    <div class="fra-ws" ref="wsRef">
       <!-- MAP — hotspots light up region by region -->
       <section class="fra-pane fra-map">
         <div class="fra-ph"><span>Global demand heatmap</span><i class="fra-live"></i></div>
-        <div class="fra-mapbody">
+        <div class="fra-mapbody" ref="mapbodyRef">
           <div class="fra-grid"></div>
           <div v-if="!done" class="fra-scan"></div>
           <WorldHeatmap :hotspots="hotspots.slice(0, hotN)" :highlight="streamingRegion" />
@@ -143,6 +175,11 @@ function countUpPipeline (ms = 900) {
           <div v-if="buyerN < buyers.length" class="fra-finding mono">finding more buyers…</div>
         </div>
       </section>
+
+      <!-- 跨栏信号连线覆盖层(买家到货时从地图区域飞入买家行;px 坐标,无 viewBox) -->
+      <svg v-if="wires.length" class="fra-wire">
+        <path v-for="w in wires" :key="w.id" class="fra-wire-path" :d="w.d" pathLength="1" />
+      </svg>
     </div>
 
     <!-- settle: summary + enter -->
@@ -183,7 +220,12 @@ function countUpPipeline (ms = 900) {
 .fra-pline{flex:1;height:1px;background:var(--card-border);transition:background .45s}
 .fra-pline.done{background:var(--brand)}
 
-.fra-ws{flex:1;min-height:0;padding:14px;display:grid;gap:12px;grid-template-columns:1.55fr 1fr;grid-template-rows:1.5fr auto;grid-template-areas:"map buyers" "kpi buyers"}
+.fra-ws{position:relative;flex:1;min-height:0;padding:14px;display:grid;gap:12px;grid-template-columns:1.55fr 1fr;grid-template-rows:1.5fr auto;grid-template-areas:"map buyers" "kpi buyers"}
+/* 跨栏信号连线:覆盖 .fra-ws,px 坐标(无 viewBox);买家到货时一道 azure 线绘入,随即淡出 */
+.fra-wire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:6;overflow:visible}
+.fra-wire-path{fill:none;stroke:var(--brand-azure,#2f9fe0);stroke-width:1.6;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:fra-wire-draw 1.15s ease-out forwards}
+@keyframes fra-wire-draw{0%{stroke-dashoffset:1;opacity:0}14%{opacity:.85}58%{stroke-dashoffset:0;opacity:.85}100%{stroke-dashoffset:0;opacity:0}}
 .fra-map{grid-area:map}.fra-kpis{grid-area:kpi}.fra-buyers{grid-area:buyers}
 .fra-pane{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
 .fra-ph{height:34px;flex-shrink:0;display:flex;align-items:center;gap:9px;padding:0 13px;border-bottom:1px solid var(--card-border);font-size:12px;font-weight:600}

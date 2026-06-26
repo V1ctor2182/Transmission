@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 102 | 🟥 Hero ⏸ | 首启跨栏信号连线 —— 买家到货时一道 azure 信号线从来源区域(地图热点)划弧飞入买家行(getScreenCTM 跨栏换算);最强 wow/游戏感 | ⏸ **待 review** 分支 `feat/fra-signal-routing` · build/h1/h3/i18n✓ 连线实测≤2 并发✓ delight 自评 KEEP | [round-102](round-102-fra-signal-routing.md) |
 | 101 | 🟦 Standard(main) | 首启买家流入→地图区域聚光 —— 买家到货时聚光其来源区域(复用 highlight prop)+他区 dim,完成清空;强化「hot regions→buyers」叙事(安全版,非 cross-pane SVG) | ✅ build/h1/h3/i18n✓ stream hl=1/dim=3、done hl=0 实测✓ 两轴 KEEP | [round-101](round-101-fra-buyer-region-spotlight.md) |
 | 100 | 🟦 Standard(main) | 首启完成「全锁定」收束扫光 —— 分析完成时进度脊整条满 azure + 一道扫光一次性掠过(systems locked 高潮),呼应「your market is locked in」 | ✅ build/h1/h3/i18n✓ locked+扫光 animationName 实测✓ 两轴 KEEP | [round-100](round-100-fra-lock-sweep.md) |
 | 099 | 🟦 Standard(main) | 首启 FRA 拼装进度脊(新焦点首轮)—— Connect→Identify→Match→Locate→Complete 随真实 stage 逐段点亮+连接线填充,mission-control 进度感,非假% | ✅ build/h1/h3/i18n✓ 进度脊逐段推进实测✓ 两轴 KEEP | [round-099](round-099-fra-pipeline-stepper.md) |
