@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 099 | 🟦 Standard(main) | 首启 FRA 拼装进度脊(新焦点首轮)—— Connect→Identify→Match→Locate→Complete 随真实 stage 逐段点亮+连接线填充,mission-control 进度感,非假% | ✅ build/h1/h3/i18n✓ 进度脊逐段推进实测✓ 两轴 KEEP | [round-099](round-099-fra-pipeline-stepper.md) |
 | 098 | 🟦 Standard(main) | Intel 终端交互一致化(地图后首个其它屏)—— 行 hover→azure inset 左标+tint(复用地图/dashboard 语言)+ 静态 Live ● → 脉冲点;纯 Vue/CSS 不碰 legacy | ✅ build/h1/h3/i18n✓ hover shadow+live pulse 实测✓ 两轴 KEEP ⚠️收敛 | [round-098](round-098-intel-hover-live.md) |
 | 097 | 🟦 Standard(main) | 锁定情报加最新信号时间(`4 buyers · 96% · 2m ago` 完整三元:数/匹配/时间)+ 压缩防溢出;🏁 地图焦点收官(R090-097 共 8 轮) | ✅ build/h1/h3/i18n✓ intel 含 recency 实测✓ 两轴 KEEP | [round-097](round-097-map-intel-recency.md) |
 | 096 | 🟦 Standard(main) | 地图→列表反向联动 —— 磁吸锁定某区域→该区买家行点亮(azure 左标+tint);双向 hover 联动闭合(承 R095 list→map),新增 WorldHeatmap `hover` emit | ✅ build/h1/h3/i18n✓ hover SE Asia→4 行 row-focus 实测✓ 两轴 KEEP | [round-096](round-096-map-to-list-mirror.md) |

@@ -13,6 +13,7 @@ const props = defineProps({ domain: { type: String, default: 'wanqianfood.com' }
 
 const stage = ref(0)            // 0 连接 →1 识别产品 →2 匹配需求 →3 定位区域 →4 完成
 const statusText = ['Connecting to the global demand database…', 'Reading your site — identifying products & positioning…', 'Matching against 2.8M+ global purchasing signals…', 'Locating hot regions, building your buyer list…', 'Analysis complete · your market is locked in']
+const steps = ['Connect', 'Identify', 'Match', 'Locate', 'Complete']   // 拼装进度脊(随 stage 逐段点亮,真实阶段非假 %)
 const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 // 真数据(揭示出来的,不是装饰)。坐标 + 量级与工作台地图一致(万仟出海剧本:东南亚 T1 最热)。
@@ -99,6 +100,14 @@ function countUpPipeline (ms = 900) {
       <span class="fra-skip" @click="emit('done')">{{ done ? 'Enter workspace →' : 'Skip →' }}</span>
     </div>
 
+    <!-- 拼装进度脊:5 阶段逐段点亮(mission-control assembly,真实 stage 驱动) -->
+    <div class="fra-pipe">
+      <template v-for="(lbl, i) in steps" :key="lbl">
+        <div class="fra-pstep" :class="{ done: i < stage, active: i === stage }"><span class="fra-pdot"></span>{{ lbl }}</div>
+        <div v-if="i < steps.length - 1" class="fra-pline" :class="{ done: i < stage }"></div>
+      </template>
+    </div>
+
     <div class="fra-ws">
       <!-- MAP — hotspots light up region by region -->
       <section class="fra-pane fra-map">
@@ -156,6 +165,17 @@ function countUpPipeline (ms = 900) {
 .fra-sp{flex:1}
 .fra-skip{font-size:12px;color:var(--t-muted);cursor:pointer;transition:.2s}.fra-skip:hover{color:var(--t-sec)}
 
+/* 拼装进度脊(stage 逐段点亮,真实阶段;mission-control / 游戏进度感) */
+.fra-pipe{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:9px 20px;border-bottom:1px solid var(--card-border);background:rgba(31,143,214,.02)}
+.fra-pstep{display:flex;align-items:center;gap:6px;font:600 11px var(--f-m,'JetBrains Mono',monospace);letter-spacing:.02em;color:var(--t-muted);transition:color .3s;white-space:nowrap}
+.fra-pstep .fra-pdot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.4;transition:.3s}
+.fra-pstep.done{color:var(--brand)}
+.fra-pstep.done .fra-pdot{opacity:1;background:var(--brand)}
+.fra-pstep.active{color:var(--brand2)}
+.fra-pstep.active .fra-pdot{opacity:1;background:var(--brand2);box-shadow:0 0 7px var(--brand2);animation:fra-pulse 1.2s infinite}
+.fra-pline{flex:1;height:1px;background:var(--card-border);transition:background .45s}
+.fra-pline.done{background:var(--brand)}
+
 .fra-ws{flex:1;min-height:0;padding:14px;display:grid;gap:12px;grid-template-columns:1.55fr 1fr;grid-template-rows:1.5fr auto;grid-template-areas:"map buyers" "kpi buyers"}
 .fra-map{grid-area:map}.fra-kpis{grid-area:kpi}.fra-buyers{grid-area:buyers}
 .fra-pane{background:var(--card,#ffffff);border:1px solid var(--card-border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
@@ -209,5 +229,5 @@ function countUpPipeline (ms = 900) {
 .fra-enter:active{transform:translateY(1px) scale(.99)}
 .fra-fade-enter-active{transition:.5s}.fra-fade-enter-from{opacity:0;transform:translateY(10px)}
 
-@media(prefers-reduced-motion:reduce){.fra-spin,.fra-live,.fra-hot.on::after,.fra-kpi.on,.fra-brow.on{animation:none}.fra-brow,.fra-kpi,.fra-hl{transition:none}}
+@media(prefers-reduced-motion:reduce){.fra-spin,.fra-live,.fra-hot.on::after,.fra-kpi.on,.fra-brow.on,.fra-pstep.active .fra-pdot{animation:none}.fra-brow,.fra-kpi,.fra-hl{transition:none}}
 </style>
