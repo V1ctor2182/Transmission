@@ -5,6 +5,7 @@
 
 | 轮 | 档 | 任务 | 结果 | 报告 |
 |---|---|---|---|---|
+| 096 | 🟦 Standard(main) | 地图→列表反向联动 —— 磁吸锁定某区域→该区买家行点亮(azure 左标+tint);双向 hover 联动闭合(承 R095 list→map),新增 WorldHeatmap `hover` emit | ✅ build/h1/h3/i18n✓ hover SE Asia→4 行 row-focus 实测✓ 两轴 KEEP | [round-096](round-096-map-to-list-mirror.md) |
 | 095 | 🟦 Standard(main) | 地图↔买家列表双向联动 —— hover 买家行→其区域软高亮(新 highlight prop,轻于 active 不触发括号/脉冲)+他区 dim;广度复用经审计 N/A(Leads 无图/FRA 非交互) | ✅ build/h1/h3/i18n✓ hover 行→hl=1 dim=3 实测✓ 两轴 KEEP | [round-095](round-095-map-list-link.md) |
 | 094 | 🟦 Standard(main) | target-acquired 确认脉冲 —— 磁吸锁定/选中瞬间一道快速扩散环(r4→18,.5s),绑真实交互的一次性确认(区别于持续 ambient ping),闭合 targeting 反馈链 | ✅ build/h1/h3/i18n✓ snap+sel 均触发 animationName 实测✓ 两轴 KEEP | [round-094](round-094-map-target-acquired-pulse.md) |
 | 093 | 🟦 Standard(main) | 锁定情报读数 —— 磁吸锁定热点时读数升级为 2 行真实情报(`SE Asia · 512K` + `4 live buyers · top 96%`),地图→可交互情报控制台;喂产品轴「看不懂的数字」 | ✅ build/h1/h3/i18n✓ 情报 chip 真实数据实测✓ 两轴 KEEP | [round-093](round-093-map-lock-intel.md) |

@@ -11,7 +11,10 @@ const props = defineProps({
   active: { type: String, default: null },         // selected region key → highlight that spot, dim others
   highlight: { type: String, default: null }       // soft highlight (e.g. buyer-row hover) → lighter than active
 })
-defineEmits(['hotspot'])
+const emit = defineEmits(['hotspot', 'hover'])
+// 磁吸锁定的区域变化时向外广播(地图→列表 hover 联动:点亮对应买家行)
+let lastHover = null
+const emitHover = (region) => { if (region !== lastHover) { lastHover = region; emit('hover', region) } }
 
 // viewBox 尺寸(reticle 十字线铺满地图用)
 const [, , VBW, VBH] = world.viewBox.split(' ').map(Number)
@@ -45,8 +48,9 @@ function onMove (e) {
     lon: `${Math.abs(lon).toFixed(0)}°${lon >= 0 ? 'E' : 'W'}`,
     lat: `${Math.abs(lat).toFixed(0)}°${lat >= 0 ? 'N' : 'S'}`,
   }
+  emitHover(lock ? lock.region : null)
 }
-const onLeave = () => { cursor.value = null }
+const onLeave = () => { cursor.value = null; emitHover(null) }
 
 // 活的贸易/信号网络:从枢纽(hot 区)向其它区画航线弧,信号沿线流动(= transmission)。
 const arcs = computed(() => {
