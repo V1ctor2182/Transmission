@@ -3,12 +3,12 @@
 ═══════════════════════════ */
 #s-register{
   background:var(--bg);
-  align-items:center !important;
-  justify-content:center !important;
-  flex-direction:column;
   overflow:hidden;
   width:100vw;
   height:100vh;
+  /* alignment is owned by the scoped .login-split rule in LoginScreen.vue
+     (stretch, row). The old centered-card !important rules lived here and
+     forced the split panels into a vertical mid-band — removed. */
 }
 /* Animated background */
 #login-bg-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
