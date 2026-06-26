@@ -2,6 +2,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
+  // 项目页部署在 https://<user>.github.io/Transmission/ 这个子路径下,构建时需要
+  // base 前缀;本地 dev/preview 保持根路径。GITHUB_ACTIONS 由 Actions runner 注入。
+  base: process.env.GITHUB_ACTIONS ? '/Transmission/' : '/',
   plugins: [vue()],
   server: { host: '127.0.0.1', port: 5180, strictPort: true, open: false },
   build: {
