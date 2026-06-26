@@ -59,9 +59,9 @@
 .pool-tr{cursor:pointer;transition:.12s;border-bottom:1px solid rgba(19,33,63,.04)}
 .pool-tr:hover{background:rgba(19,33,63,.04)}
 .pool-tr.selected{background:rgba(31,143,214,.08)!important}
-/* Intel table rows */
+/* Intel table rows — crisp Signal-Room hover (azure inset accent, matches dashboard row-focus) */
 .intel-tr{cursor:pointer;transition:.12s;border-bottom:1px solid rgba(19,33,63,.04)}
-.intel-tr:hover{background:rgba(19,33,63,.04)}
+.intel-tr:hover{background:rgba(31,143,214,.06);box-shadow:inset 3px 0 0 var(--brand)}
 /* select dark style */
 #page-pool select,#page-intel select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23718096'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;padding-right:22px!important}
 .page::-webkit-scrollbar{width:4px}
