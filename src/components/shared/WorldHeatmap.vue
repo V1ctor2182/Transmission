@@ -79,6 +79,8 @@ const arcs = computed(() => {
       <circle class="wh-ping" :class="{ hot: h.hot }" cx="0" cy="0" r="4"
               :style="h.dur ? { animationDuration: h.dur + 's', animationDelay: h.delay + 's' } : null" />
       <circle class="wh-ring" cx="0" cy="0" r="9" />
+      <!-- target-acquired 确认脉冲(磁吸锁定/选中瞬间一闪)-->
+      <circle v-if="h.region" class="wh-acq" cx="0" cy="0" r="4" />
       <!-- 目标锁定角括号(hover/选中:game targeting reticle)-->
       <g v-if="h.region" class="wh-lock">
         <path d="M-11,-6.5 L-11,-11 L-6.5,-11" />
@@ -148,6 +150,11 @@ const arcs = computed(() => {
 .wh-spot.sel .wh-lock { opacity: 1; stroke: var(--brand2, #1e5fd0); animation: wh-lock-in .42s cubic-bezier(.2,.85,.2,1); }
 .wh-spot.sel .wh-lock path { stroke: var(--brand2, #1e5fd0); }
 @keyframes wh-lock-in { from { transform: scale(1.5); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+/* target-acquired 确认脉冲:磁吸/选中瞬间一道快速扩散环(区别于持续的 ambient ping)*/
+.wh-acq { fill: none; stroke: var(--brand2, #1e5fd0); stroke-width: 1.4;
+  vector-effect: non-scaling-stroke; opacity: 0; pointer-events: none; }
+.wh-spot.snap .wh-acq, .wh-spot.sel .wh-acq { animation: wh-acquire .5s ease-out; }
+@keyframes wh-acquire { from { r: 4; opacity: .75 } to { r: 18; opacity: 0 } }
 .wh-spot.dim { opacity: .32; transition: opacity .2s; }
 .wh-lbl {
   fill: var(--t-primary, #13213f);
@@ -174,5 +181,5 @@ const arcs = computed(() => {
 /* 锁定情报读数:标题(区域)+ 副行(实时买家·最高匹配,真实数据)*/
 .wh-coord-title { font-weight: 700; }
 .wh-intel { fill: var(--t-sec, #4a5d7e); font-size: 9px; letter-spacing: .02em; }
-@media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow, .wh-lock { animation: none } }
+@media (prefers-reduced-motion: reduce) { .wh-ping, .wh-arc-flow, .wh-lock, .wh-acq { animation: none } }
 </style>
